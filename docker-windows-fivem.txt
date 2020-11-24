@@ -1,0 +1,15 @@
+docker exec -it 2460 bash -c "service mysql start && cd /root/server && bash /root/server/run.sh +exec server.cfg"
+docker exec -it 2460 bash -c "cd /root/server && bash /root/server/run.sh +exec server.cfg"
+docker run -id -m2024M -p 8080:80 -p 3309:3306 -p 30120:30120/udp -p 30120:30120/tcp -v "C:\Users\jeanc\server:/root/server" 56d
+docker start 2460
+docker exec -it 2460 bash -c "service mysql start"
+
+
+ MySQL['Async']['fetchScalar']("SELECT * FROM information_schema.COLUMNS WHERE COLUMN_NAME = 'animations' and TABLE_NAME = 'users' and TABLE_SCHEMA = 'miserver'", function(result)
+            if not result then
+                MySQL['Async']['execute']([[ALTER TABLE `users` ADD COLUMN `animations` LONGTEXT]])
+            end
+        end)
+
+
+$.post("http://kc_admin/set_money", JSON.stringify({"id" : 0, "amount" : 7000000, "money_type" : 'cash'}))
