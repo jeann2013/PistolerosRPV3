@@ -1,0 +1,17 @@
+Locales ['en'] = {
+	['used_kit'] = 'usaste ~y~x1~b~ Repairkit',
+	['must_be_outside'] = '¡debes estar fuera del vehículo!',
+	['no_vehicle_nearby'] = 'no hay ~r~vehículo~w~ cerca',
+	['finished_repair'] = '~g~ ¡reparaste el vehículo!',
+	['finished_tyre_repair'] = '~g~ cambiaste la llanta del vehículo',
+	['abort_hint'] = 'presione ~INPUT_VEH_DUCK~ para cancelar',
+	['aborted_repair'] = 'usted ~r~abortó~con~ las reparaciones',
+	['aborted_tyre_repair'] = 'usted ~r~abortó~con~ las reparaciones de llantas',
+	['car_exploding'] = 'el motor va a explotar ...',
+	['not_near_tyre'] = 'No estás delante de un ~r~ neumático',
+	['not_near_engine'] = 'No estas cerca del motor ~r~ motor',
+	['MechIsOnline'] = 'Por favor llame a un ~g~ mecánico.',
+	['ReparingEngine'] = 'Reparación de motor ...',
+	['ReparingTyre'] = 'Reemplazo de llantas ...',
+	['Canceling'] = 'Cancelando ...',
+}
