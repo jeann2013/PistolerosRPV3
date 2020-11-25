@@ -2,7 +2,7 @@
 --  GNU AFFERO GENERAL PUBLIC LICENSE  --
 --     Version 3, 19 November 2007     --
 
-local enablePositionSending = true
+local enablePositionSending = false
 
 Citizen.CreateThread(function()
 	while true do

@@ -129,19 +129,19 @@ Config.Hospitals = {
 Config.AuthorizedVehicles = {
 	car = {
 		ambulance = {
-			{model = 'ambulance', price = 5000}
+			{model = 'ambulance', price = 0}
 		},
 
 		doctor = {
-			{model = 'ambulance', price = 4500}
+			{model = 'ambulance', price = 0}
 		},
 
 		chief_doctor = {
-			{model = 'ambulance', price = 3000}
+			{model = 'ambulance', price = 0}
 		},
 
 		boss = {
-			{model = 'ambulance', price = 2000}
+			{model = 'ambulance', price = 0}
 		}
 	},
 
@@ -149,17 +149,17 @@ Config.AuthorizedVehicles = {
 		ambulance = {},
 
 		doctor = {
-			{model = 'buzzard2', price = 150000}
+			{model = 'buzzard2', price = 0}
 		},
 
 		chief_doctor = {
-			{model = 'buzzard2', price = 150000},
-			{model = 'seasparrow', price = 300000}
+			{model = 'buzzard2', price = 0},
+			{model = 'seasparrow', price = 0}
 		},
 
 		boss = {
-			{model = 'buzzard2', price = 10000},
-			{model = 'seasparrow', price = 250000}
+			{model = 'buzzard2', price = 0},
+			{model = 'seasparrow', price = 0}
 		}
 	}
 }
