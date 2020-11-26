@@ -129,11 +129,15 @@ Config.AuthorizedVehicles = {
 
 	officer = {
 		{
+			model = 'pbus',
+			label = 'Police Prison Bus'
+		},
+		{
 			model = 'police3',
 			label = 'Police Interceptor'
 		},
 		{
-			model = 'policeb',
+			model = '14charger',
 			label = 'Carro policia Charger'
 		},
 		{
@@ -180,7 +184,7 @@ Config.AuthorizedVehicles = {
 			label = 'Police Bike'
 		},
 		{
-			model = 'policeb',
+			model = '14charger',
 			label = 'Carro policia Charger'
 		},
 		{
@@ -218,6 +222,10 @@ Config.AuthorizedVehicles = {
 	},
 
 	lieutenant = {
+		{
+			model = 'pbus',
+			label = 'Police Prison Bus'
+		},
 		{
 			model = 'riot',
 			label = 'Police Riot'
