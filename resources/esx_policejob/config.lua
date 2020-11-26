@@ -288,6 +288,10 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
+		},
+		{
+			model = 'police5',
+			label = 'Auto policia persecucion (Lambo Aventador)'
 		}
 	}
 }
