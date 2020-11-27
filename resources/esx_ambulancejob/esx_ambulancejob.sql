@@ -1,4 +1,4 @@
-USE `es_extended`;
+USE `essentialmode`;
 
 INSERT INTO `addon_account` (name, label, shared) VALUES
 	('society_ambulance', 'Ambulance', 1)
@@ -23,9 +23,9 @@ INSERT INTO `jobs` (name, label) VALUES
 	('ambulance','Ambulance')
 ;
 
-INSERT INTO `items` (name, label, weight) VALUES
-	('bandage','Bandage', 2),
-	('medikit','Medikit', 2)
+INSERT INTO `items` (name, label, `limit`) VALUES
+	('bandage','Bandage', 20),
+	('medikit','Medikit', 5)
 ;
 
 ALTER TABLE `users`

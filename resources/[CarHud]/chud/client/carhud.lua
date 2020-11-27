@@ -265,7 +265,7 @@ Citizen.CreateThread(function ()
 		end
 		-- Vehicle Seatbelt
 		if IsPedInAnyVehicle(player, false) then
-			if IsControlJustReleased(0,  Keys['U']) then
+			if IsControlJustReleased(0,  Keys['Z']) then
 				WichVehicleItIs(vehicle)
 				if(PedVehIsCar)then
 					seatbeltIsOn = not seatbeltIsOn
