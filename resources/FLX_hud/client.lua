@@ -36,13 +36,8 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
 end)
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
-
-  PlayerData.job = job
-
-
-
+  ESX.PlayerData.job = job
   if PlayerData.job.grade_name == 'boss' then
-    
     boss = true
   else
     boss = false
@@ -150,6 +145,7 @@ Citizen.CreateThread(function()
 					health = GetEntityHealth(myPed)
 				end
 				local armor = GetPedArmour(myPed)
+
 				drawTxt3(0.330, 0.963, 1.0,1.0,0.40 , "" .."❤️" ,255, 255, 255, 255)
 				drawTxt3(0.350, 0.963, 1.0,1.0,0.50 , "" ..math.ceil(health) .. "", 255, 255, 255, 255)
 
@@ -162,6 +158,8 @@ Citizen.CreateThread(function()
 
 				drawTxt3(0.443, 0.963, 1.0,1.0,0.40 , "" .."🥤" ,255, 255, 255, 255)
 				drawTxt3(0.463, 0.963, 1.0,1.0,0.50 , "" ..math.ceil(soifVal) .. "", 255, 255, 255, 255)
+
+				drawTxt3(0.480, 0.963, 1.0,1.0,0.50 , "" .."Trabajo: "..ESX.PlayerData.job.label.." - "..ESX.PlayerData.job.grade_label ,255, 255, 255, 255)
 
 			end
 		end
