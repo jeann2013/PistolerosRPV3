@@ -11,7 +11,9 @@ Citizen.CreateThread(function()
 	Citizen.Wait(5000)
 
 	ESX.TriggerServerCallback('esx_shops:requestDBItems', function(ShopItems)
+
 		for k,v in pairs(ShopItems) do
+			print('paso',v)
 			Config.Zones[k].Items = v
 		end
 	end)
