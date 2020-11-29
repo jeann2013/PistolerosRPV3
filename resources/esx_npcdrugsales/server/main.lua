@@ -59,7 +59,7 @@ end)
   		elseif weed >= 1 and success == true then
   				TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 				TriggerClientEvent("pNotify:SendNotification", source, {
-					text = "Descargaste un poco de marihuana para $" .. paymentw ,
+					text = "Descargaste un poco de marihuana por $" .. paymentw ,
 					type = "success",
 					progressBar = false,
 					queue = "lmao",
