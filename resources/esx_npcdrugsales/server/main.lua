@@ -17,7 +17,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
             text = "tratando de convencer a la persona de que compre el producto",
             type = "error",
             queue = "lmao",
-            timeout = 2500,
+            timeout = 2000,
             layout = "Centerleft"
         	})
  	end
