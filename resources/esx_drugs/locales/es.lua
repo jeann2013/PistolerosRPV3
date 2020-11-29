@@ -5,9 +5,19 @@ Locales ['es'] = {
   ['weed_processprompt'] = 'pulsa ~INPUT_CONTEXT~ para ~g~secar la Marijuana~s~.',
   ['weed_processingstarted'] = 'secando la ~g~Marijuana húmeda~s~...',
   ['weed_processingfull'] = 'no puedes llevar más ~g~Marijuana~s~!',
-  ['weed_processingenough'] = 'necesitas ~b~3x~s~ ~g~Marijuana húmeda~s~.',
+  ['weed_processingenough'] = 'necesitas ~b~3x~s~ ~g~Cannbis~s~.',
   ['weed_processed'] = 'de ~b~3x~s~ ~g~Marijuana húmeda~s~ has obtenido ~b~1x~s~ ~g~Marijuana~s~',
   ['weed_processingtoofar'] = 'el secado se ha ~r~cancelado~s~ por que has abandonado el área.',
+
+	-- coca
+  ['coca_pickupprompt'] = 'pulsa ~INPUT_CONTEXT~ para recolectar ~g~Marijuana húmeda~s~.',
+  ['coca_inventoryfull'] = 'no puedes llevar más ~g~Marijuana húmeda~s~!',
+  ['coca_processprompt'] = 'pulsa ~INPUT_CONTEXT~ para ~g~secar la Marijuana~s~.',
+  ['coca_processingstarted'] = 'secando la ~g~Marijuana húmeda~s~...',
+  ['coca_processingfull'] = 'no puedes llevar más ~g~Marijuana~s~!',
+  ['coca_processingenough'] = 'necesitas ~b~3x~s~ ~g~Cannbis~s~.',
+  ['coca_processed'] = 'de ~b~3x~s~ ~g~Marijuana húmeda~s~ has obtenido ~b~1x~s~ ~g~Marijuana~s~',
+  ['coca_processingtoofar'] = 'el secado se ha ~r~cancelado~s~ por que has abandonado el área.',
 
   -- drug dealer
   ['dealer_prompt'] = 'pulsa ~INPUT_CONTEXT~ para hablar con el ~r~Camello~s~.',
@@ -26,5 +36,8 @@ Locales ['es'] = {
   -- blips
   ['blip_weedfield'] = 'plantación de Marijuana',
   ['blip_weedprocessing'] = 'preparación de Marijuana',
-  ['blip_drugdealer'] = 'camello'
+  ['blip_drugdealer'] = 'camello',
+  --coca
+  ['blip_cocafield'] = 'plantación de Coca',
+  ['blip_cocaprocessing'] = 'preparación de Coca',
 }

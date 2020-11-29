@@ -39,8 +39,8 @@ AddEventHandler('esx:playerLoaded', function(playerData)
 	NetworkSetFriendlyFireOption(true)
 
 	-- disable wanted level
-	ClearPlayerWantedLevel(PlayerId())
-	SetMaxWantedLevel(0)
+	--ClearPlayerWantedLevel(PlayerId())
+	--SetMaxWantedLevel(0)
 
 	if Config.EnableHud then
 		for k,v in ipairs(playerData.accounts) do
@@ -439,7 +439,7 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 
-		if IsControlJustReleased(0, 289) then
+		if IsControlJustReleased(0, 288) then
 			if IsInputDisabled(0) and not isDead and not ESX.UI.Menu.IsOpen('default', 'es_extended', 'inventory') then
 				ESX.ShowInventory()
 			end

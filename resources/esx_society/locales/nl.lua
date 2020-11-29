@@ -1,7 +1,7 @@
 Locales['nl'] = {
   ['actions']                = 'acties',
   ['boss_menu']              = 'baas menu',
-  ['money_generic']          = '€%s',
+  ['money_generic']          = '$%s',
   ['deposit_amount']         = 'stort hoeveelheid',
   ['deposit_society_money']  = 'stort maatschappij geld',
   ['do_you_want_to_recruit'] = 'Wil je %s aannemen?',
@@ -26,8 +26,8 @@ Locales['nl'] = {
   ['withdraw_amount']        = 'opneem hoeveelheid',
   ['withdraw_society_money'] = 'neem maatschappelijk geld op',
   ['yes']                    = 'ja',
-  ['you_have']               = 'je hebt ~g~€%s~s~ staan in ~y~geld witwassen~s~ (24h).',
-  ['you_have_laundered']     = 'je hebt je geld: ~g~€%s~s~ ~r~witgewassen~s~ ',
+  ['you_have']               = 'je hebt ~g~$%s~s~ staan in ~y~geld witwassen~s~ (24h).',
+  ['you_have_laundered']     = 'je hebt je geld: ~g~$%s~s~ ~r~witgewassen~s~ ',
   ['you_have_hired']         = 'je bent gevraagt %s',
   ['you_have_been_hired']    = 'je bent aangenomen door %s',
   ['you_have_fired']         = 'je bent ontslagen %s',
@@ -35,4 +35,4 @@ Locales['nl'] = {
   ['you_have_promoted']      = 'je hebt gepromoveerd %s naar %s',
   ['you_have_been_promoted'] = 'je bent ~b~gepromoveerd~s~!',
 }
-  
+

@@ -1,5 +1,3 @@
-USE `es_extended`;
-
 INSERT INTO `addon_account` (name, label, shared) VALUES
 	('society_police', 'Police', 1)
 ;
@@ -13,7 +11,7 @@ INSERT INTO `addon_inventory` (name, label, shared) VALUES
 ;
 
 INSERT INTO `jobs` (name, label) VALUES
-	('police', 'LSPD')
+	('police','LSPD')
 ;
 
 INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES
@@ -25,10 +23,10 @@ INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_
 ;
 
 CREATE TABLE `fine_types` (
-	`id` int NOT NULL AUTO_INCREMENT,
+	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`label` varchar(255) DEFAULT NULL,
-	`amount` int DEFAULT NULL,
-	`category` int DEFAULT NULL,
+	`amount` int(11) DEFAULT NULL,
+	`category` int(11) DEFAULT NULL,
 
 	PRIMARY KEY (`id`)
 );

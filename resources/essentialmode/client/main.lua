@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
 		local pos = GetEntityCoords(PlayerPedId())
 
 		if(oldPos ~= pos)then
-			TriggerServerEvent('es:updatePositions', pos.x, pos.y, pos.z)
+			--TriggerServerEvent('es:updatePositions', pos.x, pos.y, pos.z)
 			oldPos = pos
 		end
 	end

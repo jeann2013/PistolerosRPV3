@@ -10,6 +10,7 @@ Citizen.CreateThread(function()
 
 	Citizen.Wait(5000)
 
+
 	ESX.TriggerServerCallback('esx_shops:requestDBItems', function(ShopItems)
 		for k,v in pairs(ShopItems) do
 			Config.Zones[k].Items = v
@@ -21,7 +22,6 @@ function OpenShopMenu(zone)
 	local elements = {}
 	for i=1, #Config.Zones[zone].Items, 1 do
 		local item = Config.Zones[zone].Items[i]
-
 		table.insert(elements, {
 			label      = ('%s - <span style="color:green;">%s</span>'):format(item.label, _U('shop_item', ESX.Math.GroupDigits(item.price))),
 			itemLabel = item.label,

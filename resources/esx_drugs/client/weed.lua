@@ -37,7 +37,7 @@ Citizen.CreateThread(function()
 					ESX.TriggerServerCallback('esx_drugs:cannabis_count', function(xCannabis)
 						ProcessWeed(xCannabis)
 					end)
-					
+
 				end
 			end
 		else
@@ -66,6 +66,7 @@ function ProcessWeed(xCannabis)
 			TriggerServerEvent('esx_drugs:outofbound')
 			break
 		end
+		print('timeLeft',timeLeft);
 	end
 
 	isProcessing = false
@@ -100,12 +101,12 @@ Citizen.CreateThread(function()
 						Citizen.Wait(2000)
 						ClearPedTasks(playerPed)
 						Citizen.Wait(1500)
-		
+
 						ESX.Game.DeleteObject(nearbyObject)
-		
+
 						table.remove(weedPlants, nearbyID)
 						spawnedWeeds = spawnedWeeds - 1
-		
+
 						TriggerServerEvent('esx_drugs:pickedUpCannabis')
 					else
 						ESX.ShowNotification(_U('weed_inventoryfull'))

@@ -184,4 +184,38 @@ Config.Garages = {
 		},
 	},
 
+	Garage_Motel = {
+		Pos = {x=323.14, y=-215.69, z=160.39},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=325.03, y= -210.94, z= 54.09},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Heading=157.84,
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=332.14, y=-205.99, z=54.09},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+
+		},
+		--MunicipalPoundPoint = {
+		--	Pos = {x=482.896, y=-1316.557, z=28.301},
+		--	Color = {r=25,g=25,b=112},
+		--	Size  = {x = 3.0, y = 3.0, z = 1.0},
+		--	Marker = 1
+		--},
+		--SpawnMunicipalPoundPoint = {
+		--	Pos = {x=490.942, y=-1313.067, z=27.964},
+		--	Color = {r=0,g=255,b=0},
+		--	Size  = {x = 3.0, y = 3.0, z = 1.0},
+		--	Marker = 1,
+		--	Heading=299.42
+		--},
+	},
+
 }
