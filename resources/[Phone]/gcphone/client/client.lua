@@ -159,7 +159,7 @@ function showFixePhoneHelper (coords)
       coords.x, coords.y, coords.z, 1)
     if dist <= 2.0 then
       SetTextComponentFormat("STRING")
-      AddTextComponentString("~g~" .. data.name .. ' ~o~' .. number .. '~n~~INPUT_PICKUP~~w~ Utiliser')
+      AddTextComponentString("~g~" .. data.name .. ' ~o~' .. number .. '~n~~INPUT_PICKUP~~w~ Usar')
       DisplayHelpTextFromStringLabel(0, 0, 0, -1)
       if IsControlJustPressed(1, KeyTakeCall) then
         startFixeCall(number)
@@ -188,7 +188,7 @@ Citizen.CreateThread(function ()
           inRangedist = dist
           if (dist <= 1.5) then 
             SetTextComponentFormat("STRING")
-            AddTextComponentString("~INPUT_PICKUP~ Décrocher")
+            AddTextComponentString("~INPUT_PICKUP~ Tomar")
             DisplayHelpTextFromStringLabel(0, 0, 1, -1)
             if IsControlJustPressed(1, KeyTakeCall) then
               PhonePlayCall(true)
@@ -283,12 +283,12 @@ AddEventHandler("gcPhone:receiveMessage", function(message)
   SendNUIMessage({event = 'newMessage', message = message})
   table.insert(messages, message)
   if message.owner == 0 then
-    local text = '~o~Nouveau message'
+    local text = '~o~Nuevo mensaje'
     if ShowNumberNotification == true then
-      text = '~o~Nouveau message du ~y~'.. message.transmitter
+      text = '~o~Nuevo mensaje de ~y~'.. message.transmitter
       for _,contact in pairs(contacts) do
         if contact.number == message.transmitter then
-          text = '~o~Nouveau message de ~g~'.. contact.display
+          text = '~o~Nuevo mensaje de ~g~'.. contact.display
           break
         end
       end
@@ -499,65 +499,6 @@ RegisterNetEvent('gcphone:autoAcceptCall')
 AddEventHandler('gcphone:autoAcceptCall', function(infoCall)
   SendNUIMessage({ event = "autoAcceptCall", infoCall = infoCall})
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 --====================================================================================
