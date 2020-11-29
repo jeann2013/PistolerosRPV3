@@ -11,7 +11,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 	end
 
-	ESX.UI.Menu.RegisterType('phone', OpenPhone, ClosePhone)
+	--ESX.UI.Menu.RegisterType('phone', OpenPhone, ClosePhone)
 end)
 
 function OpenPhone()
@@ -270,22 +270,22 @@ end)
 
 -- Key controls
 Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(0)
-
-		if CurrentAction then
-			ESX.ShowHelpNotification(CurrentActionMsg)
-
-			if IsControlJustReleased(0, 38) and IsInputDisabled(0) then
-				if CurrentAction == 'dispatch' then
-					TriggerServerEvent('esx_phone:stopDispatch', CurrentDispatchRequestId)
-					SetNewWaypoint(CurrentActionData.position.x, CurrentActionData.position.y)
-				end
-
-				CurrentAction = nil
-			end
-		else
-			Citizen.Wait(500)
-		end
-	end
+	--while true do
+	--	Citizen.Wait(0)
+	--
+	--	if CurrentAction then
+	--		ESX.ShowHelpNotification(CurrentActionMsg)
+	--
+	--		if IsControlJustReleased(0, 38) and IsInputDisabled(0) then
+	--			if CurrentAction == 'dispatch' then
+	--				TriggerServerEvent('esx_phone:stopDispatch', CurrentDispatchRequestId)
+	--				SetNewWaypoint(CurrentActionData.position.x, CurrentActionData.position.y)
+	--			end
+	--
+	--			CurrentAction = nil
+	--		end
+	--	else
+	--		Citizen.Wait(500)
+	--	end
+	--end
 end)

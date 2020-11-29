@@ -5,7 +5,7 @@ Locales ['es'] = {
   ['weed_processprompt'] = 'pulsa ~INPUT_CONTEXT~ para ~g~secar la Marijuana~s~.',
   ['weed_processingstarted'] = 'secando la ~g~Marijuana húmeda~s~...',
   ['weed_processingfull'] = 'no puedes llevar más ~g~Marijuana~s~!',
-  ['weed_processingenough'] = 'necesitas ~b~3x~s~ ~g~Marijuana húmeda~s~.',
+  ['weed_processingenough'] = 'necesitas ~b~3x~s~ ~g~Cannbis~s~.',
   ['weed_processed'] = 'de ~b~3x~s~ ~g~Marijuana húmeda~s~ has obtenido ~b~1x~s~ ~g~Marijuana~s~',
   ['weed_processingtoofar'] = 'el secado se ha ~r~cancelado~s~ por que has abandonado el área.',
 
