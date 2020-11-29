@@ -33,6 +33,26 @@ RegisterCommand('me', function(playerId, args, rawCommand)
 	end
 end, false)
 
+RegisterCommand('anon', function(playerId, args, rawCommand)
+	if playerId == 0 then
+		print('esx_rpchat: you can\'t use this command from console!')
+	else
+		args = table.concat(args, ' ')
+		TriggerClientEvent('esx_rpchat:sendProximityMessage', -1, source, _U('anon_prefix', ''), args, {105,105,105})
+	end
+end, false)
+
+RegisterCommand('ooc', function(playerId, args, rawCommand)
+	if playerId == 0 then
+		print('esx_rpchat: you can\'t use this command from console!')
+	else
+		args = table.concat(args, ' ')
+		local playerName = GetRealPlayerName(playerId)
+
+		TriggerClientEvent('esx_rpchat:sendProximityMessage', -1, source, _U('ooc_prefix', playerName), args, {34,139,34})
+	end
+end, false)
+
 RegisterCommand('do', function(playerId, args, rawCommand)
 	if playerId == 0 then
 		print('esx_rpchat: you can\'t use this command from console!')
