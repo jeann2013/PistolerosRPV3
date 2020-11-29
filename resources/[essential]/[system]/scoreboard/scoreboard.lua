@@ -1,7 +1,7 @@
 local listOn = false
 
 Citizen.CreateThread(function()
-    listOn = false
+    listOn = true
     while true do
         Wait(0)
 

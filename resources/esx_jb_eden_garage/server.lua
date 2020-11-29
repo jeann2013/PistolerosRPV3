@@ -33,7 +33,6 @@ ESX.RegisterServerCallback('eden_garage:stockv',function(source,cb, vehicleProps
 			if(plate == v.plate)then
 				local idveh = v.id
 				local vehprop = json.encode(vehicleProps)
-				print('paso',v.id)
 				MySQL.Sync.execute("UPDATE owned_vehicles SET vehicle =@vehprop WHERE vehicle=@id",{['@vehprop'] = vehprop, ['@id'] = v.id})
 				isFound = true
 				break

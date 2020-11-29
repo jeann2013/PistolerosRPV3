@@ -2,7 +2,7 @@
 --  GNU AFFERO GENERAL PUBLIC LICENSE  --
 --     Version 3, 19 November 2007     --
 
-local enablePositionSending = false
+local enablePositionSending = true
 
 Citizen.CreateThread(function()
 	while true do
@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
 		local pos = GetEntityCoords(PlayerPedId())
 
 		if(oldPos ~= pos)then
-			TriggerServerEvent('es:updatePositions', pos.x, pos.y, pos.z)
+			--TriggerServerEvent('es:updatePositions', pos.x, pos.y, pos.z)
 			oldPos = pos
 		end
 	end

@@ -3,7 +3,7 @@ Config = {}
 Config.Locale = 'es'
 
 Config.Delays = {
-	WeedProcessing = 1000 * 0.1
+	WeedProcessing = 1000 * 7
 }
 
 Config.DrugDealerItems = {

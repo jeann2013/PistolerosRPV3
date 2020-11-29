@@ -6,7 +6,7 @@ Locales['es'] = {
   ['enter'] = 'Entrar',
   ['move_out'] = 'Mudarse de propiedad',
   ['move_out_sold'] = 'Vender propiedad por <span style="color:green;">%s$</span>',
-  ['moved_out'] = 'Te has mudado y no puedes alquilar esa propiedad',
+  ['moved_out'] = 'Te has mudado de esta propiedad',
   ['moved_out_sold'] = 'Has vendido la propiedad por ~g~%s$~s~',
   ['buy'] = 'Comprar propiedad por <span style="color:green;">%s$</span>',
   ['buy_for'] = 'Has comprado una propiedad por ~g~%s$~s~',
