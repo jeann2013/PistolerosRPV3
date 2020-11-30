@@ -22,5 +22,5 @@ files {
     "html/sound-example.wav"
 }
 dependencies {
-    'mole_utils'
+    'utils'
 }
