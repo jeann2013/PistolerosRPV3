@@ -23,25 +23,6 @@ Config.VehicleSpawnPoint = {
 }
 
 Config.Delivery = {
-	--Desert
-	--Trevor Airfield 9.22KM
-	Delivery1 = {
-		Pos      = {x = 2130.68, y = 4781.32, z = 39.87},
-		Size  = {x = 3.0, y = 3.0, z = 1.0},
-		Color = {r = 204, g = 204, b = 0},
-		Type  = 1,
-		Payment  = 22000,
-		Cars = {'zentorno','t20','mig','veneno','FMGT'},
-	},
-	--Lighthouse 9.61KM
-	Delivery4 = {
-		Pos      = {x = 3333.51, y = 5159.91, z = 17.20},
-		Size  = {x = 3.0, y = 3.0, z = 1.0},
-		Color = {r = 204, g = 204, b = 0},
-		Type  = 1,
-		Payment  = 30000,
-		Cars = {'GT2017','rmodlp770','lamboavj','italigtb','veneno'},
-	},
 	--House in Paleto 12.94KM
 	Delivery7 = {
 		Pos      = {x = -437.56, y = 6254.53, z = 29.02},
@@ -58,7 +39,26 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 35500,
-		Cars = {'nero','chiron','18performante','f12','599gtox'},
+		Cars = {'nero','chiron','18performante','f12','mig'},
+	},
+	--Lighthouse 9.61KM
+	Delivery4 = {
+		Pos      = {x = 3333.51, y = 5159.91, z = 17.20},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Payment  = 30000,
+		Cars = {'GT2017','rmodlp770','lamboavj','italigtb','veneno'},
+	},
+	--Desert
+	--Trevor Airfield 9.22KM
+	Delivery1 = {
+		Pos      = {x = 2130.68, y = 4781.32, z = 39.87},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Payment  = 22000,
+		Cars = {'zentorno','t20','mig','veneno','FMGT'},
 	},
 	--Marina Drive Desert 8.15KM
 	Delivery13 = {
@@ -67,6 +67,6 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 20000,
-		Cars = {'2018zl1','sultanrsv8','rmodlp770','599gtox','corvetteZR1'},
+		Cars = {'2018zl1','sultanrsv8','20r1','599gtox','corvetteZR1'},
 	},
 }
