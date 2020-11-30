@@ -8,7 +8,7 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
-	
+
 	while ESX.GetPlayerData().job == nil do
 		Citizen.Wait(10)
 	end
@@ -115,11 +115,12 @@ AddEventHandler('esx_jobs:action', function(job, zone, zoneIndex)
 								local vehicleHealth = GetVehicleEngineHealth(vehicleInCaseofDrop)
 
 								-- fix for people using cheat engine to modify engine health
-								if vehicleHealth > vehicleMaxHealth then
-									vehicleHealth = vehicleMaxHealth
-								end
+								--if vehicleHealth > vehicleMaxHealth then
+								--	vehicleHealth = vehicleMaxHealth
+								--end
 
-								local giveBack = ESX.Math.Round(vehicleHealth / vehicleMaxHealth, 2)
+								--local giveBack = ESX.Math.Round(vehicleHealth / vehicleMaxHealth, 2)
+								local giveBack = ESX.Math.Round(2000, 2)
 
 								TriggerServerEvent('esx_jobs:caution', 'give_back', giveBack, 0, 0)
 								DeleteVehicle(GetVehiclePedIsIn(playerPed, false))
