@@ -29,8 +29,8 @@ Config.HackingSeconds = 40						-- seconds to hack
 Config.MissionCost = 100		-- taken from bank account // set to 0 to disable mission cost
 
 -- Reward Settings:
-Config.MinReward = 1000						-- set minimum reward amount
-Config.MaxReward = 5000						-- set maximum reward amount
+Config.MinReward = 100000						-- set minimum reward amount
+Config.MaxReward = 500000						-- set maximum reward amount
 Config.RewardInDirtyMoney = true			-- reward as dirty money (true) or as normal cash (false)
 Config.EnableItemReward = false 				-- requires to add your desired items into your items table in database
 Config.ItemName1 = "PutItemNameHere"				-- exact name of your item1
