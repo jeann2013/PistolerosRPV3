@@ -21,7 +21,7 @@ Config.MinReward = 2000					-- Set minimum payout
 Config.MaxReward = 25000					-- Set maximum payout
 
 -- Other Settings:
-Config.RobCooldown = 5 					-- (minutes)
+Config.RobCooldown = 0.5 					-- (minutes)
 Config.Distance = 1.1 					-- Distance for drawTEXT to show
 
 
