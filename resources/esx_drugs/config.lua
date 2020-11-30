@@ -2,6 +2,8 @@ Config = {}
 
 Config.Locale = 'es'
 
+Config.WithDrugDealer = false
+
 Config.Delays = {
 	WeedProcessing = 1000 * 7
 }

@@ -18,27 +18,28 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
-		local playerPed = PlayerPedId()
-		local coords = GetEntityCoords(playerPed)
+		if Config.WithDrugDealer then
+			local playerPed = PlayerPedId()
+			local coords = GetEntityCoords(playerPed)
+			if GetDistanceBetweenCoords(coords, Config.CircleZones.DrugDealer.coords, true) < 0.5 then
+				if not menuOpen then
+					ESX.ShowHelpNotification(_U('dealer_prompt'))
 
-		if GetDistanceBetweenCoords(coords, Config.CircleZones.DrugDealer.coords, true) < 0.5 then
-			if not menuOpen then
-				ESX.ShowHelpNotification(_U('dealer_prompt'))
-
-				if IsControlJustReleased(0, 38) then
-					wasOpen = true
-					OpenDrugShop()
+					if IsControlJustReleased(0, 38) then
+						wasOpen = true
+						OpenDrugShop()
+					end
+				else
+					Citizen.Wait(500)
 				end
 			else
+				if wasOpen then
+					wasOpen = false
+					ESX.UI.Menu.CloseAll()
+				end
+
 				Citizen.Wait(500)
 			end
-		else
-			if wasOpen then
-				wasOpen = false
-				ESX.UI.Menu.CloseAll()
-			end
-
-			Citizen.Wait(500)
 		end
 	end
 end)
