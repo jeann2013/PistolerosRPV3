@@ -218,4 +218,224 @@ Config.Garages = {
 		},
 	},
 
+	Garage_Motel = {
+		Pos = {x=321.53, y=-220.60, z=51.09},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=331.32, y= -207.42, z= 53.09},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=324.77, y=-212.09, z=53.09},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		MunicipalPoundPoint = {
+			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Color = {r=25,g=25,b=112},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		SpawnMunicipalPoundPoint = {
+			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+			Heading=299.42
+		},
+	},
+	Garage_Galaxy = {
+		Pos = {x=-335.88, y=274.68, z=85.9},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=-334.66, y= 288.39, z= 84.80},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=-335.75, y=273.73, z=84.80},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		MunicipalPoundPoint = {
+			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Color = {r=25,g=25,b=112},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		SpawnMunicipalPoundPoint = {
+			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+			Heading=299.42
+		},
+	},
+	Garage_Galaxy2 = {
+		Pos = {x=-579.28, y=329.84, z=84.76},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=-570.19, y= 317.82, z= 83.47},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=-567.86, y=328.39, z=83.46},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		MunicipalPoundPoint = {
+			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Color = {r=25,g=25,b=112},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		SpawnMunicipalPoundPoint = {
+			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+			Heading=299.42
+		},
+	},
+	Garage_Integrity = {
+		Pos = {x=50.15, y=-616.37, z=31.63},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=35.53, y= -604.90, z=30.63},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=51.68, y=-618.14, z=30.63},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		MunicipalPoundPoint = {
+			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Color = {r=25,g=25,b=112},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		SpawnMunicipalPoundPoint = {
+			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+			Heading=299.42
+		},
+	},
+	Garage_LowEndApartment = {
+		Pos = {x=307.43, y=-1075.11, z=29.35},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=307.43, y=-1075.11, z=28.35},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=306.8, y=-1108.57, z=28.38},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		MunicipalPoundPoint = {
+			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Color = {r=25,g=25,b=112},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		SpawnMunicipalPoundPoint = {
+			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+			Heading=299.42
+		},
+	},
+
+	Garage_MiltonDrive = {
+		Pos = {x=-796.57, y=308.77, z=85.70},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=-796.57, y=308.77, z=84.70},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=-795.93, y=320.88, z=84.69},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		MunicipalPoundPoint = {
+			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Color = {r=25,g=25,b=112},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		SpawnMunicipalPoundPoint = {
+			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+			Heading=299.42
+		},
+	},
+
+	Garage_DownTownVineWood = {
+		Pos = {x=626.52, y=177.41, z=96.96},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Marker = 1,
+		SpawnPoint = {
+			Pos = {x=626.52, y=177.41, z=95.96},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		DeletePoint = {
+			Pos = {x=644.35, y=171.29, z=94.29},
+			Color = {r=255,g=0,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		MunicipalPoundPoint = {
+			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Color = {r=25,g=25,b=112},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1
+		},
+		SpawnMunicipalPoundPoint = {
+			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Color = {r=0,g=255,b=0},
+			Size  = {x = 3.0, y = 3.0, z = 1.0},
+			Marker = 1,
+			Heading=299.42
+		},
+	},
+
 }
