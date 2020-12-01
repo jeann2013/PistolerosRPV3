@@ -210,6 +210,9 @@ function loadESXPlayer(identifier, playerId)
 	end)
 
 	Async.parallel(tasks, function(results)
+
+		print('datos', userData.coords);
+
 		local xPlayer = CreateExtendedPlayer(playerId, identifier, userData.group, userData.accounts, userData.inventory, userData.weight, userData.job, userData.loadout, userData.playerName, userData.coords)
 		ESX.Players[playerId] = xPlayer
 		TriggerEvent('esx:playerLoaded', playerId, xPlayer)
