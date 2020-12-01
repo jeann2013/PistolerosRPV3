@@ -13,8 +13,6 @@ function ShowJobListingMenu()
 		local elements = {}
 
 		for i=1, #jobs, 1 do
-			print('w',jobs[i].whitelisted)
-			print('w',jobs[i].label)
 			table.insert(elements, {
 				label = jobs[i].label,
 				job   = jobs[i].job
