@@ -370,7 +370,6 @@ end
 
 ESX.Game.SpawnVehicle = function(modelName, coords, heading, cb)
 	local model = (type(modelName) == 'number' and modelName or GetHashKey(modelName))
-print('paso',coords)
 	Citizen.CreateThread(function()
 		ESX.Streaming.RequestModel(model)
 

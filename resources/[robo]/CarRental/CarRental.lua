@@ -268,6 +268,7 @@ function SpawnVehicle(request)
 
 			local x, y, z = table.unpack(GetEntityCoords(GetPlayerPed(-1), false))
 			local vehicle = CreateVehicle(hash, x + 2, y + 9, z + 1, 0.0, true, false)
+
 			SetVehicleDoorsLocked(vehicle, 1)
 			SetVehicleNumberPlateText(vehicle, "RENTAL")
 			canBeCharged = true
