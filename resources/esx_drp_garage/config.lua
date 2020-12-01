@@ -218,7 +218,7 @@ Config.Garages = {
 		},
 	},
 
-	Garage_Motel = {
+	Garage_MotelLive = {
 		Pos = {x=321.53, y=-220.60, z=51.09},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
