@@ -221,6 +221,9 @@ Citizen.CreateThread(function()
 		if insideInstance then
 			SetVehicleDensityMultiplierThisFrame(0.0)
 			SetParkedVehicleDensityMultiplierThisFrame(0.0)
+			SetCreateRandomCops(false)
+			SetCreateRandomCopsNotOnScenarios(false)
+			SetCreateRandomCopsOnScenarios(false)
 
 			local pos = GetEntityCoords(PlayerPedId())
 			RemoveVehiclesFromGeneratorsInArea(pos.x - 900.0, pos.y - 900.0, pos.z - 900.0, pos.x + 900.0, pos.y + 900.0, pos.z + 900.0)

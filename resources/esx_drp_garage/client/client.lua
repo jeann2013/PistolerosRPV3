@@ -66,7 +66,7 @@ function OpenMenuGarage(PointType)
 
 	local elements = {}
 
-	
+
 	if PointType == 'spawn' then
 		table.insert(elements,{label = _U('list_vehicles'), value = 'list_vehicles'})
 	end
@@ -122,9 +122,13 @@ function ListVehiclesMenu()
 			local hashVehicle = v.vehicle.model
     		local vehicleName = GetDisplayNameFromVehicleModel(hashVehicle)
     		local labelvehicle
-    		if(v.state)then
-    		labelvehicle = _U('status_in_garage', GetLabelText(vehicleName))
-    		end	
+
+			if(v.state)then
+				labelvehicle = _U('status_in_garage', GetLabelText(vehicleName))
+			else
+				labelvehicle = _U('status_impounded', GetLabelText(vehicleName))
+			end
+
 			table.insert(elements, {label =labelvehicle , value = v})
 			
 		end
@@ -233,7 +237,8 @@ function StockVehicleMenu()
 							TriggerServerEvent('eden_garage:debug', "vehicle plate returned to the garage: "  .. vehicleProps.plate)
 							TriggerServerEvent('eden_garage:logging',"vehicle returned to the garage: " .. engineHealth)
 							if engineHealth < 1000 then
-								local fraisRep= math.floor((1000 - engineHealth)*Config.RepairMultiplier)
+								--local fraisRep= math.floor((1000 - engineHealth)*Config.RepairMultiplier)
+								local fraisRep= math.floor(12000)
 								reparation(fraisRep,vehicle,vehicleProps)
 							else
 								ranger(vehicle,vehicleProps)
@@ -355,7 +360,7 @@ Citizen.CreateThread(function()
 			if(GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance) then		
 				DrawMarker(v.SpawnPoint.Marker, v.SpawnPoint.Pos.x, v.SpawnPoint.Pos.y, v.SpawnPoint.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, v.SpawnPoint.Size.x, v.SpawnPoint.Size.y, v.SpawnPoint.Size.z, v.SpawnPoint.Color.r, v.SpawnPoint.Color.g, v.SpawnPoint.Color.b, 100, false, true, 2, false, false, false, false)	
 				DrawMarker(v.DeletePoint.Marker, v.DeletePoint.Pos.x, v.DeletePoint.Pos.y, v.DeletePoint.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, v.DeletePoint.Size.x, v.DeletePoint.Size.y, v.DeletePoint.Size.z, v.DeletePoint.Color.r, v.DeletePoint.Color.g, v.DeletePoint.Color.b, 100, false, true, 2, false, false, false, false)	
-			end	
+			end
 		end	
 	end
 end)

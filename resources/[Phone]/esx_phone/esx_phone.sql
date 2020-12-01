@@ -1,16 +1,10 @@
-
-USE `es_extended`;
-
-CREATE TABLE `user_contacts` (
-	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`identifier` VARCHAR(22) NOT NULL,
-	`name` VARCHAR(100) NOT NULL,
-	`number` INT(11) NOT NULL,
-
-	PRIMARY KEY (`id`),
-	INDEX `index_user_contacts_identifier_name_number` (`identifier`, `name`, `number`)
+CREATE TABLE user_contacts (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  identifier varchar(255) NOT NULL,
+  name varchar(255) NOT NULL,
+  number int(11) NOT NULL,
+  PRIMARY KEY (id)
 );
 
 ALTER TABLE `users`
-	ADD COLUMN `phone_number` INT(11) NULL,
-	ADD UNIQUE INDEX `index_users_phone_number` (`phone_number`);
+ADD COLUMN `phone_number` INT NULL;
