@@ -43,9 +43,12 @@ Config.AuthorizedVehicles = {
 
 	{
 		model = 'ambulance',
-		label = 'Ambulance'
+		label = 'Ambulancia'
+	},
+	{
+		model = 'r1custom',
+		label = 'Moto Ambulancia'
 	}
-
 }
 
 Config.Zones = {
