@@ -158,7 +158,7 @@ Config.Jobs.fueler = {
 			Item = {
 				{
 					name = _U('delivery'),
-					time = 0.5,
+					time = 0,
 					remove = 1,
 					max = 100, -- if not present, probably an error at itemQtty >= item.max in esx_jobs_sv.lua
 					price = 103,
