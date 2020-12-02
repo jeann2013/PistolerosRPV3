@@ -41,7 +41,7 @@ Config.Jobs.lumberjack = {
 				{
 					name = _U('lj_wood'),
 					db_name = 'wood',
-					time = 3,
+					time = 0,
 					max = 20,
 					add = 1,
 					remove = 1,
@@ -65,7 +65,7 @@ Config.Jobs.lumberjack = {
 				{
 					name = _U('lj_cutwood'),
 					db_name = 'cutted_wood',
-					time = 5,
+					time = 0,
 					max = 20,
 					add = 1,
 					remove = 1,
@@ -89,7 +89,7 @@ Config.Jobs.lumberjack = {
 				{
 					name = _U('lj_planks'),
 					db_name = 'packaged_plank',
-					time = 4,
+					time = 0,
 					max = 100,
 					add = 5,
 					remove = 1,
@@ -155,7 +155,7 @@ Config.Jobs.lumberjack = {
 					time = 0.5,
 					remove = 1,
 					max = 100, -- if not present, probably an error at itemQtty >= item.max in esx_jobs_sv.lua
-					price = 13,
+					price = 130,
 					requires = 'packaged_plank',
 					requires_name = _U('lj_planks'),
 					drop = 100
