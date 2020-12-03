@@ -10,7 +10,23 @@ function drawLevel(r, g, b, a)
 
 	BeginTextCommandDisplayText('STRING')
 	AddTextComponentSubstringPlayerName(_U('voice', voice.level))
-	EndTextCommandDisplayText(0,0)
+	--EndTextCommandDisplayText(0,60)
+	--EndTextCommandDisplayText(0.300, 0.890)
+	drawTxt3(0.330, 0.900, 1.0,1.0,0.50 , _U('voice', voice.level) ,r, g, b, a)
+end
+
+function drawTxt3(x,y ,width,height,scale, text, r,g,b,a)
+	SetTextFont(6)
+	SetTextProportional(0)
+	SetTextScale(scale, scale)
+	SetTextColour(r, g, b, a)
+	SetTextDropShadow(0, 0, 0, 0,255)
+	SetTextEdge(2, 0, 0, 0, 255)
+	SetTextDropShadow()
+	SetTextOutline()
+	SetTextEntry("STRING")
+	AddTextComponentString(text)
+	DrawText(x - width/5.5, y - height/20000)
 end
 
 AddEventHandler('onClientMapStart', function()

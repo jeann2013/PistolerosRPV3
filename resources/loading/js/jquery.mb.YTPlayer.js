@@ -1,6 +1,23 @@
 $(document).ready(function($) {
 
+	let videoTracks =  {
+		0:"pICv0qQIbeY",
+		1:"v8uvdtDORkE",
+		2:"0OkiUUU3Odw",
+		3:"G5Wng8W8S8A",
+		4:"4OKgRMRDusM",
+		5:"l0U7SxXHkPY",
+		6:"SSuTme04Bys",
+		7:"n8-qex4jTP4",
+		8:"prU2g7PBTxs",
+		9:"NUteQQCMa_k",
+		10:"7MJvKW2KVJQ"
+	};
+	let track = Math.floor(Math.random() * 11);
+	let video = videoTracks[track];
+	console.log(video)
 	var myPlayer = jQuery( "#bgndVideo" ).YTPlayer();
+	myPlayer.attr('data-property', "{videoURL:'https://www.youtube.com/watch?v="+video+"',containment:'body',autoPlay:true, mute:false, startAt:0, stopAt:0, opacity:1}");
 
 	$( "a.expand-player" ).click(function() {
 		$( ".full-play" ).addClass( "display-none" );
