@@ -1,6 +1,6 @@
 Locales['en'] = {
-  ['used_bread'] = 'has usado ~y~1x~s~ ~b~bread~s~',
-  ['used_water'] = 'has usado ~y~1x~s~ ~b~water~s~',
+  ['used_bread'] = 'has usado ~y~1x~s~ ~b~Pan~s~',
+  ['used_water'] = 'has usado ~y~1x~s~ ~b~Agua~s~',
   ['used_stress'] = 'Has comido ~y~1x~s~ ~b~Pastilla Desestresante~s~, tu estres va bajando',
   ['used_absinthe'] = 'Has bebido ~y~1x~s~ ~b~Absenta~s~',
   ['used_beer'] = 'Has bebido ~y~1x~s~ ~b~Cerveza~s~',
