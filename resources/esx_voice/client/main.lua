@@ -10,7 +10,7 @@ function drawLevel(r, g, b, a)
 
 	BeginTextCommandDisplayText('STRING')
 	AddTextComponentSubstringPlayerName(_U('voice', voice.level))
-	EndTextCommandDisplayText(0,0)
+	EndTextCommandDisplayText(0,3)
 end
 
 AddEventHandler('onClientMapStart', function()
