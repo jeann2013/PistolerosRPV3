@@ -160,7 +160,7 @@ Citizen.CreateThread(function()
 				drawTxt3(0.463, 0.963, 1.0,1.0,0.50 , "" ..math.ceil(soifVal) .. "", 255, 255, 255, 255)
 
 				if ESX.PlayerData.job ~= nil then
-					drawTxt3(0.480, 0.963, 1.0,1.0,0.50 , "" .."Trabajo: "..ESX.PlayerData.job.label.." - "..ESX.PlayerData.job.grade_label ,255, 255, 255, 255)
+					drawTxt3(0.330, 0.930, 1.0,1.0,0.50 , "" .."Trabajo: "..ESX.PlayerData.job.label.." - "..ESX.PlayerData.job.grade_label ,255, 255, 255, 255)
 				end
 
 			end
