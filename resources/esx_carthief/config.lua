@@ -67,6 +67,6 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 20000,
-		Cars = {'2018zl1','sultanrsv8','20r1','599gtox','corvetteZR1'},
+		Cars = {'2018zl1','sultanrsv8','20r1','599gtox','hvrod'},
 	},
 }
