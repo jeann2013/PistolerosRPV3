@@ -374,37 +374,37 @@ Config.Garages = {
 		},
 	},
 
-	Garage_MiltonDrive = {
-		Pos = {x=-796.57, y=308.77, z=85.70},
-		Size  = {x = 3.0, y = 3.0, z = 1.0},
-		Color = {r = 204, g = 204, b = 0},
-		Marker = 1,
-		SpawnPoint = {
-			Pos = {x=-796.57, y=308.77, z=84.70},
-			Color = {r=0,g=255,b=0},
-			Size  = {x = 3.0, y = 3.0, z = 1.0},
-			Marker = 1
-		},
-		DeletePoint = {
-			Pos = {x=-795.93, y=320.88, z=84.69},
-			Color = {r=255,g=0,b=0},
-			Size  = {x = 3.0, y = 3.0, z = 1.0},
-			Marker = 1
-		},
-		MunicipalPoundPoint = {
-			Pos = {x=482.896, y=-1316.557, z=28.301},
-			Color = {r=25,g=25,b=112},
-			Size  = {x = 3.0, y = 3.0, z = 1.0},
-			Marker = 1
-		},
-		SpawnMunicipalPoundPoint = {
-			Pos = {x=490.942, y=-1313.067, z=27.964},
-			Color = {r=0,g=255,b=0},
-			Size  = {x = 3.0, y = 3.0, z = 1.0},
-			Marker = 1,
-			Heading=299.42
-		},
-	},
+	--Garage_MiltonDrive = {
+	--	Pos = {x=-796.57, y=308.77, z=85.70},
+	--	Size  = {x = 3.0, y = 3.0, z = 1.0},
+	--	Color = {r = 204, g = 204, b = 0},
+	--	Marker = 1,
+	--	SpawnPoint = {
+	--		Pos = {x=-796.57, y=308.77, z=84.70},
+	--		Color = {r=0,g=255,b=0},
+	--		Size  = {x = 3.0, y = 3.0, z = 1.0},
+	--		Marker = 1
+	--	},
+	--	DeletePoint = {
+	--		Pos = {x=-795.93, y=320.88, z=84.69},
+	--		Color = {r=255,g=0,b=0},
+	--		Size  = {x = 3.0, y = 3.0, z = 1.0},
+	--		Marker = 1
+	--	},
+	--	MunicipalPoundPoint = {
+	--		Pos = {x=482.896, y=-1316.557, z=28.301},
+	--		Color = {r=25,g=25,b=112},
+	--		Size  = {x = 3.0, y = 3.0, z = 1.0},
+	--		Marker = 1
+	--	},
+	--	SpawnMunicipalPoundPoint = {
+	--		Pos = {x=490.942, y=-1313.067, z=27.964},
+	--		Color = {r=0,g=255,b=0},
+	--		Size  = {x = 3.0, y = 3.0, z = 1.0},
+	--		Marker = 1,
+	--		Heading=299.42
+	--	},
+	--},
 
 	Garage_DownTownVineWood = {
 		Pos = {x=626.52, y=177.41, z=96.96},
