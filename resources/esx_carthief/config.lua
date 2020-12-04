@@ -39,7 +39,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 35500,
-		Cars = {'nero','chiron','veneno','f12','mig'},
+		Cars = {'nero','chiron','LykanHypersport','f12','mig'},
 	},
 	--Lighthouse 9.61KM
 	Delivery4 = {
