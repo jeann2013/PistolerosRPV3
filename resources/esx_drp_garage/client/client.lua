@@ -237,8 +237,8 @@ function StockVehicleMenu()
 							TriggerServerEvent('eden_garage:debug', "vehicle plate returned to the garage: "  .. vehicleProps.plate)
 							TriggerServerEvent('eden_garage:logging',"vehicle returned to the garage: " .. engineHealth)
 							if engineHealth < 1000 then
-								--local fraisRep= math.floor((1000 - engineHealth)*Config.RepairMultiplier)
-								local fraisRep= math.floor(12000)
+								local fraisRep= math.floor((1000 - engineHealth)*Config.RepairMultiplier)
+								--local fraisRep= math.floor(12000)
 								reparation(fraisRep,vehicle,vehicleProps)
 							else
 								ranger(vehicle,vehicleProps)
