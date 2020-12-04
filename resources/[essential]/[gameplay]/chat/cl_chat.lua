@@ -230,7 +230,7 @@ local isFirstHide = true
 
 if not isRDR then
   if RegisterKeyMapping then
-    RegisterKeyMapping('toggleChat', 'Toggle chat', 'keyboard', 'l')
+    RegisterKeyMapping('toggleChat', 'Toggle chat', 'keyboard', 'F9')
   end
 
   RegisterCommand('toggleChat', function()
