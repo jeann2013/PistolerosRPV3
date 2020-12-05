@@ -14,7 +14,7 @@ client_scripts {
 	--'client/voice.lua'
 }
 
-ui_page 'html/ui.html'
+ui_page 'html/ui_old.html'
 
 files {
 	'html/ui.html',

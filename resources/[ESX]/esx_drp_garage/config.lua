@@ -26,7 +26,7 @@ Config = {
 
 Config.Garages = {
 
-	Garage_Centre = {	
+	Garaje_Central = {
 		Pos = {x=215.800, y=-810.057, z=29.727},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -60,7 +60,7 @@ Config.Garages = {
 		},
 	},
 	
-	Garage_Paleto = {	
+	Garaje_Paleto = {
 		Pos = {x=105.359, y=6613.586, z=31.3973},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -91,7 +91,7 @@ Config.Garages = {
 		},
 	},
 	
-	Garage_Poissoniers = {	
+	Garaje_Carcel = {
 		Pos = {x = -1511.6556396484,y = 5009.875,z = 61.800533294678 },
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -122,7 +122,7 @@ Config.Garages = {
 		},
 	},
 	
-	Garage_SandyShore = {	
+	Garaje_SandyShore = {
 		Pos = {x = 1501.2,y = 3762.19,z = 33.0 },
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -153,7 +153,7 @@ Config.Garages = {
 		},
 	},
 	
-		Garage_Aeroport = {	
+		Garaje_Aeropuerto = {
 		Pos = {x = -977.21661376953,y = -2710.3798828125,z = 12.853487014771 },
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -184,7 +184,7 @@ Config.Garages = {
 		},
 	},
 
-	Garage_Motel = {
+	Garaje_Motel = {
 		Pos = {x=323.14, y=-215.69, z=160.39},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -218,7 +218,7 @@ Config.Garages = {
 		},
 	},
 
-	Garage_MotelLive = {
+	Garaje_MotelLive = {
 		Pos = {x=321.53, y=-220.60, z=51.09},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -249,7 +249,7 @@ Config.Garages = {
 			Heading=299.42
 		},
 	},
-	Garage_Galaxy = {
+	Garaje_Galaxy = {
 		Pos = {x=-335.88, y=274.68, z=85.9},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -280,7 +280,7 @@ Config.Garages = {
 			Heading=299.42
 		},
 	},
-	Garage_Galaxy2 = {
+	Garaje_Galaxy2 = {
 		Pos = {x=-579.28, y=329.84, z=84.76},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -311,7 +311,7 @@ Config.Garages = {
 			Heading=299.42
 		},
 	},
-	Garage_Integrity = {
+	Garaje_Integrity = {
 		Pos = {x=50.15, y=-616.37, z=31.63},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -342,7 +342,7 @@ Config.Garages = {
 			Heading=299.42
 		},
 	},
-	Garage_LowEndApartment = {
+	Garaje_LowEndApartment = {
 		Pos = {x=307.43, y=-1075.11, z=29.35},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -406,7 +406,7 @@ Config.Garages = {
 	--	},
 	--},
 
-	Garage_DownTownVineWood = {
+	Garaje_DownTownVineWood = {
 		Pos = {x=626.52, y=177.41, z=96.96},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
