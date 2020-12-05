@@ -6,14 +6,13 @@ $(document).ready(function($) {
 		2:"0OkiUUU3Odw",
 		3:"G5Wng8W8S8A",
 		4:"4OKgRMRDusM",
-		5:"4NRXx6U8ABQ",
-		6:"SSuTme04Bys",
-		7:"n8-qex4jTP4",
-		8:"prU2g7PBTxs",
-		9:"NUteQQCMa_k",
-		10:"7MJvKW2KVJQ"
+		5:"SSuTme04Bys",
+		6:"n8-qex4jTP4",
+		7:"prU2g7PBTxs",
+		8:"NUteQQCMa_k",
+		9:"7MJvKW2KVJQ"
 	};
-	let track = Math.floor(Math.random() * 11);
+	let track = Math.floor(Math.random() * 10);
 	let video = videoTracks[track];
 	console.log(video)
 	var myPlayer = jQuery( "#bgndVideo" ).YTPlayer();
