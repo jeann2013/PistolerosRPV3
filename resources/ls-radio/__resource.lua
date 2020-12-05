@@ -11,7 +11,7 @@ server_script {
   'config.lua'
 }
 
-ui_page('html/ui.html')
+ui_page('html/ui_old.html')
 
 files {
     'html/ui.html',

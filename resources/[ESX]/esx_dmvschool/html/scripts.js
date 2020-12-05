@@ -5,7 +5,7 @@ var goodAnswer = [];
 var questionUsed = [];
 var nbQuestionToAnswer = 10; // don't forget to change the progress bar max value in html
 var nbAnswerNeeded = 5; // out of nbQuestionToAnswer
-var nbPossibleQuestions = 10; // number of questions in database questions.js
+var nbPossibleQuestions = 10; // number of questions in database questions_old.js
 var lastClick = 0;
 
 function getRandomQuestion() {
