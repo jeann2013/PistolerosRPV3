@@ -1,0 +1,25 @@
+Locales['en'] = {
+    ['you_paid'] = 'Pagaste ~g~$%s~s~',
+    ['garage'] = 'Garage',
+    ['notif_car_impounded'] = 'Garaje: <br /> ¡Su auto ha sido confiscado!',
+    ['status_in_garage'] = '%s: <font color = "green"> En el garaje </font>',
+    ['status_impounded'] = '%s: <font color = "red"> Incautado </font>',
+    ['list_vehicles'] = 'Lista de vehículos',
+    ['stock_vehicle'] = 'Guarde el vehículo',
+    ['return_vehicle'] = 'Devuelve el auto del depósito de incautación ($%s)',
+    ['reparation'] = '¡Tu auto está dañado!',
+    ['reparation_yes'] = 'Reparar aquí ($%s)',
+    ['reparation_no'] = '¡No, gracias!',
+    ['reparation_no_notif'] = 'Para almacenar el vehículo, debe estar en perfectas condiciones',
+    ['ranger'] = 'Garaje: <br /> ¡Tu auto ha sido guardado en el garaje!',
+    ['stockv_not_owned'] = 'Garaje: <br /> ¡Este vehículo no es tuyo!',
+    ['stockv_not_in_veh'] = 'Garaje: <br /> ¡Debes estar en un vehículo para guardarlo!',
+    ['spawn'] = 'Pulsa ~INPUT_PICKUP~ para sacar un vehículo',
+    ['delete'] = 'Presione ~INPUT_PICKUP~ para almacenar un vehículo',
+    ['pound_action_menu'] = 'Presione ~INPUT_PICKUP~ para ingresar al depósito de depósito',
+    ['not_enough_money'] = 'No tienes suficiente dinero',
+    ['impound_list'] = '%s: Return',
+    ['impound_yard'] = 'Incautar patio',
+    ['impound_not_enough_money'] = 'Garaje: <br /> No tienes suficiente dinero'
+
+}
