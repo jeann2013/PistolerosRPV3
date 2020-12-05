@@ -31,7 +31,7 @@ ReportTerroristOnMetro	= true		-- When set to true the player will get an INSTAN
 									-- just (randomly) shoot while on/in public transportation!) if you want to ENABLE shooting from the Metro (as passenger)
 									-- then change this value to false
 
-Debug					= true		-- Do you want some debug message ?
+Debug					= false		-- Do you want some debug message ?
 
 
 -- These are the locations of which 'the host' (well his/her script) will
