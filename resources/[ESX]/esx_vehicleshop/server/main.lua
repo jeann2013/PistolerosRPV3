@@ -324,7 +324,7 @@ end)
 ESX.RegisterServerCallback('esx_vehicleshop:resellVehicle', function(source, cb, plate, model)
 	local xPlayer, resellPrice = ESX.GetPlayerFromId(source)
 
-	if xPlayer.job.name == 'cardealer' then
+	--if xPlayer.job.name == 'cardealer' then
 		-- calculate the resell price
 		for i=1, #vehicles, 1 do
 			if GetHashKey(vehicles[i].model) == model then
@@ -368,7 +368,7 @@ ESX.RegisterServerCallback('esx_vehicleshop:resellVehicle', function(source, cb,
 				end
 			end)
 		end
-	end
+	--end
 end)
 
 ESX.RegisterServerCallback('esx_vehicleshop:getStockItems', function(source, cb)

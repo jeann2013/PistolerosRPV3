@@ -666,8 +666,8 @@ AddEventHandler('esx:setJob', function(job)
 end)
 
 AddEventHandler('esx_vehicleshop:hasEnteredMarker', function(zone)
-	if zone == 'ShopEntering' then
 
+	if zone == 'ShopEntering' then
 		if Config.EnablePlayerManagement then
 			if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.name == 'cardealer' then
 				CurrentAction     = 'reseller_menu'
@@ -824,10 +824,8 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
-
 		if CurrentAction then
 			ESX.ShowHelpNotification(CurrentActionMsg)
-
 			if IsControlJustReleased(0, 38) then
 				if CurrentAction == 'shop_menu' then
 					if Config.LicenseEnable then
@@ -864,7 +862,6 @@ Citizen.CreateThread(function()
 				elseif CurrentAction == 'boss_actions_menu' then
 					OpenBossActionsMenu()
 				end
-
 				CurrentAction = nil
 			end
 		else
