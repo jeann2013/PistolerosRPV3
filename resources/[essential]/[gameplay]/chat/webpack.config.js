@@ -27,7 +27,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             inlineSource: '.(js|css)$',
             template: './html/index.html',
-            filename: 'ui_old.html'
+            filename: 'ui.html'
         }),
         new HtmlWebpackInlineSourcePlugin(),
         new CopyPlugin([

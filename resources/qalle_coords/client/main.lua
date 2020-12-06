@@ -10,7 +10,7 @@ function DrawGenericText(text)
 	SetTextEdge(1, 0, 0, 0, 205)
 	SetTextEntry("STRING")
 	AddTextComponentString(text)
-	DrawText(0.40, 0.00)
+	DrawText(0.60, 0.00)
 end
 
 Citizen.CreateThread(function()
