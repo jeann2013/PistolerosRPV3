@@ -55,7 +55,7 @@ Config.Garages = {
 			Pos = {x=229.700, y= -800.1149, z= 29.5722},
 			Color = {r=0,g=255,b=0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
-			Marker = 1,
+			Marker = -1,
 			Heading=299.42
 		},
 	},
