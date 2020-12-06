@@ -112,9 +112,9 @@ AddEventHandler("fs_taxi:payment-status", function(state)
 		PlayAmbientSpeech1(taxiPed, "TAXID_NO_MONEY", "SPEECH_PARAMS_FORCE_NORMAL")
 		Wait(1000)
 		if not IsPlayerWantedLevelGreater(player, 0) then
-			SetPlayerWantedLevel(player, 3, false)
-			SetPlayerWantedLevelNow(player, true)
-			SetDispatchCopsForPlayer(player, true)
+			--SetPlayerWantedLevel(player, 3, false)
+			--SetPlayerWantedLevelNow(player, true)
+			--SetDispatchCopsForPlayer(player, true)
 		end
 	end
 
