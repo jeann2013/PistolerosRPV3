@@ -417,6 +417,7 @@ Citizen.CreateThread(function()
 			LastParking             = currentParking
 			
 			TriggerEvent('esx_property:hasEnteredMarker', currentGarage, currentPart, currentParking)
+			--SetPlayerInvincible(playerPed, false) --jeann
 		end
 
 		if not isInMarker and HasAlreadyEnteredMarker then
