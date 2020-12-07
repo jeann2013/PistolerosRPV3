@@ -202,3 +202,18 @@ AddEventHandler('esx_ambulancejob:setDeathStatus', function(isDead)
 		['@isDead']     = isDead
 	})
 end)
+
+ESX.RegisterServerCallback('esx_ambulancejob:getDeathStatus', function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	MySQL.Async.fetchScalar('SELECT is_dead FROM users WHERE identifier = @identifier', {
+		['@identifier'] = xPlayer.identifier
+	}, function(isDead)
+
+		if isDead then
+			print(('[esx_ambulancejob] [^2INFO^7] "%s" attempted combat logging'):format(xPlayer.identifier))
+		end
+
+		cb(isDead)
+	end)
+end)

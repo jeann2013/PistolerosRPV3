@@ -178,8 +178,8 @@ Citizen.CreateThread(function()
                     if(beltWarningSet == false) then
                         if(currSpeed > 1 or currSpeed < -1) then
                             beltWarningSet = true
-                            TriggerEvent("mole_notifications:SendNotification", {text = "Acuerdate de ponerte el cinturón", type = "info", timeout = 1400})
-							TriggerServerEvent('esx_mole_misiones:PlayOnSource', 'beltwarning', 0.7)
+                            --TriggerEvent("mole_notifications:SendNotification", {text = "Acuerdate de ponerte el cinturón", type = "info", timeout = 1400})
+							--TriggerServerEvent('esx_mole_misiones:PlayOnSource', 'beltwarning', 0.7)
 							DisableControlAction(0, 75, false)
 						end
                     end
@@ -273,10 +273,10 @@ Citizen.CreateThread(function ()
 						if(beltWarningSet)then
 							TriggerServerEvent('esx_mole_misiones:StopSoundOnSource')
 						end
-						TriggerEvent("mole_notifications:SendNotification", {text = "Cinturón puesto", type = "success", timeout = 1400})
+						--TriggerEvent("mole_notifications:SendNotification", {text = "Cinturón puesto", type = "success", timeout = 1400})
 						TriggerServerEvent('esx_mole_misiones:PlayOnSource','buckle', 0.9)
 					else
-						TriggerEvent("mole_notifications:SendNotification", {text = "Cinturón quitado", type = "error", timeout = 1400})
+						--TriggerEvent("mole_notifications:SendNotification", {text = "Cinturón quitado", type = "error", timeout = 1400})
 						TriggerServerEvent('esx_mole_misiones:PlayOnSource', 'unbuckle', 0.9)
 						beltWarningSet = false
 						if(autopilotActive)then
