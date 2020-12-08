@@ -36,7 +36,7 @@ Citizen.CreateThread(function()
 			for k=1, #cars_dist, 1 do
 				local z = -1
 				local distance, car = 999
-				for l=1, #cars_dist, 1 do
+				for l=1, #cars_dist, 1 do					
 					if cars_dist[l][2] < distance then
 						distance = cars_dist[l][2]
 						car = cars_dist[l][1]
@@ -48,10 +48,10 @@ Citizen.CreateThread(function()
 					table.insert(carstrie, car)
 				end
 			end
-			for i=1, #carstrie, 1 do
+			for i=1, #carstrie, 1 do				
 				local plate = ESX.Math.Trim(GetVehicleNumberPlateText(carstrie[i]))
-				ESX.TriggerServerCallback('carlock:isVehicleOwner', function(owner)
-
+				
+				ESX.TriggerServerCallback('carlock:isVehicleOwner', function(owner)										
 					if owner and hasAlreadyLocked ~= true then
 						local vehicleLabel = GetDisplayNameFromVehicleModel(GetEntityModel(carstrie[i]))
 						vehicleLabel = GetLabelText(vehicleLabel)
@@ -93,13 +93,13 @@ Citizen.CreateThread(function()
 						end
 					else
 						notowned = notowned + 1
-					end
-					if notowned == #carstrie then
+					end					
+					if notowned == #carstrie and  owner == true then
 						ESX.ShowNotification("No estas cerca de un vehículo.")
 					end
-					--if owner == false then
-					--	ESX.ShowNotification("Este vehículo no te pertenece!!.")
-					--end
+					if owner == false then
+						ESX.ShowNotification("Este vehículo no te pertenece!!.")
+					end
 				end, plate)
 			end			
 		end

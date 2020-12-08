@@ -3,9 +3,7 @@ ESX               = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 ESX.RegisterServerCallback('carlock:isVehicleOwner', function(source, cb, plate)
-
-	local identifier = string.sub(GetPlayerIdentifier(source,source),9);
-
+	local identifier = string.sub(GetPlayerIdentifier(source,1),9);	
 	MySQL.Async.fetchAll('SELECT owner FROM owned_vehicles WHERE owner = @owner AND plate = @plate limit 1', {
 		['@owner'] = identifier,
 		['@plate'] = plate
