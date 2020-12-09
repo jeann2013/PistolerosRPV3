@@ -40,11 +40,11 @@ if Config.UseDeferrals then
 						}
 		
 						deferrals.done()
-					else
+					else						
 						deferrals.presentCard([==[{"type": "AdaptiveCard","body":[{"type":"Container","items":[{"type":"ColumnSet","columns":[{"type":"Column","items":[{"type":"Input.Text","placeholder":"First Name","id":"firstname","maxLength":15},{"type":"Input.Text","placeholder":"Date of Birth (MM/DD/YYYY)","id":"dateofbirth","maxLength":10}],"width":"stretch"},{"type":"Column","width":"stretch","items":[{"type":"Input.Text","placeholder":"Last Name","id":"lastname","maxLength":15},{"type":"Input.Text","placeholder":"Height (48-96 inches)","id":"height","maxLength":2}]}]},{"type":"Input.ChoiceSet","placeholder":"Sex","choices":[{"title":"Male","value":"m"},{"title":"Female","value":"f"}],"style":"expanded","id":"sex"}]},{"type": "ActionSet","actions": [{"type":"Action.Submit","title":"Submit"}]}],"$schema": "http://adaptivecards.io/schemas/adaptive-card.json","version":"1.0"}]==], function(data, rawData)
 							if data.firstname == '' or data.lastname == '' or data.dateofbirth == '' or data.sex == '' or data.height == '' then
 								deferrals.done(_U('data_incorrect'))
-							else
+							else								
 								if checkNameFormat(data.firstname) and checkNameFormat(data.lastname) and checkDOBFormat(data.dateofbirth) and checkSexFormat(data.sex) and	checkHeightFormat(data.height) then
 									playerIdentity[identifier] = {
 										firstName = formatName(data.firstname),
@@ -62,11 +62,11 @@ if Config.UseDeferrals then
 							end
 						end)
 					end
-				else
+				else					
 					deferrals.presentCard([==[{"type": "AdaptiveCard","body":[{"type":"Container","items":[{"type":"ColumnSet","columns":[{"type":"Column","items":[{"type":"Input.Text","placeholder":"First Name","id":"firstname","maxLength":15},{"type":"Input.Text","placeholder":"Date of Birth (MM/DD/YYYY)","id":"dateofbirth","maxLength":10}],"width":"stretch"},{"type":"Column","width":"stretch","items":[{"type":"Input.Text","placeholder":"Last Name","id":"lastname","maxLength":15},{"type":"Input.Text","placeholder":"Height (48-96 inches)","id":"height","maxLength":2}]}]},{"type":"Input.ChoiceSet","placeholder":"Sex","choices":[{"title":"Male","value":"m"},{"title":"Female","value":"f"}],"style":"expanded","id":"sex"}]},{"type": "ActionSet","actions": [{"type":"Action.Submit","title":"Submit"}]}],"$schema": "http://adaptivecards.io/schemas/adaptive-card.json","version":"1.0"}]==], function(data, rawData)
 						if data.firstname == '' or data.lastname == '' or data.dateofbirth == '' or data.sex == '' or data.height == '' then
 							deferrals.done(_U('data_incorrect'))
-						else
+						else							
 							if checkNameFormat(data.firstname) and checkNameFormat(data.lastname) and checkDOBFormat(data.dateofbirth) and checkSexFormat(data.sex) and	checkHeightFormat(data.height) then
 								playerIdentity[identifier] = {
 									firstName = formatName(data.firstname),
@@ -219,7 +219,7 @@ elseif not Config.UseDeferrals then
 		local xPlayer = ESX.GetPlayerFromId(source)
 		
 		if xPlayer then
-			if not alreadyRegistered[xPlayer.identifier] then
+			if not alreadyRegistered[xPlayer.identifier] then				
 				if checkNameFormat(data.firstname) and checkNameFormat(data.lastname) and checkSexFormat(data.sex) and checkDOBFormat(data.dateofbirth) and checkHeightFormat(data.height) then
 					playerIdentity[xPlayer.identifier] = {
 						firstName = formatName(data.firstname),
@@ -454,9 +454,9 @@ function deleteIdentityFromDatabase(xPlayer)
 end
 
 function checkNameFormat(name)
-	if not checkAlphanumeric(name) then
-		if not checkForNumbers(name) then
-			local stringLength = string.len(name)
+	if checkAlphanumeric(name) then		
+		if not checkForNumbers(name) then			
+			local stringLength = string.len(name)						
 			if stringLength > 0 and stringLength < Config.MaxNameLength then
 				return true
 			else
@@ -511,7 +511,7 @@ function convertFirstLetterToUpper(str)
 end
 
 function checkAlphanumeric(str)
-	return (string.match(str, "%W"))
+	return (string.match(str, "%a%s?"))
 end
 
 function checkForNumbers(str)
