@@ -59,34 +59,34 @@ end
 
 Citizen.CreateThread(function()
     Citizen.Wait(500)
-    while true do 
+    while true do         
         if ESX ~= nil and EVHud then
-            speed = GetEntitySpeed(GetVehiclePedIsIn(GetPlayerPed(-1), false)) * 3.6
-            local mph = GetEntitySpeed(GetVehiclePedIsIn(GetPlayerPed(-1), false)) * 2.236936
+            -- speed = GetEntitySpeed(GetVehiclePedIsIn(GetPlayerPed(-1), false)) * 3.6
+            -- local mph = GetEntitySpeed(GetVehiclePedIsIn(GetPlayerPed(-1), false)) * 2.236936
             local pos = GetEntityCoords(GetPlayerPed(-1))
             local time = CalculateTimeToDisplay()
             local street1, street2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
             local current_zone = GetLabelText(GetNameOfZone(pos.x, pos.y, pos.z))
-            local fuel = exports['LegacyFuel']:GetFuel(GetVehiclePedIsIn(GetPlayerPed(-1)))
-            local engine = GetVehicleEngineHealth(GetVehiclePedIsIn(GetPlayerPed(-1)))
+            -- local fuel = exports['LegacyFuel']:GetFuel(GetVehiclePedIsIn(GetPlayerPed(-1)))
+            -- local engine = GetVehicleEngineHealth(GetVehiclePedIsIn(GetPlayerPed(-1)))
             SendNUIMessage({
                 action = "hudtick",
                 show = IsPauseMenuActive(),
-                health = GetEntityHealth(GetPlayerPed(-1)),
-                armor = GetPedArmour(GetPlayerPed(-1)),
-                thirst = thirst,
-                hunger = hunger,
-                drunk = drunk,
-                bleeding = bleedingPercentage,
+                -- health = GetEntityHealth(GetPlayerPed(-1)),
+                -- armor = GetPedArmour(GetPlayerPed(-1)),
+                -- thirst = thirst,
+                -- hunger = hunger,
+                -- drunk = drunk,
+                -- bleeding = bleedingPercentage,
                 direction = GetDirectionText(GetEntityHeading(GetPlayerPed(-1))),
                 street1 = GetStreetNameFromHashKey(street1),
                 street2 = GetStreetNameFromHashKey(street2),
                 area_zone = current_zone,
-                speed = math.ceil(speed),
-                mph = math.ceil(mph),
-                fuel = fuel,
+                -- speed = math.ceil(speed),
+                -- mph = math.ceil(mph),
+                -- fuel = fuel,
                 time = time,
-                engine = engine,
+                -- engine = engine,
             })
             Citizen.Wait(200)
         else

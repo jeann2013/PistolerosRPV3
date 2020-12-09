@@ -45,7 +45,7 @@ function DrawSub(text, time)
 end
 
 function CreateBlips()
-	for i=1, #Config.Properties, 1 do
+	for i=1, #Config.Properties, 1 do	
 		local property = Config.Properties[i]
 
 		if property.entering then
@@ -780,65 +780,75 @@ end)
 
 -- Enter / Exit marker events & Draw markers
 Citizen.CreateThread(function()
-	while true do
+	while true or false do
 		Citizen.Wait(0)
-
+		
 		local coords = GetEntityCoords(PlayerPedId())
 		local isInMarker, letSleep = false, true
 		local currentProperty, currentPart
 
-		for i=1, #Config.Properties, 1 do
-			local property = Config.Properties[i]
+			for i=1, #Config.Properties, 1 do
+				local property = Config.Properties[i]
+				if not property.disabled then
+					if property.entering  then
+						local distance = GetDistanceBetweenCoords(coords, property.entering.x, property.entering.y, property.entering.z, true)				
+						if distance < Config.DrawDistance then						
+							-- Entering
+							if property.entering then
+								if distance < Config.DrawDistance then
+									DrawMarker(Config.MarkerType, property.entering.x, property.entering.y, property.entering.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, nil, nil, false)
+									ESX.Game.Utils.DrawText3D(property.entering, property.name, 2)
+									letSleep = false
+								end
 
-			-- Entering
-			if property.entering and not property.disabled then
-				local distance = GetDistanceBetweenCoords(coords, property.entering.x, property.entering.y, property.entering.z, true)
+								if distance < Config.MarkerSize.x then
+									isInMarker      = true
+									currentProperty = property.name
+									currentPart     = 'entering'
+								end
+							end
+						end
+					end
+					if property.exit  then
+						local distance = GetDistanceBetweenCoords(coords, property.exit.x, property.exit.y, property.exit.z, true)
+						if distance < Config.DrawDistance then	
+							-- Exit
+							if property.exit then							
 
-				if distance < Config.DrawDistance then
-					DrawMarker(Config.MarkerType, property.entering.x, property.entering.y, property.entering.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, nil, nil, false)
-					ESX.Game.Utils.DrawText3D(property.entering, property.name, 2)
-					letSleep = false
-				end
+								if distance < Config.DrawDistance then
+									DrawMarker(Config.MarkerType, property.exit.x, property.exit.y, property.exit.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, nil, nil, false)
+									letSleep = false
+								end
 
-				if distance < Config.MarkerSize.x then
-					isInMarker      = true
-					currentProperty = property.name
-					currentPart     = 'entering'
-				end
+								if distance < Config.MarkerSize.x then
+									isInMarker      = true
+									currentProperty = property.name
+									currentPart     = 'exit'
+								end
+							end
+						end
+					end
+					if property.roomMenu  then
+						local distance = GetDistanceBetweenCoords(coords, property.roomMenu.x, property.roomMenu.y, property.roomMenu.z, true)
+						if distance < Config.DrawDistance then	
+							-- Room menu
+							if property.roomMenu then
+								if distance < Config.DrawDistance then
+									DrawMarker(Config.MarkerType, property.roomMenu.x, property.roomMenu.y, property.roomMenu.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.RoomMenuMarkerColor.r, Config.RoomMenuMarkerColor.g, Config.RoomMenuMarkerColor.b, 100, false, true, 2, false, nil, nil, false)
+									letSleep = false
+								end
+
+								if distance < Config.MarkerSize.x then
+									isInMarker      = true
+									currentProperty = property.name
+									currentPart     = 'roomMenu'
+								end
+							end
+						end
+					end	
+				end				
 			end
-
-			-- Exit
-			if property.exit and not property.disabled then
-				local distance = GetDistanceBetweenCoords(coords, property.exit.x, property.exit.y, property.exit.z, true)
-
-				if distance < Config.DrawDistance then
-					DrawMarker(Config.MarkerType, property.exit.x, property.exit.y, property.exit.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, nil, nil, false)
-					letSleep = false
-				end
-
-				if distance < Config.MarkerSize.x then
-					isInMarker      = true
-					currentProperty = property.name
-					currentPart     = 'exit'
-				end
-			end
-
-			-- Room menu
-			if property.roomMenu and hasChest and not property.disabled then
-				local distance = GetDistanceBetweenCoords(coords, property.roomMenu.x, property.roomMenu.y, property.roomMenu.z, true)
-
-				if distance < Config.DrawDistance then
-					DrawMarker(Config.MarkerType, property.roomMenu.x, property.roomMenu.y, property.roomMenu.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.RoomMenuMarkerColor.r, Config.RoomMenuMarkerColor.g, Config.RoomMenuMarkerColor.b, 100, false, true, 2, false, nil, nil, false)
-					letSleep = false
-				end
-
-				if distance < Config.MarkerSize.x then
-					isInMarker      = true
-					currentProperty = property.name
-					currentPart     = 'roomMenu'
-				end
-			end
-		end
+		
 
 		if isInMarker and not hasAlreadyEnteredMarker or (isInMarker and (LastProperty ~= currentProperty or LastPart ~= currentPart) ) then
 			hasAlreadyEnteredMarker = true
@@ -854,7 +864,7 @@ Citizen.CreateThread(function()
 		end
 
 		if letSleep then
-			Citizen.Wait(500)
+			Citizen.Wait(300)
 		end
 	end
 end)

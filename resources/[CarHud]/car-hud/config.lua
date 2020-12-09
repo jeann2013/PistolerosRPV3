@@ -1,6 +1,6 @@
 EVHud = {}
 
-EVHud.Show = false
+EVHud.Show = true
 
 EVHud.Money = {}
 EVHud.Money.ShowConstant = false -- Show money constantly
