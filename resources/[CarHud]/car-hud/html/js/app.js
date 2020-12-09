@@ -16,7 +16,7 @@ var CurrentProx = 0;
         $(".money-cash").css("display", "block");
         // $(".money-bank").css("display", "block");
         $("#cash").html(data.cash);
-        // $("#bank").html(data.bank);
+        // $("#bank").html(data.bank);w
     };
 
     PRHud.Close = function() {
@@ -75,17 +75,17 @@ var CurrentProx = 0;
         $(".ui-container").css("display", Show);
 
         // HP Bar
-        $(".ui-healthbar").find('.ui-barfill').css("width", data.health - 100 + "%");
-        $(".ui-armorbar").find('.ui-barfill').css("width", data.armor + "%");
-        $(".ui-foodbar").find('.ui-smallbarfill').css("height", data.hunger + "%");
-        $(".ui-thirstbar").find('.ui-smallbarfill').css("height", data.thirst + "%");
-        $(".ui-drunkbar").find('.ui-smallbarfill').css("height", data.drunk + "%");
-        $(".ui-bleedbar").find('.ui-smallbarfill').css("height", data.bleeding + "%");
+        // $(".ui-healthbar").find('.ui-barfill').css("width", data.health - 100 + "%");
+        // $(".ui-armorbar").find('.ui-barfill').css("width", data.armor + "%");
+        // $(".ui-foodbar").find('.ui-smallbarfill').css("height", data.hunger + "%");
+        // $(".ui-thirstbar").find('.ui-smallbarfill').css("height", data.thirst + "%");
+        // $(".ui-drunkbar").find('.ui-smallbarfill').css("height", data.drunk + "%");
+        // $(".ui-bleedbar").find('.ui-smallbarfill').css("height", data.bleeding + "%");
 
-        $('.time-text').html(data.time.hour + ':' + data.time.minute);
-        $("#fuel-amount").html((data.fuel).toFixed(0));
-        $("#speed-amount").html(data.speed);
-        $("#mph-amount").html(data.mph);
+        // $('.time-text').html(data.time.hour + ':' + data.time.minute);
+        // $("#fuel-amount").html((data.fuel).toFixed(0));
+        // $("#speed-amount").html(data.speed);
+        // $("#mph-amount").html(data.mph);
 
         if (data.street2 != "" && data.street2 != undefined) {
             $(".ui-car-street").html(data.street1 + ' | ' + data.street2 + ' | ' + data.area_zone);
@@ -93,17 +93,17 @@ var CurrentProx = 0;
             $(".ui-car-street").html(data.street1 + ' | ' + data.area_zone);
         }
 
-        if (data.engine < 600) {
-            $(".car-engine-info img").attr('src', './engine-red.png');
-            $(".car-engine-info").fadeIn(150);
-        } else if (data.engine < 800) {
-            $(".car-engine-info img").attr('src', './engine.png');
-            $(".car-engine-info").fadeIn(150);
-        } else {
-            if ($(".car-engine-info").is(":visible")) {
-                $(".car-engine-info").fadeOut(150);
-            }
-        }
+        // if (data.engine < 600) {
+        //     $(".car-engine-info img").attr('src', './engine-red.png');
+        //     $(".car-engine-info").fadeIn(150);
+        // } else if (data.engine < 800) {
+        //     $(".car-engine-info img").attr('src', './engine.png');
+        //     $(".car-engine-info").fadeIn(150);
+        // } else {
+        //     if ($(".car-engine-info").is(":visible")) {
+        //         $(".car-engine-info").fadeOut(150);
+        //     }
+        // }
     };
 
     PRHud.UpdateProximity = function(data) {
