@@ -232,3 +232,21 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+
+RegisterNetEvent('esx_weashop:clipcli')
+AddEventHandler('esx_weashop:clipcli', function()
+  ped = GetPlayerPed(-1)
+  if IsPedArmed(ped, 4) then
+    hash=GetSelectedPedWeapon(ped)
+    if hash~=nil then
+      TriggerServerEvent('esx_weashop:remove')
+      AddAmmoToPed(GetPlayerPed(-1), hash,25)
+      ESX.ShowNotification("usaste una municion")
+    else
+      ESX.ShowNotification("no tienes arma en la mano")
+    end
+  else
+    ESX.ShowNotification("este tipo de munición no es adecuado")
+  end
+end)

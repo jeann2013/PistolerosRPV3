@@ -10,6 +10,8 @@ Config.Locale        = 'es'
 Config.LicenseEnable = false -- only turn this on if you are using esx_license
 Config.LicensePrice  = 5000
 
+Config.PriceClip = 5000
+
 Config.Zones = {
 
 	GunShop = {
