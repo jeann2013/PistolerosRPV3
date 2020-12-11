@@ -163,8 +163,8 @@ p {
 .ui-car-street {
     font-size: 15px;
     position: absolute;
-    bottom: 98.00vh;
-    left: 37.5vw;
+    bottom: 0.00vh;
+    left: 15.0vw;
     text-shadow: 1px 1px 0px #000000;
     color: #ffffff;
 }
@@ -187,8 +187,8 @@ p {
     position: absolute;
     width: 10.2vh;
     height: 4.5vh;
-    bottom: 92.00vh;
-    left: 45.0vw;
+    bottom: 2.8vh;
+    left: 15.0vw;
     overflow: hidden;
 }
 

@@ -18,6 +18,18 @@ MySQL.ready(function()
 			})
 		end
 
+		table.insert(shopItems["GunShop"], {
+			item  = "clip",
+			price = Config.PriceClip,
+			label = "Munición"
+		})
+
+		table.insert(shopItems["BlackWeashop"], {
+			item  = "clip",
+			price = Config.PriceClip,
+			label = "Munición"
+		})		
+
 		TriggerClientEvent('esx_weaponshop:sendShop', -1, shopItems)
 	end)
 
@@ -44,35 +56,50 @@ end)
 
 ESX.RegisterServerCallback('esx_weaponshop:buyWeapon', function(source, cb, weaponName, zone)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local price = GetPrice(weaponName, zone)
+	local account = xPlayer.getAccount('money')
+	
 
-	if price == 0 then
-		print(('esx_weaponshop: %s attempted to buy a unknown weapon!'):format(xPlayer.identifier))
-		cb(false)
-	else
-		if xPlayer.hasWeapon(weaponName) then
-			xPlayer.showNotification(_U('already_owned'))
+	if(weaponName == "clip") then
+		if account.money >= Config.PriceClip then									
+			print('weaponName',weaponName)
+			print('Config.PriceClip',Config.PriceClip)
+			print('account.money',account.money)
+			xPlayer.addInventoryItem(weaponName, 1)			
+			xPlayer.removeAccountMoney('money', Config.PriceClip)
+			cb(true)
+		else
+			xPlayer.showNotification(_U('not_enough_money'))
+			cb(false)
+		end
+	else 		
+		local price = GetPrice(weaponName, zone)
+		if price == 0 then
+			print(('esx_weaponshop: %s attempted to buy a unknown weapon!'):format(xPlayer.identifier))
 			cb(false)
 		else
-			if zone == 'BlackWeashop' then
-				if xPlayer.getAccount('black_money').money >= price then
-					xPlayer.removeAccountMoney('black_money', price)
-					xPlayer.addWeapon(weaponName, 42)
-	
-					cb(true)
-				else
-					xPlayer.showNotification(_U('not_enough_black'))
-					cb(false)
-				end
+			if xPlayer.hasWeapon(weaponName) then
+				xPlayer.showNotification(_U('already_owned'))
+				cb(false)
 			else
-				if xPlayer.getMoney() >= price then
-					xPlayer.removeMoney(price)
-					xPlayer.addWeapon(weaponName, 42)
-	
-					cb(true)
+				if zone == 'BlackWeashop' then
+					if xPlayer.getAccount('black_money').money >= price then
+						xPlayer.removeAccountMoney('black_money', price)
+						xPlayer.addWeapon(weaponName, 42)		
+						cb(true)
+					else
+						xPlayer.showNotification(_U('not_enough_black'))
+						cb(false)
+					end
 				else
-					xPlayer.showNotification(_U('not_enough'))
-					cb(false)
+					if xPlayer.getMoney() >= price then
+						xPlayer.removeMoney(price)
+						xPlayer.addWeapon(weaponName, 42)
+		
+						cb(true)
+					else
+						xPlayer.showNotification(_U('not_enough'))
+						cb(false)
+					end
 				end
 			end
 		end
@@ -91,3 +118,13 @@ function GetPrice(weaponName, zone)
 		return 0
 	end
 end
+
+RegisterServerEvent('esx_weashop:remove')
+AddEventHandler('esx_weashop:remove', function()
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('clip', 1)
+end)
+
+ESX.RegisterUsableItem('clip', function(source)
+	TriggerClientEvent('esx_weashop:clipcli', source)
+end)
