@@ -60,10 +60,7 @@ ESX.RegisterServerCallback('esx_weaponshop:buyWeapon', function(source, cb, weap
 	
 
 	if(weaponName == "clip") then
-		if account.money >= Config.PriceClip then									
-			print('weaponName',weaponName)
-			print('Config.PriceClip',Config.PriceClip)
-			print('account.money',account.money)
+		if account.money >= Config.PriceClip then												
 			xPlayer.addInventoryItem(weaponName, 1)			
 			xPlayer.removeAccountMoney('money', Config.PriceClip)
 			cb(true)
