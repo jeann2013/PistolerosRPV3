@@ -72,9 +72,11 @@ function OpenShopMenu(zone)
 		align = 'top-left',
 		elements = elements
 	}, function(data, menu)
-		ESX.TriggerServerCallback('esx_weaponshop:buyWeapon', function(bought)
-			if bought then
+		ESX.TriggerServerCallback('esx_weaponshop:buyWeapon', function(bought)			
+			if bought and data.current.weaponName ~= 'clip' then
 				DisplayBoughtScaleform(data.current.weaponName, data.current.price)
+			elseif bought and data.current.weaponName == 'clip' then
+				DisplayBoughtClipScaleform(data.current.weaponName, data.current.price)
 			else
 				PlaySoundFrontend(-1, 'ERROR', 'HUD_AMMO_SHOP_SOUNDSET', false)
 			end
@@ -100,6 +102,32 @@ function DisplayBoughtScaleform(weaponName, price)
 
 	PushScaleformMovieMethodParameterString(_U('weapon_bought', ESX.Math.GroupDigits(price)))
 	PushScaleformMovieMethodParameterString(ESX.GetWeaponLabel(weaponName))
+	PushScaleformMovieMethodParameterInt(GetHashKey(weaponName))
+	PushScaleformMovieMethodParameterString('')
+	PushScaleformMovieMethodParameterInt(100)
+
+	EndScaleformMovieMethod()
+
+	PlaySoundFrontend(-1, 'WEAPON_PURCHASE', 'HUD_AMMO_SHOP_SOUNDSET', false)
+
+	Citizen.CreateThread(function()
+		while sec > 0 do
+			Citizen.Wait(0)
+			sec = sec - 0.01
+	
+			DrawScaleformMovieFullscreen(scaleform, 255, 255, 255, 255)
+		end
+	end)
+end
+
+function DisplayBoughtClipScaleform(weaponName, price)
+	local scaleform = ESX.Scaleform.Utils.RequestScaleformMovie('MP_BIG_MESSAGE_FREEMODE')
+	local sec = 4
+
+	BeginScaleformMovieMethod(scaleform, 'SHOW_WEAPON_PURCHASED')
+
+	PushScaleformMovieMethodParameterString(_U('weapon_bought', ESX.Math.GroupDigits(price)))
+	PushScaleformMovieMethodParameterString("Municion")
 	PushScaleformMovieMethodParameterInt(GetHashKey(weaponName))
 	PushScaleformMovieMethodParameterString('')
 	PushScaleformMovieMethodParameterInt(100)
@@ -242,11 +270,11 @@ AddEventHandler('esx_weashop:clipcli', function()
     if hash~=nil then
       TriggerServerEvent('esx_weashop:remove')
       AddAmmoToPed(GetPlayerPed(-1), hash,25)
-      ESX.ShowNotification("usaste una municion")
+      ESX.ShowNotification("usaste un cargador")
     else
       ESX.ShowNotification("no tienes arma en la mano")
     end
   else
-    ESX.ShowNotification("este tipo de munición no es adecuado")
+    ESX.ShowNotification("no tienes arma en la mano")
   end
 end)
