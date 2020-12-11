@@ -146,22 +146,22 @@ Citizen.CreateThread(function()
 				end
 				local armor = GetPedArmour(myPed)
 
-				drawTxt3(0.330, 0.963, 1.0,1.0,0.40 , "" .."❤️" ,255, 255, 255, 255)
-				drawTxt3(0.350, 0.963, 1.0,1.0,0.50 , "" ..math.ceil(health) .. "", 255, 255, 255, 255)
+				drawTxt3(0.330, 0.890, 1.0,1.0,0.40 , "" .."❤️" ,255, 255, 255, 255)
+				drawTxt3(0.350, 0.890, 1.0,1.0,0.50 , "" ..math.ceil(health) .. "", 255, 255, 255, 255)
 
-				drawTxt3(0.370, 0.963, 1.0,1.0,0.40 , "" .."🛡" ,255, 255, 255, 255)
-                drawTxt3(0.390, 0.963, 1.0,1.0,0.50 , "" ..math.ceil(armor).."", 255, 255, 255, 255)
+				drawTxt3(0.370, 0.890, 1.0,1.0,0.40 , "" .."🛡" ,255, 255, 255, 255)
+                drawTxt3(0.390, 0.890, 1.0,1.0,0.50 , "" ..math.ceil(armor).."", 255, 255, 255, 255)
                 
             
-		     	drawTxt3(0.407, 0.963, 1.0,1.0,0.40 , "" .."🍔" ,255, 255, 255, 255)
-				drawTxt3(0.427, 0.963, 1.0,1.0,0.50 , "" ..math.ceil(faimVal) .. "", 255, 255, 255, 255)
+		     	drawTxt3(0.407, 0.890, 1.0,1.0,0.40 , "" .."🍔" ,255, 255, 255, 255)
+				drawTxt3(0.427, 0.890, 1.0,1.0,0.50 , "" ..math.ceil(faimVal) .. "", 255, 255, 255, 255)
 
-				drawTxt3(0.443, 0.963, 1.0,1.0,0.40 , "" .."🥤" ,255, 255, 255, 255)
-				drawTxt3(0.463, 0.963, 1.0,1.0,0.50 , "" ..math.ceil(soifVal) .. "", 255, 255, 255, 255)
+				drawTxt3(0.443, 0.890, 1.0,1.0,0.40 , "" .."🥤" ,255, 255, 255, 255)
+				drawTxt3(0.463, 0.890, 1.0,1.0,0.50 , "" ..math.ceil(soifVal) .. "", 255, 255, 255, 255)
 
 				if ESX.PlayerData.job ~= nil then
-					drawTxt3(0.330, 0.930, 1.0,1.0,0.50 , "" .."Trabajo: "..ESX.PlayerData.job.label.." - "..ESX.PlayerData.job.grade_label ,255, 255, 255, 255)
-					drawTxt3(0.330, 0.870, 1.0,1.0,0.50 , "" .."ID: "..GetPlayerServerId(NetworkGetEntityOwner(GetPlayerPed(-1))) ,255, 255, 255, 255)
+					drawTxt3(0.330, 0.860, 1.0,1.0,0.50 , "" .."Trabajo: "..ESX.PlayerData.job.label.." - "..ESX.PlayerData.job.grade_label ,255, 255, 255, 255)
+					drawTxt3(0.330, 0.800, 1.0,1.0,0.50 , "" .."ID: "..GetPlayerServerId(NetworkGetEntityOwner(GetPlayerPed(-1))) ,255, 255, 255, 255)
 				end
 
 			end
