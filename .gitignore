@@ -2,4 +2,4 @@
 alpine
 cache
 run.sh
-resources/[essential]/[SPAdmin]/logsystem/*
+resources/[essential]/[SPAdmin]/logsystem/logs/*
