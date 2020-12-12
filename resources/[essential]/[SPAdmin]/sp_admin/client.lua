@@ -606,7 +606,7 @@ end)
         while true do
             Citizen.Wait(0)
                 if group == true then 
-                    if IsControlJustPressed(1,57) then
+                    if IsControlJustPressed(1,56) then
 					 TriggerEvent('sp_admin:menuv')
                     end
                 end
