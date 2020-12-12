@@ -197,6 +197,6 @@ Citizen.CreateThread(function()
 end)
 
 
-Keys.Register('E', 'E', 'Open RageUI Showcase menu default.', function()
-    RageUI.Visible(mainMenu, not RageUI.Visible(mainMenu))
-end)
+-- Keys.Register('E', 'E', 'Open RageUI Showcase menu default.', function()
+    -- RageUI.Visible(mainMenu, not RageUI.Visible(mainMenu))
+-- end)
