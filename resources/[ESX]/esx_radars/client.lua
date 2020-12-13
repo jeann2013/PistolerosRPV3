@@ -55,23 +55,24 @@ function checkSpeed()
 	local truespeed = mphspeed
     if mphspeed > maxspeed and driver == pP then
         Citizen.Wait(250)
-        TriggerServerEvent('fineAmount', mphspeed)
-	if truespeed >= 50 and truespeed <= 60 then
-	fineamount = Config.Fine
-	finelevel = '10mph Over Limit'
-	end
-	if truespeed >= 60 and truespeed <= 70 then
-	fineamount = Config.Fine2
-	finelevel = '20mph Over Limit'
-	end
-	if truespeed >= 70 and truespeed <= 80 then
-	fineamount = Config.Fine3
-	finelevel = '30mph Over Limit'
-	end
-	if truespeed >= 80 and truespeed <= 500 then
-	fineamount = Config.Fine4
-	finelevel = '40mph Over Limit'
-	end
+        local label = "Radar de velocidad, multa por exceso de velocidad: " .. mphspeed
+        
+        if truespeed >= 50 and truespeed <= 60 then
+        fineamount = Config.Fine
+        finelevel = '10mph Over Limit'
+        end
+        if truespeed >= 60 and truespeed <= 70 then
+        fineamount = Config.Fine2
+        finelevel = '20mph Over Limit'
+        end
+        if truespeed >= 70 and truespeed <= 80 then
+        fineamount = Config.Fine3
+        finelevel = '30mph Over Limit'
+        end
+        if truespeed >= 80 and truespeed <= 500 then
+        fineamount = Config.Fine4
+        finelevel = '40mph Over Limit'
+        end
         exports.pNotify:SetQueueMax("left", 1)
         exports.pNotify:SendNotification({
             text = "<h2><center>Radar de velocidad</center></h2>" .. "</br>¡Le han impuesto una multa por exceso de velocidad!</br>Placa: " .. plate .. "</br>Monto de la multa: $" .. fineamount .. "</br>Violación: " .. finelevel .. "</br>Límite de velocidad: " .. maxspeed .. "</br>Tu velocidad: " ..mphspeed,
@@ -80,5 +81,7 @@ function checkSpeed()
             layout = "centerLeft",
             queue = "left"
         })
+
+        TriggerServerEvent('fineAmount', mphspeed, label)
     end
 end
