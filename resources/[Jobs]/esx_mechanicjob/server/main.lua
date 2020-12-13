@@ -187,7 +187,7 @@ local function Craft3(source)
 				TriggerClientEvent('esx:showNotification', source, _U('not_enough_body_tools'))
 			else
 				xPlayer.removeInventoryItem('carotool', 1)
-				xPlayer.addInventoryItem('carokit', 1)
+				xPlayer.addInventoryItem('carokit', 1)				
 				Craft3(source)
 			end
 		end
