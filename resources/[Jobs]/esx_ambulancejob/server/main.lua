@@ -195,10 +195,10 @@ end)
 
 RegisterServerEvent('esx_ambulancejob:setDeathStatus')
 AddEventHandler('esx_ambulancejob:setDeathStatus', function(isDead)
-	local identifier = GetPlayerIdentifiers(source)[1]
-
+	-- local identifier = GetPlayerIdentifiers(source)[1]	
+	local xPlayer = ESX.GetPlayerFromId(source)
 	MySQL.Sync.execute('UPDATE users SET is_dead = @isDead WHERE identifier = @identifier', {
-		['@identifier'] = identifier,
+		['@identifier'] = xPlayer.identifier,
 		['@isDead']     = isDead
 	})
 end)

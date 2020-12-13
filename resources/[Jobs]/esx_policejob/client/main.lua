@@ -978,7 +978,6 @@ function ShowPlayerLicense(player)
 	end, GetPlayerServerId(player))
 end
 
-
 function OpenVehicleInfosMenu(vehicleData)
 
   ESX.TriggerServerCallback('esx_policejob:getVehicleInfos', function(infos)
