@@ -404,7 +404,7 @@ Citizen.CreateThread(function ()
 				end
 			else 
 				currentlyTowedBoat = 0
-				if IsControlJustPressed(1, 57) then 
+				if IsControlJustPressed(1, 244) then 
 
 					local isBoatTowable = isVehicleABoat(playerVeh)
 					local coords = GetEntityCoords(playerPed)
