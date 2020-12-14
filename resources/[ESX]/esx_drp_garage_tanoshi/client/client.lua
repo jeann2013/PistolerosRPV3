@@ -107,9 +107,6 @@ function OpenMenuGarage(PointType)
     end)
 end
 
-
-
-
 -- View Vehicle Listings
 function ListVehiclesMenu()
     local elements = {}
