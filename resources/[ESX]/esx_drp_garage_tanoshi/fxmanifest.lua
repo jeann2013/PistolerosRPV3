@@ -9,8 +9,7 @@ server_scripts {
 	'config.lua',
 	'server/server.lua'
 }
-client_scripts {
-	'@mysql-async/lib/MySQL.lua',
+client_scripts {	
 	'@es_extended/locale.lua',
 	'locales/pl.lua',
 	'locales/en.lua',

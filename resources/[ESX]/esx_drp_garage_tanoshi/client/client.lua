@@ -107,9 +107,6 @@ function OpenMenuGarage(PointType)
     end)
 end
 
-
-
-
 -- View Vehicle Listings
 function ListVehiclesMenu()
     local elements = {}
@@ -121,9 +118,9 @@ function ListVehiclesMenu()
             local labelvehicle
 
             if (v.state) then
-                labelvehicle = _U('status_in_garage', GetLabelText(vehicleName))
+                labelvehicle = _U('status_in_garage', vehicleName)
             else
-                labelvehicle = _U('status_impounded', GetLabelText(vehicleName))
+                labelvehicle = _U('status_impounded', vehicleName)
             end
 
             table.insert(elements, {
