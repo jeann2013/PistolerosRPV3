@@ -15,18 +15,23 @@ ESX.RegisterServerCallback('eden_garage:getVehicles', function(source, cb)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local vehicules = {}
+    local vehiclesNames = getVehiclesNames()
 
     MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner=@identifier', {
         ['@identifier'] = xPlayer.getIdentifier()
     }, function(data)
-        for _, v in pairs(data) do
-            local vehicle = json.decode(v.vehicle)
-
-            table.insert(vehicules, {
-                vehicle = vehicle,
-                state = v.state,
-                plate = v.plate
-            })
+        for _, ve in pairs(vehiclesNames) do
+            for _, v in pairs(data) do
+                local vehicle = json.decode(v.vehicle)
+                if GetHashKey(ve.model) == vehicle.model then
+                    table.insert(vehicules, {
+                        vehicle = vehicle,
+                        state = v.state,
+                        plate = v.plate,
+                        name = ve.name
+                    })
+                end
+            end
         end
 
         cb(vehicules)
@@ -115,7 +120,7 @@ ESX.RegisterServerCallback('eden_garage:getOutVehicles', function(source, cb)
         cb(vehicules)
     end)
 end)
-
+-- 
 -- End out list
 -- Check player has funds
 ESX.RegisterServerCallback('eden_garage:checkMoney', function(source, cb)
@@ -143,24 +148,34 @@ AddEventHandler('eden_garage:pay', function()
     TriggerClientEvent('esx:showNotification', source, _U('you_paid', Config.Price))
 end)
 
+function getVehiclesNames()
+    local vehiclesName = {}
+    local data = MySQL.Sync.fetchAll('SELECT `name`,`model` FROM vehicles', {})
+    for _, v in pairs(data) do
+        table.insert(vehiclesName, {
+            name = v.name,
+            model = v.model
+        })
+    end
+    return vehiclesName    
+end
+
 -- End money withdraw
 -- Find player vehicles
 function getPlayerVehicles(identifier)
     local vehicles = {}
-
     local data = MySQL.Sync.fetchAll('SELECT * FROM owned_vehicles WHERE owner=@identifier', {
         ['@identifier'] = identifier
-    })
+    }) 
 
-    for _, v in pairs(data) do
-        local vehicle = json.decode(v.vehicle)
-
+    for _, v in pairs(data) do            
+        local vehicle = json.decode(v.vehicle)                  
         table.insert(vehicles, {
             id = v.id,
-            plate = v.plate
-        })
+            plate = v.plate,
+    
+        })        
     end
-
     return vehicles
 end
 
