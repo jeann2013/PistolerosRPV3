@@ -121,7 +121,9 @@ function ListVehiclesMenu()
 
 			local hashVehicle = v.vehicle.model
     		local vehicleName = GetDisplayNameFromVehicleModel(hashVehicle)
-    		local labelvehicle
+			local labelvehicle
+			
+			print('paso',vehicleName)
 
 			if(v.state)then
 				labelvehicle = _U('status_in_garage', GetLabelText(vehicleName))
