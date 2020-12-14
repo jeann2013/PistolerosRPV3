@@ -107,17 +107,18 @@ function OpenMenuGarage(PointType)
     end)
 end
 
+
+
+
 -- View Vehicle Listings
 function ListVehiclesMenu()
     local elements = {}
-
-    ESX.TriggerServerCallback('eden_garage:getVehicles', function(vehicles)
+    ESX.TriggerServerCallback('eden_garage:getVehicles', function(vehicles)        
         for _, v in pairs(vehicles) do
             local hashVehicule = v.vehicle.model
-            local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)
+            -- local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)            
+            local vehicleName = v.name
             local labelvehicle
-
-            print('vehicleName',vehicleName)
 
             if (v.state) then
                 labelvehicle = _U('status_in_garage', GetLabelText(vehicleName))
