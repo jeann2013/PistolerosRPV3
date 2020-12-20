@@ -157,6 +157,13 @@ function getVehiclesNames()
             model = v.model
         })
     end
+    local dataTrucks = MySQL.Sync.fetchAll('SELECT `name`,`model` FROM trucks', {})
+    for _, v in pairs(dataTrucks) do
+        table.insert(vehiclesName, {
+            name = v.name,
+            model = v.model
+        })
+    end
     return vehiclesName    
 end
 
