@@ -79,13 +79,10 @@ AddEventHandler('eden_garage:modifystate', function(vehicle, state)
     local plate = vehicle.plate
     print('UPDATING STATE...')
 
-    if plate ~= nil then
-        print('plate')
-        plate = plate:gsub('^%s*(.-)%s*$', '%1')
-        print(plate)
+    if plate ~= nil then        
+        plate = plate:gsub('^%s*(.-)%s*$', '%1')        
     else
         print('vehicle')
-        print(vehicle)
     end
 
     for _, v in pairs(vehicules) do
@@ -108,13 +105,24 @@ ESX.RegisterServerCallback('eden_garage:getOutVehicles', function(source, cb)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local vehicules = {}
+    local vehiclesNames = getVehiclesNames()
 
     MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner=@identifier AND state=false', {
         ['@identifier'] = xPlayer.getIdentifier()
     }, function(data)
-        for _, v in pairs(data) do
-            local vehicle = json.decode(v.vehicle)
-            table.insert(vehicules, vehicle)
+        for _, ve in pairs(vehiclesNames) do
+            for _, v in pairs(data) do
+                local vehicle = json.decode(v.vehicle)
+                --table.insert(vehicules, vehicle)                
+                if GetHashKey(ve.model) == vehicle.model then
+                    table.insert(vehicules, {
+                        vehicle = vehicle,
+                        state = v.state,
+                        plate = v.plate,
+                        name = ve.name
+                    })
+                end
+            end
         end
 
         cb(vehicules)
