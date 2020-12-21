@@ -87,7 +87,6 @@ function OpenMenuGarage(PointType)
         elements = elements
     }, function(data, menu)
         menu.close()
-
         if (data.current.value == 'list_vehicles') then
             ListVehiclesMenu()
         end
@@ -113,7 +112,7 @@ function ListVehiclesMenu()
     ESX.TriggerServerCallback('eden_garage:getVehicles', function(vehicles)        
         for _, v in pairs(vehicles) do
             local hashVehicule = v.vehicle.model
-            -- local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)            
+            -- local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)                       
             local vehicleName = v.name
             local labelvehicle
 
@@ -346,14 +345,18 @@ function ReturnVehicleMenu()
 
         for _, v in pairs(vehicles) do
             local hashVehicule = v.model
-            local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)
+            --local vehicleName = GetDisplayNameFromVehicleModel(hashVehicule)
+            local vehicleName = v.name
             local labelvehicle
-            labelvehicle = _U('impound_list', GetLabelText(vehicleName))
+            labelvehicle = _U('impound_list', vehicleName)
 
-            table.insert(elements, {
-                label = labelvehicle,
-                value = v
-            })
+            
+            if (not v.state ) then
+                table.insert(elements, {
+                    label = labelvehicle,
+                    value = v
+                })
+            end
         end
 
         ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'return_vehicle', {
