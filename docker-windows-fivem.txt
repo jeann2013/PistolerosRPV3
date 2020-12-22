@@ -13,3 +13,7 @@ docker exec -it 2460 bash -c "service mysql start"
 
 
 $.post("http://kc_admin/set_money", JSON.stringify({"id" : 0, "amount" : 7000000, "money_type" : 'cash'}))
+
+
+con_miniconchannels *
+quitar -> con_miniconChannels 0
