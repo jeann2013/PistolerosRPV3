@@ -133,6 +133,7 @@ function ListVehiclesMenu()
             align = 'top-left',
             elements = elements
         }, function(data, menu)
+            
             if (data.current.value.state) then
                 menu.close()
                 SpawnVehicle(data.current.value.vehicle)
@@ -295,7 +296,7 @@ function SpawnVehicle(vehicle)
 end
 
 --Function for spawning vehicle
-function SpawnPoundedVehicle(vehicle)
+function SpawnPoundedVehicle(vehicle)    
     ESX.Game.SpawnVehicle(vehicle.model, {
         x = this_Garage.SpawnMunicipalPoundPoint.Pos.x,
         y = this_Garage.SpawnMunicipalPoundPoint.Pos.y,
@@ -367,7 +368,7 @@ function ReturnVehicleMenu()
             ESX.TriggerServerCallback('eden_garage:checkMoney', function(hasEnoughMoney)
                 if hasEnoughMoney then
                     if times == 0 then
-                        TriggerServerEvent('eden_garage:pay')
+                        TriggerServerEvent('eden_garage:pay')                        
                         SpawnPoundedVehicle(data.current.value)
                         times = times + 1
                     elseif times > 0 then

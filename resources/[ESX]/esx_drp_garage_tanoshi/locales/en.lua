@@ -1,5 +1,5 @@
 Locales['en'] = {
-    ['you_paid'] = 'Pagaste ~g~$%s~s~',
+    ['you_paid'] = 'Pagaste ~g~$%s~s~ Tu vehiculo esta de vuelta al garaje',
     ['garage'] = 'Garage',
     ['notif_car_impounded'] = 'Garaje: <br /> ¡Su auto ha sido confiscado!',
     ['status_in_garage'] = '%s: <font color = "green"> En el garaje </font>',

@@ -43,13 +43,13 @@ Config.Garages = {
 			
 		},
 		MunicipalPoundPoint = {
-			Pos = {x = 482.896, y =- 1316.557, z = 28.301},
+			Pos = {x = 215.800, y = -810.057, z = 29.727},
 			Color = {r = 25, g = 25, b = 112},
 			Size = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},
 		SpawnMunicipalPoundPoint = {
-			Pos = {x = 490.942, y = -1313.067, z = 27.964},
+			Pos = {x = 229.700, y = -800.1149, z = 29.5722},
 			Color = {r = 0, g = 255, b = 0},
 			Size = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1,
@@ -76,13 +76,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x = -185.187, y = 6272.027, z = 30.580},
+			Pos = {x = 106.52, y = 6612.72, z = 30.98},
 			Color = {r = 25, g = 25, b = 112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},	
 		SpawnMunicipalPoundPoint = {
-			Pos = {x = -199.160, y = 6274.180, z = 30.580},
+			Pos = {x = 128.7822, y = 6622.9965, z = 30.7828},
 			Color = {r = 0, g = 255, b = 0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
@@ -108,13 +108,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x = -2211.8347167969,y = 4241.1069335938,z = 46.61901473999},
+			Pos = {x = -1504.87,y = 5021.05,z =61.66},
 			Color = {r = 25, g = 25, b = 112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},	
 		SpawnMunicipalPoundPoint = {
-			Pos = {x = -2205.4594726563, y = 4247.3603515625, z = 46.639003753662},
+			Pos = {x = -1511.6556396484,y = 5009.875,z = 61.800533294678},
 			Color = {r = 0, g = 255, b = 0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
@@ -140,13 +140,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x = 1561.6000976563, y = 3522.8583984375, z = 34.789356231689},
+			Pos = {x = 1498.40, y = 3753.07, z = 32.90},
 			Color = {r = 25, g = 25, b = 112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},	
 		SpawnMunicipalPoundPoint = {
-			Pos = {x = 1551.8347167969, y = 3518.1003417969, z = 34.988235473633},
+			Pos = {x = 1497.15, y = 3761.37, z = 32.8},
 			Color = {r = 0, g = 255, b = 0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
@@ -172,13 +172,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x = -1041.4571533203, y = -2676.3471679688, z = 12.830760002136},
+			Pos = {x = -955.64, y = -2707.40, z = 12.83},
 			Color = {r = 25,g = 25, b = 112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},	
 		SpawnMunicipalPoundPoint = {
-			Pos = {x = -1048.3468017578, y = -2669.771484375, z = 12.830758094788},
+			Pos = {x = -977.21661376953, y = -2710.3798828125, z = 12.853487014771},
 			Color = {r = 0, g = 255, b = 0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
@@ -203,13 +203,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Pos = {x=-345.39, y=265.73, z=84.34},
 			Color = {r=25,g=25,b=112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},
 		SpawnMunicipalPoundPoint = {
-			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Pos = {x=-334.66, y= 288.39, z= 84.80},
 			Color = {r=0,g=255,b=0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1,
@@ -235,8 +235,8 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x=482.896, y=-1316.557, z=28.301},
-			Color = {r=25,g=25,b=112},
+			Pos = {x=-570.19, y= 317.82, z= 83.47},
+			Color = {r=0,g=255,b=0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},
@@ -267,13 +267,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Pos = {x=54.98, y=-609.32, z=30.63},
 			Color = {r=25,g=25,b=112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},
 		SpawnMunicipalPoundPoint = {
-			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Pos = {x=35.53, y= -604.90, z=30.63},
 			Color = {r=0,g=255,b=0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1,
@@ -299,13 +299,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Pos = {x=308.08, y=-1115.28, z=28.33},
 			Color = {r=25,g=25,b=112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},
 		SpawnMunicipalPoundPoint = {
-			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Pos = {x=307.43, y=-1075.11, z=28.35},
 			Color = {r=0,g=255,b=0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1,
@@ -330,13 +330,13 @@ Config.Garages = {
 			Marker = 1
 		},
 		MunicipalPoundPoint = {
-			Pos = {x=482.896, y=-1316.557, z=28.301},
+			Pos = {x=323.77, y=-203.03, z=53.09},
 			Color = {r=25,g=25,b=112},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		},
 		SpawnMunicipalPoundPoint = {
-			Pos = {x=490.942, y=-1313.067, z=27.964},
+			Pos = {x=332.05, y=-206.34, z=53.09},
 			Color = {r=0,g=255,b=0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1,
