@@ -39,8 +39,8 @@ AddEventHandler('esx:playerLoaded', function(playerData)
 	NetworkSetFriendlyFireOption(true)
 
 	-- disable wanted level
-	--ClearPlayerWantedLevel(PlayerId())
-	--SetMaxWantedLevel(0)
+	ClearPlayerWantedLevel(PlayerId())
+	SetMaxWantedLevel(0)
 
 	if Config.EnableHud then
 		for k,v in ipairs(playerData.accounts) do
