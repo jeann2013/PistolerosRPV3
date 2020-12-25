@@ -7,13 +7,13 @@ Config = {
 	-- 100% damaged means 1000 * Multiplier
 	-- 50% damaged means 500 * Multiplier
 	-- Etc.
-	RepairMultiplier = 1, 
-	
+	RepairMultiplier = 1,
+
 	BlipInfos = {
 		Sprite = 290,
 		Color = 38
 	},
-	
+
 	BlipPound = {
 		Sprite = 67,
 		Color = 64
