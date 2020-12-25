@@ -97,13 +97,13 @@ AddEventHandler('esx_drugs:processCannabis', function()
 			local maria = 0
 			local canna = 0
 			if xCannabis.count >= 3 then
-				while xCannabis.count >=3 and xPlayer.canSwapItem('cannabis', 3, 'marijuana', 1) do
+				while xCannabis.count >=3 and xPlayer.canSwapItem('cannabis', 3, 'weed_pooch', 1) do
 					canna = canna+3
 					xCannabis.count= xCannabis.count - 3
 					maria = maria+1
 					if(xCannabis.count<3) then
 						xPlayer.showNotification(_U('weed_processed'))
-					elseif not xPlayer.canSwapItem('cannabis', 3, 'marijuana', 1) then
+					elseif not xPlayer.canSwapItem('cannabis', 3, 'weed_pooch', 1) then
 						xPlayer.showNotification(_U('weed_processingfull'))
 					end
 				end
