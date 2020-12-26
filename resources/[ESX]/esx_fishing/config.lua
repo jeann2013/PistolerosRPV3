@@ -10,8 +10,8 @@ Config = {}
 	--------------------------------------------------------
 	--First amount minimum price second maximum amount (the amount player will get is random between those two numbers)
 	Config.FishPrice = {a = 2500, b = 3500} --Will get clean money THIS PRICE IS FOR EVERY 5 FISH ITEMS (5 kg)
-	Config.TurtlePrice = {a = 15000, b = 21000} --Will get dirty money
-	Config.SharkPrice = {a = 40000, b = 60000} --Will get dirty money
+	Config.TurtlePrice = {a = 10000, b = 12000} --Will get dirty money
+	Config.SharkPrice = {a = 12001, b = 15000} --Will get dirty money
 
 	--------------------------------------------------------
 	--=====Locations where players can sell stuff========--
