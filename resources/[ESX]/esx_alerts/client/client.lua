@@ -54,23 +54,18 @@ function OpenMenu()
     elements = {
       {label = _U('msg2'),     value = 'a1'},
       {label = _U('msg3'),     value = 'a2'},
-      {label = _U('msg4'), value = 'a3'}
-      {label = _U('msg5'), value = 'a4'}
+      {label = _U('msg4'), value = 'a3'},
+      {label = _U('msg5'), value = 'a4'},
       {label = _U('msg6'), value = 'a5'}
   }}, function(data, menu)
     if data.current.value == 'a1' then
       TriggerServerEvent("tevi_alerts:tac0")
-
-
     elseif data.current.value == 'a2' then
       TriggerServerEvent("tevi_alerts:tac1")
-
     elseif data.current.value == 'a3' then
-      TriggerServerEvent("tevi_alerts:tac2")
-    end
+      TriggerServerEvent("tevi_alerts:tac2")    
     elseif data.current.value == 'a4' then
-      TriggerServerEvent("tevi_alerts:tac3")
-    end
+      TriggerServerEvent("tevi_alerts:tac3")    
     elseif data.current.value == 'a5' then
       TriggerServerEvent("tevi_alerts:tac4")
     end
