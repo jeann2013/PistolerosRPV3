@@ -45,11 +45,9 @@ Citizen.CreateThread(function()
     elseif NivelDeAlerta == 1 then
     	TriggerClientEvent('tevi_alerts:tac1_c', -1)
     elseif NivelDeAlerta == 2 then
-    	TriggerClientEvent('tevi_alerts:tac2_c', -1)
-    end
+    	TriggerClientEvent('tevi_alerts:tac2_c', -1)    
     elseif NivelDeAlerta == 3 then
-        TriggerClientEvent('tevi_alerts:tac3_c', -1)
-    end
+        TriggerClientEvent('tevi_alerts:tac3_c', -1)    
     elseif NivelDeAlerta == 4 then
         TriggerClientEvent('tevi_alerts:tac4_c', -1)
     end
