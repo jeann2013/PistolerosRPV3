@@ -176,6 +176,14 @@ Config.AuthorizedVehicles = {
 
 	sergeant = {
 		{
+			model = 'so6',
+			label = 'Auto policia sin marcas'
+		},
+		{
+			model = 'policeb2',
+			label = 'Moto para campo'
+		},
+		{
 			model = 'policet',
 			label = 'Police Transporter'
 		},
@@ -223,6 +231,14 @@ Config.AuthorizedVehicles = {
 
 	lieutenant = {
 		{
+			model = 'so6',
+			label = 'Auto policia sin marcas'
+		},
+		{
+			model = 'policeb2',
+			label = 'Moto para campo'
+		},
+		{
 			model = 'pbus',
 			label = 'Police Prison Bus'
 		},
@@ -262,6 +278,10 @@ Config.AuthorizedVehicles = {
 
 	boss = {
 		{
+			model = 'policeb2',
+			label = 'Moto para campo'
+		},
+		{
 			model = '10tahoe',
 			label = 'Camioneta policia'
 		},
@@ -271,11 +291,11 @@ Config.AuthorizedVehicles = {
 		},
 		{
 			model = 'so6',
-			label = 'Auto policia rapido'
+			label = 'Auto policia sin marcas'
 		},
 		{
 			model = 'sv4',
-			label = 'Auto policia Rapido'
+			label = 'Auto policia Rapido SV4'
 		},
 		{
 			model = 'polf430',
