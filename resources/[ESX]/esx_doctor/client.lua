@@ -23,7 +23,8 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
 end)
 
 RegisterCommand("doctor", function(source, args, raw)
-    ESX.TriggerServerCallback('esx_ambulancejob:getDeathStatus', function(isDead)
+	ESX.TriggerServerCallback('esx_ambulancejob:getDeathStatus', function(isDead)		
+		print('bekleme',bekleme)
 		if isDead and bekleme then
             ESX.TriggerServerCallback('pazzodoktor:doktorsOnline', function(EMSOnline, hasEnoughMoney)
 				if EMSOnline <= Config.Doktor and hasEnoughMoney then

@@ -3,10 +3,10 @@
 -------------------
 Config = {}
 Config.Locale = 'en'
-Config.Doktor = 1 -- Needs to be less then this amount online for it to work
+Config.Doktor = 2 -- Needs to be less then this amount online for it to work
 Config.Price = 5000
 Config.MoneyFormat = '$'
-Config.MythicProgbar = true -- Set to true if you have mythic_progbar, otherwise set to false
+Config.MythicProgbar = false -- Set to true if you have mythic_progbar, otherwise set to false
 Config.MythicNotify = true -- if you have Mythic Notify then set this to true, otherwise false for standard ESX notifications.
 
 doktorPed = {name = "Doktor Hulusi", icon = "CHAR_CALL911", model = "s_m_m_doctor_01", colour = 111}
