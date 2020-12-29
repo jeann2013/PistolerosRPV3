@@ -1,7 +1,7 @@
 Locales['en'] = {
-    ['getting_treatment'] = "The doctor is giving you medical aid",
-    ['treatment_done'] = "Your treatment is done, you were charged: ",
-    ['to_many_medics'] = "There is to many medics online",
-    ['only_when_dead'] = "This can only be used when dead",
-    ['not_enough_money'] = "You can't afford medical treatment",
+    ['getting_treatment'] = "El doctor te esta dando ayuda medica",
+    ['treatment_done'] = "Tu tratamiento está hecho, te cobraron: ",
+    ['to_many_medics'] = "Hay muchos médicos en línea",
+    ['only_when_dead'] = "Esto solo se puede usar cuando está muerto",
+    ['not_enough_money'] = "No puedes pagar un tratamiento médico",
 }
