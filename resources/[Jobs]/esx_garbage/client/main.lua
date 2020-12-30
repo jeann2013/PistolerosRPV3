@@ -1,8 +1,9 @@
 ESX = nil
 local esxloaded, currentstop = false, 0
+local ind = 1
 local HasAlreadyEnteredArea, clockedin, vehiclespawned, albetogetbags, truckdeposit = false, false, false, false, false
 local work_truck, NewDrop, LastDrop, binpos, truckpos, garbagebag, truckplate, mainblip, AreaType, AreaInfo, currentZone, currentstop, AreaMarker
-local Blips, CollectionJobs, depositlist = {}, {}, {}
+local Blips, CollectionJobs, depositlist, stopList = {}, {}, {}, {}
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -31,7 +32,7 @@ Citizen.CreateThread(function()
 	end
 		
 	esxloaded = true
-end)
+	end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
@@ -78,7 +79,9 @@ RegisterNetEvent('esx_garbagecrew:enteredarea')
 AddEventHandler('esx_garbagecrew:enteredarea', function(zone)
 	CurrentAction = zone.name
 
+
 	if CurrentAction == 'timeclock'  and IsGarbageJob() then
+		getMinMaxRoute()
 		MenuCloakRoom()
 	end
 
@@ -401,14 +404,28 @@ function SelectBinAndCrew(location)
 	end
 end
 
+function getMinMaxRoute()
+	r =  math.random(1, 15)
+	for i=1,10 do
+		if(i == 1) then
+			stopList[i] = r
+		else
+			stopList[i] = r + 1
+			r = r + 1
+		end
+	end
+end
+
 function FindDeliveryLoc()
+	
 	if LastDrop ~= nil then
 		lastregion = GetNameOfZone(LastDrop.pos)
 	end
-	local newdropregion = nil
-	while newdropregion == nil or newdropregion == lastregion do
-		randomloc = math.random(1, #Config.Collections)
+	local newdropregion = nil	
+	while newdropregion == nil or newdropregion == lastregion do				
+		randomloc = stopList[ind]		
 		newdropregion = GetNameOfZone(Config.Collections[randomloc].pos)
+		ind = ind + 1		
 	end
 	NewDrop = Config.Collections[randomloc]
 	LastDrop = NewDrop
