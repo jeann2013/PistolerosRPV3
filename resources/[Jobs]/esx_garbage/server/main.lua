@@ -42,7 +42,7 @@ end)
 
 
 RegisterServerEvent('esx_garbagecrew:unknownlocation')
-AddEventHandler('esx_garbagecrew:unknownlocation', function(location)
+AddEventHandler('esx_garbagecrew:unknownlocation', function(location)    
     if currentjobs[location] ~= nil then
         if #currentjobs[location].workers > 0 then
             TriggerEvent('esx_garbagecrew:paycrew',  currentjobs[location].pos)
@@ -94,8 +94,7 @@ AddEventHandler('playerDropped', function()
      end
 end)
 
-AddEventHandler('esx_garbagecrew:paycrew', function(number)
-    print('request recieved to payout for stop: ' .. tostring(number))
+AddEventHandler('esx_garbagecrew:paycrew', function(number)    
     currentcrew = currentjobs[number].workers
     payamount = (Config.StopPay / currentjobs[number].totalbags) + Config.BagPay
     for i, v in pairs(currentcrew) do
@@ -103,7 +102,7 @@ AddEventHandler('esx_garbagecrew:paycrew', function(number)
         if xPlayer ~= nil then
             local amount = math.ceil(payamount * v)
             xPlayer.addMoney(tonumber(amount))
-            TriggerClientEvent('esx:showNotification',i, 'Received '..tostring(amount)..' from this stop!')
+            TriggerClientEvent('esx:showNotification',i, 'Recibistes '..tostring(amount)..' en esta parada!')
         end
     end
     local currentboss = currentjobs[number].jobboss
