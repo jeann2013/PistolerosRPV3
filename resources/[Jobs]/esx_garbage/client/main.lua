@@ -1,6 +1,6 @@
 ESX = nil
 local esxloaded, currentstop = false, 0
-local ind = 1
+local ind = 0
 local HasAlreadyEnteredArea, clockedin, vehiclespawned, albetogetbags, truckdeposit = false, false, false, false, false
 local work_truck, NewDrop, LastDrop, binpos, truckpos, garbagebag, truckplate, mainblip, AreaType, AreaInfo, currentZone, currentstop, AreaMarker
 local Blips, CollectionJobs, depositlist, stopList = {}, {}, {}, {}
@@ -418,14 +418,15 @@ end
 
 function FindDeliveryLoc()
 	
+	ind = ind + 1	
+
 	if LastDrop ~= nil then
 		lastregion = GetNameOfZone(LastDrop.pos)
 	end
 	local newdropregion = nil	
 	while newdropregion == nil or newdropregion == lastregion do				
-		randomloc = stopList[ind]		
-		newdropregion = GetNameOfZone(Config.Collections[randomloc].pos)
-		ind = ind + 1		
+		randomloc = stopList[ind]			
+		newdropregion = GetNameOfZone(Config.Collections[randomloc].pos)			
 	end
 	NewDrop = Config.Collections[randomloc]
 	LastDrop = NewDrop
@@ -455,7 +456,7 @@ function FindDeliveryLoc()
 	EndTextCommandSetBlipName(Blips['endmission'])
 
 	oncollection = true
-	ESX.ShowNotification(_U('drive_to_collection'))
+	ESX.ShowNotification(_U('drive_to_collection'))	
 end
 
 function IsGarbageJob()
