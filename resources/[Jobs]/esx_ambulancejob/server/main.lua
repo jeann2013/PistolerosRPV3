@@ -160,7 +160,7 @@ TriggerEvent('es:addGroupCommand', 'revive', 'admin', function(source, args, use
 		TriggerClientEvent('esx_ambulancejob:revive', source)
 	end
 end, function(source, args, user)
-	TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Insufficient Permissions.' } })
+	TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Permisos insuficientes.' } })
 end, { help = _U('revive_help'), params = {{ name = 'id' }} })
 
 ESX.RegisterUsableItem('medikit', function(source)
