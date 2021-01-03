@@ -317,7 +317,9 @@ function spawnPlayer(spawnIdx, cb)
         -- and unfreeze the player
         freezePlayer(PlayerId(), false)
 
-        TriggerEvent('playerSpawned', spawn)
+        --TriggerEvent('playerSpawned', spawn)
+        TriggerEvent('esx:onPlayerSpawn', spawn)
+        
 
         if cb then
             cb(spawn)
