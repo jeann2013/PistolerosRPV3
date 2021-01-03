@@ -250,7 +250,8 @@ AddEventHandler('esx_amazonjobsecondary:hasEnteredMarker', function(zone)
 				VerifPlaqueVehiculeActuel()
 
 				if plaquevehicule == plaquevehiculeactuel then
-                    CurrentAction     = 'retourcamion'
+					CurrentAction     = 'retourcamion'
+					CurrentActionMsg  = _U('delivery')
 				else
                     CurrentAction     = 'retourcamionannulermission'
                     CurrentActionMsg  = _U('not_your_truck')
