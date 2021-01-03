@@ -38,7 +38,8 @@ AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
 end)
 
-AddEventHandler('playerSpawned', function()
+--AddEventHandler('playerSpawned', function()
+AddEventHandler('esx:onPlayerSpawn', function()
 	IsDead = false
 
 	if FirstSpawn then
@@ -251,7 +252,9 @@ function RespawnPed(ped, coords)
 	SetEntityCoordsNoOffset(ped, coords.x, coords.y, coords.z, false, false, false, true)
 	NetworkResurrectLocalPlayer(coords.x, coords.y, coords.z, coords.heading, true, false)
 	SetPlayerInvincible(ped, false)
-	TriggerEvent('playerSpawned', coords.x, coords.y, coords.z, coords.heading)
+	TriggerEvent('esx:onPlayerSpawn', coords.x, coords.y, coords.z, coords.heading)
+	--TriggerEvent('playerSpawned', coords.x, coords.y, coords.z, coords.heading)
+	
 	ClearPedBloodDamage(ped)
 
 	ESX.UI.Menu.CloseAll()
