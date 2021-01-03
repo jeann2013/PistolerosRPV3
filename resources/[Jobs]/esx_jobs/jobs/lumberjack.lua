@@ -155,7 +155,7 @@ Config.Jobs.lumberjack = {
 					time = 0,
 					remove = 5,
 					max = 500, -- if not present, probably an error at itemQtty >= item.max in esx_jobs_sv.lua
-					price = 130,
+					price = 600,
 					requires = 'packaged_plank',
 					requires_name = _U('lj_planks'),
 					drop = 100
