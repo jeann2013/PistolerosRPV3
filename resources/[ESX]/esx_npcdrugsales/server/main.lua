@@ -98,6 +98,10 @@ end)
 			kindDrug = math.random (1, 2)
 		end
 
+		if coke > 0 and  weed > 0 and meth > 0 and opium == 0 then
+			kindDrug = math.random (1, 3)
+		end
+
 		if coke > 0 and  weed == 0 and meth == 0 and opium == 0 then
 			kindDrug = 1
 		end
