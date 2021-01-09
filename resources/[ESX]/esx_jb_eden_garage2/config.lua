@@ -10,7 +10,7 @@ Config.Locale = 'es'
 
 Config.Garages = {
 	Garage_Centre = {
-		Pos = {x=215.800, y=-810.057, z=30.727},
+		Pos = {x=235.53, y=-816.64, z=30.24},
 		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
 		Name = _U('garage_name'),
 		HelpPrompt = _U('open_car_garage'),
