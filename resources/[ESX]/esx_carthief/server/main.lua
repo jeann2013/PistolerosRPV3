@@ -10,7 +10,11 @@ RegisterServerEvent('esx_carthief:pay')
 AddEventHandler('esx_carthief:pay', function(payment)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
-	xPlayer.addAccountMoney('black_money',tonumber(payment))
+	if Config.kindMoney == 1 then
+		xPlayer.addAccountMoney('black_money',tonumber(payment))
+	else
+		xPlayer.addAccountMoney('money',tonumber(payment))
+	end
 	
 	--Add cooldown
 	cooldown = Config.CooldownMinutes * 60000
