@@ -39,8 +39,8 @@ end)
 		local hotdog = xPlayer.getInventoryItem('hotdog').count
 
 		local paymentpollofrito = 179	
-		local paymentsprite = 179	
-		local paymentpepsicola = 179	
+		local paymentsprite = 129	
+		local paymentpepsicola = 139	
 		local paymenthotdog = 179	
 		local kindDrug = 0
 		local foodExist = false
@@ -62,45 +62,29 @@ end)
 
 		if foodExist and drinkExist then
 
-			if pollofrito >= 1 and pollofrito <= 3 then
-				quantityPollofrito = math.random (1, 3)
+			if pollofrito >= 1 then
+				quantityPollofrito = math.random (1, pollofrito)
 			end
 
-			if pollofrito > 3 then
-				quantityPollofrito = 4
-			end		
-
-			if hotdog >= 1 and hotdog <= 3 then
-				quantityHotdog = math.random (1, 3)
+			if hotdog >= 1 then
+				quantityHotdog = math.random (1, hotdog)
 			end
-
-			if hotdog > 3 then
-				quantityHotdog = 4
-			end	
 			-------------
-			if sprite >= 1 and sprite <= 3 then
-				quantitySprite = math.random (1, 3)
+			if sprite >= 1 then
+				quantitySprite = math.random (1, sprite)
 			end
 
-			if sprite > 3 then
-				quantitySprite = 4
-			end		
-
-			if pepsicola >= 1 and pepsicola <= 3 then
-				quantityPepsicola = math.random (1, 3)
+			if pepsicola >= 1 then
+				quantityPepsicola = math.random (1, pepsicola)
 			end
 
-			if pepsicola > 3 then
-				quantityPepsicola = 4
-			end	
-			
 			if quantityPollofrito > 0 and quantityHotdog > 0 and quantitySprite > 0 and  quantityPepsicola > 0 then
-					local kindFood = math.random (1, 2)
+					kindFood = math.random (1, 2)
 					if kindFood == 1 then
 
 						TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 						TriggerClientEvent("pNotify:SendNotification", source, {
-								text = "Vendiste Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
+								text = "Vendiste "..quantityPollofrito.."X Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
 								type = "success",
 								progressBar = false,
 								queue = "lmao",
@@ -115,7 +99,7 @@ end)
 					if kindFood == 2 then
 						TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 						TriggerClientEvent("pNotify:SendNotification", source, {
-								text = "Vendiste HotDog por $" .. paymenthotdog*quantityHotdog ,
+								text = "Vendiste "..quantityHotdog.."x HotDog por $" .. paymenthotdog*quantityHotdog ,
 								type = "success",
 								progressBar = false,
 								queue = "lmao",
@@ -127,12 +111,12 @@ end)
 						xPlayer.addAccountMoney('money', paymenthotdog*quantityHotdog)
 					end
 
-					local kindDrink = math.random (1, 2)
+					kindDrink = math.random (1, 2)
 					if kindDrink == 1 then
 
 						TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 						TriggerClientEvent("pNotify:SendNotification", source, {
-								text = "Vendiste Sprite por $" .. paymentsprite*quantitySprite ,
+								text = "Vendiste "..quantitySprite.."X Sprite por $" .. paymentsprite*quantitySprite ,
 								type = "success",
 								progressBar = false,
 								queue = "lmao",
@@ -147,7 +131,7 @@ end)
 					if kindDrink == 2 then
 						TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 						TriggerClientEvent("pNotify:SendNotification", source, {
-								text = "Vendiste Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
+								text = "Vendiste "..quantityPepsicola.."X Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
 								type = "success",
 								progressBar = false,
 								queue = "lmao",
@@ -161,12 +145,12 @@ end)
 			end
 
 			if quantityPollofrito > 0 and quantityHotdog == 0 and quantitySprite > 0 and  quantityPepsicola == 0 then
-				local kindFood = 1
+				kindFood = 1
 				if kindFood == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
+							text = "Vendiste "..quantityPollofrito.."X Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -179,12 +163,12 @@ end)
 
 				end		
 
-				local kindDrink = 1
+				kindDrink = 1
 				if kindDrink == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Sprite por $" .. paymentsprite*quantitySprite ,
+							text = "Vendiste "..quantitySprite.."X Sprite por $" .. paymentsprite*quantitySprite ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -201,12 +185,12 @@ end)
 			end
 
 			if quantityPollofrito > 0 and quantityHotdog == 0 and quantitySprite == 0 and  quantityPepsicola > 0 then
-				local kindFood = 1
+				kindFood = 1
 				if kindFood == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
+							text = "Vendiste "..quantityPollofrito.."X Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -219,11 +203,11 @@ end)
 
 				end		
 
-				local kindDrink = 2
+				kindDrink = 2
 				if kindDrink == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
+							text = "Vendiste "..quantityPepsicola.."X Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -239,12 +223,12 @@ end)
 			end
 
 			if quantityPollofrito > 0 and quantityHotdog == 0 and quantitySprite > 0 and  quantityPepsicola > 0 then
-				local kindFood = 1
+				kindFood = 1
 				if kindFood == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
+							text = "Vendiste "..quantityPollofrito.."X Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -257,12 +241,12 @@ end)
 
 				end		
 
-				local kindDrink = math.random (1, 2)
+				kindDrink = math.random (1, 2)
 				if kindDrink == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Sprite por $" .. paymentsprite*quantitySprite ,
+							text = "Vendiste "..quantitySprite.."X Sprite por $" .. paymentsprite*quantitySprite ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -277,7 +261,7 @@ end)
 				if kindDrink == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
+							text = "Vendiste "..quantityPepsicola.."X Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -293,11 +277,11 @@ end)
 			end
 
 			if quantityPollofrito == 0 and quantityHotdog > 0 and quantitySprite > 0 and  quantityPepsicola > 0 then
-				local kindFood = 2
+				kindFood = 2
 				if kindFood == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste HotDog por $" .. paymenthotdog*quantityHotdog ,
+							text = "Vendiste "..quantityHotdog.."x HotDog por $" .. paymenthotdog*quantityHotdog ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -309,11 +293,11 @@ end)
 					xPlayer.addAccountMoney('money', paymenthotdog*quantityHotdog)
 				end	
 
-				local kindDrink = math.random (1, 2)
+				kindDrink = math.random (1, 2)
 				if kindDrink == 1 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Sprite por $" .. paymentsprite*quantitySprite ,
+							text = "Vendiste "..quantitySprite.."X Sprite por $" .. paymentsprite*quantitySprite ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -329,7 +313,7 @@ end)
 				if kindDrink == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
+							text = "Vendiste "..quantityPepsicola.."X Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -343,11 +327,11 @@ end)
 			end
 
 			if quantityPollofrito == 0 and quantityHotdog > 0 and quantitySprite == 0 and  quantityPepsicola > 0 then
-				local kindFood = 2
+				kindFood = 2
 				if kindFood == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste HotDog por $" .. paymenthotdog*quantityHotdog ,
+							text = "Vendiste "..quantityHotdog.."x HotDog por $" .. paymenthotdog*quantityHotdog ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -358,11 +342,11 @@ end)
 					xPlayer.removeInventoryItem('hotdog', quantityHotdog)
 					xPlayer.addAccountMoney('money', paymenthotdog*quantityHotdog)
 				end	
-				local kindDrink = 2
+				kindDrink = 2
 				if kindDrink == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
+							text = "Vendiste "..quantityPepsicola.."X Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -376,11 +360,11 @@ end)
 			end
 
 			if quantityPollofrito == 0 and quantityHotdog > 0 and quantitySprite > 0 and  quantityPepsicola == 0 then
-				local kindFood = 2
+				kindFood = 2
 				if kindFood == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste HotDog por $" .. paymenthotdog*quantityHotdog ,
+							text = "Vendiste "..quantityHotdog.."x HotDog por $" .. paymenthotdog*quantityHotdog ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -392,12 +376,12 @@ end)
 					xPlayer.addAccountMoney('money', paymenthotdog*quantityHotdog)
 				end
 
-				local kindDrink = 1
+				kindDrink = 1
 				if kindDrink == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Sprite por $" .. paymentsprite*quantitySprite ,
+							text = "Vendiste "..quantitySprite.."X Sprite por $" .. paymentsprite*quantitySprite ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -412,12 +396,12 @@ end)
 			end
 
 			if quantityPollofrito > 0 and quantityHotdog > 0 and quantitySprite == 0 and  quantityPepsicola > 0 then
-				local kindFood = math.random (1, 2)
+				kindFood = math.random (1, 2)
 				if kindFood == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
+							text = "Vendiste "..quantityPollofrito.."X Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -432,7 +416,7 @@ end)
 				if kindFood == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste HotDog por $" .. paymenthotdog*quantityHotdog ,
+							text = "Vendiste "..quantityHotdog.."x HotDog por $" .. paymenthotdog*quantityHotdog ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -448,7 +432,7 @@ end)
 				if kindDrink == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
+							text = "Vendiste "..quantityPepsicola.."X Pepsi-Cola por $" .. paymentpepsicola*quantityPepsicola ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -462,12 +446,12 @@ end)
 			end	
 			
 			if quantityPollofrito > 0 and quantityHotdog > 0 and quantitySprite > 0 and  quantityPepsicola == 0 then
-				local kindFood = math.random (1, 2)
+				kindFood = math.random (1, 2)
 				if kindFood == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
+							text = "Vendiste "..quantityPollofrito.."X Pollo Frito por $" .. paymentpollofrito*quantityPollofrito ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -482,7 +466,7 @@ end)
 				if kindFood == 2 then
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste HotDog por $" .. paymenthotdog*quantityHotdog ,
+							text = "Vendiste "..quantityHotdog.."x HotDog por $" .. paymenthotdog*quantityHotdog ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -494,12 +478,12 @@ end)
 					xPlayer.addAccountMoney('money', paymenthotdog*quantityHotdog)
 				end
 
-				local kindDrink = 1
+				kindDrink = 1
 				if kindDrink == 1 then
 
 					TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
 					TriggerClientEvent("pNotify:SendNotification", source, {
-							text = "Vendiste Sprite por $" .. paymentsprite*quantitySprite ,
+							text = "Vendiste "..quantitySprite.."X Sprite por $" .. paymentsprite*quantitySprite ,
 							type = "success",
 							progressBar = false,
 							queue = "lmao",
@@ -548,13 +532,25 @@ AddEventHandler('sell_dis', function()
 end)
 
 
-RegisterNetEvent('checkD')
-AddEventHandler('checkD', function()
+RegisterNetEvent('checkFoodDrugsServer')
+AddEventHandler('checkFoodDrugsServer', function()
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local pollofrito = xPlayer.getInventoryItem('pollofrito').count
 	local sprite 	  = xPlayer.getInventoryItem('sprite').count
 	local pepsicola = xPlayer.getInventoryItem('pepsicola').count
 	local hotdog = xPlayer.getInventoryItem('hotdog').count
+	local notHasDrugs = true
+	local foodExist = false
+	local drinkExist = false
+
+	local meth = xPlayer.getInventoryItem('meth_pooch').count
+	local coke 	  = xPlayer.getInventoryItem('coke_pooch').count
+	local weed = xPlayer.getInventoryItem('marijuana').count
+	local opium = xPlayer.getInventoryItem('opium_pooch').count
+
+	if meth > 0 or coke > 0 or weed > 0 or opium > 0 then
+		notHasDrugs = false	
+	end
 
 	if pollofrito > 0 or hotdog > 0 then
 		foodExist = true		
@@ -564,10 +560,10 @@ AddEventHandler('checkD', function()
 		drinkExist = true		
 	end
 
-	if foodExist and drinkExist then
-		TriggerClientEvent("checkR", source, true)
+	if foodExist and drinkExist and notHasDrugs then
+		TriggerClientEvent("checkFoodDrugs", source, true)
 	else
-		TriggerClientEvent("checkR", source, false)
+		TriggerClientEvent("checkFoodDrugs", source, false)		
 	end
 
 end)
