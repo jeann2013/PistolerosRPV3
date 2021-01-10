@@ -16,7 +16,7 @@ Config.EnableHandcuffTimer        = true -- enable handcuff timer? will unrestra
 Config.HandcuffTimer              = 10 * 60000 -- 10 mins
 
 Config.MaxInService               = -1
-Config.Locale                     = 'en'
+Config.Locale                     = 'es'
 
 Config.PoliceStations = {
 
