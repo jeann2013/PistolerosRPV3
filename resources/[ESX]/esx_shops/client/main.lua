@@ -69,7 +69,11 @@ end
 
 AddEventHandler('esx_shops:hasEnteredMarker', function(zone)
 	currentAction     = 'shop_menu'
-	currentActionMsg  = _U('press_menu')
+	if zone == 'StandCofee' or zone == 'Stand' then
+		currentActionMsg  = _U('press_menu_stand')
+	else
+		currentActionMsg  = _U('press_menu')
+	end
 	currentActionData = {zone = zone}
 end)
 
@@ -81,12 +85,19 @@ end)
 -- Create Blips
 Citizen.CreateThread(function()
 	for k,v in pairs(Config.Zones) do
+
 		for i = 1, #v.Pos, 1 do
 			local blip = AddBlipForCoord(v.Pos[i].x, v.Pos[i].y, v.Pos[i].z)
 
 			SetBlipSprite (blip, 52)
-			SetBlipScale  (blip, 1.0)
-			SetBlipColour (blip, 2)
+			if k == 'StandCofee' or k == 'Stand' then
+				SetBlipScale  (blip, 0)
+				SetBlipColour (blip, 0)
+			else
+				SetBlipScale  (blip, 1.0)
+				SetBlipColour (blip, 2)
+			end
+			
 			SetBlipAsShortRange(blip, true)
 
 			BeginTextCommandSetBlipName('STRING')
@@ -108,7 +119,9 @@ Citizen.CreateThread(function()
 				local distance = GetDistanceBetweenCoords(playerCoords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true)
 
 				if distance < Config.DrawDistance then
-					DrawMarker(Config.Type, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, nil, nil, false)
+					if k ~= 'StandCofee' and k ~= 'Stand' then
+						DrawMarker(Config.Type, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, nil, nil, false)
+					end
 					letSleep = false
 
 					if distance < Config.Size.x then
