@@ -1,7 +1,7 @@
 ESX                 = nil
 local myJob     = nil
 local selling       = false
-local has       = false
+local hasFood       = false
 local copsc     = false
 
 Citizen.CreateThread(function()
@@ -45,8 +45,8 @@ while true do
               currentped = pos
 
               if distance <= 2 and ped  ~= GetPlayerPed(-1) and ped ~= oldped then
-                TriggerServerEvent('checkD')
-                if has == true then
+                TriggerServerEvent('checkFoodDrugsServer')
+                if hasFood == true then
                   drawTxt(0.90, 1.40, 1.0,1.0,0.4, "Presione ~g~E ~w~para intentar una venta de comida...", 255, 255, 255, 255)
                   if IsControlJustPressed(1, 86) then
                       oldped = ped
@@ -84,9 +84,9 @@ AddEventHandler('sell', function()
 end)
 
 
-RegisterNetEvent('checkR')
-AddEventHandler('checkR', function(test)
-  has = test
+RegisterNetEvent('checkFoodDrugs')
+AddEventHandler('checkFoodDrugs', function(test)
+  hasFood = test
 end)
 
 RegisterNetEvent('notifyc')
