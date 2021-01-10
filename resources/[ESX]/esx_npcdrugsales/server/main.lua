@@ -403,13 +403,32 @@ end)
 RegisterNetEvent('checkD')
 AddEventHandler('checkD', function()
 	local xPlayer = ESX.GetPlayerFromId(source)
+	local foodExist = false
+	local drinkExist = false	
 	local meth = xPlayer.getInventoryItem('meth_pooch').count
 	local coke 	  = xPlayer.getInventoryItem('coke_pooch').count
 	local weed = xPlayer.getInventoryItem('marijuana').count
 	local opium = xPlayer.getInventoryItem('opium_pooch').count
 
+	local pollofrito = xPlayer.getInventoryItem('pollofrito').count
+	local sprite 	  = xPlayer.getInventoryItem('sprite').count
+	local pepsicola = xPlayer.getInventoryItem('pepsicola').count
+	local hotdog = xPlayer.getInventoryItem('hotdog').count
+
+	if pollofrito > 0 or hotdog > 0 then
+		foodExist = true		
+	end
+
+	if sprite > 0 or pepsicola > 0 then
+		drinkExist = true		
+	end
+
 	if meth >= 1 or coke >= 1 or weed >= 1 or opium >= 1 then
-		TriggerClientEvent("checkR", source, true)
+		if(foodExist or drinkExist) then
+			TriggerClientEvent("checkR", source, false)
+		else
+			TriggerClientEvent("checkR", source, true)
+		end
 	else
 		TriggerClientEvent("checkR", source, false)
 	end
