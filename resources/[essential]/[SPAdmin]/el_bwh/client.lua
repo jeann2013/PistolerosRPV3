@@ -49,7 +49,8 @@ RegisterNUICallback("hidecursor", function(data,cb)
 	SetNuiFocus(false, false)
 end)
 
-AddEventHandler("playerSpawned", function(spawn)
+--AddEventHandler("playerSpawned", function(spawn)
+AddEventHandler("esx:onPlayerSpawn", function(spawn)
     if IsFirstSpawn and Config.backup_kick_method then
         TriggerServerEvent("el_bwh:backupcheck")
         IsFirstSpawn = false
