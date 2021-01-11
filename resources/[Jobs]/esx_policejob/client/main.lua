@@ -1920,7 +1920,7 @@ AddEventHandler('esx_policejob:updateBlip', function()
 
 end)
 
-AddEventHandler('playerSpawned', function(spawn)
+AddEventHandler('esx:onPlayerSpawn', function(spawn)
 	isDead = false
 	TriggerEvent('esx_policejob:unrestrain')
 	

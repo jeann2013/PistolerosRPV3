@@ -2,4 +2,5 @@
 alpine
 cache
 run.sh
-resources/[essential]/[SPAdmin]/logsystem/logs/*
+resources/[essential]/[SPAdmin]/logsystem/logs/*.json
+resources/[CarHud]/car-hud/*.json

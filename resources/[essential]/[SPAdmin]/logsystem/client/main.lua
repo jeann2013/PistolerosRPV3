@@ -6,7 +6,7 @@ local chat = {}
 local isAdmin = false
 
 local firstSpawn = true
-AddEventHandler("playerSpawned", function()
+AddEventHandler("esx:onPlayerSpawn", function()
   if(firstSpawn) then
     TriggerServerEvent("logs:playerConnected")
     firstSpawn = false

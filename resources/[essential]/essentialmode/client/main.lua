@@ -44,7 +44,7 @@ AddEventHandler("es:setPlayerDecorator", function(key, value, doNow)
 	end
 end)
 
-AddEventHandler("playerSpawned", function()
+AddEventHandler("esx:onPlayerSpawn", function()
 	for k,v in pairs(myDecorators)do
 		DecorSetInt(PlayerPedId(), k, v)
 	end
