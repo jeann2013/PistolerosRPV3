@@ -2,15 +2,15 @@ $(document).ready(function($) {
 
 	let videoTracks =  {
 		0:"pICv0qQIbeY",
-		1:"v8uvdtDORkE",
-		2:"0OkiUUU3Odw",
-		3:"G5Wng8W8S8A",
-		4:"4OKgRMRDusM",
-		5:"SSuTme04Bys",
-		6:"n8-qex4jTP4",
+		1:"dqE5MnL4Fus",
+		2:"yhbaP_xDWpM",
+		3:"cObINi_-SiA",
+		4:"gKD4DOr_wfc",
+		5:"hEVHLFDTkQ4",
+		6:"CjwX5qVIGOs",
 		7:"prU2g7PBTxs",
 		8:"NUteQQCMa_k",
-		9:"7MJvKW2KVJQ"
+		9:"VS-Jk2YwA0E"
 	};
 	let track = Math.floor(Math.random() * 10);
 	let video = videoTracks[track];
