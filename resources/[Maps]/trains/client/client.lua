@@ -809,7 +809,7 @@ end
 -- Added for OneSync
 local firstspawn = 0 -- By default, Its the first spawn of the player. So, I don't recommend to restart the script with already player in the server.
 
-AddEventHandler('playerSpawned', function()
+AddEventHandler('esx:onPlayerSpawn', function()
 	while EverythingisK == false do Citizen.Wait(0) end -- The Event "StartTrain" is fully registered. We can continue now.
 	if firstspawn == 0 then -- First spawn of the player ? Check if they are already trains
 		TriggerServerEvent('FiveM-Trains:PlayerSpawned')

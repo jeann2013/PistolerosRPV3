@@ -318,6 +318,7 @@ function spawnPlayer(spawnIdx, cb)
         freezePlayer(PlayerId(), false)
 
         --TriggerEvent('playerSpawned', spawn)
+        setAutoSpawn(false)
         TriggerEvent('esx:onPlayerSpawn', spawn)
         
 

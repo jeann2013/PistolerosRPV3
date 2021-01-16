@@ -33,7 +33,7 @@ AddEventHandler('esx:onPlayerDeath', function()
 	return false
 end)
 
-AddEventHandler('playerSpawned', function(spawn)
+AddEventHandler('esx:onPlayerSpawn', function(spawn)
 	if IsDead then
 		TriggerEvent('esx_basicneeds:resetStatus')
 	end

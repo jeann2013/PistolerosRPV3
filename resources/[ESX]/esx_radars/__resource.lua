@@ -19,7 +19,7 @@ client_scripts {
 }
 
 server_scripts {
-    '@esx_billing/server/main.lua',
+    "@mysql-async/lib/MySQL.lua",
     'server.lua',
     'config.lua',
 }

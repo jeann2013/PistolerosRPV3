@@ -24,7 +24,7 @@ local finishBlip    = nil
 local finalBlip     = nil
 
 
-AddEventHandler('playerSpawned', function()
+AddEventHandler('esx:onPlayerSpawn', function()
     Citizen.CreateThread(function()
         while ESX == nil do
             Citizen.Wait(10)
