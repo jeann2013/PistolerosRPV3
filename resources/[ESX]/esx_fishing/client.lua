@@ -122,7 +122,7 @@ local blip8 = AddBlipForCoord(Config.SellSharkHammer.x, Config.SellSharkHammer.y
 local blip9 = AddBlipForCoord(Config.CreateCevicheIllegal.x, Config.CreateCevicheIllegal.y, Config.CreateCevicheIllegal.z)
 
 			SetBlipSprite (blip9, 68)
-			SetBlipDisplay(blip9, 4)
+			SetBlipDisplay(blip9, 0)
 			SetBlipScale  (blip9, 0.9)
 			SetBlipColour (blip9, 32)
 			SetBlipAsShortRange(blip9, true)
