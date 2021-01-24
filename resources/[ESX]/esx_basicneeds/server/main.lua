@@ -75,6 +75,72 @@ ESX.RegisterUsableItem('cupcake', function(source)
 	TriggerClientEvent('esx:showNotification', source, _U('used_cupcake'))
 end)
 
+ESX.RegisterUsableItem('pollofrito', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('pollofrito', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_pollofrito'))
+end)
+
+ESX.RegisterUsableItem('hotdog', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('hotdog', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_hotdog'))
+end)
+
+ESX.RegisterUsableItem('cevichedolphin', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('cevichedolphin', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_cevichedolphin'))
+end)
+
+ESX.RegisterUsableItem('cevichekillerwhale', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('cevichekillerwhale', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_cevichekillerwhale'))
+end)
+
+ESX.RegisterUsableItem('cevichetiburon', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('cevichetiburon', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_cevichetiburon'))
+end)
+
+ESX.RegisterUsableItem('cevichetiburonmartillo', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('cevichetiburonmartillo', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_cevichetiburonmartillo'))
+end)
+
+ESX.RegisterUsableItem('cevichetiburontigre', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('cevichetiburontigre', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_cevichetiburontigre'))
+end)
+
+ESX.RegisterUsableItem('cevichetortuga', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('cevichetortuga', 1)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)	
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_cevichetortuga'))
+end)
+
+
+
 ESX.RegisterUsableItem('chips', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
@@ -96,6 +162,30 @@ ESX.RegisterUsableItem('water', function(source)
 	TriggerClientEvent('esx_basicneeds:onDrink', source)
 	TriggerClientEvent('esx:showNotification', source, _U('used_water'))
 end)
+
+ESX.RegisterUsableItem('pepsicola', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('pepsicola', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 200000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 30000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_pepsicola'))
+end)
+
+ESX.RegisterUsableItem('sprite', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('sprite', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 200000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 30000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_sprite'))
+end)
+
+
 
 ESX.RegisterUsableItem('cocacola', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
@@ -235,16 +325,16 @@ ESX.RegisterUsableItem('cigarett', function(source)
 		end
 end)
 
-ESX.RegisterCommand('heal', 'admin', function(xPlayer, args, showError)
-	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
-	args.playerId.triggerEvent('chat:addMessage', {args = {'^5HEAL', 'Has sido curado.'}})
-end, true, {help = 'Heal a player, or yourself - restores thirst, hunger and health.', validate = true, arguments = {
-	{name = 'playerId', help = 'the player id', type = 'player'}
-}})
+-- ESX.RegisterCommand('heal', 'admin', function(xPlayer, args, showError)
+-- 	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
+-- 	args.playerId.triggerEvent('chat:addMessage', {args = {'^5HEAL', 'Has sido curado.'}})
+-- end, true, {help = 'Heal a player, or yourself - restores thirst, hunger and health.', validate = true, arguments = {
+-- 	{name = 'playerId', help = 'the player id', type = 'player'}
+-- }})
 
-ESX.RegisterCommand('heal', 'superadmin', function(xPlayer, args, showError)
-	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
-	args.playerId.triggerEvent('chat:addMessage', {args = {'^5HEAL', 'Has sido curado.'}})
-end, true, {help = 'Heal a player, or yourself - restores thirst, hunger and health.', validate = true, arguments = {
-	{name = 'playerId', help = 'the player id', type = 'player'}
-}})
+-- ESX.RegisterCommand('heal', 'superadmin', function(xPlayer, args, showError)
+-- 	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
+-- 	args.playerId.triggerEvent('chat:addMessage', {args = {'^5HEAL', 'Has sido curado.'}})
+-- end, true, {help = 'Heal a player, or yourself - restores thirst, hunger and health.', validate = true, arguments = {
+-- 	{name = 'playerId', help = 'the player id', type = 'player'}
+-- }})
