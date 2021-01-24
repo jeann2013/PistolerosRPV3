@@ -537,7 +537,7 @@ end)
 					saleMade = false
 				end
 
-				if cevichekillerwhale > 0 and saleMade then.
+				if cevichekillerwhale > 0 and saleMade then
 					if cevichekillerwhale >= 3 then
 						quantityIllegalFood = math.random (1, 3)
 					else
@@ -728,7 +728,7 @@ AddEventHandler('checkFoodDrugsServer', function()
 	cevichetiburontigre > 0  or cevichetortuga > 0 then
 		foodIllegalExist = true		
 	end
-
+	
 	if sprite > 0 or pepsicola > 0 then
 		drinkExist = true		
 	end
