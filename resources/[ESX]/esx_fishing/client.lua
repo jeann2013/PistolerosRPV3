@@ -39,7 +39,7 @@ local blip = AddBlipForCoord(Config.SellFish.x, Config.SellFish.y, Config.SellFi
 			SetBlipColour (blip, 17)
 			SetBlipAsShortRange(blip, true)
 			BeginTextCommandSetBlipName("STRING")
-			AddTextComponentString("Fish selling")
+			AddTextComponentString("Venta de pescado")
 			EndTextCommandSetBlipName(blip)
 			
 local blip2 = AddBlipForCoord(Config.SellTurtle.x, Config.SellTurtle.y, Config.SellTurtle.z)
@@ -50,7 +50,7 @@ local blip2 = AddBlipForCoord(Config.SellTurtle.x, Config.SellTurtle.y, Config.S
 			SetBlipColour (blip2, 49)
 			SetBlipAsShortRange(blip2, true)
 			BeginTextCommandSetBlipName("STRING")
-			AddTextComponentString("Sea Turtle dealer")
+			AddTextComponentString("Venta de tortuga")
 			EndTextCommandSetBlipName(blip2)
 			
 local blip3 = AddBlipForCoord(Config.SellShark.x, Config.SellShark.y, Config.SellShark.z)
@@ -61,8 +61,74 @@ local blip3 = AddBlipForCoord(Config.SellShark.x, Config.SellShark.y, Config.Sel
 			SetBlipColour (blip3, 49)
 			SetBlipAsShortRange(blip3, true)
 			BeginTextCommandSetBlipName("STRING")
-			AddTextComponentString("Shark meat dealer")
+			AddTextComponentString("Venta de Tiburon")
 			EndTextCommandSetBlipName(blip3)
+
+local blip4 = AddBlipForCoord(Config.SellSharkTiger.x, Config.SellSharkTiger.y, Config.SellSharkTiger.z)
+
+			SetBlipSprite (blip4, 68)
+			SetBlipDisplay(blip4, 4)
+			SetBlipScale  (blip4, 0.9)
+			SetBlipColour (blip4, 49)
+			SetBlipAsShortRange(blip4, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Venta de tiburon tigre")
+			EndTextCommandSetBlipName(blip4)			
+
+local blip5 = AddBlipForCoord(Config.SellStingrey.x, Config.SellStingrey.y, Config.SellStingrey.z)
+
+			SetBlipSprite (blip5, 68)
+			SetBlipDisplay(blip5, 4)
+			SetBlipScale  (blip5, 0.9)
+			SetBlipColour (blip5, 49)
+			SetBlipAsShortRange(blip5, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Venta de carne de Matarraya")
+			EndTextCommandSetBlipName(blip5)
+
+local blip6 = AddBlipForCoord(Config.SellDolphin.x, Config.SellDolphin.y, Config.SellDolphin.z)
+
+			SetBlipSprite (blip6, 68)
+			SetBlipDisplay(blip6, 4)
+			SetBlipScale  (blip6, 0.9)
+			SetBlipColour (blip6, 49)
+			SetBlipAsShortRange(blip6, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Venta de carne de Delfin")
+			EndTextCommandSetBlipName(blip6)
+
+local blip7 = AddBlipForCoord(Config.SellKillerWhale.x, Config.SellKillerWhale.y, Config.SellKillerWhale.z)
+
+			SetBlipSprite (blip7, 68)
+			SetBlipDisplay(blip7, 4)
+			SetBlipScale  (blip7, 0.9)
+			SetBlipColour (blip7, 49)
+			SetBlipAsShortRange(blip7, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Venta de carne de Orca")
+			EndTextCommandSetBlipName(blip7)			
+
+local blip8 = AddBlipForCoord(Config.SellSharkHammer.x, Config.SellSharkHammer.y, Config.SellSharkHammer.z)
+
+			SetBlipSprite (blip8, 68)
+			SetBlipDisplay(blip8, 4)
+			SetBlipScale  (blip8, 0.9)
+			SetBlipColour (blip8, 49)
+			SetBlipAsShortRange(blip8, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Venta de carne de tiburon martillo")
+			EndTextCommandSetBlipName(blip8)
+
+local blip9 = AddBlipForCoord(Config.CreateCevicheIllegal.x, Config.CreateCevicheIllegal.y, Config.CreateCevicheIllegal.z)
+
+			SetBlipSprite (blip9, 68)
+			SetBlipDisplay(blip9, 4)
+			SetBlipScale  (blip9, 0.9)
+			SetBlipColour (blip9, 32)
+			SetBlipAsShortRange(blip9, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Punto de creacion de ceviche ilegal")
+			EndTextCommandSetBlipName(blip9)
 			
 for _, info in pairs(Config.MarkerZones) do
 		info.blip = AddBlipForCoord(info.x, info.y, info.z)
@@ -72,7 +138,7 @@ for _, info in pairs(Config.MarkerZones) do
 		SetBlipColour(info.blip, 20)
 		SetBlipAsShortRange(info.blip, true)
 		BeginTextCommandSetBlipName("STRING")
-		AddTextComponentString("Boat rental")
+		AddTextComponentString("Alquiler de Bote")
 		EndTextCommandSetBlipName(info.blip)
 	end
 	
@@ -178,6 +244,31 @@ Citizen.CreateThread(function()
 			TriggerServerEvent('fishing:startSelling', "turtle")
 			Citizen.Wait(4000)
 		end
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellSharkTiger.x, Config.SellSharkTiger.y, Config.SellSharkTiger.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "sharktiger")
+			Citizen.Wait(4000)
+		end
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellStingrey.x, Config.SellStingrey.y, Config.SellStingrey.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "stingray")
+			Citizen.Wait(4000)
+		end
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellDolphin.x, Config.SellDolphin.y, Config.SellDolphin.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "dolphin")
+			Citizen.Wait(4000)
+		end
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellKillerWhale.x, Config.SellKillerWhale.y, Config.SellKillerWhale.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "killerwhale")
+			Citizen.Wait(4000)
+		end
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellSharkHammer.x, Config.SellSharkHammer.y, Config.SellSharkHammer.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "sharkhammer")
+			Citizen.Wait(4000)
+		end		
+
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.CreateCevicheIllegal.x, Config.CreateCevicheIllegal.y, Config.CreateCevicheIllegal.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "ceviche")
+			Citizen.Wait(4000)
+		end		
 		
 	end
 end)
@@ -191,6 +282,12 @@ Citizen.CreateThread(function()
 		DrawMarker(1, Config.SellFish.x, Config.SellFish.y, Config.SellFish.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 		DrawMarker(1, Config.SellTurtle.x, Config.SellTurtle.y, Config.SellTurtle.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 		DrawMarker(1, Config.SellShark.x, Config.SellShark.y, Config.SellShark.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.SellSharkTiger.x, Config.SellSharkTiger.y, Config.SellSharkTiger.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.SellStingrey.x, Config.SellStingrey.y, Config.SellStingrey.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.SellDolphin.x, Config.SellDolphin.y, Config.SellDolphin.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.SellKillerWhale.x, Config.SellKillerWhale.y, Config.SellKillerWhale.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.SellSharkHammer.x, Config.SellSharkHammer.y, Config.SellSharkHammer.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.CreateCevicheIllegal.x, Config.CreateCevicheIllegal.y, Config.CreateCevicheIllegal.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 	end
 end)
 
@@ -278,6 +375,78 @@ Citizen.CreateThread(function()
             end
         end
     end
+end)
+
+RegisterNetEvent('sharktiger:spawnPed')
+AddEventHandler('sharktiger:spawnPed', function()
+	RequestTheModel("A_C_SharkTiger")
+	local pos = GetEntityCoords(PlayerPedId())
+	local ped = CreatePed(29, `A_C_SharkTiger`, pos.x, pos.y, pos.z, 90.0, true, false)
+	SetEntityHealth(ped, 0)
+	DecorSetInt(ped, "propHack", 74)
+	SetModelAsNoLongerNeeded(`A_C_SharkTiger`)
+	Wait(10000)
+    DeletePed(ped)
+end)
+
+RegisterNetEvent('killerwhale:spawnPed')
+AddEventHandler('killerwhale:spawnPed', function()
+	RequestTheModel("A_C_KillerWhale")
+	local pos = GetEntityCoords(PlayerPedId())
+	local ped = CreatePed(29, `A_C_KillerWhale`, pos.x, pos.y, pos.z, 90.0, true, false)
+	SetEntityHealth(ped, 0)
+	DecorSetInt(ped, "propHack", 74)
+	SetModelAsNoLongerNeeded(`A_C_KillerWhale`)
+	Wait(10000)
+    DeletePed(ped)
+end)
+
+RegisterNetEvent('stingray:spawnPed')
+AddEventHandler('stingray:spawnPed', function()
+	RequestTheModel("A_C_stingray")
+	local pos = GetEntityCoords(PlayerPedId())
+	local ped = CreatePed(29, `A_C_stingray`, pos.x, pos.y, pos.z, 90.0, true, false)
+	SetEntityHealth(ped, 0)
+	DecorSetInt(ped, "propHack", 74)
+	SetModelAsNoLongerNeeded(`A_C_stingray`)
+	Wait(10000)
+	DeletePed(ped)
+end)
+
+RegisterNetEvent('sharkhammer:spawnPed')
+AddEventHandler('sharkhammer:spawnPed', function()
+	RequestTheModel("A_C_sharkhammer")
+	local pos = GetEntityCoords(PlayerPedId())
+	local ped = CreatePed(29, `A_C_sharkhammer`, pos.x, pos.y, pos.z, 90.0, true, false)
+	SetEntityHealth(ped, 0)
+	DecorSetInt(ped, "propHack", 74)
+	SetModelAsNoLongerNeeded(`A_C_sharkhammer`)
+	Wait(10000)
+        DeletePed(ped)
+end)
+
+RegisterNetEvent('dolphin:spawnPed')
+AddEventHandler('dolphin:spawnPed', function()
+	RequestTheModel("A_C_dolphin")
+	local pos = GetEntityCoords(PlayerPedId())
+	local ped = CreatePed(29, `A_C_dolphin`, pos.x, pos.y, pos.z, 90.0, true, false)
+	SetEntityHealth(ped, 0)
+	DecorSetInt(ped, "propHack", 74)
+	SetModelAsNoLongerNeeded(`A_C_dolphin`)
+	Wait(10000)
+        DeletePed(ped)
+end)
+
+RegisterNetEvent('fish:spawnPed')
+AddEventHandler('fish:spawnPed', function()
+	RequestTheModel("a_c_fish")
+	local pos = GetEntityCoords(PlayerPedId())
+	local ped = CreatePed(29, `a_c_fish`, pos.x, pos.y, pos.z, 90.0, true, false)
+	SetEntityHealth(ped, 0)
+	DecorSetInt(ped, "propHack", 74)
+	SetModelAsNoLongerNeeded(`a_c_fish`)
+	Wait(10000)
+    DeletePed(ped)
 end)
 
 function OpenBoatsMenu(x, y , z)
@@ -381,4 +550,11 @@ function OpenBoatsMenu(x, y , z)
 		menu.close()
 		end
 	)
+end
+
+function RequestTheModel(model)
+	RequestModel(model)
+	while not HasModelLoaded(model) do
+		Citizen.Wait(0)
+	end
 end
