@@ -60,8 +60,8 @@ end)
 		local kindDrink = 0
 		local foodIlegal = false
 		local quantityIllegalFood = 0
-		local paymentCeviche1 = 1200;
-		local paymentCeviche2 = 1500;
+		local paymentCeviche1 = 2000;
+		local paymentCeviche2 = 3500;
 
 		if pollofrito > 0 or hotdog > 0 then
 			foodExist = true		
@@ -512,10 +512,10 @@ end)
 		if cevichedolphin > 0 or cevichekillerwhale > 0 or 
 		cevichetiburon > 0 or cevichetiburonmartillo > 0 or cevichetiburontigre > 0  or 
 		cevichetortuga > 0 then
-			local interestingCustumer = math.random(1, 20)			
-			local kindFoodIllegal = math.random(1, 6)
+			local interestingCustumer = math.random(1, 20)						
+			local saleMade = true;
 			if interestingCustumer <= 9 then
-				if cevichedolphin > 0 and kindFoodIllegal == 1 then
+				if cevichedolphin > 0 and saleMade then
 					if cevichedolphin >= 3 then
 						quantityIllegalFood = math.random (1, 3)
 					else
@@ -534,9 +534,10 @@ end)
 					TriggerClientEvent("animation", source)
 					xPlayer.removeInventoryItem('cevichedolphin', quantityIllegalFood)
 					xPlayer.addAccountMoney('black_money', paymentCeviche2*quantityIllegalFood)
+					saleMade = false
 				end
 
-				if cevichekillerwhale > 0 and kindFoodIllegal == 2 then
+				if cevichekillerwhale > 0 and saleMade then.
 					if cevichekillerwhale >= 3 then
 						quantityIllegalFood = math.random (1, 3)
 					else
@@ -555,9 +556,10 @@ end)
 					TriggerClientEvent("animation", source)
 					xPlayer.removeInventoryItem('cevichekillerwhale', quantityIllegalFood)
 					xPlayer.addAccountMoney('black_money', paymentCeviche2*quantityIllegalFood)
+					saleMade = false
 				end
 
-				if cevichetiburon > 0 and kindFoodIllegal == 3 then
+				if cevichetiburon > 0 and saleMade then
 					if cevichetiburon >= 3 then
 						quantityIllegalFood = math.random (1, 3)
 					else
@@ -576,9 +578,10 @@ end)
 					TriggerClientEvent("animation", source)
 					xPlayer.removeInventoryItem('cevichetiburon', quantityIllegalFood)
 					xPlayer.addAccountMoney('black_money', paymentCeviche1*quantityIllegalFood)
+					saleMade = false
 				end
 
-				if cevichetiburonmartillo > 0 and kindFoodIllegal == 4 then
+				if cevichetiburonmartillo > 0 and saleMade then
 					if cevichetiburonmartillo >= 3 then
 						quantityIllegalFood = math.random (1, 3)
 					else
@@ -597,9 +600,10 @@ end)
 					TriggerClientEvent("animation", source)
 					xPlayer.removeInventoryItem('cevichetiburonmartillo', quantityIllegalFood)
 					xPlayer.addAccountMoney('black_money', paymentCeviche1*quantityIllegalFood)
+					saleMade = false
 				end
 
-				if cevichetiburontigre > 0 and kindFoodIllegal == 5 then
+				if cevichetiburontigre > 0 and saleMade then
 					if cevichetiburontigre >= 3 then
 						quantityIllegalFood = math.random (1, 3)
 					else
@@ -618,9 +622,10 @@ end)
 					TriggerClientEvent("animation", source)
 					xPlayer.removeInventoryItem('cevichetiburontigre', quantityIllegalFood)
 					xPlayer.addAccountMoney('black_money', paymentCeviche2*quantityIllegalFood)
+					saleMade = false
 				end
 
-				if cevichetortuga > 0 and kindFoodIllegal == 6 then
+				if cevichetortuga > 0 and saleMade then
 					if cevichetortuga >= 3 then
 						quantityIllegalFood = math.random (1, 3)
 					else
@@ -639,6 +644,7 @@ end)
 					TriggerClientEvent("animation", source)
 					xPlayer.removeInventoryItem('cevichetortuga', quantityIllegalFood)
 					xPlayer.addAccountMoney('black_money', paymentCeviche1*quantityIllegalFood)
+					saleMade = false
 				end
 			else
 				TriggerClientEvent("pNotify:SetQueueMax", source, "lmao", 5)
