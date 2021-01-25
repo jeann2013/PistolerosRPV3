@@ -472,7 +472,7 @@ function OpenBoatsMenu(x, y , z)
 	ESX.UI.Menu.Open(
     'default', GetCurrentResourceName(), 'client',
     {
-		title    = 'Rent a boat',
+		title    = 'Alquiler de botes',
 		align    = 'bottom-right',
 		elements = elements,
     },
