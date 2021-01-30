@@ -66,6 +66,6 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 		end
 	else
 		local missingMoney = price - xPlayer.getMoney()
-		xPlayer.showNotification(_U('not_enough', ESX.Math.GroupDigits(missingMoney)))
+		xPlayer.showNotification(_U('not_enough'))
 	end
 end)
