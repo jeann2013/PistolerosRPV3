@@ -315,6 +315,23 @@ Config.Garages = {
 			HelpPrompt = _U('store_car')
 		}, 	
 	},
+	Garage_Vespucci = {
+		Pos = {x = -465.55,y =-794.49,z = 30.55 },
+		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
+		Name = _U('garage_name'),
+		HelpPrompt = _U('open_car_garage'),
+		SpawnPoint = {
+			Pos = {x = -476.32,y = -794.20,z = 30.55 },
+			Heading = 270.23,
+			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
+			HelpPrompt = _U('spawn_car')
+		},
+		DeletePoint = {
+			Pos = {x = -454.71,y =-804.70,z = 30.54 },
+			Marker = { w= 1.5, h= 1.0,r=255,g=0,b=0},
+			HelpPrompt = _U('store_car')
+		}, 	
+	},
 	-- Garage_Tournoi = {
 		-- Pos = {x = 3171.8381347656,y = -1667.3009033203,z = 6.4746117591858 },
 		-- Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
