@@ -1,7 +1,7 @@
 ------------------ change this -------------------
 
 admins = {
-    'steam:110000105959047',
+    'steam:110000142d368bd',
     --'license:1234975143578921327',
 }
 
@@ -41,7 +41,7 @@ local baseTime = 0
 local timeOffset = 0
 local freezeTime = false
 local blackout = false
-local newWeatherTimer = 10
+local newWeatherTimer = 0
 
 RegisterServerEvent('vSync:requestSync')
 AddEventHandler('vSync:requestSync', function()
