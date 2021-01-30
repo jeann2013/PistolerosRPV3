@@ -31,7 +31,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 45000,
-		Cars = {'veneno','lamboavj','amcj','BUGATTI','bdivo'},
+		Cars = {'veneno','deveste','amcj','entity2','visione'},
 	},
 	--Great Ocean Highway 10.47KM
 	Delivery10 = {
@@ -40,7 +40,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 35500,
-		Cars = {'nero','chiron','LykanHypersport','f12','pd_avent'},
+		Cars = {'nero','chiron','nero2','f12','tezeract'},
 	},
 	--Lighthouse 9.61KM
 	Delivery4 = {
@@ -49,7 +49,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 30000,
-		Cars = {'GT2017','rmodlp770','lamboavj','italigtb','SULTANRSV8'},
+		Cars = {'tyrant','rmodlp770','lamboavj','italigtb','tempesta'},
 	},
 	--Desert
 	--Trevor Airfield 9.22KM
@@ -59,7 +59,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 22000,
-		Cars = {'zentorno','t20','mig','18performante','FMGT'},
+		Cars = {'zentorno','t20','infernus2','18performante','FMGT'},
 	},
 	--Marina Drive Desert 8.15KM
 	Delivery13 = {
@@ -68,6 +68,6 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 20000,
-		Cars = {'2018zl1','sultanrsv8','20r1','599gtox','hvrod'},
+		Cars = {'2018zl1','gp1','20r1','vagner','hvrod'},
 	},
 }
