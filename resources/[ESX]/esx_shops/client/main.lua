@@ -71,6 +71,8 @@ AddEventHandler('esx_shops:hasEnteredMarker', function(zone)
 	currentAction     = 'shop_menu'
 	if zone == 'StandCofee' or zone == 'Stand' then
 		currentActionMsg  = _U('press_menu_stand')
+	elseif zone == 'StandFruit' then
+		currentActionMsg  = _U('press_menu_stand_fruit')
 	else
 		currentActionMsg  = _U('press_menu')
 	end
@@ -90,7 +92,7 @@ Citizen.CreateThread(function()
 			local blip = AddBlipForCoord(v.Pos[i].x, v.Pos[i].y, v.Pos[i].z)
 
 			SetBlipSprite (blip, 52)
-			if k == 'StandCofee' or k == 'Stand' then
+			if k == 'StandCofee' or k == 'Stand' or k == 'StandFruit' then
 				SetBlipScale  (blip, 0)
 				SetBlipColour (blip, 0)
 			else
@@ -119,7 +121,7 @@ Citizen.CreateThread(function()
 				local distance = GetDistanceBetweenCoords(playerCoords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true)
 
 				if distance < Config.DrawDistance then
-					if k ~= 'StandCofee' and k ~= 'Stand' then
+					if k ~= 'StandCofee' and k ~= 'Stand' and k ~= 'StandFruit' then
 						DrawMarker(Config.Type, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, nil, nil, false)
 					end
 					letSleep = false

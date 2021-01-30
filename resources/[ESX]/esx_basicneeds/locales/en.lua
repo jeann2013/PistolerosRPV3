@@ -30,4 +30,20 @@ Locales['en'] = {
   ['used_cevichetiburonmartillo'] = 'Has comido ~y~1x~s~ ~b~Ceviche de Tiburon martillo~s~',
   ['used_cevichetiburontigre'] = 'Has comido ~y~1x~s~ ~b~Ceviche de Tiburon tigre~s~',
   ['used_cevichetortuga'] = 'Has comido ~y~1x~s~ ~b~Ceviche de Tortuga marina~s~',
+  ['used_apple'] = 'Has comido ~y~1x~s~ ~b~Manzana~s~',  
+  ['used_pear'] = 'Has comido ~y~1x~s~ ~b~Pera~s~',
+  ['used_banana'] = 'Has comido ~y~1x~s~ ~b~Guineo~s~',
+  ['used_mangoe'] = 'Has comido ~y~1x~s~ ~b~Mango~s~',
+  ['used_lemon'] = 'Has comido ~y~1x~s~ ~b~Limon~s~',
+  ['used_orange'] = 'Has comido ~y~1x~s~ ~b~Naranja~s~',
+  ['used_melon'] = 'Has comido ~y~1x~s~ ~b~Melon~s~',
+  ['used_berries'] = 'Has comido ~y~1x~s~ ~b~Baya~s~',
+  ['used_nuts'] = 'Has comido ~y~1x~s~ ~b~Nuez~s~',
+  ['used_grapes'] = 'Has comido ~y~1x~s~ ~b~Uva~s~',
+  
+
+  
+
+  
+  
 }

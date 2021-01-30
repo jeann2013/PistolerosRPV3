@@ -198,6 +198,117 @@ ESX.RegisterUsableItem('cocacola', function(source)
 	TriggerClientEvent('esx:showNotification', source, _U('used_cocacola'))
 end)
 
+ESX.RegisterUsableItem('apple', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('apple', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_apple'))
+end)
+
+ESX.RegisterUsableItem('pear', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('pear', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_pear'))
+end)
+
+ESX.RegisterUsableItem('banana', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('banana', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_banana'))
+end)
+
+ESX.RegisterUsableItem('nuts', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('nuts', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_nuts'))
+end)
+
+ESX.RegisterUsableItem('mangoe', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('mangoe', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_mangoe'))
+end)
+
+ESX.RegisterUsableItem('lemon', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('lemon', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_lemon'))
+end)
+
+ESX.RegisterUsableItem('orange', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('orange', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_orange'))
+end)
+
+ESX.RegisterUsableItem('melon', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('melon', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_melon'))
+end)
+
+ESX.RegisterUsableItem('grapes', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('grapes', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_grapes'))
+end)
+
+
+ESX.RegisterUsableItem('berries', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('berries', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 60000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 60000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_berries'))
+end)
+
 ESX.RegisterUsableItem('icetea', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
