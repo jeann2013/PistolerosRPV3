@@ -40,6 +40,12 @@ Locales['en'] = {
   ['used_berries'] = 'Has comido ~y~1x~s~ ~b~Baya~s~',
   ['used_nuts'] = 'Has comido ~y~1x~s~ ~b~Nuez~s~',
   ['used_grapes'] = 'Has comido ~y~1x~s~ ~b~Uva~s~',
+  ['used_hotdogs'] = 'Has comido ~y~1x~s~ ~b~Hotdog Especial~s~',
+  ['used_tacom'] = 'Has comido ~y~1x~s~ ~b~Taco de carne~s~',
+  ['used_tacoc'] = 'Has comido ~y~1x~s~ ~b~Taco de pollo~s~',
+
+  
+  
   
 
   
