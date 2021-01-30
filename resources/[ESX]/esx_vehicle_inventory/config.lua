@@ -18,6 +18,10 @@ Config.WeightSqlBased = false
 -- I Prefer to edit weight on the config.lua and I have switched Config.WeightSqlBased to false:
 
 Config.localWeight = {
+    tacom = 250,
+    tacoc = 250,
+    hotdogs = 250,
+    hotdog = 250,
     stingray = 1000,
     dolphin = 1000,
     sharktiger = 1000,
