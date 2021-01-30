@@ -21,7 +21,7 @@ local testActive = false
 local firstspawn = false
 local recogida = 0
 local timer = 0
-local rnd = math.random(1,17)
+local rnd = math.random(1,21)
 local locations = {
 
 ---PUNTOS DE RECOGIDA DE EQUIPOS ESTROPEADOS // DOCK COMPUTER ROOM
