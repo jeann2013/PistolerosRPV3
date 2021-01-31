@@ -137,6 +137,18 @@ Citizen.CreateThread(function()
 		AddTextComponentSubstringPlayerName(_U('clothes'))
 		EndTextCommandSetBlipName(blip)
 	end
+
+	for k,v in ipairs(Config.ShopsMafia) do
+		local blip = AddBlipForCoord(v)
+
+		SetBlipSprite (blip, 73)
+		SetBlipColour (blip, 47)
+		SetBlipAsShortRange(blip, true)
+
+		BeginTextCommandSetBlipName('STRING')
+		AddTextComponentSubstringPlayerName(_U('clothes'))
+		EndTextCommandSetBlipName(blip)
+	end
 end)
 
 -- Enter / Exit marker events & draw markers
