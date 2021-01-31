@@ -2,7 +2,7 @@ Config              = {}
 Config.DrawDistance = 100.0
 Config.CopsRequired = 0
 Config.BlipUpdateTime = 3000 --In milliseconds. I used it on 3000. If you want instant update, 50 is more than enough. Even 100 is good. I hope it doesn't kill FPS and the server.
-Config.CooldownMinutes = 2
+Config.CooldownMinutes = 15
 Config.Locale = 'es'
 Config.kindMoney = 2 --1 is black_money 2 is money
 
