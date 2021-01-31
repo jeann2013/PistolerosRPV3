@@ -13,6 +13,7 @@ Citizen.CreateThread(function()
 
 	ESX.TriggerServerCallback('esx_shops:requestDBItems', function(ShopItems)
 		for k,v in pairs(ShopItems) do
+			print('v',v[k].itemName)
 			Config.Zones[k].Items = v
 		end
 	end)
@@ -96,7 +97,7 @@ Citizen.CreateThread(function()
 			local blip = AddBlipForCoord(v.Pos[i].x, v.Pos[i].y, v.Pos[i].z)
 
 			SetBlipSprite (blip, 52)
-			if k == 'StandCofee' or k == 'Stand' or k == 'StandFruit' or k == 'StandBreadTacos' or k == 'StandIceCream' or k ~= 'StandMafia' or k ~= 'StandBands' then
+			if k == 'StandCofee' or k == 'Stand' or k == 'StandFruit' or k == 'StandBreadTacos' or k == 'StandIceCream' or k == 'StandMafia' or k == 'StandBands' then
 				SetBlipScale  (blip, 0)
 				SetBlipColour (blip, 0)
 			else
