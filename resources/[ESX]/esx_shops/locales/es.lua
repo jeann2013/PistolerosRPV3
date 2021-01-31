@@ -13,5 +13,6 @@ Locales['es'] = {
   ['yes'] = 'si',
   ['press_menu_stand_tacos'] = 'pulsa ~INPUT_CONTEXT~ para comprar tacos.',
   ['press_menu_stand_icecream'] = 'pulsa ~INPUT_CONTEXT~ para comprar helados.',
+  ['press_menu_stand_mafia_bands'] = 'pulsa ~INPUT_CONTEXT~ para comprar.',  
   
 }

@@ -12,9 +12,8 @@ Citizen.CreateThread(function()
 
 
 	ESX.TriggerServerCallback('esx_shops:requestDBItems', function(ShopItems)
-		for k,v in pairs(ShopItems) do
-			print('v',v[k].itemName)
-			Config.Zones[k].Items = v
+		for k,v in pairs(ShopItems) do			
+			Config.Zones[k].Items = v			
 		end
 	end)
 end)
@@ -22,13 +21,13 @@ end)
 function OpenShopMenu(zone)
 	local elements = {}
 	for i=1, #Config.Zones[zone].Items, 1 do
-		local item = Config.Zones[zone].Items[i]
+		local item = Config.Zones[zone].Items[i]		
 		table.insert(elements, {
 			label      = ('%s - <span style="color:green;">%s</span>'):format(item.label, _U('shop_item', ESX.Math.GroupDigits(item.price))),
 			itemLabel = item.label,
 			item       = item.item,
 			price      = item.price,
-
+			
 			-- menu properties
 			value      = 1,
 			type       = 'slider',
@@ -78,6 +77,8 @@ AddEventHandler('esx_shops:hasEnteredMarker', function(zone)
 		currentActionMsg  = _U('press_menu_stand_tacos')
 	elseif zone == 'StandIceCream' then
 		currentActionMsg  = _U('press_menu_stand_icecream')
+	elseif zone == 'StandMafia' or zone == 'StandBands'  then
+		currentActionMsg  = _U('press_menu_stand_mafia_bands')
 	else
 		currentActionMsg  = _U('press_menu')
 	end

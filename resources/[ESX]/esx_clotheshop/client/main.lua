@@ -137,6 +137,8 @@ Citizen.CreateThread(function()
 		AddTextComponentSubstringPlayerName(_U('clothes'))
 		EndTextCommandSetBlipName(blip)
 	end	
+
+	
 end)
 
 -- Enter / Exit marker events & draw markers
