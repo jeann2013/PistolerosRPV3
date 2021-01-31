@@ -16,12 +16,20 @@ Config.Zones = {
 		Id        = 229, --BLIP
 	},
 	VehicleSpawner2 = {
-		Pos   = {x = 2504.20, y =  4079.93, z = 38.63},
+		Pos   = {x = 2526.33, y =  4111.23, z = 37.63},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Colour    = 6, --BLIP
-		Id        = 229, --BLIP
+		Id        = 230, --BLIP
+	},
+	VehicleSpawner3 = {
+		Pos   = {x = 1522.09, y = 3794.20, z = 32.51},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Colour    = 6, --BLIP
+		Id        = 230, --BLIP
 	},
 }
 
@@ -29,6 +37,18 @@ Config.VehicleSpawnPoint = {
       Pos   = {x = 767.71, y = -3195.20, z = 5.50, alpha = 0.00}, --alpha is the orientation of the car
       Size  = {x = 3.0, y = 3.0, z = 1.0},
       Type  = -1,
+}
+
+Config.VehicleSpawnPoint2 = {
+	Pos   = {x = 2489.44, y = 4118.63, z = 38.10, alpha = 0.00}, --alpha is the orientation of the car
+	Size  = {x = 3.0, y = 3.0, z = 1.0},
+	Type  = -1,
+}
+
+Config.VehicleSpawnPoint3 = {
+	Pos   = {x = 1503.21, y = 3763.96, z = 34.00, alpha = 0.00}, --alpha is the orientation of the car
+	Size  = {x = 3.0, y = 3.0, z = 1.0},
+	Type  = -1,
 }
 
 --2504.20 4079.93 38.63 328.43
