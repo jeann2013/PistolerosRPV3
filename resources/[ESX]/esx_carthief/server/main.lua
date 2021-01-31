@@ -12,8 +12,10 @@ AddEventHandler('esx_carthief:pay', function(payment)
 	local xPlayer = ESX.GetPlayerFromId(_source)
 	if Config.kindMoney == 1 then
 		xPlayer.addAccountMoney('black_money',tonumber(payment))
+		TriggerClientEvent('esx_carthief:notificationMoney', _source,payment,1)
 	else
 		xPlayer.addAccountMoney('money',tonumber(payment))
+		TriggerClientEvent('esx_carthief:notificationMoney', _source,payment,2)
 	end
 	
 	--Add cooldown

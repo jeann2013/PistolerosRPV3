@@ -15,6 +15,22 @@ Config.Zones = {
 		Colour    = 6, --BLIP
 		Id        = 229, --BLIP
 	},
+	VehicleSpawner2 = {
+		Pos   = {x = 2526.33, y =  4111.23, z = 37.63},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Colour    = 6, --BLIP
+		Id        = 230, --BLIP
+	},
+	VehicleSpawner3 = {
+		Pos   = {x = 1522.09, y = 3794.20, z = 32.51},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Colour    = 6, --BLIP
+		Id        = 230, --BLIP
+	},
 }
 
 Config.VehicleSpawnPoint = {
@@ -23,27 +39,41 @@ Config.VehicleSpawnPoint = {
       Type  = -1,
 }
 
+Config.VehicleSpawnPoint2 = {
+	Pos   = {x = 2489.44, y = 4118.63, z = 38.10, alpha = 0.00}, --alpha is the orientation of the car
+	Size  = {x = 3.0, y = 3.0, z = 1.0},
+	Type  = -1,
+}
+
+Config.VehicleSpawnPoint3 = {
+	Pos   = {x = 1503.21, y = 3763.96, z = 34.00, alpha = 0.00}, --alpha is the orientation of the car
+	Size  = {x = 3.0, y = 3.0, z = 1.0},
+	Type  = -1,
+}
+
+--2504.20 4079.93 38.63 328.43
+
 Config.Delivery = {
 	--House in Paleto 12.94KM
-	Delivery7 = {
+	Delivery1 = {
 		Pos      = {x = -437.56, y = 6254.53, z = 29.02},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 45000,
+		Payment  = 40000,
 		Cars = {'veneno','deveste','italigtb2','entity2','visione'},
 	},
 	--Great Ocean Highway 10.47KM
-	Delivery10 = {
+	Delivery2 = {
 		Pos      = {x = -2177.51, y = 4269.51, z = 47.93},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 35500,
+		Payment  = 35000,
 		Cars = {'nero','chiron','nero2','specter2','tezeract'},
 	},
 	--Lighthouse 9.61KM
-	Delivery4 = {
+	Delivery3 = {
 		Pos      = {x = 3333.51, y = 5159.91, z = 17.20},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
@@ -53,21 +83,29 @@ Config.Delivery = {
 	},
 	--Desert
 	--Trevor Airfield 9.22KM
-	Delivery1 = {
+	Delivery4 = {
 		Pos      = {x = 2130.68, y = 4781.32, z = 39.87},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 22000,
-		Cars = {'zentorno','t20','infernus2','18performante','FMGT'},
+		Payment  = 25000,
+		Cars = {'zentorno','t20','infernus2','18performante','vagner'},
 	},
 	--Marina Drive Desert 8.15KM
-	Delivery13 = {
+	Delivery5 = {
 		Pos      = {x = 895.02, y = 3603.87, z = 31.72},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 20000,
-		Cars = {'2018zl1','tempesta','20r1','vagner','schlagen'},
+		Cars = {'2018zl1','tempesta','penetrator','ruiner2','schlagen'},
+	},
+	Delivery6 = {
+		Pos      = {x = 2346.02, y = 2625.45, z = 45.67},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Payment  = 15000,
+		Cars = {'fcr2','diablous','20r1','diablous2','fcr'},
 	},
 }
