@@ -13,6 +13,7 @@ local isDelivered               = 0
 local car						= 0
 local copblip
 local deliveryblip
+local SpawPos 					= 1
 
 
 Citizen.CreateThread(function()
@@ -77,7 +78,16 @@ function SpawnCar()
 							RequestModel(vehiclehash)
 							Citizen.Wait(1)
 						end
-						car = CreateVehicle(vehiclehash, Config.VehicleSpawnPoint.Pos.x, Config.VehicleSpawnPoint.Pos.y, Config.VehicleSpawnPoint.Pos.z, Config.VehicleSpawnPoint.Pos.alpha, true, false)
+
+
+						if SpawPos == 1 then
+							car = CreateVehicle(vehiclehash, Config.VehicleSpawnPoint.Pos.x, Config.VehicleSpawnPoint.Pos.y, Config.VehicleSpawnPoint.Pos.z, Config.VehicleSpawnPoint.Pos.alpha, true, false)							
+						elseif SpawPos == 2 then
+							car = CreateVehicle(vehiclehash, Config.VehicleSpawnPoint2.Pos.x, Config.VehicleSpawnPoint2.Pos.y, Config.VehicleSpawnPoint2.Pos.z, Config.VehicleSpawnPoint2.Pos.alpha, true, false)							
+						elseif SpawPos == 3 then
+							car = CreateVehicle(vehiclehash, Config.VehicleSpawnPoint3.Pos.x, Config.VehicleSpawnPoint3.Pos.y, Config.VehicleSpawnPoint3.Pos.z, Config.VehicleSpawnPoint3.Pos.alpha, true, false)							
+						end
+
 						SetEntityAsMissionEntity(car, true, true)
 						
 						--Teleport player in car
@@ -219,6 +229,15 @@ AddEventHandler('esx_carthief:setcopnotification', function()
 	ESX.ShowNotification(_U('car_stealing_in_progress'))
 end)
 
+RegisterNetEvent('esx_carthief:notificationMoney')
+AddEventHandler('esx_carthief:notificationMoney', function(money,kind)
+	if kind == 1 then
+		ESX.ShowNotification(_U('pay_amount ')..money.." dinero sucio")
+	else
+		ESX.ShowNotification(_U('pay_amount ')..money.." en efectivo")
+	end
+end)
+
 AddEventHandler('esx_carthief:hasEnteredMarker', function(zone)
   if LastZone == 'menucarthief' then
     CurrentAction     = 'carthief_menu'
@@ -249,6 +268,21 @@ Citizen.CreateThread(function()
 			isInMarker  = true
 			currentZone = 'menucarthief'
 			LastZone    = 'menucarthief'
+			SpawPos		= 1
+		end
+
+		if(GetDistanceBetweenCoords(coords, Config.Zones.VehicleSpawner2.Pos.x, Config.Zones.VehicleSpawner2.Pos.y, Config.Zones.VehicleSpawner2.Pos.z, true) < 3) then
+			isInMarker  = true
+			currentZone = 'menucarthief'
+			LastZone    = 'menucarthief'
+			SpawPos		= 2
+		end
+
+		if(GetDistanceBetweenCoords(coords, Config.Zones.VehicleSpawner3.Pos.x, Config.Zones.VehicleSpawner3.Pos.y, Config.Zones.VehicleSpawner3.Pos.z, true) < 3) then
+			isInMarker  = true
+			currentZone = 'menucarthief'
+			LastZone    = 'menucarthief'
+			SpawPos		= 3
 		end
       
 		if isTaken == 1 and (GetDistanceBetweenCoords(coords, alldeliveries[randomdelivery].posx, alldeliveries[randomdelivery].posy, alldeliveries[randomdelivery].posz, true) < 3) then
@@ -324,6 +358,28 @@ Citizen.CreateThread(function()
     info.blip = AddBlipForCoord(info.Pos.x, info.Pos.y, info.Pos.z)
     SetBlipSprite(info.blip, info.Id)
     SetBlipDisplay(info.blip, 4)
+    SetBlipScale(info.blip, 1.0)
+    SetBlipColour(info.blip, info.Colour)
+    SetBlipAsShortRange(info.blip, true)
+    BeginTextCommandSetBlipName("STRING")
+	AddTextComponentString(_U('vehicle_robbery'))
+	EndTextCommandSetBlipName(info.blip)
+	
+	info = Config.Zones.VehicleSpawner2
+    info.blip = AddBlipForCoord(info.Pos.x, info.Pos.y, info.Pos.z)
+    SetBlipSprite(info.blip, info.Id)
+    SetBlipDisplay(info.blip, 0)
+    SetBlipScale(info.blip, 1.0)
+    SetBlipColour(info.blip, info.Colour)
+    SetBlipAsShortRange(info.blip, true)
+    BeginTextCommandSetBlipName("STRING")
+	AddTextComponentString(_U('vehicle_robbery'))
+	EndTextCommandSetBlipName(info.blip)
+	
+	info = Config.Zones.VehicleSpawner3
+    info.blip = AddBlipForCoord(info.Pos.x, info.Pos.y, info.Pos.z)
+    SetBlipSprite(info.blip, info.Id)
+    SetBlipDisplay(info.blip, 0)
     SetBlipScale(info.blip, 1.0)
     SetBlipColour(info.blip, info.Colour)
     SetBlipAsShortRange(info.blip, true)
