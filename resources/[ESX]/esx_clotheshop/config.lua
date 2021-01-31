@@ -26,5 +26,5 @@ Config.Shops = {
 }
 
 Config.ShopsMafia = {
-	vector3(194.40, 5393.78, 521.65),	
+	vector3(194.40, 5393.78, 521.65),
 }
