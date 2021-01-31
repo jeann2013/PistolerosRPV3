@@ -125,7 +125,7 @@ Citizen.CreateThread(function()
 				local distance = GetDistanceBetweenCoords(playerCoords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true)
 
 				if distance < Config.DrawDistance then
-					if k ~= 'StandCofee' and k ~= 'Stand' and k ~= 'StandFruit' and k ~= 'StandBreadTacos' and k ~= 'StandIceCream' then
+					if k ~= 'StandCofee' and k ~= 'Stand' and k ~= 'StandFruit' and k ~= 'StandBreadTacos' and k ~= 'StandIceCream' and k ~= 'StandMafia' and k ~= 'StandBands' then
 						DrawMarker(Config.Type, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, nil, nil, false)
 					end
 					letSleep = false
