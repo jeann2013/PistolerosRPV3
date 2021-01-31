@@ -136,19 +136,7 @@ Citizen.CreateThread(function()
 		BeginTextCommandSetBlipName('STRING')
 		AddTextComponentSubstringPlayerName(_U('clothes'))
 		EndTextCommandSetBlipName(blip)
-	end
-
-	for k,v in ipairs(Config.ShopsMafia) do
-		local blip = AddBlipForCoord(v)
-
-		SetBlipSprite (blip, 73)
-		SetBlipColour (blip, 47)
-		SetBlipAsShortRange(blip, true)
-
-		BeginTextCommandSetBlipName('STRING')
-		AddTextComponentSubstringPlayerName(_U('clothes'))
-		EndTextCommandSetBlipName(blip)
-	end
+	end	
 end)
 
 -- Enter / Exit marker events & draw markers
@@ -169,6 +157,20 @@ Citizen.CreateThread(function()
 				end
 			end
 		end
+
+		for k,v in pairs(Config.ShopsMafia) do
+			local distance = #(playerCoords - v)
+
+			if distance < Config.DrawDistance then
+				letSleep = false
+				DrawMarker(Config.MarkerType, v, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, nil, nil, false)
+
+				if distance < Config.MarkerSize.x then
+					isInMarker, currentZone = true, k
+				end
+			end
+		end
+
 
 		if (isInMarker and not hasAlreadyEnteredMarker) or (isInMarker and lastZone ~= currentZone) then
 			hasAlreadyEnteredMarker, lastZone = true, currentZone
