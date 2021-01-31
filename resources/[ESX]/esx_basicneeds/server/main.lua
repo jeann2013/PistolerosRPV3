@@ -168,13 +168,29 @@ end)
 
 ESX.RegisterUsableItem('chips', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
-
 	xPlayer.removeInventoryItem('chips', 1)
-
 	TriggerClientEvent('esx_status:add', source, 'hunger', 250000)
 	TriggerClientEvent('esx_status:add', source, 'thirst', 30000)
 	TriggerClientEvent('esx_basicneeds:onEatChips', source)
 	TriggerClientEvent('esx:showNotification', source, _U('used_chips'))
+end)
+
+ESX.RegisterUsableItem('icecreams', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('icecreams', 1)
+	TriggerClientEvent('esx_status:add', source, 'thirst', 200000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 3000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_icecreams'))
+end)
+
+ESX.RegisterUsableItem('icecreamv', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('icecreams', 1)
+	TriggerClientEvent('esx_status:add', source, 'thirst', 200000)
+	TriggerClientEvent('esx_status:add', source, 'hunger', 3000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_icecreamv'))
 end)
 
 ESX.RegisterUsableItem('water', function(source)
