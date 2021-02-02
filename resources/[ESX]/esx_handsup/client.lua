@@ -8,7 +8,7 @@ Citizen.CreateThread(function()
     local handsup = false
 	while true do
 		Citizen.Wait(0)
-		if IsControlJustPressed(1, 249) then --Start holding N
+		if IsControlJustPressed(1, 77) then --Start holding N
             if not handsup then
                 TaskPlayAnim(GetPlayerPed(-1), dict, "handsup_enter", 8.0, 8.0, -1, 50, 0, false, false, false)
                 handsup = true
