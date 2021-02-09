@@ -24,7 +24,9 @@ Config.MaxNameLength    = 80
 Config.MinHeight        = 10
 Config.MaxHeight        = 96
 Config.LowestYear       = 1900
-Config.HighestYear      = 2020
+Config.HighestYear      = 2021
 
 Config.FullCharDelete   = false
 Config.EnableDebugging  = false
+
+Config.EnableESXIdentity = true
