@@ -22,7 +22,7 @@ ESX["RegisterServerCallback"](GetCurrentResourceName(), function(source, cb)
             end
         else
             if Config["EnableWeapons"] then -- disabled by default, enable in the config.
-                if luck >= 1 and luck <= 3 then
+                if luck >= 1 and luck <= 2 then
                     local randomWeapon = Config["Weapons"][math["random"](#Config["Weapons"])]
                     local ammunition = math["random"](#Config["Weapons"])
                     local weaponLabel = ESX["GetWeaponLabel"](randomWeapon)
