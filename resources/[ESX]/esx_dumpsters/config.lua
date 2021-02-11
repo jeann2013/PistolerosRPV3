@@ -16,9 +16,13 @@ Config = {
         "bread",
         "water",
 		"condomu",
+		"chatarra",
 		"condom",
 		"lighter",
-		"cigarett"
+		"cigarett",
+		"chatarra",
+		"chatarra",
+		
 	},
 	
 	Weapons = {         
