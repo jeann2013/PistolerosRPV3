@@ -1,6 +1,6 @@
 INSERT INTO `items` (name, label) VALUES 
-	('gym_membership', 'Gym Membership'),
+	('gym_membership', 'Membresía de gimnasio'),
 	('powerade', 'Powerade'),
-	('sportlunch', 'Sportlunch'),
-	('protein_shake', 'Protein Shake')
+	('sportlunch', 'AlmuersoDeportivo'),
+	('protein_shake', 'Batido de proteina')
 ;
