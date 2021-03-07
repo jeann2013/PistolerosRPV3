@@ -82,6 +82,6 @@ Config.Vehicles = {
 	{model = 'dinghy2', label = 'Dinghy (Black)', price = 32500},
 	{model = 'dinghy', label = 'Dinghy 2 (Random Color)', price = 40000},
 	{model = 'speeder', label = 'Speeder', price = 85000},
-	{model = 'squalo', label = 'Squalo (Random Color)', price = 61000},	
-	{model = 'submersible', label = 'Submersible', price = 750000},	
+	{model = 'squalo', label = 'Squalo (Random Color)', price = 61000},		
+	{model = 'tug', label = 'Tug Fishing', price = 181000},	
 }
