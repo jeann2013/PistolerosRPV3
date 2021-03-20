@@ -78,7 +78,7 @@
       <frequency value="90" />
       <swankness>SWANKNESS_2</swankness>
       <maxNum value="20" />
-      <flags>FLAG_HAS_LIVERY FLAG_SPAWN_ON_TRAILER FLAG_PARKING_SENSORS FLAG_AVERAGE_CAR FLAG_RECESSED_HEADLIGHT_CORONAS</flags>
+      <flags>FLAG_HAS_LIVERY FLAG_EXTRAS_ALL FLAG_SPAWN_ON_TRAILER FLAG_PARKING_SENSORS FLAG_AVERAGE_CAR FLAG_RECESSED_HEADLIGHT_CORONAS</flags>
       <type>VEHICLE_TYPE_CAR</type>
       <plateType>VPT_BACK_PLATES</plateType>
       <dashboardType>VDT_RACE</dashboardType>
