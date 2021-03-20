@@ -92,12 +92,16 @@
       </trailers>
       <additionalTrailers />
       <drivers />
-      <extraIncludes />
+      <extraIncludes >
+        <Item>EXTRA_4 EXTRA_11</Item>
+      </extraIncludes>
       <doorsWithCollisionWhenClosed />
       <driveableDoors />
       <bumpersNeedToCollideWithMap value="false" />
       <needsRopeTexture value="false" />
-      <requiredExtras />
+      <requiredExtras>
+        EXTRA_4 EXTRA_11
+      </requiredExtras>
       <rewards />
       <cinematicPartCamera>
         <Item>WHEEL_FRONT_RIGHT_CAMERA</Item>
