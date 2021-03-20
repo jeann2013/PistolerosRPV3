@@ -91,15 +91,17 @@
       <wheelType>VWT_BIKE</wheelType>
       <trailers />
       <additionalTrailers />
-      <drivers />
-      <extraIncludes>
-        <Item>EXTRA_1</Item>
-      </extraIncludes>
+      <drivers />      
       <doorsWithCollisionWhenClosed />
       <driveableDoors />
       <bumpersNeedToCollideWithMap value="false" />
       <needsRopeTexture value="false" />
-      <requiredExtras />
+      <requiredExtras>
+        EXTRA_4 EXTRA_11
+      </requiredExtras>
+      <extraIncludes >
+        <Item>EXTRA_4 EXTRA_11</Item>
+      </extraIncludes>
       <rewards />
       <cinematicPartCamera>
         <Item>WHEEL_REAR_LEFT_CAMERA</Item>
