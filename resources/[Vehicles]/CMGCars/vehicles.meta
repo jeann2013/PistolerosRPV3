@@ -83,7 +83,7 @@
 			<frequency value="100" />
 			<swankness>SWANKNESS_3</swankness>
 			<maxNum value="999" />
-			<flags>FLAG_HEADLIGHTS_USE_ACTUAL_BONE_POS FLAG_NO_BOOT FLAG_DRIVER_NO_DRIVE_BY FLAG_HAS_LIVERY FLAG_NO_RESPRAY FLAG_AVERAGE_CAR FLAG_DONT_SPAWN_IN_CARGEN FLAG_DONT_SPAWN_AS_AMBIENT FLAG_DONT_TIMESLICE_WHEELS FLAG_HELICOPTER_WITH_LANDING_GEAR</flags>
+			<flags>FLAG_EXTRAS_REQUIRE FLAG_HEADLIGHTS_USE_ACTUAL_BONE_POS FLAG_NO_BOOT FLAG_DRIVER_NO_DRIVE_BY FLAG_HAS_LIVERY FLAG_NO_RESPRAY FLAG_AVERAGE_CAR FLAG_DONT_SPAWN_IN_CARGEN FLAG_DONT_SPAWN_AS_AMBIENT FLAG_DONT_TIMESLICE_WHEELS FLAG_HELICOPTER_WITH_LANDING_GEAR</flags>
 			<type>VEHICLE_TYPE_HELI</type>
 			<plateType>VPT_NONE</plateType>
 			<dashboardType>VDT_MAVERICK</dashboardType>
@@ -97,12 +97,16 @@
 					<npcName>Pilot</npcName>
 				</Item>
 			</drivers>
-			<extraIncludes />
+			<extraIncludes >
+        		<Item>EXTRA_4 EXTRA_11</Item>
+      		</extraIncludes>
 			<doorsWithCollisionWhenClosed />
 			<driveableDoors />
 			<bumpersNeedToCollideWithMap value="false" />
 			<needsRopeTexture value="true" />
-			<requiredExtras />
+			<requiredExtras>
+        		EXTRA_4 EXTRA_11
+      		</requiredExtras>
 			<rewards />
 			<cinematicPartCamera>
 				<Item>HELI_REAR_ROTOR_CAMERA</Item>
