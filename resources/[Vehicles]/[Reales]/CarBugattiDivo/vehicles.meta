@@ -3,16 +3,6 @@
   <residentTxd>vehshare</residentTxd>
   <residentAnims />
   <InitDatas>
-
-
-
-
-
-
-
-
-
-
     <Item>
       <modelName>bdivo</modelName>
       <txdName>bdivo</txdName>
@@ -91,7 +81,7 @@
       <frequency value="90" />
       <swankness>SWANKNESS_2</swankness>
       <maxNum value="20" />
-      <flags>FLAG_RECESSED_HEADLIGHT_CORONAS FLAG_HAS_LIVERY FLAG_SPAWN_ON_TRAILER FLAG_AVERAGE_CAR FLAG_HAS_INTERIOR_EXTRAS FLAG_PARKING_SENSORS FLAG_EXTRAS_ALL FLAG_EXTRAS_STRONG</flags>
+      <flags>FLAG_EXTRAS_REQUIRE FLAG_RECESSED_HEADLIGHT_CORONAS FLAG_HAS_LIVERY FLAG_SPAWN_ON_TRAILER FLAG_AVERAGE_CAR FLAG_HAS_INTERIOR_EXTRAS FLAG_PARKING_SENSORS FLAG_EXTRAS_ALL FLAG_EXTRAS_STRONG</flags>
       <type>VEHICLE_TYPE_CAR</type>
       <plateType>VPT_BACK_PLATES</plateType>
       <dashboardType>VDT_GENTAXI</dashboardType>
@@ -100,12 +90,16 @@
       <trailers />
       <additionalTrailers />
       <drivers />
-      <extraIncludes />
+      <extraIncludes >
+      	<Item>EXTRA_4 EXTRA_11</Item>
+      </extraIncludes>
       <doorsWithCollisionWhenClosed />
       <driveableDoors />
       <bumpersNeedToCollideWithMap value="false" />
       <needsRopeTexture value="false" />
-      <requiredExtras />
+      <requiredExtras>
+        EXTRA_4 EXTRA_11
+      </requiredExtras>
       <rewards />
       <cinematicPartCamera>
         <Item>WHEEL_FRONT_RIGHT_CAMERA</Item>
