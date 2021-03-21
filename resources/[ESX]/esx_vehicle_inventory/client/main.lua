@@ -62,7 +62,7 @@ Citizen.CreateThread(function()
 
     Wait(0)
 
-    if IsControlPressed(0, 249) and (GetGameTimer() - GUI.Time) > 150 then
+    if IsControlPressed(0, 244) and (GetGameTimer() - GUI.Time) > 150 then
         local vehFront = VehicleInFront()
 	    local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
 	    local closecar = GetClosestVehicle(x, y, z, 4.0, 0, 71)
