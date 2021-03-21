@@ -60,8 +60,8 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 40000,
-		Cars = {'veneno','deveste','italigtb2','entity2','visione'},
+		Payment  = 31000,
+		Cars = {'veneno','deveste','italigtb2','entity2','italirsx'},
 	},
 	--Great Ocean Highway 10.47KM
 	Delivery2 = {
@@ -69,7 +69,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 35000,
+		Payment  = 28000,
 		Cars = {'nero','chiron','nero2','specter2','tezeract'},
 	},
 	--Lighthouse 9.61KM
@@ -78,7 +78,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 30000,
+		Payment  = 25000,
 		Cars = {'tyrant','rmodlp770','lamboavj','italigtb','gp1'},
 	},
 	--Desert
@@ -88,7 +88,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 25000,
+		Payment  = 20000,
 		Cars = {'zentorno','t20','infernus2','18performante','vagner'},
 	},
 	--Marina Drive Desert 8.15KM
@@ -97,8 +97,8 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 20000,
-		Cars = {'2018zl1','tempesta','penetrator','ruiner2','schlagen'},
+		Payment  = 18000,
+		Cars = {'2018zl1','lectro','penetrator','ruiner2','schlagen'},
 	},
 	Delivery6 = {
 		Pos      = {x = 2346.02, y = 2625.45, z = 45.67},
