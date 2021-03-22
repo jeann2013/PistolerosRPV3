@@ -2,7 +2,7 @@ Config              = {}
 Config.DrawDistance = 100.0
 Config.CopsRequired = 1
 Config.BlipUpdateTime = 3000 --In milliseconds. I used it on 3000. If you want instant update, 50 is more than enough. Even 100 is good. I hope it doesn't kill FPS and the server.
-Config.CooldownMinutes = 15
+Config.CooldownMinutes = 5
 Config.Locale = 'es'
 Config.kindMoney = 2 --1 is black_money 2 is money
 
@@ -114,7 +114,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 8000,
+		Payment  = 8100,
 		Cars = {'rmodjesko','chiron17','sc18','pd_avent','mig'},
 	},
 	Delivery8 = {
@@ -122,7 +122,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 8000,
+		Payment  = 8200,
 		Cars = {'jellybigpeen','f40' ,'lp610', 'mvisiongt', 'CONTGT13'},
 	},
 	Delivery9 = {
@@ -130,7 +130,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 8000,
+		Payment  = 8800,
 		Cars = {'bbentayga','bmm','zentenario','sheava','rmodpagani'},
 	},
 }
