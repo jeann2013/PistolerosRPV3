@@ -52,6 +52,7 @@ Config.VehicleSpawnPoint3 = {
 }
 
 --2504.20 4079.93 38.63 328.43
+-- 
 
 Config.Delivery = {
 	--House in Paleto 12.94KM
@@ -60,7 +61,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 31000,
+		Payment  = 7000,
 		Cars = {'veneno','deveste','italigtb2','entity2','italirsx'},
 	},
 	--Great Ocean Highway 10.47KM
@@ -69,7 +70,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 28000,
+		Payment  = 6200,
 		Cars = {'nero','chiron','nero2','specter2','tezeract'},
 	},
 	--Lighthouse 9.61KM
@@ -78,7 +79,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 25000,
+		Payment  = 5200,
 		Cars = {'tyrant','rmodlp770','lamboavj','italigtb','gp1'},
 	},
 	--Desert
@@ -88,7 +89,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 20000,
+		Payment  = 5000,
 		Cars = {'zentorno','t20','infernus2','18performante','vagner'},
 	},
 	--Marina Drive Desert 8.15KM
@@ -97,7 +98,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 18000,
+		Payment  = 4800,
 		Cars = {'2018zl1','lectro','penetrator','ruiner2','schlagen'},
 	},
 	Delivery6 = {
@@ -105,7 +106,31 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 15000,
+		Payment  = 4200,
 		Cars = {'fcr2','diablous','20r1','diablous2','fcr'},
+	},
+	Delivery7 = {
+		Pos      = {x = -1254.83, y = -1413.14, z = 3.94},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Payment  = 8000,
+		Cars = {'rmodjesko','chiron17','sc18','pd_avent','mig'},
+	},
+	Delivery8 = {
+		Pos      = {x = -2053.18, y = -446.94, z = 11.05},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Payment  = 8000,
+		Cars = {'jellybigpeen','f40' ,'lp610', 'mvisiongt', 'CONTGT13'},
+	},
+	Delivery9 = {
+		Pos      = {x = -93.78, y = 836.79, z = 235.72},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 204, b = 0},
+		Type  = 1,
+		Payment  = 8000,
+		Cars = {'bbentayga','bmm','zentenario','sheava','rmodpagani'},
 	},
 }
