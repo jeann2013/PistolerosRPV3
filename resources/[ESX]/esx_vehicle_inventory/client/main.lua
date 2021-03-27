@@ -249,11 +249,11 @@ AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory,wei
               if tonumber(PlayerData.inventory[i].weight) < tonumber(PlayerData.inventory[i].count) + quantity and PlayerData.inventory[i].weight ~= -1 then
                 max = false
               else
-                max = true
+                max = false
               end
             end
           end
-
+          
           --fin test
 
 			    if quantity > 0 and quantity <= tonumber(data.current.count) and vehFront > 0 then
