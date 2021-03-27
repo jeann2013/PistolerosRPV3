@@ -8,7 +8,7 @@ Config.Limit = 25000
 	-- weight == 0 : The item do not affect character inventory weight
 	-- weight > 0 : The item cost place on inventory
 	-- weight < 0 : The item add place on inventory. Smart people will love it.
-Config.DefaultWeight = 0
+Config.DefaultWeight < 0
 
 
 
