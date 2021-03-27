@@ -245,13 +245,6 @@ AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory,wei
           local poid = weight - Itemweight
 
           for i=1, #PlayerData.inventory, 1 do
-            
-            print('(PlayerData.inventory[i].weight',PlayerData.inventory[i].name);
-            print('(PlayerData.inventory[i].weight',PlayerData.inventory[i].weight);
-            print('tonumber(PlayerData.inventory[i].count)',tonumber(PlayerData.inventory[i].count));
-            print('quantity',quantity);
-            print('PlayerData.inventory[i].weight',PlayerData.inventory[i].weight);
-
             if PlayerData.inventory[i].name == data.current.value then
               if tonumber(PlayerData.inventory[i].weight) < tonumber(PlayerData.inventory[i].count) + quantity and PlayerData.inventory[i].weight ~= -1 then
                 max = false
@@ -260,10 +253,8 @@ AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory,wei
               end
             end
           end
-
-          --fin test
           
-         
+          --fin test
 
 			    if quantity > 0 and quantity <= tonumber(data.current.count) and vehFront > 0 then
             if not max then
