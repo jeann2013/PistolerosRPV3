@@ -453,9 +453,14 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
 end
 
-function OpenHeliSpawnerMenu(station, partNum)
-
-  local helis = Config.MafiaStations[station].Helicopters
+function OpenHeliSpawnerMenu(station, partNum,where)
+  local helis = ""
+  
+  if where == 0 then
+    helis = Config.MafiaStations[station].Helicopters
+  else 
+    helis = Config.MafiaStations[station].HelicoptersMountain
+  end
 
   ESX.UI.Menu.CloseAll()
 
@@ -1978,10 +1983,12 @@ Citizen.CreateThread(function()
         end
 
         if CurrentAction == 'menu_heli_spawner' then
-          OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
+          OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,0)
         end
 
-        
+        if CurrentAction == 'menu_heli_spawner_mountain' then
+          OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,1)
+        end
 
         if CurrentAction == 'delete_vehicle' then
 
