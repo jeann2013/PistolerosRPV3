@@ -233,8 +233,8 @@ function OpenArmoryMenu(station)
     local elements = {
       {label = _U('get_weapon'), value = 'get_weapon'},
       {label = _U('put_weapon'), value = 'put_weapon'},
-      {label = 'Prendre Objet',  value = 'get_stock'},
-      {label = 'Déposer objet',  value = 'put_stock'}
+      {label = 'Tomar objeto',  value = 'get_stock'},
+      {label = 'Colocar objeto',  value = 'put_stock'}
     }
 
     if PlayerData.job.grade_name == 'boss' then
@@ -399,7 +399,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
           local playerPed = GetPlayerPed(-1)
 
-          if Config.MaxInService == -1 then
+          if Config.MaxInService ~= -1 then
 
             ESX.Game.SpawnVehicle(model, {
               x = vehicles[partNum].SpawnPoint.x,
@@ -449,6 +449,139 @@ function OpenVehicleSpawnerMenu(station, partNum)
       end
     )
 
+  end
+
+end
+
+function OpenHeliSpawnerMenu(station, partNum)
+
+  local helis = Config.MafiaStations[station].Helicopters
+
+  ESX.UI.Menu.CloseAll()
+
+  if Config.EnableSocietyOwnedVehicles then
+
+    local elements = {}
+
+    ESX.TriggerServerCallback('esx_society:getVehiclesInGarage', function(garageVehicles)
+
+      for i=1, #garageVehicles, 1 do
+        table.insert(elements, {label = GetDisplayNameFromVehicleModel(garageVehicles[i].model) .. ' [' .. garageVehicles[i].plate .. ']', value = garageVehicles[i]})
+      end
+
+      ESX.UI.Menu.Open(
+        'default', GetCurrentResourceName(), 'heli_spawner',
+        {
+          title    = _U('vehicle_menu'),
+          align    = 'right',
+          elements = elements,
+        },
+        function(data, menu)
+
+          menu.close()
+
+          local vehicleProps = data.current.value
+
+          ESX.Game.SpawnVehicle(vehicleProps.model, helis[partNum].SpawnPoint, 270.0, function(vehicle)
+            ESX.Game.SetVehicleProperties(vehicle, vehicleProps)
+            local playerPed = GetPlayerPed(-1)
+            TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+          end)
+
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'mafia', vehicleProps)
+
+        end,
+        function(data, menu)
+
+          menu.close()
+
+          CurrentAction     = 'menu_heli_spawner'
+          CurrentActionMsg  = _U('heli_spawner')
+          CurrentActionData = {station = station, partNum = partNum}
+
+        end
+      )
+
+    end, 'mafia')
+
+  else
+
+    local elements = {}
+
+    for i=1, #Config.MafiaStations[station].AuthorizedHelicopters, 1 do
+      local vehicle = Config.MafiaStations[station].AuthorizedHelicopters[i]
+      table.insert(elements, {label = vehicle.label, value = vehicle.name})
+    end
+
+    ESX.UI.Menu.Open(
+      'default', GetCurrentResourceName(), 'heli_spawner',
+      {
+        title    = _U('heli_menu'),
+        align    = 'right',
+        elements = elements,
+      },
+      function(data, menu)
+
+        menu.close()
+
+        local model = data.current.value
+
+        local vehicle = GetClosestVehicle(helis[partNum].SpawnPoint.x,  helis[partNum].SpawnPoint.y,  helis[partNum].SpawnPoint.z,  3.0,  0,  71)
+
+        if not DoesEntityExist(vehicle) then
+
+          local playerPed = GetPlayerPed(-1)
+
+          if Config.MaxInService ~= -1 then
+
+            ESX.Game.SpawnVehicle(model, {
+              x = helis[partNum].SpawnPoint.x,
+              y = helis[partNum].SpawnPoint.y,
+              z = helis[partNum].SpawnPoint.z
+            }, helis[partNum].Heading, function(vehicle)
+              TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+              SetVehicleMaxMods(vehicle)
+            end)
+
+          else
+
+            ESX.TriggerServerCallback('esx_service:enableService', function(canTakeService, maxInService, inServiceCount)
+
+              if canTakeService then
+
+                ESX.Game.SpawnVehicle(model, {
+                  x = helis[partNum].SpawnPoint.x,
+                  y = helis[partNum].SpawnPoint.y,
+                  z = helis[partNum].SpawnPoint.z
+                }, helis[partNum].Heading, function(vehicle)
+                  TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+                  SetVehicleMaxMods(vehicle)
+                end)
+
+              else
+                ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
+              end
+
+            end, 'mafia')
+
+          end
+
+        else
+          ESX.ShowNotification(_U('heli_out'))
+        end
+
+      end,
+      function(data, menu)
+
+        menu.close()
+
+        CurrentAction     = 'menu_heli_spawner'
+        CurrentActionMsg  = _U('heli_spawner')
+        CurrentActionData = {station = station, partNum = partNum}
+
+      end
+    )
+    
   end
 
 end
@@ -1115,8 +1248,6 @@ function OpenGetStocksMenu()
 
   ESX.TriggerServerCallback('esx_mafiajob:getStockItems', function(items)
 
-    print(json.encode(items))
-
     local elements = {}
 
     for i=1, #items, 1 do
@@ -1144,12 +1275,11 @@ function OpenGetStocksMenu()
 
             if count == nil then
               ESX.ShowNotification(_U('quantity_invalid'))
-            else
-              menu2.close()
-              menu.close()
-              OpenGetStocksMenu()
-
+            else              
               TriggerServerEvent('esx_mafiajob:getStockItem', itemName, count)
+              menu.close()
+              menu2.close()              
+              OpenGetStocksMenu()
             end
 
           end,
@@ -1205,12 +1335,12 @@ function OpenPutStocksMenu()
 
             if count == nil then
               ESX.ShowNotification(_U('quantity_invalid'))
-            else
+            else              
+                         
+              TriggerServerEvent('esx_mafiajob:putStockItems', itemName, count)
               menu2.close()
               menu.close()
-              OpenPutStocksMenu()
-
-              TriggerServerEvent('esx_mafiajob:putStockItems', itemName, count)
+              OpenPutStocksMenu()   
             end
 
           end,
@@ -1273,23 +1403,29 @@ AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum
   end
 
   if part == 'HelicopterSpawner' then
-
-    local helicopters = Config.MafiaStations[station].Helicopters
-
-    if not IsAnyVehicleNearPoint(helicopters[partNum].SpawnPoint.x, helicopters[partNum].SpawnPoint.y, helicopters[partNum].SpawnPoint.z,  3.0) then
-
-      ESX.Game.SpawnVehicle('maverick', {
-        x = helicopters[partNum].SpawnPoint.x,
-        y = helicopters[partNum].SpawnPoint.y,
-        z = helicopters[partNum].SpawnPoint.z
-      }, helicopters[partNum].Heading, function(vehicle)
-        SetVehicleModKit(vehicle, 0)
-        SetVehicleLivery(vehicle, 0)
-      end)
-
-    end
-
+    CurrentAction     = 'menu_heli_spawner'
+    CurrentActionMsg  = _U('heli_spawner')
+    CurrentActionData = {station = station, partNum = partNum}
   end
+
+  -- if part == 'HelicopterSpawner' then
+
+  --   local helicopters = Config.MafiaStations[station].Helicopters
+
+  --   if not IsAnyVehicleNearPoint(helicopters[partNum].SpawnPoint.x, helicopters[partNum].SpawnPoint.y, helicopters[partNum].SpawnPoint.z,  3.0) then
+
+  --     ESX.Game.SpawnVehicle('maverick', {
+  --       x = helicopters[partNum].SpawnPoint.x,
+  --       y = helicopters[partNum].SpawnPoint.y,
+  --       z = helicopters[partNum].SpawnPoint.z
+  --     }, helicopters[partNum].Heading, function(vehicle)
+  --       SetVehicleModKit(vehicle, 0)
+  --       SetVehicleLivery(vehicle, 0)
+  --     end)
+
+  --   end
+
+  -- end
 
   if part == 'VehicleDeleter' then
 
@@ -1303,6 +1439,25 @@ AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum
       if DoesEntityExist(vehicle) then
         CurrentAction     = 'delete_vehicle'
         CurrentActionMsg  = _U('store_vehicle')
+        CurrentActionData = {vehicle = vehicle}
+      end
+
+    end
+
+  end
+
+  if part == 'HeliDeleter' then
+
+    local playerPed = GetPlayerPed(-1)
+    local coords    = GetEntityCoords(playerPed)
+
+    if IsPedInAnyVehicle(playerPed,  false) then
+
+      local vehicle = GetVehiclePedIsIn(playerPed, false)
+
+      if DoesEntityExist(vehicle) then
+        CurrentAction     = 'delete_heli'
+        CurrentActionMsg  = _U('store_heli')
         CurrentActionData = {vehicle = vehicle}
       end
 
@@ -1496,7 +1651,7 @@ Citizen.CreateThread(function()
   while true do
 
     Wait(0)
-print('PlayerData.job.name',PlayerData.job.name)
+    
     if PlayerData.job ~= nil and PlayerData.job.name == 'mafia' then
 
       local playerPed = GetPlayerPed(-1)
@@ -1519,6 +1674,18 @@ print('PlayerData.job.name',PlayerData.job.name)
         for i=1, #v.Vehicles, 1 do
           if GetDistanceBetweenCoords(coords,  v.Vehicles[i].Spawner.x,  v.Vehicles[i].Spawner.y,  v.Vehicles[i].Spawner.z,  true) < Config.DrawDistance then
             DrawMarker(Config.MarkerType, v.Vehicles[i].Spawner.x, v.Vehicles[i].Spawner.y, v.Vehicles[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+        end
+
+        for i=1, #v.Helicopters, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Helicopters[i].Spawner.x,  v.Helicopters[i].Spawner.y,  v.Helicopters[i].Spawner.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.Helicopters[i].Spawner.x, v.Helicopters[i].Spawner.y, v.Helicopters[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+        end
+
+        for i=1, #v.HeliDeleters, 1 do
+          if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.HeliDeleters[i].x, v.HeliDeleters[i].y, v.HeliDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
           end
         end
 
@@ -1620,6 +1787,15 @@ Citizen.CreateThread(function()
             isInMarker     = true
             currentStation = k
             currentPart    = 'VehicleDeleter'
+            currentPartNum = i
+          end
+        end
+
+        for i=1, #v.HeliDeleters, 1 do
+          if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.MarkerSizeHeli.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'HeliDeleter'
             currentPartNum = i
           end
         end
@@ -1755,6 +1931,12 @@ Citizen.CreateThread(function()
           OpenVehicleSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
         end
 
+        if CurrentAction == 'menu_heli_spawner' then
+          OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
+        end
+
+        
+
         if CurrentAction == 'delete_vehicle' then
 
           if Config.EnableSocietyOwnedVehicles then
@@ -1777,6 +1959,32 @@ Citizen.CreateThread(function()
             end
 
           end
+
+          ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+        end
+
+        if CurrentAction == 'delete_heli' then
+
+          -- if Config.EnableSocietyOwnedVehicles then
+
+          --   local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
+          --   TriggerServerEvent('esx_society:putVehicleInGarage', 'mafia', vehicleProps)
+
+          -- else
+
+          --   if
+          --     GetEntityModel(vehicle) == GetHashKey('schafter3')  or
+          --     GetEntityModel(vehicle) == GetHashKey('kuruma2') or
+          --     GetEntityModel(vehicle) == GetHashKey('sandking') or
+          --     GetEntityModel(vehicle) == GetHashKey('mule3') or
+          --     GetEntityModel(vehicle) == GetHashKey('guardian') or
+          --     GetEntityModel(vehicle) == GetHashKey('burrito3') or
+          --     GetEntityModel(vehicle) == GetHashKey('mesa')
+          --   then
+          --     TriggerServerEvent('esx_service:disableService', 'mafia')
+          --   end
+
+          -- end
 
           ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
         end
