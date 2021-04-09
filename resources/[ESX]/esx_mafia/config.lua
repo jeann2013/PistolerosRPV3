@@ -8,7 +8,7 @@ Config.EnablePlayerManagement     = true
 Config.EnableArmoryManagement     = true
 Config.EnableESXIdentity          = false -- only turn this on if you are using esx_identity
 Config.EnableNonFreemodePeds      = true -- turn this on if you want custom peds
-Config.EnableSocietyOwnedVehicles = true
+Config.EnableSocietyOwnedVehicles = false
 Config.EnableLicenses             = false
 Config.MaxInService               = 10
 Config.Locale                     = 'es'
@@ -46,7 +46,7 @@ Config.MafiaStations = {
 	  },
     AuthorizedHelicopters = {
 		  { name = 'havok',  label = 'Helicoptero una persona' },
-		  { name = 'Frogger',      label = 'Helicoptero 4 pasageros' },
+		  { name = 'frogger',      label = 'Helicoptero 4 pasajeros' },
 	  },
     Cloakrooms = {
       { x = 1395.71, y = 1157.21, z = 113.34 },
@@ -75,7 +75,7 @@ Config.MafiaStations = {
     HelicoptersMountain = {
       {
         Spawner    = { x = 182.74, y = 5376.15, z = 524.56 },
-        SpawnPoint = { x = 187.27, y = 5378.44, z = 525.91 },
+        SpawnPoint = { x = 187.27, y = 5378.44, z = 524.91 },
         Heading    = 77.72,
       }
     },
