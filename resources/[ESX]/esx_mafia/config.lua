@@ -75,7 +75,7 @@ Config.MafiaStations = {
     HelicoptersMountain = {
       {
         Spawner    = { x = 182.74, y = 5376.15, z = 524.56 },
-        SpawnPoint = { x = 187.27, y = 5378.44, z = 524.91 },
+        SpawnPoint = { x = 170.78, y = 5379.75, z = 522.47 },
         Heading    = 77.72,
       }
     },
