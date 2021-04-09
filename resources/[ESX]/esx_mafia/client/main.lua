@@ -1408,6 +1408,12 @@ AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum
     CurrentActionData = {station = station, partNum = partNum}
   end
 
+  if part == 'HelicopterSpawnerMountain' then
+    CurrentAction     = 'menu_heli_spawner'
+    CurrentActionMsg  = _U('heli_spawner')
+    CurrentActionData = {station = station, partNum = partNum}
+  end
+
  
   if part == 'VehicleDeleter' then
 
@@ -1684,6 +1690,12 @@ Citizen.CreateThread(function()
           end
         end
 
+        for i=1, #v.HelicoptersMountain, 1 do
+          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.HelicoptersMountain[i].Spawner.x, v.HelicoptersMountain[i].Spawner.y, v.HelicoptersMountain[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+        end
+
         for i=1, #v.HeliDeleters, 1 do
           if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.DrawDistance then
             DrawMarker(Config.MarkerType, v.HeliDeleters[i].x, v.HeliDeleters[i].y, v.HeliDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
@@ -1784,6 +1796,24 @@ Citizen.CreateThread(function()
             isInMarker     = true
             currentStation = k
             currentPart    = 'HelicopterSpawnPoint'
+            currentPartNum = i
+          end
+
+        end
+
+        for i=1, #v.HelicoptersMountain, 1 do
+
+          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'HelicopterSpawnerMountain'
+            currentPartNum = i
+          end
+
+          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].SpawnPoint.x,  v.HelicoptersMountain[i].SpawnPoint.y,  v.HelicoptersMountain[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'HelicopterSpawnPointMountain'
             currentPartNum = i
           end
 
