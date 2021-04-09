@@ -455,7 +455,7 @@ end
 
 function OpenHeliSpawnerMenu(station, partNum,where)
   local helis = ""
-  
+
   if where == 0 then
     helis = Config.MafiaStations[station].Helicopters
   else 
@@ -1414,7 +1414,7 @@ AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum
   end
 
   if part == 'HelicopterSpawnerMountain' then
-    CurrentAction     = 'menu_heli_spawner'
+    CurrentAction     = 'menu_heli_spawner_mountain'
     CurrentActionMsg  = _U('heli_spawner')
     CurrentActionData = {station = station, partNum = partNum}
   end
