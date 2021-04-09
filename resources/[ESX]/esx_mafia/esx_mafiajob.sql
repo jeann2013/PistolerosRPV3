@@ -18,10 +18,10 @@ INSERT INTO `jobs` (`name`, `label`, `whitelisted`) VALUES
 --
 
 INSERT INTO `job_grades` (`job_name`, `grade`, `name`, `label`, `salary`, `skin_male`, `skin_female`) VALUES
-('mafia', 0, 'soldato', 'Ptite-Frappe', 1500, '{}', '{}'),
-('mafia', 1, 'capo', 'Capo', 1800, '{}', '{}'),
-('mafia', 2, 'consigliere', 'Consigliere', 2100, '{}', '{}'),
-('mafia', 3, 'boss', 'Parain', 2700, '{}', '{}');
+('mafia', 0, 'soldato', 'Soldado', 1500, '{}', '{}'),
+('mafia', 1, 'capo', 'Sicario', 1800, '{}', '{}'),
+('mafia', 2, 'consigliere', 'Concejero', 2100, '{}', '{}'),
+('mafia', 3, 'boss', 'Patron', 2700, '{}', '{}');
 
 CREATE TABLE `fine_types_mafia` (
   

@@ -1408,25 +1408,7 @@ AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum
     CurrentActionData = {station = station, partNum = partNum}
   end
 
-  -- if part == 'HelicopterSpawner' then
-
-  --   local helicopters = Config.MafiaStations[station].Helicopters
-
-  --   if not IsAnyVehicleNearPoint(helicopters[partNum].SpawnPoint.x, helicopters[partNum].SpawnPoint.y, helicopters[partNum].SpawnPoint.z,  3.0) then
-
-  --     ESX.Game.SpawnVehicle('maverick', {
-  --       x = helicopters[partNum].SpawnPoint.x,
-  --       y = helicopters[partNum].SpawnPoint.y,
-  --       z = helicopters[partNum].SpawnPoint.z
-  --     }, helicopters[partNum].Heading, function(vehicle)
-  --       SetVehicleModKit(vehicle, 0)
-  --       SetVehicleLivery(vehicle, 0)
-  --     end)
-
-  --   end
-
-  -- end
-
+ 
   if part == 'VehicleDeleter' then
 
     local playerPed = GetPlayerPed(-1)
@@ -1464,6 +1446,25 @@ AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum
     end
 
   end
+
+  if part == 'HeliDeleterMountain' then
+
+    local playerPed = GetPlayerPed(-1)
+    local coords    = GetEntityCoords(playerPed)
+
+    if IsPedInAnyVehicle(playerPed,  false) then
+
+      local vehicle = GetVehiclePedIsIn(playerPed, false)
+
+      if DoesEntityExist(vehicle) then
+        CurrentAction     = 'delete_heli_mountain'
+        CurrentActionMsg  = _U('store_heli')
+        CurrentActionData = {vehicle = vehicle}
+      end
+
+    end
+
+  end  
 
   if part == 'BossActions' then
     CurrentAction     = 'menu_boss_actions'
@@ -1689,6 +1690,12 @@ Citizen.CreateThread(function()
           end
         end
 
+        for i=1, #v.HeliDeletersMountain, 1 do
+          if GetDistanceBetweenCoords(coords,  v.HeliDeletersMountain[i].x,  v.HeliDeletersMountain[i].y,  v.HeliDeletersMountain[i].z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.HeliDeletersMountain[i].x, v.HeliDeletersMountain[i].y, v.HeliDeletersMountain[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+        end
+
         for i=1, #v.VehicleDeleters, 1 do
           if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.DrawDistance then
             DrawMarker(Config.MarkerType, v.VehicleDeleters[i].x, v.VehicleDeleters[i].y, v.VehicleDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
@@ -1796,6 +1803,15 @@ Citizen.CreateThread(function()
             isInMarker     = true
             currentStation = k
             currentPart    = 'HeliDeleter'
+            currentPartNum = i
+          end
+        end
+
+        for i=1, #v.HeliDeletersMountain, 1 do
+          if GetDistanceBetweenCoords(coords,  v.HeliDeletersMountain[i].x,  v.HeliDeletersMountain[i].y,  v.HeliDeletersMountain[i].z,  true) < Config.MarkerSizeHeli.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'HeliDeleterMountain'
             currentPartNum = i
           end
         end
@@ -1964,28 +1980,10 @@ Citizen.CreateThread(function()
         end
 
         if CurrentAction == 'delete_heli' then
+          ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+        end
 
-          -- if Config.EnableSocietyOwnedVehicles then
-
-          --   local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
-          --   TriggerServerEvent('esx_society:putVehicleInGarage', 'mafia', vehicleProps)
-
-          -- else
-
-          --   if
-          --     GetEntityModel(vehicle) == GetHashKey('schafter3')  or
-          --     GetEntityModel(vehicle) == GetHashKey('kuruma2') or
-          --     GetEntityModel(vehicle) == GetHashKey('sandking') or
-          --     GetEntityModel(vehicle) == GetHashKey('mule3') or
-          --     GetEntityModel(vehicle) == GetHashKey('guardian') or
-          --     GetEntityModel(vehicle) == GetHashKey('burrito3') or
-          --     GetEntityModel(vehicle) == GetHashKey('mesa')
-          --   then
-          --     TriggerServerEvent('esx_service:disableService', 'mafia')
-          --   end
-
-          -- end
-
+        if CurrentAction == 'delete_heli_mountain' then
           ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
         end
 
