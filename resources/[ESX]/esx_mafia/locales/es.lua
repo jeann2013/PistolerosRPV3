@@ -21,6 +21,12 @@ Locales['es'] = {
   ['vehicle_spawner'] = 'Presionar ~INPUT_CONTEXT~ para sacar un vehículo',
   ['store_vehicle'] = 'Presionar ~INPUT_CONTEXT~ para guardar un vehículo',
   ['service_max'] = 'Servicio completado : ',
+  ['mafia_stock'] = 'Stock de Mafia',
+   -- Helicoptero
+   ['heli_menu'] = 'Helicopteros',
+   ['heli_out'] = 'Ya tienes un Helicoptero fuera',
+   ['heli_spawner'] = 'Presionar ~INPUT_CONTEXT~ para sacar un helicoptero',
+   ['store_heli'] = 'Presionar ~INPUT_CONTEXT~ para guardar un helicoptero',   
   -- Action Menu
   ['citizen_interaction'] = 'Interacción ciudadana',
   ['vehicle_interaction'] = 'Interacción vehículo',
