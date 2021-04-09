@@ -72,6 +72,14 @@ Config.MafiaStations = {
       }
     },
 
+    HelicoptersMountain = {
+      {
+        Spawner    = { x = 182.74, y = 5376.15, z = 524.56 },
+        SpawnPoint = { x = 187.27, y = 5378.44, z = 525.91 },
+        Heading    = 77.72,
+      }
+    },
+
     VehicleDeleters = {
       { x = 1398.67, y = 1120.04, z = 113.84 },
       { x = 1399.10, y = 1116.87, z = 113.84 },
@@ -81,8 +89,12 @@ Config.MafiaStations = {
       { x = 1465.61, y = 1112.60, z = 113.33 },
     },
 
+    HeliDeletersMountain = {
+      { x = 170.78, y = 5379.75, z = 522.47 },
+    },
+
     BossActions = {
-      { x = 1396.36, y = 1160.45, z = 114.33 }
+      { x = 1396.36, y = 1160.45, z = 113.33 }
     },
 
   },
