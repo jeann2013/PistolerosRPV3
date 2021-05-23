@@ -90,7 +90,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 5000,
-		Cars = {'zentorno','t20','infernus2','18performante','vagner'},
+		Cars = {'zentorno','bolide','infernus2','18performante','vagner'},
 	},
 	--Marina Drive Desert 8.15KM
 	Delivery5 = {
@@ -123,7 +123,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 8200,
-		Cars = {'jellybigpeen','f40' ,'lp610', 'mvisiongt', 'CONTGT13'},
+		Cars = {'jellybigpeen','f40' ,'lp610', 'mvisiongt', 'thrax'},
 	},
 	Delivery9 = {
 		Pos      = {x = -93.78, y = 836.79, z = 235.72},
