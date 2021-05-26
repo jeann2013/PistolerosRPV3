@@ -64,7 +64,7 @@ Config.Garages = {
 		Marker = 1,
 		
 		SpawnPoint = {
-			Pos = {x = 128.7822, y = 6622.9965, z = 30.7828},
+			Pos = {x = 136.67, y = 6616.71, z = 31.82},
 			Color = {r = 0, g = 255, b = 0},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1

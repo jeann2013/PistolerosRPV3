@@ -66,7 +66,7 @@ Config.Garages = {
 		Name = _U('garage_name'),
 		HelpPrompt = _U('open_car_garage'),
 		SpawnPoint = {
-			Pos = {x=128.7822, y= 6622.9965, z= 31.7828},
+			Pos = {x=128.7822, y= 6622.9965, z= 31.7828},			
 			Heading = 160.0,
 			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
 			HelpPrompt = _U('spawn_car')
