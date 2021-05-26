@@ -6,7 +6,7 @@ Config.IsMechanicJobOnly = false
 Config.Zones = {
 
 	ls1 = {
-		Pos   = { x = w},
+		Pos   = { x =  -337.38, y = -136.92, z = 38.57},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
