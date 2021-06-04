@@ -464,7 +464,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
 
   ESX.UI.Menu.CloseAll()
 
-  if Config.EnableSocietyOwnedVehicles then
+  if Config.EnableSocietyOwnedVehicles == false then
 
     local elements = {}
 
