@@ -183,7 +183,7 @@ end)
 				})
 				TriggerClientEvent("animation", source)
 				TriggerClientEvent("test", source)
-				xPlayer.removeInventoryItem('weed_pooch', drugQuantity)
+				xPlayer.removeInventoryItem('marijuana', drugQuantity)
 				xPlayer.addAccountMoney('black_money', paymentw*drugQuantity)
 				selling = false
 			end
