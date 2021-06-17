@@ -1,6 +1,7 @@
 docker exec -it 2460 bash -c "service mysql start && cd /root/server && bash /root/server/run.sh +exec server.cfg"
-docker exec -it 2460 bash -c "cd /root/server && bash /root/server/run.sh +exec server.cfg"
-docker run -id -m2024M -p 8080:80 -p 3309:3306 -p 30120:30120/udp -p 30120:30120/tcp -v "C:\Users\jeanc\server:/root/server" 56d
+docker exec -it ef8362 bash -c "cd /root/server && bash /root/server/run.sh +exec server.cfg"
+docker run -id -m2024M -p 8080:80 -p 3309:3306 -p 30120:30120/udp -p 30120:30120/tcp -v "C:\Users\Jean Carlos Nunez\server:/root/server" 56d
+
 docker start 2460
 docker exec -it 2460 bash -c "service mysql start"
 
