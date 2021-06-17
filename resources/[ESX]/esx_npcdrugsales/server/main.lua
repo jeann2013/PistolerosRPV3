@@ -35,7 +35,7 @@ end)
 		local xPlayer = ESX.GetPlayerFromId(source)
 		local meth = xPlayer.getInventoryItem('meth_pooch').count
 		local coke 	  = xPlayer.getInventoryItem('coke_pooch').count
-		local weed = xPlayer.getInventoryItem('weed_pooch').count
+		local weed = xPlayer.getInventoryItem('marijuana').count		
 		local opium = xPlayer.getInventoryItem('opium_pooch').count
 		local paymentc = math.random (1001,1600)	
 		local paymentm = math.random (801,1000)
