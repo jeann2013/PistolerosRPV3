@@ -454,5 +454,82 @@ AddEventHandler('fishing:startSelling', function(item)
 					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficiente carne de mar como: delfines,tiburones,ballenas u otros, para hacer ceviche');
 				end				
 			end
+			if item == "weapon" then
+				local chatarraQuantity = xPlayer.getInventoryItem('chatarra').count
+				local goldQuantity = xPlayer.getInventoryItem('gold').count
+				local diamondQuantity = xPlayer.getInventoryItem('diamond').count
+
+				if chatarraQuantity >= 25 and goldQuantity >= 6 and diamondQuantity >= 6 then
+					if xPlayer.hasWeapon('WEAPON_APPISTOL') then
+						TriggerClientEvent('esx:showNotification', source, '~r~Ya tienes un arma~s~ debes dejarla para darte una')	
+					else
+						xPlayer.removeInventoryItem('chatarra', 25)
+						xPlayer.removeInventoryItem('gold', 5)
+						xPlayer.removeInventoryItem('diamond', 5)					
+						xPlayer.addWeapon('WEAPON_APPISTOL', 250)	
+					end
+				elseif chatarraQuantity >= 25 and goldQuantity >= 7 and diamondQuantity >= 7 then
+					if xPlayer.hasWeapon('WEAPON_COMBATPISTOL') then
+						TriggerClientEvent('esx:showNotification', source, '~r~Ya tienes un arma~s~ debes dejarla para darte una')	
+					else
+						xPlayer.removeInventoryItem('chatarra', 25)
+						xPlayer.removeInventoryItem('gold', 3)
+						xPlayer.removeInventoryItem('diamond', 3)					
+						xPlayer.addWeapon('WEAPON_COMBATPISTOL', 250)	
+					end
+				else
+					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficiente~s~ Chatarras (minimo 25),Oro(entre 6 y 7) y Diamantes(entre 6 y 7), para darte armas de fuego')	
+				end	
+
+			end
+			if item == "weapon_white" then
+				local chatarraQuantity = xPlayer.getInventoryItem('chatarra').count
+				local goldQuantity = xPlayer.getInventoryItem('gold').count
+				local diamondQuantity = xPlayer.getInventoryItem('diamond').count
+								
+				if chatarraQuantity >= 8 and chatarraQuantity < 15 and goldQuantity >= 1 and diamondQuantity >= 1 then
+					if xPlayer.hasWeapon('WEAPON_KNIFE') then
+						TriggerClientEvent('esx:showNotification', source, '~r~Tienes una navaja encima, debes dejarla~s~ para darte una')					
+					else
+						xPlayer.removeInventoryItem('chatarra', 8)
+						xPlayer.removeInventoryItem('gold', 1)
+						xPlayer.removeInventoryItem('diamond', 1)					
+						xPlayer.addWeapon('WEAPON_KNIFE', 1)	
+					end
+				elseif chatarraQuantity >= 15 and chatarraQuantity < 20 and goldQuantity >= 1 and diamondQuantity >= 1 then
+					if xPlayer.hasWeapon('WEAPON_MACHETE') then
+						TriggerClientEvent('esx:showNotification', source, '~r~Tienes un machete encima, debes dejarlo~s~ para darte uno')					
+					else
+						xPlayer.removeInventoryItem('chatarra', 15)
+						xPlayer.removeInventoryItem('gold', 1)
+						xPlayer.removeInventoryItem('diamond', 1)					
+						xPlayer.addWeapon('WEAPON_MACHETE', 1)	
+					end
+				elseif chatarraQuantity >= 20 and goldQuantity >= 2 and diamondQuantity >= 2 then
+					if xPlayer.hasWeapon('WEAPON_HATCHET') then
+						TriggerClientEvent('esx:showNotification', source, '~r~Tienes una hacha encima, debes dejarla~s~ para darte una')					
+					else
+						xPlayer.removeInventoryItem('chatarra', 20)
+						xPlayer.removeInventoryItem('gold', 1)
+						xPlayer.removeInventoryItem('diamond', 1)					
+						xPlayer.addWeapon('WEAPON_HATCHET', 1)	
+					end
+				else
+					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficiente~s~ Chatarras(entre 8 y 20),Oro(entre 1 y 2) y Diamantes(1 y 2), para darte armas blancas')	
+				end					
+
+			end
+			if item == "chatarra" then
+				local chatarraQuantity = xPlayer.getInventoryItem('chatarra').count				
+
+				if chatarraQuantity >= 1 then
+					xPlayer.removeInventoryItem('chatarra', chatarraQuantity)
+					xPlayer.addAccountMoney('black_money', chatarraQuantity * 300)
+					TriggerClientEvent('fishing:message', _source, "~g~Vendistes Chatarra por: "..chatarraQuantity * 300)	
+				else					
+					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficientes~s~ Chatarras')					
+				end	
+
+			end
 end)
 

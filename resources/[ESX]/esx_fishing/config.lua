@@ -33,6 +33,9 @@ Config = {}
 	Config.SellKillerWhale = {x = 2472.77 , y = 4449.06, z = 35.38} --Place where players can sell their Killer Whale	
 	Config.SellSharkHammer = {x = 2566.52 , y = 4283.27, z = 41.97} --Place where players can sell their Shark Hammer
 	Config.CreateCevicheIllegal = {x = 2641.70 , y = 4235.31, z = 45.49} --Place where players can sell their Shark Hammer
+	Config.CreateWeaponllegal = {x = 3647.55 , y = 5652.83, z = 4.69} --Place where players can create weapon
+	Config.CreateChatarra = {x = -572.48 , y = -1611.00, z = 27.01} --Place where players can sell chatarra
+	Config.CreateWeaponWhite = {x = 112.60 , y = 3730.31, z = 39.73} --Place where players can sell chatarra
 	
 	--------------------------------------------------------
 	--=====Locations where players can rent boats========--
