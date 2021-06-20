@@ -129,6 +129,28 @@ local blip9 = AddBlipForCoord(Config.CreateCevicheIllegal.x, Config.CreateCevich
 			BeginTextCommandSetBlipName("STRING")
 			AddTextComponentString("Punto de creacion de ceviche ilegal")
 			EndTextCommandSetBlipName(blip9)
+
+local blip10 = AddBlipForCoord(Config.CreateWeaponllegal.x, Config.CreateWeaponllegal.y, Config.CreateWeaponllegal.z)
+
+			SetBlipSprite (blip10, 68)
+			SetBlipDisplay(blip10, 0)
+			SetBlipScale  (blip10, 0.9)
+			SetBlipColour (blip10, 32)
+			SetBlipAsShortRange(blip10, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Punto de creacion de armas ilegales")
+			EndTextCommandSetBlipName(blip10)
+
+local blip11 = AddBlipForCoord(Config.CreateWeaponllegal.x, Config.CreateWeaponllegal.y, Config.CreateWeaponllegal.z)
+
+			SetBlipSprite (blip11, 68)
+			SetBlipDisplay(blip11, 0)
+			SetBlipScale  (blip11, 0.9)
+			SetBlipColour (blip11, 32)
+			SetBlipAsShortRange(blip11, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString("Punto de compra de chatarra")
+			EndTextCommandSetBlipName(blip11)			
 			
 for _, info in pairs(Config.MarkerZones) do
 		info.blip = AddBlipForCoord(info.x, info.y, info.z)
@@ -265,8 +287,18 @@ Citizen.CreateThread(function()
 			Citizen.Wait(4000)
 		end		
 
-		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.CreateCevicheIllegal.x, Config.CreateCevicheIllegal.y, Config.CreateCevicheIllegal.z, true) <= 3 then
-			TriggerServerEvent('fishing:startSelling', "ceviche")
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.CreateWeaponllegal.x, Config.CreateWeaponllegal.y, Config.CreateWeaponllegal.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "weapon")
+			Citizen.Wait(4000)
+		end		
+
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.CreateChatarra.x, Config.CreateChatarra.y, Config.CreateChatarra.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "chatarra")
+			Citizen.Wait(4000)
+		end		
+
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.CreateWeaponWhite.x, Config.CreateWeaponWhite.y, Config.CreateWeaponWhite.z, true) <= 3 then
+			TriggerServerEvent('fishing:startSelling', "weapon_white")
 			Citizen.Wait(4000)
 		end		
 		
@@ -287,7 +319,9 @@ Citizen.CreateThread(function()
 		DrawMarker(1, Config.SellDolphin.x, Config.SellDolphin.y, Config.SellDolphin.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 		DrawMarker(1, Config.SellKillerWhale.x, Config.SellKillerWhale.y, Config.SellKillerWhale.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 		DrawMarker(1, Config.SellSharkHammer.x, Config.SellSharkHammer.y, Config.SellSharkHammer.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
-		DrawMarker(1, Config.CreateCevicheIllegal.x, Config.CreateCevicheIllegal.y, Config.CreateCevicheIllegal.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.CreateWeaponllegal.x, Config.CreateWeaponllegal.y, Config.CreateWeaponllegal.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.CreateChatarra.x, Config.CreateChatarra.y, Config.CreateChatarra.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, Config.CreateWeaponWhite.x, Config.CreateWeaponWhite.y, Config.CreateWeaponWhite.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 	end
 end)
 
