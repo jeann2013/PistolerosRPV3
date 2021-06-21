@@ -239,8 +239,8 @@ function RemoveItemsAfterRPDeath()
 			ESX.SetPlayerData('lastPosition', Config.Zones.HospitalInteriorInside1.Pos)
 			ESX.SetPlayerData('loadout', {})
 
-			TriggerServerEvent('esx:updateLastPosition', Config.Zones.HospitalInteriorInside1.Pos)
-			RespawnPed(PlayerPedId(), Config.Zones.HospitalInteriorInside1.Pos)
+			-- TriggerServerEvent('esx:updateLastPosition', Config.Zones.HospitalInteriorInside1.Pos)
+			-- RespawnPed(PlayerPedId(), Config.Zones.HospitalInteriorInside1.Pos)
 
 			StopScreenEffect('DeathFailOut')
 			DoScreenFadeIn(800)
@@ -294,7 +294,7 @@ AddEventHandler('esx_ambulancejob:revive', function()
 	local playerPed = PlayerPedId()
 	local coords	= GetEntityCoords(playerPed)
 	TriggerServerEvent('esx_ambulancejob:setDeathStatus', 0)
-
+print('paso por aqui');
 	Citizen.CreateThread(function()
 		DoScreenFadeOut(800)
 
