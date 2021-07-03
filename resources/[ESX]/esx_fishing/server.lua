@@ -496,7 +496,7 @@ AddEventHandler('fishing:startSelling', function(item)
 						xPlayer.removeInventoryItem('diamond', 1)					
 						xPlayer.addWeapon('WEAPON_KNIFE', 1)	
 					end
-				elseif chatarraQuantity >= 15 and chatarraQuantity < 20 and goldQuantity >= 1 and diamondQuantity >= 1 then
+				elseif chatarraQuantity >= 15 and chatarraQuantity < 17 and goldQuantity >= 1 and diamondQuantity >= 1 then
 					if xPlayer.hasWeapon('WEAPON_MACHETE') then
 						TriggerClientEvent('esx:showNotification', source, '~r~Tienes un machete encima, debes dejarlo~s~ para darte uno')					
 					else
@@ -504,6 +504,15 @@ AddEventHandler('fishing:startSelling', function(item)
 						xPlayer.removeInventoryItem('gold', 1)
 						xPlayer.removeInventoryItem('diamond', 1)					
 						xPlayer.addWeapon('WEAPON_MACHETE', 1)	
+					end
+				elseif chatarraQuantity >= 17 and chatarraQuantity < 20 and goldQuantity >= 1 and diamondQuantity >= 1 then
+					if xPlayer.hasWeapon('WEAPON_POOLCUE') then
+						TriggerClientEvent('esx:showNotification', source, '~r~Tienes un palo de pool encima, debes dejarlo~s~ para darte uno')					
+					else
+						xPlayer.removeInventoryItem('chatarra', 17)
+						xPlayer.removeInventoryItem('gold', 1)
+						xPlayer.removeInventoryItem('diamond', 1)					
+						xPlayer.addWeapon('WEAPON_POOLCUE', 1)	
 					end
 				elseif chatarraQuantity >= 20 and goldQuantity >= 2 and diamondQuantity >= 2 then
 					if xPlayer.hasWeapon('WEAPON_HATCHET') then
@@ -524,8 +533,8 @@ AddEventHandler('fishing:startSelling', function(item)
 
 				if chatarraQuantity >= 1 then
 					xPlayer.removeInventoryItem('chatarra', chatarraQuantity)
-					xPlayer.addAccountMoney('black_money', chatarraQuantity * 300)
-					TriggerClientEvent('fishing:message', _source, "~g~Vendistes Chatarra por: "..chatarraQuantity * 300)	
+					xPlayer.addAccountMoney('black_money', chatarraQuantity * 150)
+					TriggerClientEvent('fishing:message', _source, "~g~Vendistes Chatarra por: "..chatarraQuantity * 150)	
 				else					
 					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficientes~s~ Chatarras')					
 				end	
