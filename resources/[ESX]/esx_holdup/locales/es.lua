@@ -12,5 +12,5 @@ Locales['es'] = {
   ['robbery_cancelled_at'] = '~r~El robo en ~b~%s~s~ ha sido cancelado!',
   ['min_police'] = 'se necesitan ~b~%s policias~s~ activos para poder robar.',
   ['robbery_already'] = '~r~Ya hay un robo en progreso.',
-  ['no_threat'] = 'sin pistola el encargado de la tienda no te tiene miedo...',
+  ['no_threat'] = 'sin alguna arma blanca o de fuego, el encargado de la tienda no te tiene miedo...',
 }
