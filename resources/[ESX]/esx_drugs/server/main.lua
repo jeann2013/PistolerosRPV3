@@ -108,7 +108,7 @@ AddEventHandler('esx_drugs:processCannabis', function()
 					end
 				end
 				xPlayer.removeInventoryItem('cannabis', canna)
-				xPlayer.addInventoryItem('marijuana', maria)
+				xPlayer.addInventoryItem('weed_pooch', maria)
 			else
 				xPlayer.showNotification(_U('weed_processingenough'))
 			end
