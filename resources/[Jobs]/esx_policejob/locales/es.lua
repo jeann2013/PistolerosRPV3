@@ -20,6 +20,7 @@ Locales['es'] = {
 	['armory_item'] = '$%s',
 	['armory_weapontitle'] = 'armería - Comprar arma',
 	['armory_componenttitle'] = 'armería - Accesorios de armas',
+	['vehicle_spawner'] = 'presione ~INPUT_CONTEXT~ para tomar una patrulla',
 	['armory_bought'] = 'compraste un ~y~%s~s~ para ~g~$%s~s~',
 	['armory_money'] = 'no puedes pagar esa arma',
 	['armory hascomponent'] = '¡tienes ese accesorio equipado!',
