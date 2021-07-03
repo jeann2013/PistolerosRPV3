@@ -1,19 +1,16 @@
 $(document).ready(function($) {
 
-	let videoTracks =  {
-		0:"lVDQMBIgUdo",
-		1:"dqE5MnL4Fus",
-		2:"yhbaP_xDWpM",
-		3:"cObINi_-SiA",
-		4:"gKD4DOr_wfc",
-		5:"hEVHLFDTkQ4",
-		6:"CjwX5qVIGOs",
-		7:"prU2g7PBTxs",
-		8:"NUteQQCMa_k",
-		9:"NWMRx4G9zjo",	
-		10:"Jd_OiT_tpyQ"	
+	let videoTracks =  {		
+		1:"menTpM5ECAo",		
+		2:"1iZ999P03KU",		
+		3:"BH6T3CTuncc",
+		4:"CjwX5qVIGOs",
+		5:"prU2g7PBTxs",
+		6:"NUteQQCMa_k",
+		7:"NWMRx4G9zjo",	
+		8:"Jd_OiT_tpyQ"	
 	};
-	let track = Math.floor(Math.random() * 11);
+	let track = Math.floor(Math.random() * 8);
 	let video = videoTracks[track];
 	console.log(video)
 	var myPlayer = jQuery( "#bgndVideo" ).YTPlayer();
