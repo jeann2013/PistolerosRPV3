@@ -21,7 +21,7 @@ Config.Zones = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Colour    = 6, --BLIP
-		Id        = 230, --BLIP
+		Id        = 229, --BLIP
 	},
 	VehicleSpawner3 = {
 		Pos   = {x = 1522.09, y = 3794.20, z = 32.51},
@@ -29,7 +29,7 @@ Config.Zones = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Colour    = 6, --BLIP
-		Id        = 231, --BLIP
+		Id        = 229, --BLIP
 	},
 }
 
