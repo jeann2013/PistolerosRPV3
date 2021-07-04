@@ -61,7 +61,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 7000,
+		Payment  = 15000,
 		Cars = {'veneno','deveste','italigtb2','entity2','italirsx'},
 	},
 	--Great Ocean Highway 10.47KM
@@ -70,7 +70,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 6200,
+		Payment  = 16200,
 		Cars = {'nero','chiron','nero2','specter2','tezeract'},
 	},
 	--Lighthouse 9.61KM
@@ -79,7 +79,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 5200,
+		Payment  = 15200,
 		Cars = {'tyrant','rmodlp770','lamboavj','italigtb','gp1'},
 	},
 	--Desert
@@ -89,7 +89,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 5000,
+		Payment  = 15000,
 		Cars = {'zentorno','bolide','infernus2','18performante','vagner'},
 	},
 	--Marina Drive Desert 8.15KM
@@ -98,7 +98,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 4800,
+		Payment  = 14800,
 		Cars = {'2018zl1','lectro','penetrator','ruiner2','schlagen'},
 	},
 	Delivery6 = {
@@ -106,7 +106,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 4200,
+		Payment  = 14200,
 		Cars = {'fcr2','diablous','20r1','diablous2','fcr'},
 	},
 	Delivery7 = {
@@ -114,7 +114,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 8100,
+		Payment  = 18100,
 		Cars = {'rmodjesko','chiron17','sc18','pd_avent','mig'},
 	},
 	Delivery8 = {
@@ -122,7 +122,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 8200,
+		Payment  = 18200,
 		Cars = {'jellybigpeen','f40' ,'lp610', 'mvisiongt', 'thrax'},
 	},
 	Delivery9 = {
@@ -130,7 +130,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 8800,
+		Payment  = 18800,
 		Cars = {'bbentayga','bmm','zentenario','sheava','rmodpagani'},
 	},
 }
