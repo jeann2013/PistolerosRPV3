@@ -21,7 +21,7 @@ Config.Zones = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Colour    = 6, --BLIP
-		Id        = 229, --BLIP
+		Id        = 230, --BLIP
 	},
 	VehicleSpawner3 = {
 		Pos   = {x = 1522.09, y = 3794.20, z = 32.51},
@@ -29,7 +29,7 @@ Config.Zones = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Colour    = 6, --BLIP
-		Id        = 229, --BLIP
+		Id        = 231, --BLIP
 	},
 }
 
@@ -130,7 +130,7 @@ Config.Delivery = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
-		Payment  = 18800,
+		Payment  = 8800,
 		Cars = {'bbentayga','bmm','zentenario','sheava','rmodpagani'},
 	},
 }
