@@ -275,14 +275,14 @@ Citizen.CreateThread(function()
 			isInMarker  = true
 			currentZone = 'menucarthief'
 			LastZone    = 'menucarthief'
-			SpawPos		= 2
+			SpawPos		= 1
 		end
 
 		if(GetDistanceBetweenCoords(coords, Config.Zones.VehicleSpawner3.Pos.x, Config.Zones.VehicleSpawner3.Pos.y, Config.Zones.VehicleSpawner3.Pos.z, true) < 3) then
 			isInMarker  = true
 			currentZone = 'menucarthief'
 			LastZone    = 'menucarthief'
-			SpawPos		= 3
+			SpawPos		= 1
 		end
       
 		if isTaken == 1 and (GetDistanceBetweenCoords(coords, alldeliveries[randomdelivery].posx, alldeliveries[randomdelivery].posy, alldeliveries[randomdelivery].posz, true) < 3) then
