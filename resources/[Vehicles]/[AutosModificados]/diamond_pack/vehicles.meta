@@ -75,7 +75,7 @@
       <frequency value="30" />
       <swankness>SWANKNESS_4</swankness>
       <maxNum value="10" />
-      <flags>FLAG_EXTRAS_STRONG FLAG_AVERAGE_CAR FLAG_HAS_INTERIOR_EXTRAS FLAG_CAN_HAVE_NEONS FLAG_HAS_SUPERCHARGER</flags>
+      <flags>FLAG_EXTRAS_STRONG FLAG_PARKING_SENSORS FLAG_AVERAGE_CAR FLAG_HAS_INTERIOR_EXTRAS FLAG_CAN_HAVE_NEONS FLAG_HAS_SUPERCHARGER</flags>
       <type>VEHICLE_TYPE_CAR</type>
       <plateType>VPT_BACK_PLATES</plateType>
       <dashboardType>VDT_RACE</dashboardType>
