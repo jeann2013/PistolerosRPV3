@@ -77,7 +77,7 @@
       <frequency value="3" />
       <swankness>SWANKNESS_1</swankness>
       <maxNum value="1" />
-      <flags>FLAG_HAS_LIVERY FLAG_BOOT_IN_FRONT FLAG_EXTRAS_REQUIRE FLAG_HAS_INTERIOR_EXTRAS FLAG_HAS_LOWRIDER_DONK_HYDRAULICS</flags>
+      <flags>FLAG_HAS_LIVERY FLAG_PARKING_SENSORS FLAG_BOOT_IN_FRONT FLAG_EXTRAS_REQUIRE FLAG_HAS_INTERIOR_EXTRAS FLAG_HAS_LOWRIDER_DONK_HYDRAULICS</flags>
       <type>VEHICLE_TYPE_CAR</type>
       <plateType>VPT_BACK_PLATES</plateType>
 	  <dashboardType>VDT_DUKES</dashboardType>
