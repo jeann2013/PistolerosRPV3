@@ -1,16 +1,15 @@
 $(document).ready(function($) {
 
 	let videoTracks =  {		
-		1:"menTpM5ECAo",		
-		2:"1iZ999P03KU",		
-		3:"BH6T3CTuncc",
-		4:"CjwX5qVIGOs",
-		5:"prU2g7PBTxs",
-		6:"NUteQQCMa_k",
-		7:"NWMRx4G9zjo",	
-		8:"Jd_OiT_tpyQ"	
+		0:"menTpM5ECAo",		
+		1:"1iZ999P03KU",		
+		2:"BH6T3CTuncc",		
+		3:"prU2g7PBTxs",
+		4:"NUteQQCMa_k",
+		5:"NWMRx4G9zjo",	
+		6:"Jd_OiT_tpyQ"	
 	};
-	let track = Math.floor(Math.random() * 8);
+	let track = Math.floor(Math.random() * 7);
 	let video = videoTracks[track];
 	console.log(video)
 	var myPlayer = jQuery( "#bgndVideo" ).YTPlayer();
