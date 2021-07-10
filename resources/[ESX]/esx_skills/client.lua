@@ -130,7 +130,7 @@ end)
 
 Citizen.CreateThread(function() -- Thread for  timer
 	while true do 
-		Citizen.Wait(3000)
+		Citizen.Wait(6000)
     Faketimer = Faketimer + 1 
 	end 
 end)
