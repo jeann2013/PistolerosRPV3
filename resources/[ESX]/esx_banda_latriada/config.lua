@@ -18,7 +18,7 @@ Config.MafiaStations = {
   Mafia = {
 
     Blip = {
-      Pos     = { x = 425.130, y = -979.558, z = 30.711 },
+      Pos     = { x = 425.130, y = -979.5158, z = 30.711 },
       Sprite  = 60,
       Display = 4,
       Scale   = 1.2,
@@ -49,7 +49,7 @@ Config.MafiaStations = {
 		  { name = 'frogger',      label = 'Helicoptero 4 pasajeros' },
 	  },
     Cloakrooms = {
-      { x = 1395.71, y = 1157.21, z = 113.34 },
+      { x = 1395.71, y = 1157.21, z = 1113.34 },
     },
 
     Armories = {
@@ -58,7 +58,7 @@ Config.MafiaStations = {
 
     Vehicles = {
       {
-        Spawner    = { x = 1415.61, y = 1116.38, z = 113.84 },
+        Spawner    = { x = 1415.61, y = 1116.38, z = 1113.84 },
         SpawnPoint = { x = 1404.68, y = 1119.14, z = 113.84 },
         Heading    = 114.83,
       }
@@ -66,35 +66,35 @@ Config.MafiaStations = {
 	
 	Helicopters = {
       {
-        Spawner    = { x = 1441.96, y = 1122.40, z = 113.84 },
-        SpawnPoint = { x = 1453.71, y = 1113.10, z = 113.33 },
+        Spawner    = { x = 1441.96, y = 1122.40, z = 1213.84 },
+        SpawnPoint = { x = 1453.71, y = 1113.10, z = 1213.33 },
         Heading    = 359.40,
       }
     },
 
     HelicoptersMountain = {
       {
-        Spawner    = { x = 182.74, y = 5376.15, z = 524.56 },
-        SpawnPoint = { x = 170.78, y = 5379.75, z = 522.47 },
+        Spawner    = { x = 182.74, y = 5376.15, z = 5224.56 },
+        SpawnPoint = { x = 170.78, y = 5379.75, z = 5222.47 },
         Heading    = 77.72,
       }
     },
 
     VehicleDeleters = {
-      { x = 1398.67, y = 1120.04, z = 113.84 },
+      { x = 1398.67, y = 1120.04, z = 1123.84 },
       { x = 1399.10, y = 1116.87, z = 113.84 },
     },
 
     HeliDeleters = {
-      { x = 1465.61, y = 1112.60, z = 113.33 },
+      { x = 1465.61, y = 1112.60, z = 1213.33 },
     },
 
     HeliDeletersMountain = {
-      { x = 170.78, y = 5379.75, z = 522.47 },
+      { x = 170.78, y = 5379.75, z = 5222.47 },
     },
 
     BossActions = {
-      { x = 1396.36, y = 1160.45, z = 113.33 }
+      { x = 1396.36, y = 1160.45, z = 1213.33 }
     },
 
   },
