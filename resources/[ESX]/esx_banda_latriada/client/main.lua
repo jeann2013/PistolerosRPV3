@@ -1695,11 +1695,11 @@ Citizen.CreateThread(function()
           end
         end
 
-        for i=1, #v.HelicoptersMountain, 1 do
-          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.HelicoptersMountain[i].Spawner.x, v.HelicoptersMountain[i].Spawner.y, v.HelicoptersMountain[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-          end
-        end
+        -- for i=1, #v.HelicoptersMountain, 1 do
+        --   if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.DrawDistance then
+        --     DrawMarker(Config.MarkerType, v.HelicoptersMountain[i].Spawner.x, v.HelicoptersMountain[i].Spawner.y, v.HelicoptersMountain[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        --   end
+        -- end
 
         for i=1, #v.HeliDeleters, 1 do
           if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.DrawDistance then
@@ -1806,23 +1806,23 @@ Citizen.CreateThread(function()
 
         end
 
-        for i=1, #v.HelicoptersMountain, 1 do
+        -- for i=1, #v.HelicoptersMountain, 1 do
 
-          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HelicopterSpawnerMountain'
-            currentPartNum = i
-          end
+        --   if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.MarkerSize.x then
+        --     isInMarker     = true
+        --     currentStation = k
+        --     currentPart    = 'HelicopterSpawnerMountain'
+        --     currentPartNum = i
+        --   end
 
-          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].SpawnPoint.x,  v.HelicoptersMountain[i].SpawnPoint.y,  v.HelicoptersMountain[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HelicopterSpawnPointMountain'
-            currentPartNum = i
-          end
+        --   if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].SpawnPoint.x,  v.HelicoptersMountain[i].SpawnPoint.y,  v.HelicoptersMountain[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+        --     isInMarker     = true
+        --     currentStation = k
+        --     currentPart    = 'HelicopterSpawnPointMountain'
+        --     currentPartNum = i
+        --   end
 
-        end
+        -- end
 
         for i=1, #v.VehicleDeleters, 1 do
           if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.MarkerSize.x then
