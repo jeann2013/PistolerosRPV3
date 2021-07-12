@@ -355,7 +355,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'mafia', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'latriada', vehicleProps)
 
         end,
         function(data, menu)
@@ -369,7 +369,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
         end
       )
 
-    end, 'mafia')
+    end, 'latriada')
 
   else
 
@@ -429,7 +429,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'mafia')
+            end, 'latriada')
 
           end
 
@@ -493,7 +493,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'mafia', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'latriada', vehicleProps)
 
         end,
         function(data, menu)
@@ -507,7 +507,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
         end
       )
 
-    end, 'mafia')
+    end, 'latriada')
 
   else
 
@@ -567,7 +567,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'mafia')
+            end, 'latriada')
 
           end
 
@@ -596,9 +596,9 @@ function OpenMafiaActionsMenu()
   ESX.UI.Menu.CloseAll()
 
   ESX.UI.Menu.Open(
-    'default', GetCurrentResourceName(), 'mafia_actions',
+    'default', GetCurrentResourceName(), 'triada_actions',
     {
-      title    = 'Mafia',
+      title    = 'La Triada',
       align    = 'right',
       elements = {
         {label = _U('citizen_interaction'), value = 'citizen_interaction'},
@@ -1069,7 +1069,7 @@ function OpenFineCategoryMenu(player, category)
         menu.close()
 
         if Config.EnablePlayerManagement then
-          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_mafia', _U('fine_total') .. label, amount)
+          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_latriada', _U('fine_total') .. label, amount)
         else
           TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), '', _U('fine_total') .. label, amount)
         end
@@ -1494,7 +1494,7 @@ AddEventHandler('esx_mafiajob:hasEnteredEntityZone', function(entity)
 
   local playerPed = GetPlayerPed(-1)
 
-  if PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and not IsPedInAnyVehicle(playerPed, false) then
+  if PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and not IsPedInAnyVehicle(playerPed, false) then
     CurrentAction     = 'remove_entity'
     CurrentActionMsg  = _U('remove_object')
     CurrentActionData = {entity = entity}
@@ -1664,7 +1664,7 @@ Citizen.CreateThread(function()
 
     Wait(0)
     
-    if PlayerData.job ~= nil and PlayerData.job.name == 'mafia' then
+    if PlayerData.job ~= nil and PlayerData.job.name == 'latriada' then
 
       local playerPed = GetPlayerPed(-1)
       local coords    = GetEntityCoords(playerPed)
@@ -1719,7 +1719,7 @@ Citizen.CreateThread(function()
           end
         end
 
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and PlayerData.job.grade_name == 'boss' then
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and PlayerData.job.grade_name == 'boss' then
 
           for i=1, #v.BossActions, 1 do
             if not v.BossActions[i].disabled and GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.DrawDistance then
@@ -1742,7 +1742,7 @@ Citizen.CreateThread(function()
   while true do
 
     Wait(0)
-    if PlayerData.job ~= nil and PlayerData.job.name == 'mafia' then
+    if PlayerData.job ~= nil and PlayerData.job.name == 'latriada' then
 
       local playerPed      = GetPlayerPed(-1)
       local coords         = GetEntityCoords(playerPed)
@@ -1851,7 +1851,7 @@ Citizen.CreateThread(function()
           end
         end
 
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and PlayerData.job.grade_name == 'boss' then
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and PlayerData.job.grade_name == 'boss' then
 
           for i=1, #v.BossActions, 1 do
             if GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.MarkerSize.x then
@@ -1968,7 +1968,7 @@ Citizen.CreateThread(function()
       AddTextComponentString(CurrentActionMsg)
       DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
-      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and (GetGameTimer() - GUI.Time) > 150 then
+      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'latraiada' and (GetGameTimer() - GUI.Time) > 150 then
 
         if CurrentAction == 'menu_cloakroom' then
           OpenCloakroomMenu()
@@ -1995,7 +1995,7 @@ Citizen.CreateThread(function()
           if Config.EnableSocietyOwnedVehicles then
 
             local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
-            TriggerServerEvent('esx_society:putVehicleInGarage', 'mafia', vehicleProps)
+            TriggerServerEvent('esx_society:putVehicleInGarage', 'latriada', vehicleProps)
 
           else
 
@@ -2008,7 +2008,7 @@ Citizen.CreateThread(function()
               GetEntityModel(vehicle) == GetHashKey('burrito3') or
               GetEntityModel(vehicle) == GetHashKey('mesa')
             then
-              TriggerServerEvent('esx_service:disableService', 'mafia')
+              TriggerServerEvent('esx_service:disableService', 'latriada')
             end
 
           end
@@ -2028,7 +2028,7 @@ Citizen.CreateThread(function()
 
           ESX.UI.Menu.CloseAll()
 
-          TriggerEvent('esx_society:openBossMenu', 'mafia', function(data, menu)
+          TriggerEvent('esx_society:openBossMenu', 'latriada', function(data, menu)
 
             menu.close()
 
@@ -2051,7 +2051,7 @@ Citizen.CreateThread(function()
 
     end
 
-   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'mafia_actions') and (GetGameTimer() - GUI.Time) > 150 then
+   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'mafia_actions') and (GetGameTimer() - GUI.Time) > 150 then
      OpenMafiaActionsMenu()
      GUI.Time = GetGameTimer()
     end
