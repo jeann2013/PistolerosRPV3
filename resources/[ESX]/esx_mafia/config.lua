@@ -66,7 +66,7 @@ Config.MafiaStations = {
 	
 	Helicopters = {
       {
-        Spawner    = { x = 1441.96, y = 1122.40, z = 113.84 },
+        Spawner    = { x = 1441.96, y = 1122.40, z = 114.32 },
         SpawnPoint = { x = 1453.71, y = 1113.10, z = 113.33 },
         Heading    = 359.40,
       }
