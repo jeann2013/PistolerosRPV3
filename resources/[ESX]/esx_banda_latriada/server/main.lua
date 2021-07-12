@@ -3,11 +3,11 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 if Config.MaxInService ~= -1 then
-  TriggerEvent('esx_service:activateService', 'mafia', Config.MaxInService)
+  TriggerEvent('esx_service:activateService', 'latriada', Config.MaxInService)
 end
 
 -- TriggerEvent('esx_phone:registerNumber', 'mafia', _U('alert_mafia'), true, true)
-TriggerEvent('esx_society:registerSociety', 'mafia', 'Mafia', 'society_mafia', 'society_mafia', 'society_mafia', {type = 'public'})
+TriggerEvent('esx_society:registerSociety', 'latriada', 'LaTriada', 'society_latriada', 'society_latriada', 'society_latriada', {type = 'public'})
 
 RegisterServerEvent('esx_mafiajob:giveWeapon')
 AddEventHandler('esx_mafiajob:giveWeapon', function(weapon, ammo)
@@ -81,7 +81,7 @@ AddEventHandler('esx_mafiajob:getStockItem', function(itemName, count)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
-  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_mafia', function(inventory)
+  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_latriada', function(inventory)
 
     local item = inventory.getItem(itemName)
 
@@ -103,7 +103,7 @@ AddEventHandler('esx_mafiajob:putStockItems', function(itemName, count)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
-  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_mafia', function(inventory)
+  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_latriada', function(inventory)
 
     local item = inventory.getItem(itemName)
 
@@ -329,7 +329,7 @@ end)
 
 ESX.RegisterServerCallback('esx_mafiajob:getArmoryWeapons', function(source, cb)
 
-  TriggerEvent('esx_datastore:getSharedDataStore', 'society_mafia', function(store)
+  TriggerEvent('esx_datastore:getSharedDataStore', 'society_latriada', function(store)
 
     local weapons = store.get('weapons')
 
@@ -349,7 +349,7 @@ ESX.RegisterServerCallback('esx_mafiajob:addArmoryWeapon', function(source, cb, 
 
   xPlayer.removeWeapon(weaponName)
 
-  TriggerEvent('esx_datastore:getSharedDataStore', 'society_mafia', function(store)
+  TriggerEvent('esx_datastore:getSharedDataStore', 'society_latriada', function(store)
 
     local weapons = store.get('weapons')
 
@@ -387,7 +387,7 @@ ESX.RegisterServerCallback('esx_mafiajob:removeArmoryWeapon', function(source, c
 
   xPlayer.addWeapon(weaponName, 1000)
 
-  TriggerEvent('esx_datastore:getSharedDataStore', 'society_mafia', function(store)
+  TriggerEvent('esx_datastore:getSharedDataStore', 'society_latriada', function(store)
 
     local weapons = store.get('weapons')
 
@@ -422,7 +422,7 @@ end)
 
 ESX.RegisterServerCallback('esx_mafiajob:buy', function(source, cb, amount)
 
-  TriggerEvent('esx_addonaccount:getSharedAccount', 'society_mafia', function(account)
+  TriggerEvent('esx_addonaccount:getSharedAccount', 'society_latriada', function(account)
 
     if account.money >= amount then
       account.removeMoney(amount)
@@ -437,7 +437,7 @@ end)
 
 ESX.RegisterServerCallback('esx_mafiajob:getStockItems', function(source, cb)
 
-  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_mafia', function(inventory)
+  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_latriada', function(inventory)
     cb(inventory.items)
   end)
 
