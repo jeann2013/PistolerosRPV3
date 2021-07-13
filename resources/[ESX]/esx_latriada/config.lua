@@ -2,7 +2,7 @@ Config                            = {}
 Config.DrawDistance               = 100.0
 Config.MarkerType                 = 1
 Config.MarkerSize                 = { x = 1.5, y = 1.5, z = 1.0 }
-Config.MarkerSizeHeli                 = { x = 6.0, y = 6.0, z = 0.5 }
+Config.MarkerSizeHeli             = { x = 6.0, y = 6.0, z = 0.5 }
 Config.MarkerColor                = { r = 50, g = 50, b = 204 }
 Config.EnablePlayerManagement     = true
 Config.EnableArmoryManagement     = true
@@ -74,9 +74,9 @@ Config.MafiaStations = {
 
     HelicoptersMountain = {
       {
-        Spawner    = { x = 182.74, y = 5376.15, z = 5224.56 },
-        SpawnPoint = { x = 170.78, y = 5379.75, z = 5222.47 },
-        Heading    = 77.72,
+        Spawner    = { x = 1441.96, y = 1122.40, z = 114.32 },
+        SpawnPoint = { x = 1453.71, y = 1113.10, z = 113.33 },
+        Heading    = 359.40,
       }
     },
 
@@ -94,7 +94,7 @@ Config.MafiaStations = {
     },
 
     BossActions = {
-      { x = -3233.61, y = 814.39, z = 15.15 }
+      { x = -3233.61, y = 814.39, z = 13.15 }
     },
 
   },
