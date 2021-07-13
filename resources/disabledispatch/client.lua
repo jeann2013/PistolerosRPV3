@@ -4,10 +4,13 @@ Citizen.CreateThread(function()
         for i = 1, 12 do
             EnableDispatchService(i,false)
         end
-        --SetEveryoneIgnorePlayer(PlayerId(), 1)
+        SetEveryoneIgnorePlayer(PlayerId(), 1)
         SetPlayerWantedLevel(PlayerId(), 0, false)
 		SetPlayerWantedLevelNow(PlayerId(), false)
 		SetPlayerWantedLevelNoDrop(PlayerId(), 0, false)
+        RemoveAllPickupsOfType(0xDF711959)
+        RemoveAllPickupsOfType(0xF9AFB48F)
+        RemoveAllPickupsOfType(0xA9355DCD)
         RemoveWeaponDrops()
     end
 end)
