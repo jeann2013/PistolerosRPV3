@@ -204,7 +204,7 @@ end)
 ESX.RegisterServerCallback('esx_mafiajob:getFineList', function(source, cb, category)
 
   MySQL.Async.fetchAll(
-    'SELECT * FROM fine_types_mafia WHERE category = @category',
+    'SELECT * FROM fine_types_latraiada WHERE category = @category',
     {
       ['@category'] = category
     },
