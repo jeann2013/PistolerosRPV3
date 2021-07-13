@@ -355,7 +355,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'latriada', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'mafia', vehicleProps)
 
         end,
         function(data, menu)
@@ -369,7 +369,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
         end
       )
 
-    end, 'latriada')
+    end, 'mafia')
 
   else
 
@@ -429,7 +429,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'latriada')
+            end, 'mafia')
 
           end
 
@@ -493,7 +493,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'latriada', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'mafia', vehicleProps)
 
         end,
         function(data, menu)
@@ -507,7 +507,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
         end
       )
 
-    end, 'latriada')
+    end, 'mafia')
 
   else
 
@@ -567,7 +567,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'latriada')
+            end, 'mafia')
 
           end
 
@@ -596,9 +596,9 @@ function OpenMafiaActionsMenu()
   ESX.UI.Menu.CloseAll()
 
   ESX.UI.Menu.Open(
-    'default', GetCurrentResourceName(), 'triada_actions',
+    'default', GetCurrentResourceName(), 'mafia_actions',
     {
-      title    = 'La Triada',
+      title    = 'Mafia',
       align    = 'right',
       elements = {
         {label = _U('citizen_interaction'), value = 'citizen_interaction'},
@@ -1695,11 +1695,11 @@ Citizen.CreateThread(function()
           end
         end
 
-        -- for i=1, #v.HelicoptersMountain, 1 do
-        --   if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.DrawDistance then
-        --     DrawMarker(Config.MarkerType, v.HelicoptersMountain[i].Spawner.x, v.HelicoptersMountain[i].Spawner.y, v.HelicoptersMountain[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-        --   end
-        -- end
+        for i=1, #v.HelicoptersMountain, 1 do
+          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.HelicoptersMountain[i].Spawner.x, v.HelicoptersMountain[i].Spawner.y, v.HelicoptersMountain[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+        end
 
         for i=1, #v.HeliDeleters, 1 do
           if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.DrawDistance then
@@ -1806,23 +1806,23 @@ Citizen.CreateThread(function()
 
         end
 
-        -- for i=1, #v.HelicoptersMountain, 1 do
+        for i=1, #v.HelicoptersMountain, 1 do
 
-        --   if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.MarkerSize.x then
-        --     isInMarker     = true
-        --     currentStation = k
-        --     currentPart    = 'HelicopterSpawnerMountain'
-        --     currentPartNum = i
-        --   end
+          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'HelicopterSpawnerMountain'
+            currentPartNum = i
+          end
 
-        --   if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].SpawnPoint.x,  v.HelicoptersMountain[i].SpawnPoint.y,  v.HelicoptersMountain[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
-        --     isInMarker     = true
-        --     currentStation = k
-        --     currentPart    = 'HelicopterSpawnPointMountain'
-        --     currentPartNum = i
-        --   end
+          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].SpawnPoint.x,  v.HelicoptersMountain[i].SpawnPoint.y,  v.HelicoptersMountain[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'HelicopterSpawnPointMountain'
+            currentPartNum = i
+          end
 
-        -- end
+        end
 
         for i=1, #v.VehicleDeleters, 1 do
           if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.MarkerSize.x then
@@ -1968,7 +1968,7 @@ Citizen.CreateThread(function()
       AddTextComponentString(CurrentActionMsg)
       DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
-      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'latraiada' and (GetGameTimer() - GUI.Time) > 150 then
+      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and (GetGameTimer() - GUI.Time) > 150 then
 
         if CurrentAction == 'menu_cloakroom' then
           OpenCloakroomMenu()
