@@ -487,44 +487,44 @@ AddEventHandler('fishing:startSelling', function(item)
 				local goldQuantity = xPlayer.getInventoryItem('gold').count
 				local diamondQuantity = xPlayer.getInventoryItem('diamond').count
 								
-				if chatarraQuantity >= 8 and chatarraQuantity < 15 and goldQuantity >= 1 and diamondQuantity >= 1 then
+				if chatarraQuantity >= 5 and chatarraQuantity < 10 and goldQuantity >= 1 and diamondQuantity >= 1 then
 					if xPlayer.hasWeapon('WEAPON_KNIFE') then
 						TriggerClientEvent('esx:showNotification', source, '~r~Tienes una navaja encima, debes dejarla~s~ para darte una')					
 					else
-						xPlayer.removeInventoryItem('chatarra', 8)
+						xPlayer.removeInventoryItem('chatarra', 5)
 						xPlayer.removeInventoryItem('gold', 1)
 						xPlayer.removeInventoryItem('diamond', 1)					
 						xPlayer.addWeapon('WEAPON_KNIFE', 1)	
 					end
-				elseif chatarraQuantity >= 15 and chatarraQuantity < 17 and goldQuantity >= 1 and diamondQuantity >= 1 then
+				elseif chatarraQuantity >= 10 and chatarraQuantity < 15 and goldQuantity >= 1 and diamondQuantity >= 1 then
 					if xPlayer.hasWeapon('WEAPON_MACHETE') then
 						TriggerClientEvent('esx:showNotification', source, '~r~Tienes un machete encima, debes dejarlo~s~ para darte uno')					
 					else
-						xPlayer.removeInventoryItem('chatarra', 15)
+						xPlayer.removeInventoryItem('chatarra', 10)
 						xPlayer.removeInventoryItem('gold', 1)
 						xPlayer.removeInventoryItem('diamond', 1)					
 						xPlayer.addWeapon('WEAPON_MACHETE', 1)	
 					end
-				elseif chatarraQuantity >= 17 and chatarraQuantity < 20 and goldQuantity >= 1 and diamondQuantity >= 1 then
+				elseif chatarraQuantity >= 15 and chatarraQuantity < 17 and goldQuantity >= 1 and diamondQuantity >= 1 then
 					if xPlayer.hasWeapon('WEAPON_POOLCUE') then
 						TriggerClientEvent('esx:showNotification', source, '~r~Tienes un palo de pool encima, debes dejarlo~s~ para darte uno')					
 					else
-						xPlayer.removeInventoryItem('chatarra', 17)
+						xPlayer.removeInventoryItem('chatarra', 15)
 						xPlayer.removeInventoryItem('gold', 1)
 						xPlayer.removeInventoryItem('diamond', 1)					
 						xPlayer.addWeapon('WEAPON_POOLCUE', 1)	
 					end
-				elseif chatarraQuantity >= 20 and goldQuantity >= 2 and diamondQuantity >= 2 then
+				elseif chatarraQuantity >= 17 and goldQuantity >= 1 and diamondQuantity >= 1 then
 					if xPlayer.hasWeapon('WEAPON_HATCHET') then
 						TriggerClientEvent('esx:showNotification', source, '~r~Tienes una hacha encima, debes dejarla~s~ para darte una')					
 					else
-						xPlayer.removeInventoryItem('chatarra', 20)
+						xPlayer.removeInventoryItem('chatarra', 17)
 						xPlayer.removeInventoryItem('gold', 1)
 						xPlayer.removeInventoryItem('diamond', 1)					
 						xPlayer.addWeapon('WEAPON_HATCHET', 1)	
 					end
 				else
-					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficiente~s~ Chatarras(entre 8 y 20),Oro(entre 1 y 2) y Diamantes(1 y 2), para darte armas blancas')	
+					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficiente~s~ Chatarras(entre 8 y 20),Oro(aolo 1) y Diamantes(solo 1), para darte armas blancas')	
 				end					
 
 			end
