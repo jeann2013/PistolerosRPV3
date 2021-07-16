@@ -213,7 +213,7 @@ Config.Garages = {
 			HelpPrompt = _U('store_car')
 		}, 	
 	},
-	Garage_tequila = {
+	Garage_Tequila = {
 		Pos = {x = -575.66357421875,y = 318.41366577148,z = 84.614906311035 },
 		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
 		Name = _U('garage_name'),
@@ -230,7 +230,7 @@ Config.Garages = {
 			HelpPrompt = _U('store_car')
 		}, 	
 	},
-	Garage_banque = {
+	Garage_Banque = {
 		Pos = {x = 363.48370361328,y = 296.83682250977,z = 103.50011444092 },
 		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
 		Name = _U('garage_name'),
@@ -247,7 +247,7 @@ Config.Garages = {
 			HelpPrompt = _U('store_car')
 		}, 	
 	},
-	Garage_mirrorpark = {
+	Garage_Mirrorpark = {
 		Pos = {x = 1033.9229736328,y = -767.10662841797,z = 58.003326416016 },
 		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
 		Name = _U('garage_name'),
