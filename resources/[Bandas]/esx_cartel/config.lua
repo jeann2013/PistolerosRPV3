@@ -17,6 +17,7 @@ Config.CartelStations = {
   Cartel = {
 
     Blip = {
+      Pos     = { x = -3233.61, y = 814.39, z = 14.08 },
       Sprite  = 60,
       Display = 4,
       Scale   = 1.2,
