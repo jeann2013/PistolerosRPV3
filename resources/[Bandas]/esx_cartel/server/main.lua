@@ -7,7 +7,7 @@ if Config.MaxInService ~= -1 then
 end
 
 -- TriggerEvent('esx_phone:registerNumber', 'mafia', _U('alert_mafia'), true, true)
-TriggerEvent('esx_society:registerSociety', 'latriada', 'LaTriada', 'society_', 'society_', 'society_', {type = 'public'})
+TriggerEvent('esx_society:registerSociety', 'latriada', 'LaTriada', 'society_latriada', 'society_latriada', 'society_latriada', {type = 'public'})
 
 RegisterServerEvent('esx_carteljob:giveWeapon')
 AddEventHandler('esx_carteljob:giveWeapon', function(weapon, ammo)
