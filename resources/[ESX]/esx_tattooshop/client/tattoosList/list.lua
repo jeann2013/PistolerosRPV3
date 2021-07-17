@@ -527,9 +527,9 @@ tattoosCategories = { -- more to come
 	{name = _U('part') .. " 9", value = "mplowrider2_overlays"},
 	{name = _U('part') .. "10", value = "mplowrider_overlays"},	
 	{name = _U('part') .. "11", value = 'mpchristmas2017_overlays'},
-	{name = _U('part') .. "13", value = 'mpluxe2_overlays'},
-	{name = _U('part') .. "14", value = 'mpluxe_overlays'},
-	{name = _U('part') .. "15", value = 'mpsmuggler_overlays'},
-	{name = _U('part') .. "16", value = 'mpstunt_overlays'},	
-	{name = _U('part') .. "17", value = 'multiplayer_overlays'}
+	{name = _U('part') .. "12", value = 'mpluxe2_overlays'},
+	{name = _U('part') .. "13", value = 'mpluxe_overlays'},
+	{name = _U('part') .. "14", value = 'mpsmuggler_overlays'},
+	{name = _U('part') .. "15", value = 'mpstunt_overlays'},	
+	{name = _U('part') .. "16", value = 'multiplayer_overlays'}
 }
