@@ -115,7 +115,7 @@ Citizen.CreateThread(function()
 			end
         end
         if IsPedInAnyVehicle(GetPlayerPed(-1), true) then
-          if Faketimer >= 50 then
+          if Faketimer >= 90 then
             TriggerServerEvent('stadus_skills:addDriving', GetPlayerServerId(PlayerId()), (math.random() + 0))
             Faketimer = 0
           end
