@@ -1,5 +1,6 @@
 ESX = nil
 local playersProcessingCannabis = {}
+local playersProcessingResina = {}
 local outofbound = true
 local alive = true
 
@@ -65,6 +66,18 @@ AddEventHandler('esx_drugs:pickedUpCannabis', function()
 	end
 end)
 
+RegisterServerEvent('esx_drugs:pickedUpAmapola')
+AddEventHandler('esx_drugs:pickedUpAmapola', function()
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local cime = math.random(5,10)
+
+	if xPlayer.canCarryItem('resina', cime) then
+		xPlayer.addInventoryItem('resina', cime)
+	else
+		xPlayer.showNotification(_U('coca_inventoryfull'))
+	end
+end)
+
 ESX.RegisterServerCallback('esx_drugs:canPickUp', function(source, cb, item)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	cb(xPlayer.canCarryItem(item, 1))
@@ -84,6 +97,12 @@ ESX.RegisterServerCallback('esx_drugs:cannabis_count', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local xCannabis = xPlayer.getInventoryItem('cannabis').count
 	cb(xCannabis)
+end)
+
+ESX.RegisterServerCallback('esx_drugs:resina_count', function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local xResina = xPlayer.getInventoryItem('resina').count
+	cb(xResina)
 end)
 
 RegisterServerEvent('esx_drugs:processCannabis')
@@ -117,6 +136,40 @@ AddEventHandler('esx_drugs:processCannabis', function()
 		end)
 	else
 		print(('esx_drugs: %s attempted to exploit weed processing!'):format(GetPlayerIdentifiers(source)[1]))
+	end
+end)
+
+RegisterServerEvent('esx_drugs:processResina')
+AddEventHandler('esx_drugs:processResina', function()
+	if not playersProcessingResina[source] then
+		local _source = source
+
+		playersProcessingResina[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
+			local xPlayer = ESX.GetPlayerFromId(_source)
+			local xCannabis = xPlayer.getInventoryItem('resina')
+			local maria = 0
+			local canna = 0
+			if xCannabis.count >= 3 then
+				while xCannabis.count >=3 and xPlayer.canSwapItem('resina', 3, 'coke_pooch', 1) do
+					canna = canna+3
+					xCannabis.count= xCannabis.count - 3
+					maria = maria+1
+					if(xCannabis.count<3) then
+						xPlayer.showNotification(_U('coca_processed'))
+					elseif not xPlayer.canSwapItem('resina', 3, 'coke_pooch', 1) then
+						xPlayer.showNotification(_U('weed_processingfull'))
+					end
+				end
+				xPlayer.removeInventoryItem('resina', canna)
+				xPlayer.addInventoryItem('coke_pooch', maria)
+			else
+				xPlayer.showNotification(_U('coca_processingenough'))
+			end
+
+			playersProcessingResina[_source] = nil
+		end)
+	else
+		print(('esx_drugs: %s attempted to exploit coca processing!'):format(GetPlayerIdentifiers(source)[1]))
 	end
 end)
 
@@ -165,6 +218,28 @@ end)
 --		print(('esx_drugs: %s attempted to exploit weed processing!'):format(GetPlayerIdentifiers(source)[1]))
 --	end
 --end)
+
+
+function CancelProcessingCoca(playerId)
+	if playersProcessingResina[playerId] then
+		ESX.ClearTimeout(playersProcessingResina[playerId])
+		playersProcessingResina[playerId] = nil
+	end
+end
+
+RegisterServerEvent('esx_drugs:cancelProcessing')
+AddEventHandler('esx_drugs:cancelProcessing', function()
+	CancelProcessingCoca(source)
+end)
+
+AddEventHandler('esx:playerDropped', function(playerId, reason)
+	CancelProcessingCoca(playerId)
+end)
+
+RegisterServerEvent('esx:onPlayerDeath')
+AddEventHandler('esx:onPlayerDeath', function(data)
+	CancelProcessingCoca(source)
+end)
 
 function CancelProcessing(playerId)
 	if playersProcessingCannabis[playerId] then
