@@ -4,7 +4,8 @@ INSERT INTO `items` (`name`, `label`, `weight`, `rare`, `can_remove`) VALUES
 	('cannabis', 'Cannabis', 3, 0, 1),
 	('marijuana', 'Marijuana', 2, 0, 1),
 	('resina', 'Resina de amapola', 2, 0, 1),
-	('opio_dirty', 'Opio sucio', 2, 0, 1)
+	('opio_dirty', 'Opio sucio', 2, 0, 1),
+	('morfina', 'Morfina', 2, 0, 1)
 ;
 
 INSERT INTO `licenses` (`type`, `label`) VALUES

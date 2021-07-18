@@ -6,9 +6,6 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
 		local coords = GetEntityCoords(PlayerPedId())
-		
-		print('distancia', GetDistanceBetweenCoords(coords, Config.CircleZones.CocaField.coords, true))
-
 		if GetDistanceBetweenCoords(coords, Config.CircleZones.CocaField.coords, true) < 50 then
 			SpawnAmapolaPlants()
 		end
