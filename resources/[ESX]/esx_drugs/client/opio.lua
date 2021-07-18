@@ -136,7 +136,7 @@ function SpawnAmapolaPlants()
 		Citizen.Wait(0)
 		local cocaCoords = GenerateCocaCoords()
 
-		ESX.Game.SpawnLocalObject('prop_cs_plant_01', cocaCoords, function(obj)
+		ESX.Game.SpawnLocalObject('prop_plant_01a', cocaCoords, function(obj)
 			PlaceObjectOnGroundProperly(obj)
 			FreezeEntityPosition(obj, true)
 

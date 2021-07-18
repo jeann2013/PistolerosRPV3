@@ -152,6 +152,9 @@ end
 
 Citizen.CreateThread(function()
 	for k,zone in pairs(Config.CircleZones) do
-		CreateBlipCircle(zone.coords, zone.name, zone.radius, zone.color, zone.sprite)
+		print('zone.visible',zone.visible)
+		if zone.visible then
+			CreateBlipCircle(zone.coords, zone.name, zone.radius, zone.color, zone.sprite)
+		end
 	end
 end)
