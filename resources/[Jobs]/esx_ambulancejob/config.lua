@@ -19,7 +19,7 @@ Config.EnableSocietyOwnedVehicles = false
 
 Config.RemoveWeaponsAfterRPDeath  = true
 Config.RemoveCashAfterRPDeath     = true
-Config.RemoveItemsAfterRPDeath    = true
+Config.RemoveItemsAfterRPDeath    = false
 
 -- Let the player pay for respawning early, if he can afford it.
 Config.EarlyRespawnFine           = false

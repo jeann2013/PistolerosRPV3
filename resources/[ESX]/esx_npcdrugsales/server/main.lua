@@ -38,11 +38,11 @@ end)
 		local weed = xPlayer.getInventoryItem('marijuana').count		
 		local weed_dirty = xPlayer.getInventoryItem('weed_pooch').count
 		local opium = xPlayer.getInventoryItem('opium_pooch').count
-		local paymentc = math.random (751,850)	
-		local paymentm = math.random (651,750)
+		local paymentc = math.random (651,850)	
+		local paymentm = math.random (651,850)
 		local paymentw = math.random (601,650)
-		local paymento = math.random (400,600)
-		local paymentwd = math.random (100,300)
+		local paymento = math.random (601,650)
+		local paymentwd = math.random (100,200)
 		local kindDrug = 0
 
 		if weed_dirty > 0 then
