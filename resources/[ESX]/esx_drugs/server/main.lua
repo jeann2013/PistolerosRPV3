@@ -213,10 +213,10 @@ end)
 
 RegisterServerEvent('esx_drugs:processPeyote')
 AddEventHandler('esx_drugs:processPeyote', function()
-	if not playersProcessingResina[source] then
+	if not playersProcessingPeyote[source] then
 		local _source = source
 
-		playersProcessingResina[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
+		playersProcessingPeyote[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
 			local xCannabis = xPlayer.getInventoryItem('peyote')
 			local maria = 0
@@ -238,7 +238,7 @@ AddEventHandler('esx_drugs:processPeyote', function()
 				xPlayer.showNotification(_U('metha_processingenough'))
 			end
 
-			playersProcessingResina[_source] = nil
+			playersProcessingPeyote[_source] = nil
 		end)
 	else
 		print(('esx_drugs: %s attempted to exploit metha processing!'):format(GetPlayerIdentifiers(source)[1]))
@@ -247,10 +247,10 @@ end)
 
 RegisterServerEvent('esx_drugs:processAdormidera')
 AddEventHandler('esx_drugs:processAdormidera', function()
-	if not playersProcessingResina[source] then
+	if not playersProcessingAdormidera[source] then
 		local _source = source
 
-		playersProcessingResina[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
+		playersProcessingAdormidera[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
 			local xCannabis = xPlayer.getInventoryItem('adormidera')
 			local maria = 0
@@ -272,7 +272,7 @@ AddEventHandler('esx_drugs:processAdormidera', function()
 				xPlayer.showNotification(_U('opio_processingenough'))
 			end
 
-			playersProcessingResina[_source] = nil
+			playersProcessingAdormidera[_source] = nil
 		end)
 	else
 		print(('esx_drugs: %s attempted to exploit opium processing!'):format(GetPlayerIdentifiers(source)[1]))
