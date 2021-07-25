@@ -1,13 +1,13 @@
-local spawnedAmapola = 0
-local amapolaPlants = {}
+local spawnedPeyota = 0
+local peyotaPlants = {}
 local isPickingUp, isProcessing = false, false
 
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
 		local coords = GetEntityCoords(PlayerPedId())
-		if GetDistanceBetweenCoords(coords, Config.CircleZones.CocaField.coords, true) < 50 then
-			SpawnAmapolaPlants()
+		if GetDistanceBetweenCoords(coords, Config.CircleZones.MethaField.coords, true) < 50 then
+			SpawnAdormideraPlants()
 		end
 	end
 end)
@@ -18,9 +18,9 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
 
-		if GetDistanceBetweenCoords(coords, Config.CircleZones.CocaProcessing.coords, true) < 1 then
+		if GetDistanceBetweenCoords(coords, Config.CircleZones.MethaProcessing.coords, true) < 1 then
 			if not isProcessing then
-				ESX.ShowHelpNotification(_U('coca_processprompt'))
+				ESX.ShowHelpNotification(_U('metha_processprompt'))
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing then
@@ -29,11 +29,11 @@ Citizen.CreateThread(function()
 						if hasProcessingLicense then
 							ProcessCoca()
 						else
-							OpenBuyLicenseMenu('coca_processing')
+							OpenBuyLicenseMenu('metha_processing')
 						end
-					end, GetPlayerServerId(PlayerId()), 'coca_processing')
+					end, GetPlayerServerId(PlayerId()), 'metha_processing')
 				else
-					ESX.TriggerServerCallback('esx_drugs:resina_count', function(xResina)
+					ESX.TriggerServerCallback('esx_drugs:peyote_count', function(xResina)
 						ProcessCoca(xResina)
 					end)
 
@@ -47,21 +47,21 @@ end)
 
 function ProcessCoca(xResina)
 	isProcessing = true
-	ESX.ShowNotification(_U('coca_processingstarted'))
-	TriggerServerEvent('esx_drugs:processResina')
+	ESX.ShowNotification(_U('metha_processingstarted'))
+	TriggerServerEvent('esx_drugs:processPeyote')
 	if(xResina<3) then
 		xResina=0
 	end
-	local timeLeft = (Config.Delays.CocaProcessing * xResina) / 1000
+	local timeLeft = (Config.Delays.MethaProcessing * xResina) / 1000
 	local playerPed = PlayerPedId()
 
 	while timeLeft > 0 do
 		Citizen.Wait(1000)
 		timeLeft = timeLeft - 1
 
-		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.CocaProcessing.coords, false) > 4 then
-			ESX.ShowNotification(_U('coca_processingtoofar'))
-			TriggerServerEvent('esx_drugs:cancelProcessingCoca')
+		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.MethaProcessing.coords, false) > 4 then
+			ESX.ShowNotification(_U('metha_processingtoofar'))
+			TriggerServerEvent('esx_drugs:CancelProcessingMetha')
 			TriggerServerEvent('esx_drugs:outofbound')
 			break
 		end
@@ -79,15 +79,15 @@ Citizen.CreateThread(function()
 		local coords = GetEntityCoords(playerPed)
 		local nearbyObject, nearbyID
 
-		for i=1, #amapolaPlants, 1 do
-			if GetDistanceBetweenCoords(coords, GetEntityCoords(amapolaPlants[i]), false) < 1 then
-				nearbyObject, nearbyID = amapolaPlants[i], i
+		for i=1, #peyotaPlants, 1 do
+			if GetDistanceBetweenCoords(coords, GetEntityCoords(peyotaPlants[i]), false) < 1 then
+				nearbyObject, nearbyID = peyotaPlants[i], i
 			end
 		end
 
 		if nearbyObject and IsPedOnFoot(playerPed) then
 			if not isPickingUp then
-				ESX.ShowHelpNotification(_U('coca_pickupprompt'))
+				ESX.ShowHelpNotification(_U('metha_pickupprompt'))
 			end
 
 			if IsControlJustReleased(0, 38) and not isPickingUp then
@@ -103,12 +103,12 @@ Citizen.CreateThread(function()
 
 						ESX.Game.DeleteObject(nearbyObject)
 
-						table.remove(amapolaPlants, nearbyID)
-						spawnedAmapola = spawnedAmapola - 1
+						table.remove(peyotaPlants, nearbyID)
+						spawnedPeyota = spawnedPeyota - 1
 
-						TriggerServerEvent('esx_drugs:pickedUpAmapola')
+						TriggerServerEvent('esx_drugs:pickedUpPeyote')
 					else
-						ESX.ShowNotification(_U('coca_inventoryfull'))
+						ESX.ShowNotification(_U('metha_inventoryfull'))
 					end
 
 					isPickingUp = false
@@ -122,38 +122,38 @@ end)
 
 AddEventHandler('onResourceStop', function(resource)
 	if resource == GetCurrentResourceName() then
-		for k, v in pairs(amapolaPlants) do
+		for k, v in pairs(peyotaPlants) do
 			ESX.Game.DeleteObject(v)
 		end
 	end
 end)
 
-function SpawnAmapolaPlants()
-	while spawnedAmapola < 70 do
+function SpawnAdormideraPlants()
+	while spawnedPeyota < 70 do
 		Citizen.Wait(0)
-		local cocaCoords = GenerateCocaCoords()
+		local methaCoords = GenerateMethaCoords()
 
-		ESX.Game.SpawnLocalObject('prop_cs_plant_01', cocaCoords, function(obj)
+		ESX.Game.SpawnLocalObject('prop_cactus_02', methaCoords, function(obj)
 			PlaceObjectOnGroundProperly(obj)
 			FreezeEntityPosition(obj, true)
 
-			table.insert(amapolaPlants, obj)
-			spawnedAmapola = spawnedAmapola + 1
+			table.insert(peyotaPlants, obj)
+			spawnedPeyota = spawnedPeyota + 1
 		end)
 	end
 end
 
-function ValidateCocaCoord(plantCoord)
-	if spawnedAmapola > 0 then
+function ValidateMethaCoord(plantCoord)
+	if spawnedPeyota > 0 then
 		local validate = true
 
-		for k, v in pairs(amapolaPlants) do
+		for k, v in pairs(peyotaPlants) do
 			if GetDistanceBetweenCoords(plantCoord, GetEntityCoords(v), true) < 5 then
 				validate = false
 			end
 		end
 
-		if GetDistanceBetweenCoords(plantCoord, Config.CircleZones.CocaField.coords, false) > 50 then
+		if GetDistanceBetweenCoords(plantCoord, Config.CircleZones.MethaField.coords, false) > 50 then
 			validate = false
 		end
 
@@ -164,7 +164,7 @@ function ValidateCocaCoord(plantCoord)
 end
 
 
-function GenerateCocaCoords()
+function GenerateMethaCoords()
 	while true do
 		Citizen.Wait(1)
 
@@ -178,13 +178,13 @@ function GenerateCocaCoords()
 		math.randomseed(GetGameTimer())
 		local modY = math.random(-90, 90)
 
-		cocaCoordX = Config.CircleZones.CocaField.coords.x + modX
-		cocaCoordY = Config.CircleZones.CocaField.coords.y + modY
+		cocaCoordX = Config.CircleZones.MethaField.coords.x + modX
+		cocaCoordY = Config.CircleZones.MethaField.coords.y + modY
 
 		local coordZ = GetCoordZ(cocaCoordX, cocaCoordY)
 		local coord = vector3(cocaCoordX, cocaCoordY, coordZ)
 
-		if ValidateCocaCoord(coord) then
+		if ValidateMethaCoord(coord) then
 			return coord
 		end
 	end

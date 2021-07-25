@@ -1,6 +1,8 @@
 ESX = nil
 local playersProcessingCannabis = {}
 local playersProcessingResina = {}
+local playersProcessingPeyote = {}
+local playersProcessingAdormidera = {}
 local outofbound = true
 local alive = true
 
@@ -78,6 +80,30 @@ AddEventHandler('esx_drugs:pickedUpAmapola', function()
 	end
 end)
 
+RegisterServerEvent('esx_drugs:pickedUpPeyote')
+AddEventHandler('esx_drugs:pickedUpPeyote', function()
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local cime = math.random(5,10)
+
+	if xPlayer.canCarryItem('peyote', cime) then
+		xPlayer.addInventoryItem('peyote', cime)
+	else
+		xPlayer.showNotification(_U('metha_inventoryfull'))
+	end
+end)
+
+RegisterServerEvent('esx_drugs:pickedUpAdormidera')
+AddEventHandler('esx_drugs:pickedUpAdormidera', function()
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local cime = math.random(5,10)
+
+	if xPlayer.canCarryItem('adormidera', cime) then
+		xPlayer.addInventoryItem('adormidera', cime)
+	else
+		xPlayer.showNotification(_U('opio_inventoryfull'))
+	end
+end)
+
 ESX.RegisterServerCallback('esx_drugs:canPickUp', function(source, cb, item)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	cb(xPlayer.canCarryItem(item, 1))
@@ -102,6 +128,18 @@ end)
 ESX.RegisterServerCallback('esx_drugs:resina_count', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local xResina = xPlayer.getInventoryItem('resina').count
+	cb(xResina)
+end)
+
+ESX.RegisterServerCallback('esx_drugs:adormidera_count', function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local xResina = xPlayer.getInventoryItem('adormidera').count
+	cb(xResina)
+end)
+
+ESX.RegisterServerCallback('esx_drugs:peyote_count', function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local xResina = xPlayer.getInventoryItem('peyote').count
 	cb(xResina)
 end)
 
@@ -173,57 +211,92 @@ AddEventHandler('esx_drugs:processResina', function()
 	end
 end)
 
+RegisterServerEvent('esx_drugs:processPeyote')
+AddEventHandler('esx_drugs:processPeyote', function()
+	if not playersProcessingResina[source] then
+		local _source = source
 
---RegisterServerEvent('esx_drugs:processCannabis')
---AddEventHandler('esx_drugs:processCannabis', function()
---	if not playersProcessingCannabis[source] then
---		local _source = source
---		local xPlayer = ESX.GetPlayerFromId(_source)
---		local xCannabis = xPlayer.getInventoryItem('cannabis')
---		TriggerClientEvent('esx_drugs:getPlayer',xCannabis.count,_source)
---		local can = true
---		outofbound = false
---		if xCannabis.count >=3 then
---			while outofbound == false and can and GetEntityHealth(GetPlayerPed(_source))>0 do
---				if playersProcessingCannabis[_source] == nil then
---					playersProcessingCannabis[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing , function()
---						if xCannabis.count >= 3 then
---							if xPlayer.canSwapItem('cannabis', 3, 'marijuana', 1) then
---								xPlayer.removeInventoryItem('cannabis', 3)
---								xPlayer.addInventoryItem('marijuana', 1)
---								xPlayer.showNotification(_U('weed_processed'))
---							else
---								can = false
---								xPlayer.showNotification(_U('weed_processingfull'))
---								TriggerEvent('esx_drugs:cancelProcessing')
---							end
---						else
---							can = false
---							xPlayer.showNotification(_U('weed_processingenough'))
---							TriggerEvent('esx_drugs:cancelProcessing')
---						end
---
---						playersProcessingCannabis[_source] = nil
---					end)
---				else
---					Wait(Config.Delays.WeedProcessing)
---				end
---			end
---		else
---			xPlayer.showNotification(_U('weed_processingenough'))
---			TriggerEvent('esx_drugs:cancelProcessing')
---		end
---
---	else
---		print(('esx_drugs: %s attempted to exploit weed processing!'):format(GetPlayerIdentifiers(source)[1]))
---	end
---end)
+		playersProcessingResina[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
+			local xPlayer = ESX.GetPlayerFromId(_source)
+			local xCannabis = xPlayer.getInventoryItem('peyote')
+			local maria = 0
+			local canna = 0
+			if xCannabis.count >= 3 then
+				while xCannabis.count >=3 and xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1) do
+					canna = canna+3
+					xCannabis.count= xCannabis.count - 3
+					maria = maria+1
+					if(xCannabis.count<3) then
+						xPlayer.showNotification(_U('metha_processed'))
+					elseif not xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1) then
+						xPlayer.showNotification(_U('metha_processingfull'))
+					end
+				end
+				xPlayer.removeInventoryItem('peyote', canna)
+				xPlayer.addInventoryItem('meth_pooch', maria)
+			else
+				xPlayer.showNotification(_U('metha_processingenough'))
+			end
 
+			playersProcessingResina[_source] = nil
+		end)
+	else
+		print(('esx_drugs: %s attempted to exploit metha processing!'):format(GetPlayerIdentifiers(source)[1]))
+	end
+end)
+
+RegisterServerEvent('esx_drugs:processAdormidera')
+AddEventHandler('esx_drugs:processAdormidera', function()
+	if not playersProcessingResina[source] then
+		local _source = source
+
+		playersProcessingResina[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
+			local xPlayer = ESX.GetPlayerFromId(_source)
+			local xCannabis = xPlayer.getInventoryItem('adormidera')
+			local maria = 0
+			local canna = 0
+			if xCannabis.count >= 3 then
+				while xCannabis.count >=3 and xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) do
+					canna = canna+3
+					xCannabis.count= xCannabis.count - 3
+					maria = maria+1
+					if(xCannabis.count<3) then
+						xPlayer.showNotification(_U('opio_processed'))
+					elseif not xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) then
+						xPlayer.showNotification(_U('opio_processingfull'))
+					end
+				end
+				xPlayer.removeInventoryItem('adormidera', canna)
+				xPlayer.addInventoryItem('opium_pooch', maria)
+			else
+				xPlayer.showNotification(_U('opio_processingenough'))
+			end
+
+			playersProcessingResina[_source] = nil
+		end)
+	else
+		print(('esx_drugs: %s attempted to exploit opium processing!'):format(GetPlayerIdentifiers(source)[1]))
+	end
+end)
 
 function CancelProcessingCoca(playerId)
 	if playersProcessingResina[playerId] then
 		ESX.ClearTimeout(playersProcessingResina[playerId])
 		playersProcessingResina[playerId] = nil
+	end
+end
+
+function CancelProcessingMetha(playerId)
+	if playersProcessingPeyote[playerId] then
+		ESX.ClearTimeout(playersProcessingPeyote[playerId])
+		playersProcessingPeyote[playerId] = nil
+	end
+end
+
+function CancelProcessingOpio(playerId)
+	if playersProcessingAdormidera[playerId] then
+		ESX.ClearTimeout(playersProcessingAdormidera[playerId])
+		playersProcessingAdormidera[playerId] = nil
 	end
 end
 

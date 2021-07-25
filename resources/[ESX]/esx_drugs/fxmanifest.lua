@@ -26,7 +26,9 @@ client_scripts {
 	'config.lua',
 	'client/main.lua',
 	'client/weed.lua',
-	'client/coca.lua'
+	'client/coca.lua',
+	-- 'client/metha.lua',
+	-- 'client/opio.lua'
 }
 
 dependencies {
