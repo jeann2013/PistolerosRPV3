@@ -27,14 +27,14 @@ Citizen.CreateThread(function()
 				if Config.LicenseEnable then
 					ESX.TriggerServerCallback('esx_license:checkLicense', function(hasProcessingLicense)
 						if hasProcessingLicense then
-							ProcessCoca()
+							ProcessMetha()
 						else
 							OpenBuyLicenseMenu('metha_processing')
 						end
 					end, GetPlayerServerId(PlayerId()), 'metha_processing')
 				else
 					ESX.TriggerServerCallback('esx_drugs:peyote_count', function(xResina)
-						ProcessCoca(xResina)
+						ProcessMetha(xResina)
 					end)
 
 				end
@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-function ProcessCoca(xResina)
+function ProcessMetha(xResina)
 	isProcessing = true
 	ESX.ShowNotification(_U('metha_processingstarted'))
 	TriggerServerEvent('esx_drugs:processPeyote')
