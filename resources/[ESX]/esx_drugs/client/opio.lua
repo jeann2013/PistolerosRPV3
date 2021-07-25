@@ -1,16 +1,13 @@
-local spawnedAmapola = 0
-local amapolaPlants = {}
+local spawnedAdormidera = 0
+local adormideraPlants = {}
 local isPickingUp, isProcessing = false, false
 
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
 		local coords = GetEntityCoords(PlayerPedId())
-		
-		print('distancia', GetDistanceBetweenCoords(coords, Config.CircleZones.CocaField.coords, true))
-
-		if GetDistanceBetweenCoords(coords, Config.CircleZones.CocaField.coords, true) < 50 then
-			SpawnAmapolaPlants()
+		if GetDistanceBetweenCoords(coords, Config.CircleZones.OpioField.coords, true) < 50 then
+			SpawnAdormideraPlants()
 		end
 	end
 end)
@@ -21,9 +18,9 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
 
-		if GetDistanceBetweenCoords(coords, Config.CircleZones.CocaProcessing.coords, true) < 1 then
+		if GetDistanceBetweenCoords(coords, Config.CircleZones.OpioProcessing.coords, true) < 1 then
 			if not isProcessing then
-				ESX.ShowHelpNotification(_U('coca_processprompt'))
+				ESX.ShowHelpNotification(_U('opio_processprompt'))
 			end
 
 			if IsControlJustReleased(0, 38) and not isProcessing then
@@ -32,11 +29,11 @@ Citizen.CreateThread(function()
 						if hasProcessingLicense then
 							ProcessCoca()
 						else
-							OpenBuyLicenseMenu('coca_processing')
+							OpenBuyLicenseMenu('opio_processing')
 						end
-					end, GetPlayerServerId(PlayerId()), 'coca_processing')
+					end, GetPlayerServerId(PlayerId()), 'opio_processing')
 				else
-					ESX.TriggerServerCallback('esx_drugs:resina_count', function(xResina)
+					ESX.TriggerServerCallback('esx_drugs:adormidera_count', function(xResina)
 						ProcessCoca(xResina)
 					end)
 
@@ -50,21 +47,21 @@ end)
 
 function ProcessCoca(xResina)
 	isProcessing = true
-	ESX.ShowNotification(_U('coca_processingstarted'))
-	TriggerServerEvent('esx_drugs:processResina')
+	ESX.ShowNotification(_U('opio_processingstarted'))
+	TriggerServerEvent('esx_drugs:processAdormidera')
 	if(xResina<3) then
 		xResina=0
 	end
-	local timeLeft = (Config.Delays.CocaProcessing * xResina) / 1000
+	local timeLeft = (Config.Delays.OpioProcessing * xResina) / 1000
 	local playerPed = PlayerPedId()
 
 	while timeLeft > 0 do
 		Citizen.Wait(1000)
 		timeLeft = timeLeft - 1
 
-		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.CocaProcessing.coords, false) > 4 then
-			ESX.ShowNotification(_U('coca_processingtoofar'))
-			TriggerServerEvent('esx_drugs:cancelProcessingCoca')
+		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CircleZones.OpioProcessing.coords, false) > 4 then
+			ESX.ShowNotification(_U('opio_processingtoofar'))
+			TriggerServerEvent('esx_drugs:CancelProcessingOpio')
 			TriggerServerEvent('esx_drugs:outofbound')
 			break
 		end
@@ -82,15 +79,15 @@ Citizen.CreateThread(function()
 		local coords = GetEntityCoords(playerPed)
 		local nearbyObject, nearbyID
 
-		for i=1, #amapolaPlants, 1 do
-			if GetDistanceBetweenCoords(coords, GetEntityCoords(amapolaPlants[i]), false) < 1 then
-				nearbyObject, nearbyID = amapolaPlants[i], i
+		for i=1, #adormideraPlants, 1 do
+			if GetDistanceBetweenCoords(coords, GetEntityCoords(adormideraPlants[i]), false) < 1 then
+				nearbyObject, nearbyID = adormideraPlants[i], i
 			end
 		end
 
 		if nearbyObject and IsPedOnFoot(playerPed) then
 			if not isPickingUp then
-				ESX.ShowHelpNotification(_U('coca_pickupprompt'))
+				ESX.ShowHelpNotification(_U('opio_pickupprompt'))
 			end
 
 			if IsControlJustReleased(0, 38) and not isPickingUp then
@@ -106,12 +103,12 @@ Citizen.CreateThread(function()
 
 						ESX.Game.DeleteObject(nearbyObject)
 
-						table.remove(amapolaPlants, nearbyID)
-						spawnedAmapola = spawnedAmapola - 1
+						table.remove(adormideraPlants, nearbyID)
+						spawnedAdormidera = spawnedAdormidera - 1
 
-						TriggerServerEvent('esx_drugs:pickedUpAmapola')
+						TriggerServerEvent('esx_drugs:pickedUpAdormidera')
 					else
-						ESX.ShowNotification(_U('coca_inventoryfull'))
+						ESX.ShowNotification(_U('opio_inventoryfull'))
 					end
 
 					isPickingUp = false
@@ -125,38 +122,38 @@ end)
 
 AddEventHandler('onResourceStop', function(resource)
 	if resource == GetCurrentResourceName() then
-		for k, v in pairs(amapolaPlants) do
+		for k, v in pairs(adormideraPlants) do
 			ESX.Game.DeleteObject(v)
 		end
 	end
 end)
 
-function SpawnAmapolaPlants()
-	while spawnedAmapola < 70 do
+function SpawnAdormideraPlants()
+	while spawnedAdormidera < 70 do
 		Citizen.Wait(0)
 		local cocaCoords = GenerateCocaCoords()
 
-		ESX.Game.SpawnLocalObject('prop_plant_01a', cocaCoords, function(obj)
+		ESX.Game.SpawnLocalObject('prop_plant_01b', cocaCoords, function(obj)
 			PlaceObjectOnGroundProperly(obj)
 			FreezeEntityPosition(obj, true)
 
-			table.insert(amapolaPlants, obj)
-			spawnedAmapola = spawnedAmapola + 1
+			table.insert(adormideraPlants, obj)
+			spawnedAdormidera = spawnedAdormidera + 1
 		end)
 	end
 end
 
 function ValidateCocaCoord(plantCoord)
-	if spawnedAmapola > 0 then
+	if spawnedAdormidera > 0 then
 		local validate = true
 
-		for k, v in pairs(weedPlants) do
+		for k, v in pairs(adormideraPlants) do
 			if GetDistanceBetweenCoords(plantCoord, GetEntityCoords(v), true) < 5 then
 				validate = false
 			end
 		end
 
-		if GetDistanceBetweenCoords(plantCoord, Config.CircleZones.CocaField.coords, false) > 50 then
+		if GetDistanceBetweenCoords(plantCoord, Config.CircleZones.OpioField.coords, false) > 50 then
 			validate = false
 		end
 
@@ -181,13 +178,13 @@ function GenerateCocaCoords()
 		math.randomseed(GetGameTimer())
 		local modY = math.random(-90, 90)
 
-		cocaCoordX = Config.CircleZones.CocaField.coords.x + modX
-		cocaCoordY = Config.CircleZones.CocaField.coords.y + modY
+		cocaCoordX = Config.CircleZones.OpioField.coords.x + modX
+		cocaCoordY = Config.CircleZones.OpioField.coords.y + modY
 
 		local coordZ = GetCoordZ(cocaCoordX, cocaCoordY)
 		local coord = vector3(cocaCoordX, cocaCoordY, coordZ)
 
-		if ValidateWeedCoord(coord) then
+		if ValidateCocaCoord(coord) then
 			return coord
 		end
 	end

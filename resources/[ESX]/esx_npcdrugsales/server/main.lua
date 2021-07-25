@@ -40,8 +40,8 @@ end)
 		local opium = xPlayer.getInventoryItem('opium_pooch').count
 		local paymentc = math.random (651,850)	
 		local paymentm = math.random (651,850)
-		local paymentw = math.random (601,650)
-		local paymento = math.random (601,650)
+		local paymentw = math.random (201,350)
+		local paymento = math.random (651,850)
 		local paymentwd = math.random (100,200)
 		local kindDrug = 0
 
