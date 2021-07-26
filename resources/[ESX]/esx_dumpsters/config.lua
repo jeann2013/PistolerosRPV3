@@ -15,14 +15,18 @@ Config = {
 	Items = {
         "bread",
         "water",
-		"condomu",
+		"chatarra",		
+		"chatarra",		
 		"chatarra",
 		"condom",
 		"lighter",
 		"cigarett",
 		"chatarra",
 		"chatarra",
-		
+		"chatarra",
+		"chatarra",
+		"chatarra",
+		"chatarra",		
 	},
 	
 	Weapons = {         
