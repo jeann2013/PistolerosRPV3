@@ -12,7 +12,7 @@ function drawLevel(r, g, b, a)
 	AddTextComponentSubstringPlayerName(_U('voice', voice.level))
 	--EndTextCommandDisplayText(0,60)
 	--EndTextCommandDisplayText(0.300, 0.890)
-	drawTxt3(0.330, 0.830, 1.0,1.0,0.50 , _U('voice', voice.level) ,r, g, b, a)
+	drawTxt3(0.349, 0.830, 1.0,1.0,0.50 , _U('voice', voice.level) ,r, g, b, a)
 end
 
 function drawTxt3(x,y ,width,height,scale, text, r,g,b,a)
