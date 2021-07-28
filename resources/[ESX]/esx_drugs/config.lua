@@ -31,7 +31,7 @@ Config.CircleZones = {
 	CocaField = {coords = vector3(9.92, 6862.66, 12.78), name = _U('blip_cocafield'), color = 25, sprite = 496, radius = 15.0,visible = false},
 	CocaProcessing = {coords = vector3(280.46, 6795.71, 15.69), name = _U('blip_cocaprocessing'), color = 25, sprite = 496, visible = false},	
 
-	MethaField = {coords = vector3(1888.38, -2592.42, 33.61), name = _U('blip_methafield'), color = 25, sprite = 496, radius = 15.0,visible = false},
+	MethaField = {coords = vector3(1779.12, -2687.70, 2.14), name = _U('blip_methafield'), color = 25, sprite = 496, radius = 15.0,visible = false},
 	MethaProcessing = {coords = vector3(1977.67, -2610.82, 3.55), name = _U('blip_methaprocessing'), color = 25, sprite = 496, visible = false},	
 
 	OpioField = {coords = vector3(609.33, 3100.72, 40.66), name = _U('blip_opiofield'), color = 25, sprite = 496, radius = 15.0,visible = false},
