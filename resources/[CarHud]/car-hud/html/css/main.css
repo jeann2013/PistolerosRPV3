@@ -164,7 +164,7 @@ p {
     font-size: 15px;
     position: absolute;
     bottom: 0.00vh;
-    left: 15.0vw;
+    left: 17.0vw;
     text-shadow: 1px 1px 0px #000000;
     color: #ffffff;
 }
@@ -188,7 +188,7 @@ p {
     width: 10.2vh;
     height: 4.5vh;
     bottom: 2.8vh;
-    left: 15.0vw;
+    left: 17.0vw;
     overflow: hidden;
 }
 
