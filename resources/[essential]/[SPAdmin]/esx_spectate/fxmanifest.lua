@@ -1,19 +1,21 @@
-fx_version 'bodacious'
+fx_version 'adamant'
+
 game 'gta5'
 
-server_scripts {
- '@mysql-async/lib/MySQL.lua',
- 'server/main.lua'
- }
- 
+description 'ESX Spectate'
+
+version '1.0.0'
+
+server_script 'server/main.lua'
+
 client_script 'client/main.lua'
 
 ui_page {
-  'ui/index.html'
+	'ui/index.html'
 }
 
 files {
-  'ui/index.html',
-  'ui/style.css',
-  'ui/main.js',
+	'ui/index.html',
+	'ui/style.css',
+	'ui/main.js'
 }
