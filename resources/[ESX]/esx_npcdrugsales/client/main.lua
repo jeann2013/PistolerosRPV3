@@ -55,7 +55,7 @@ while true do
                       pos1 = GetEntityCoords(ped)
                       TriggerServerEvent('drugs:trigger')
                       Citizen.Wait(2850)
-                      TriggerEvent('sell')
+                      TriggerEvent('sellfood')
                       SetPedAsNoLongerNeeded(oldped)
                   end
                 end
@@ -70,8 +70,8 @@ while true do
 end
 end)
 
-RegisterNetEvent('sell')
-AddEventHandler('sell', function()
+RegisterNetEvent('sellfood')
+AddEventHandler('sellfood', function()
     local player = GetPlayerPed(-1)
     local playerloc = GetEntityCoords(player, 0)
     local distance = GetDistanceBetweenCoords(pos1.x, pos1.y, pos1.z, playerloc['x'], playerloc['y'], playerloc['z'], true)
