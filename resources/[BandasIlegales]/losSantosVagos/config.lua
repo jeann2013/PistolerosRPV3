@@ -98,7 +98,7 @@ Config.LosSantosVagosStations = {
     },
 
     BossActions = {
-      { x = 3.69, y = 529.82, z = 174.63 },
+      { x = 3.69, y = 529.82, z = 173.63 },
     },
 
   },
