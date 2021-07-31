@@ -2015,7 +2015,7 @@ Citizen.CreateThread(function()
 
           ESX.UI.Menu.CloseAll()
 
-          TriggerEvent('esx_society:openBossMenu', 'lapingugang', function(data, menu)
+          TriggerEvent('esx_society:openBossMenuBanda', 'lapingugang', function(data, menu)
 
             menu.close()
 
