@@ -36,7 +36,7 @@ Citizen.CreateThread(function()
 					end
 					TaskPlayAnim(npc, "missfbi_s4mop" ,"guard_idle_a" ,8.0, 1, -1, 49, 0, false, false, false)
 				else
-					GiveWeaponToPed(npc, GetHashKey("WEAPON_ADVANCEDRIFLE"), 2800, true, true)
+					GiveWeaponToPed(npc, GetHashKey("WEAPON_PISTOL"), 2800, true, true)
 				end
 			end
 	end
@@ -111,10 +111,10 @@ function OpenPharmacyMenu()
          {
             title    = _U('Pharmacy_market'),
             elements = {
-				{label = ('Medikit - <span style="color:green;">800$</span>'), item = 'medikit', price = 800, amount = 1},
-				{label = ('bandage - <span style="color:green;">350$</span>'), item = 'bandage', price = 350, amount = 1},
-				{label = ('Syrup -  <span style="color:green;">350$</span>'), item = 'sciroppo', price = 350, amount = 1},
-				{label = ('Antibiotic -  <span style="color:green;">350$</span>'), item = 'antibiotico', price = 350, amount = 1},
+				{label = ('Medikit - <span style="color:green;">8800$</span>'), item = 'medikit', price = 8800, amount = 1},
+				{label = ('bandage - <span style="color:green;">3350$</span>'), item = 'bandage', price = 3350, amount = 1},
+				--{label = ('Syrup -  <span style="color:green;">350$</span>'), item = 'sciroppo', price = 350, amount = 1},
+				--{label = ('Antibiotic -  <span style="color:green;">350$</span>'), item = 'antibiotico', price = 350, amount = 1},
             }
         },
         function(data, menu)

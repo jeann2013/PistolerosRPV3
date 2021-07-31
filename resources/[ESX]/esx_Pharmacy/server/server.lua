@@ -15,9 +15,9 @@ AddEventHandler('esx:Farmacia', function(item, price, amount)
 			
 			xPlayer.removeMoney(price)
 			xPlayer.addInventoryItem(item, amount)
-			TriggerClientEvent('esx:showNotification', _source, "~g~Thanks for choosing us, come back to visit us!" )
+			TriggerClientEvent('esx:showNotification', _source, "~g~Gracias por seleccionarnos, vuelva pronto!" )
 		else
-			TriggerClientEvent('esx:showNotification', _source, "~s~You do not have enough money")
+			TriggerClientEvent('esx:showNotification', _source, "~s~No tienes suficiente dinero")
 
 		end
 end)
