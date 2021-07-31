@@ -111,8 +111,8 @@ function OpenPharmacyMenu()
          {
             title    = _U('Pharmacy_markets'),
             elements = {
-				{label = ('Medikit - <span style="color:green;">8800$</span>'), item = 'medikit', price = 8800, amount = 1},
-				{label = ('bandage - <span style="color:green;">3350$</span>'), item = 'bandage', price = 3350, amount = 1},
+				{label = ('KitMedico - <span style="color:green;">8800$</span>'), item = 'medikit', price = 9800, amount = 1},
+				{label = ('Bendaje - <span style="color:green;">3350$</span>'), item = 'bandage', price = 5350, amount = 1},
 				--{label = ('Syrup -  <span style="color:green;">350$</span>'), item = 'sciroppo', price = 350, amount = 1},
 				--{label = ('Antibiotic -  <span style="color:green;">350$</span>'), item = 'antibiotico', price = 350, amount = 1},
             }
