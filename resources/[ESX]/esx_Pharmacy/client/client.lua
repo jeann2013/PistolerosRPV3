@@ -2,7 +2,7 @@ ESX = nil
 
 
 local store = { 
-    [_U('open_store')] = { title="Pharmacy", size= 10, colour=34, id=51, x = 317.993, y = -1076.646, z = 28.479}, 
+    [_U('open_store')] = { title="Farmacia", size= 10, colour=34, id=51, x = 317.993, y = -1076.646, z = 28.479}, 
 } 
 
 local NPC = {
@@ -109,7 +109,7 @@ function OpenPharmacyMenu()
      ESX.UI.Menu.Open(
         'default', GetCurrentResourceName(), 'Pharmacy_markets',
          {
-            title    = _U('Pharmacy_market'),
+            title    = _U('Pharmacy_markets'),
             elements = {
 				{label = ('Medikit - <span style="color:green;">8800$</span>'), item = 'medikit', price = 8800, amount = 1},
 				{label = ('bandage - <span style="color:green;">3350$</span>'), item = 'bandage', price = 3350, amount = 1},
