@@ -590,12 +590,12 @@ function OpenHeliSpawnerMenu(station, partNum,where)
 
 end
 
-function OpenLaPinguGangActionsMenu()
+function OpenLosSantosVagosActionsMenu()
 
   ESX.UI.Menu.CloseAll()
 
   ESX.UI.Menu.Open(
-    'default', GetCurrentResourceName(), 'lapingugang_actions',
+    'default', GetCurrentResourceName(), 'lossantosvagos_actions',
     {
       title    = 'lossantosvagos',
       align    = 'right',
@@ -2013,9 +2013,8 @@ Citizen.CreateThread(function()
 
         if CurrentAction == 'menu_boss_actions' then
 
-          ESX.UI.Menu.CloseAll()
-
-          TriggerEvent('esx_society:openBossMenu', 'lossantosvagos', function(data, menu)
+          ESX.UI.Menu.CloseAll()         
+          TriggerEvent('esx_society:openBossMenuBanda', 'lossantosvagos', function(data, menu)
 
             menu.close()
 
@@ -2038,8 +2037,8 @@ Citizen.CreateThread(function()
 
     end
 
-   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'lapingugang_actions') and (GetGameTimer() - GUI.Time) > 150 then
-     OpenLaPinguGangActionsMenu()
+   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'lossantosvagos_actions') and (GetGameTimer() - GUI.Time) > 150 then
+     OpenLosSantosVagosActionsMenu()
      GUI.Time = GetGameTimer()
     end
 
@@ -2050,7 +2049,7 @@ end)
 --NB : gestion des menu
 ---------------------------------------------------------------------------------------------------------
 
-RegisterNetEvent('NB:openMenuLaPinguGang')
-AddEventHandler('NB:openMenuLaPinguGang', function()
-	OpenLaPinguGangActionsMenu()
+RegisterNetEvent('NB:openMenuLosSantosVagos')
+AddEventHandler('NB:openMenuLosSantosVagos', function()
+	OpenLosSantosVagosActionsMenu()
 end)
