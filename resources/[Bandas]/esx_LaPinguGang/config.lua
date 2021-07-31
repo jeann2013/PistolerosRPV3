@@ -2,7 +2,7 @@ Config                            = {}
 Config.DrawDistance               = 100.0
 Config.MarkerType                 = 1
 Config.MarkerSize                 = { x = 1.5, y = 1.5, z = 1.0 }
-Config.MarkerSizeHeli             = { x = 6.0, y = 6.0, z = 0.5 }
+Config.MarkerSizeHeli                 = { x = 6.0, y = 6.0, z = 0.5 }
 Config.MarkerColor                = { r = 50, g = 50, b = 204 }
 Config.EnablePlayerManagement     = true
 Config.EnableArmoryManagement     = true
@@ -10,15 +10,19 @@ Config.EnableESXIdentity          = false -- only turn this on if you are using 
 Config.EnableNonFreemodePeds      = true -- turn this on if you want custom peds
 Config.EnableSocietyOwnedVehicles = true
 Config.EnableLicenses             = false
+Config.ShowArmory                 = true
+Config.BuyArmory                  = false
+Config.ShowCloset                  = false
+Config.ShowHeliPort               = false
 Config.MaxInService               = 10
 Config.Locale                     = 'es'
 
-Config.MafiaStations = {
+Config.LaPinguGangStations = {
 
-  Mafia = {
+  LaPinguGang = {
 
     Blip = {
-      Pos     = { x = -3233.61, y = 814.39, z = 14.08 },
+      Pos     = { x = 425.130, y = -979.558, z = 30.711 },
       Sprite  = 60,
       Display = 4,
       Scale   = 1.2,
@@ -49,52 +53,52 @@ Config.MafiaStations = {
 		  { name = 'frogger',      label = 'Helicoptero 4 pasajeros' },
 	  },
     Cloakrooms = {
-      { x = 1395.71, y = 1157.21, z = 1113.34 },
+      { x = -811.34, y = 175.39, z = 76.75 },
     },
 
     Armories = {
-      { x = -3217.92, y = 783.32, z = 14.08 },
+      { x = -811.58, y = 175.25, z = 75.75 },
     },
 
     Vehicles = {
       {
-        Spawner    = { x = -3215.46, y = 837.34, z = 8.93 },
-        SpawnPoint = { x = -3205.64, y = 816.75, z = 8.93 },
-        Heading    = 214.06,
+        Spawner    = { x = -823.78, y = 183.09, z = 70.60 },
+        SpawnPoint = { x = -827.20, y = 176.81, z = 70.58 },
+        Heading    = 153.55,
       }
     },
 	
 	Helicopters = {
       {
-        Spawner    = { x = 1441.96, y = 1122.40, z = 1213.84 },
-        SpawnPoint = { x = 1453.71, y = 1113.10, z = 1213.33 },
-        Heading    = 359.40,
+        Spawner    = { x = 144441.96, y = 1122.40, z = 112.32 },
+        SpawnPoint = { x = -827.20, y = 176.81, z = 70.58 },
+        Heading    = 153.55,
       }
     },
 
     HelicoptersMountain = {
       {
-        Spawner    = { x = 1441.96, y = 1122.40, z = 114.32 },
-        SpawnPoint = { x = 1453.71, y = 1113.10, z = 113.33 },
-        Heading    = 359.40,
+        Spawner    = { x = 182.74, y = 5376.15, z = 525.56 },
+        SpawnPoint = { x = 170.78, y = 5379.75, z = 523.47 },
+        Heading    = 77.72,
       }
     },
 
     VehicleDeleters = {
-      { x = -3209.66, y = 820.98, z = 8.93 },
-      { x = -3205.57, y = 823.72, z = 8.93 },
+      { x = -811.12, y = 187.7, z = 71.46 },
+      { x = -811.12, y = 187.7, z = 71.46 },
     },
 
     HeliDeleters = {
-      { x = 14605.61, y = 1112.60, z = 1213.33 },
+      { x = 1465.61, y = 1112.60, z = 113.33 },
     },
 
     HeliDeletersMountain = {
-      { x = 1700.78, y = 5379.75, z = 5222.47 },
+      { x = 170.78, y = 5379.75, z = 522.47 },
     },
 
     BossActions = {
-      { x = -3233.61, y = 814.39, z = 13.15 }
+      { x = -801.58, y = 186.31, z = 71.40 },
     },
 
   },

@@ -3,19 +3,19 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 if Config.MaxInService ~= -1 then
-  TriggerEvent('esx_service:activateService', 'loassantosvagos', Config.MaxInService)
+  TriggerEvent('esx_service:activateService', 'lossantosvagos', Config.MaxInService)
 end
 
-TriggerEvent('esx_society:registerSociety', 'loassantosvagos', 'Mafia', 'society_loassantosvagos', 'society_loassantosvagos', 'society_loassantosvagos', {type = 'public'})
+TriggerEvent('esx_society:registerSociety', 'lossantosvagos', 'LosSantosVagos', 'society_lossantosvagos', 'society_lossantosvagos', 'society_lossantosvagos', {type = 'public'})
 
-RegisterServerEvent('esx_mafiajob:giveWeapon')
-AddEventHandler('esx_mafiajob:giveWeapon', function(weapon, ammo)
+RegisterServerEvent('esx_lossantosvagos:giveWeapon')
+AddEventHandler('esx_lossantosvagos:giveWeapon', function(weapon, ammo)
   local xPlayer = ESX.GetPlayerFromId(source)
   xPlayer.addWeapon(weapon, ammo)
 end)
 
-RegisterServerEvent('esx_mafiajob:confiscatePlayerItem')
-AddEventHandler('esx_mafiajob:confiscatePlayerItem', function(target, itemType, itemName, amount)
+RegisterServerEvent('esx_lossantosvagos:confiscatePlayerItem')
+AddEventHandler('esx_lossantosvagos:confiscatePlayerItem', function(target, itemType, itemName, amount)
 
   local sourceXPlayer = ESX.GetPlayerFromId(source)
   local targetXPlayer = ESX.GetPlayerFromId(target)
@@ -54,29 +54,29 @@ AddEventHandler('esx_mafiajob:confiscatePlayerItem', function(target, itemType, 
 
 end)
 
-RegisterServerEvent('esx_mafiajob:handcuff')
-AddEventHandler('esx_mafiajob:handcuff', function(target)
-  TriggerClientEvent('esx_mafiajob:handcuff', target)
+RegisterServerEvent('esx_lossantosvagos:handcuff')
+AddEventHandler('esx_lossantosvagos:handcuff', function(target)
+  TriggerClientEvent('esx_lossantosvagos:handcuff', target)
 end)
 
-RegisterServerEvent('esx_mafiajob:drag')
-AddEventHandler('esx_mafiajob:drag', function(target)
+RegisterServerEvent('esx_lossantosvagos:drag')
+AddEventHandler('esx_lossantosvagos:drag', function(target)
   local _source = source
-  TriggerClientEvent('esx_mafiajob:drag', target, _source)
+  TriggerClientEvent('esx_lossantosvagos:drag', target, _source)
 end)
 
-RegisterServerEvent('esx_mafiajob:putInVehicle')
-AddEventHandler('esx_mafiajob:putInVehicle', function(target)
-  TriggerClientEvent('esx_mafiajob:putInVehicle', target)
+RegisterServerEvent('esx_lossantosvagos:putInVehicle')
+AddEventHandler('esx_lossantosvagos:putInVehicle', function(target)
+  TriggerClientEvent('esx_lossantosvagos:putInVehicle', target)
 end)
 
-RegisterServerEvent('esx_mafiajob:OutVehicle')
-AddEventHandler('esx_mafiajob:OutVehicle', function(target)
-    TriggerClientEvent('esx_mafiajob:OutVehicle', target)
+RegisterServerEvent('esx_lossantosvagos:OutVehicle')
+AddEventHandler('esx_lossantosvagos:OutVehicle', function(target)
+    TriggerClientEvent('esx_lossantosvagos:OutVehicle', target)
 end)
 
-RegisterServerEvent('esx_mafiajob:getStockItem')
-AddEventHandler('esx_mafiajob:getStockItem', function(itemName, count)
+RegisterServerEvent('esx_lossantosvagos:getStockItem')
+AddEventHandler('esx_lossantosvagos:getStockItem', function(itemName, count)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
@@ -97,8 +97,8 @@ AddEventHandler('esx_mafiajob:getStockItem', function(itemName, count)
 
 end)
 
-RegisterServerEvent('esx_mafiajob:putStockItems')
-AddEventHandler('esx_mafiajob:putStockItems', function(itemName, count)
+RegisterServerEvent('esx_lossantosvagos:putStockItems')
+AddEventHandler('esx_lossantosvagos:putStockItems', function(itemName, count)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
@@ -119,7 +119,7 @@ AddEventHandler('esx_mafiajob:putStockItems', function(itemName, count)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getOtherPlayerData', function(source, cb, target)
+ESX.RegisterServerCallback('esx_lossantosvagos:getOtherPlayerData', function(source, cb, target)
 
   if Config.EnableESXIdentity then
 
@@ -200,7 +200,7 @@ ESX.RegisterServerCallback('esx_mafiajob:getOtherPlayerData', function(source, c
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getFineList', function(source, cb, category)
+ESX.RegisterServerCallback('esx_lossantosvagos:getFineList', function(source, cb, category)
 
   MySQL.Async.fetchAll(
     'SELECT * FROM fine_types_lossantosvagos WHERE category = @category',
@@ -214,7 +214,7 @@ ESX.RegisterServerCallback('esx_mafiajob:getFineList', function(source, cb, cate
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getVehicleInfos', function(source, cb, plate)
+ESX.RegisterServerCallback('esx_lossantosvagos:getVehicleInfos', function(source, cb, plate)
 
   if Config.EnableESXIdentity then
 
@@ -326,7 +326,7 @@ ESX.RegisterServerCallback('esx_mafiajob:getVehicleInfos', function(source, cb, 
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getArmoryWeapons', function(source, cb)
+ESX.RegisterServerCallback('esx_lossantosvagos:getArmoryWeapons', function(source, cb)
 
   TriggerEvent('esx_datastore:getSharedDataStore', 'society_lossantosvagos', function(store)
 
@@ -342,7 +342,7 @@ ESX.RegisterServerCallback('esx_mafiajob:getArmoryWeapons', function(source, cb)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:addArmoryWeapon', function(source, cb, weaponName)
+ESX.RegisterServerCallback('esx_lossantosvagos:addArmoryWeapon', function(source, cb, weaponName)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
@@ -380,7 +380,7 @@ ESX.RegisterServerCallback('esx_mafiajob:addArmoryWeapon', function(source, cb, 
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:removeArmoryWeapon', function(source, cb, weaponName)
+ESX.RegisterServerCallback('esx_lossantosvagos:removeArmoryWeapon', function(source, cb, weaponName)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
@@ -419,7 +419,7 @@ ESX.RegisterServerCallback('esx_mafiajob:removeArmoryWeapon', function(source, c
 end)
 
 
-ESX.RegisterServerCallback('esx_mafiajob:buy', function(source, cb, amount)
+ESX.RegisterServerCallback('esx_lossantosvagos:buy', function(source, cb, amount)
 
   TriggerEvent('esx_addonaccount:getSharedAccount', 'society_lossantosvagos', function(account)
 
@@ -434,7 +434,7 @@ ESX.RegisterServerCallback('esx_mafiajob:buy', function(source, cb, amount)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getStockItems', function(source, cb)
+ESX.RegisterServerCallback('esx_lossantosvagos:getStockItems', function(source, cb)
 
   TriggerEvent('esx_addoninventory:getSharedInventory', 'society_lossantosvagos', function(inventory)
     cb(inventory.items)
@@ -442,7 +442,7 @@ ESX.RegisterServerCallback('esx_mafiajob:getStockItems', function(source, cb)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getPlayerInventory', function(source, cb)
+ESX.RegisterServerCallback('esx_lossantosvagos:getPlayerInventory', function(source, cb)
 
   local xPlayer = ESX.GetPlayerFromId(source)
   local items   = xPlayer.inventory

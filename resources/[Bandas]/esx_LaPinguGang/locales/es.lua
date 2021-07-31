@@ -13,7 +13,7 @@ Locales['es'] = {
   ['get_weapon'] = 'Coger arma',
   ['put_weapon'] = 'Depositar arma',
   ['buy_weapons'] = 'Comprar armas',
-  ['armory'] = 'Arsenal',
+  ['armory'] = 'Armario',
   ['open_armory'] = 'Presionarr ~INPUT_CONTEXT~ para acceder a la armeria',
   -- Vehicles
   ['vehicle_menu'] = 'Vehículo',
@@ -21,7 +21,7 @@ Locales['es'] = {
   ['vehicle_spawner'] = 'Presionar ~INPUT_CONTEXT~ para sacar un vehículo',
   ['store_vehicle'] = 'Presionar ~INPUT_CONTEXT~ para guardar un vehículo',
   ['service_max'] = 'Servicio completado : ',
-  ['mafia_stock'] = 'Stock de Mafia',
+  ['lapingugang_stock'] = 'Stock de LaPinguGang',
    -- Helicoptero
    ['heli_menu'] = 'Helicopteros',
    ['heli_out'] = 'Ya tienes un Helicoptero fuera',
