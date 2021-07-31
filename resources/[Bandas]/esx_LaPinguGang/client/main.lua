@@ -52,7 +52,7 @@ function OpenCloakroomMenu()
 
   local elements = {
     {label = _U('citizen_wear'), value = 'citizen_wear'},
-    {label = _U('mafia_wear'), value = 'mafia_wear'}
+    {label = _U('lapingugang_wear'), value = 'lapingugang_wear'}
   }
 
   ESX.UI.Menu.CloseAll()
@@ -74,8 +74,7 @@ function OpenCloakroomMenu()
         function(data, menu)
 
       menu.close()
-
-      --Taken from SuperCoolNinja
+      
       if data.current.value == 'citizen_wear' then
         ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
           local model = nil
@@ -100,7 +99,7 @@ function OpenCloakroomMenu()
         end)
       end
 
-      if data.current.value == 'mafia_wear' then
+      if data.current.value == 'lapingugang_wear' then
 
         ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
 
@@ -114,7 +113,7 @@ function OpenCloakroomMenu()
 
       end
 
-      if data.current.value == 'mafia_wear' then
+      if data.current.value == 'lapingugang_wear' then
 
         ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
 
@@ -231,13 +230,13 @@ function OpenArmoryMenu(station)
   if Config.EnableArmoryManagement then
 
     local elements = {
-      {label = _U('get_weapon'), value = 'get_weapon'},
+      --{label = _U('get_weapon'), value = 'get_weapon'},
       {label = _U('put_weapon'), value = 'put_weapon'},
       {label = 'Tomar objeto',  value = 'get_stock'},
       {label = 'Colocar objeto',  value = 'put_stock'}
     }
 
-    if PlayerData.job.grade_name == 'boss' then
+    if PlayerData.job.grade_name == 'boss' and Config.BuyArmory == true then
       table.insert(elements, {label = _U('buy_weapons'), value = 'buy_weapons'})
     end
 
@@ -287,8 +286,8 @@ function OpenArmoryMenu(station)
 
     local elements = {}
 
-    for i=1, #Config.MafiaStations[station].AuthorizedWeapons, 1 do
-      local weapon = Config.MafiaStations[station].AuthorizedWeapons[i]
+    for i=1, #Config.LaPinguGangStations[station].AuthorizedWeapons, 1 do
+      local weapon = Config.LaPinguGangStations[station].AuthorizedWeapons[i]
       table.insert(elements, {label = ESX.GetWeaponLabel(weapon.name), value = weapon.name})
     end
 
@@ -303,7 +302,7 @@ function OpenArmoryMenu(station)
       },
       function(data, menu)
         local weapon = data.current.value
-        TriggerServerEvent('esx_mafiajob:giveWeapon', weapon,  1000)
+        TriggerServerEvent('esx_lapingugang:giveWeapon', weapon,  1000)
       end,
       function(data, menu)
 
@@ -322,7 +321,7 @@ end
 
 function OpenVehicleSpawnerMenu(station, partNum)
 
-  local vehicles = Config.MafiaStations[station].Vehicles
+  local vehicles = Config.LaPinguGangStations[station].Vehicles
 
   ESX.UI.Menu.CloseAll()
 
@@ -355,7 +354,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'mafia', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'lapingugang', vehicleProps)
 
         end,
         function(data, menu)
@@ -369,14 +368,14 @@ function OpenVehicleSpawnerMenu(station, partNum)
         end
       )
 
-    end, 'mafia')
+    end, 'lapingugang')
 
   else
 
     local elements = {}
 
-    for i=1, #Config.MafiaStations[station].AuthorizedVehicles, 1 do
-      local vehicle = Config.MafiaStations[station].AuthorizedVehicles[i]
+    for i=1, #Config.LaPinguGangStations[station].AuthorizedVehicles, 1 do
+      local vehicle = Config.LaPinguGangStations[station].AuthorizedVehicles[i]
       table.insert(elements, {label = vehicle.label, value = vehicle.name})
     end
 
@@ -429,7 +428,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'mafia')
+            end, 'lapingugang')
 
           end
 
@@ -457,9 +456,9 @@ function OpenHeliSpawnerMenu(station, partNum,where)
   local helis = ""
 
   if where == 0 then
-    helis = Config.MafiaStations[station].Helicopters
+    helis = Config.LaPinguGangStations[station].Helicopters
   else 
-    helis = Config.MafiaStations[station].HelicoptersMountain
+    helis = Config.LaPinguGangStations[station].HelicoptersMountain
   end
 
   ESX.UI.Menu.CloseAll()
@@ -493,7 +492,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'mafia', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'lapingugang', vehicleProps)
 
         end,
         function(data, menu)
@@ -507,14 +506,14 @@ function OpenHeliSpawnerMenu(station, partNum,where)
         end
       )
 
-    end, 'mafia')
+    end, 'lapingugang')
 
   else
 
     local elements = {}
 
-    for i=1, #Config.MafiaStations[station].AuthorizedHelicopters, 1 do
-      local vehicle = Config.MafiaStations[station].AuthorizedHelicopters[i]
+    for i=1, #Config.LaPinguGangStations[station].AuthorizedHelicopters, 1 do
+      local vehicle = Config.LaPinguGangStations[station].AuthorizedHelicopters[i]
       table.insert(elements, {label = vehicle.label, value = vehicle.name})
     end
 
@@ -567,7 +566,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'mafia')
+            end, 'lapingugang')
 
           end
 
@@ -591,14 +590,14 @@ function OpenHeliSpawnerMenu(station, partNum,where)
 
 end
 
-function OpenMafiaActionsMenu()
+function OpenLaPinguGangActionsMenu()
 
   ESX.UI.Menu.CloseAll()
 
   ESX.UI.Menu.Open(
-    'default', GetCurrentResourceName(), 'mafia_actions',
+    'default', GetCurrentResourceName(), 'lapingugang_actions',
     {
-      title    = 'Mafia',
+      title    = 'LaPinguGang',
       align    = 'right',
       elements = {
         {label = _U('citizen_interaction'), value = 'citizen_interaction'},
@@ -640,19 +639,19 @@ function OpenMafiaActionsMenu()
               end
 
               if data2.current.value == 'handcuff' then
-                TriggerServerEvent('esx_mafiajob:handcuff', GetPlayerServerId(player))
+                TriggerServerEvent('esx_lapingugang:handcuff', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'drag' then
-                TriggerServerEvent('esx_mafiajob:drag', GetPlayerServerId(player))
+                TriggerServerEvent('esx_lapingugang:drag', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'put_in_vehicle' then
-                TriggerServerEvent('esx_mafiajob:putInVehicle', GetPlayerServerId(player))
+                TriggerServerEvent('esx_lapingugang:putInVehicle', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'out_the_vehicle' then
-                  TriggerServerEvent('esx_mafiajob:OutVehicle', GetPlayerServerId(player))
+                  TriggerServerEvent('esx_lapingugang:OutVehicle', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'fine' then
@@ -800,7 +799,7 @@ function OpenIdentityCardMenu(player)
 
   if Config.EnableESXIdentity then
 
-    ESX.TriggerServerCallback('esx_mafiajob:getOtherPlayerData', function(data)
+    ESX.TriggerServerCallback('esx_lapingugang:getOtherPlayerData', function(data)
 
       local jobLabel    = nil
       local sexLabel    = nil
@@ -886,7 +885,7 @@ function OpenIdentityCardMenu(player)
 
   else
 
-    ESX.TriggerServerCallback('esx_mafiajob:getOtherPlayerData', function(data)
+    ESX.TriggerServerCallback('esx_lapingugang:getOtherPlayerData', function(data)
 
       local jobLabel = nil
 
@@ -938,7 +937,7 @@ end
 
 function OpenBodySearchMenu(player)
 
-  ESX.TriggerServerCallback('esx_mafiajob:getOtherPlayerData', function(data)
+  ESX.TriggerServerCallback('esx_lapingugang:getOtherPlayerData', function(data)
 
     local elements = {}
 
@@ -997,7 +996,7 @@ function OpenBodySearchMenu(player)
 
         if data.current.value ~= nil then
 
-          TriggerServerEvent('esx_mafiajob:confiscatePlayerItem', GetPlayerServerId(player), itemType, itemName, amount)
+          TriggerServerEvent('esx_lapingugang:confiscatePlayerItem', GetPlayerServerId(player), itemType, itemName, amount)
 
           OpenBodySearchMenu(player)
 
@@ -1041,7 +1040,7 @@ end
 
 function OpenFineCategoryMenu(player, category)
 
-  ESX.TriggerServerCallback('esx_mafiajob:getFineList', function(fines)
+  ESX.TriggerServerCallback('esx_lapingugang:getFineList', function(fines)
 
     local elements = {}
 
@@ -1069,7 +1068,7 @@ function OpenFineCategoryMenu(player, category)
         menu.close()
 
         if Config.EnablePlayerManagement then
-          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_latriada', _U('fine_total') .. label, amount)
+          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_lapingugang', _U('fine_total') .. label, amount)
         else
           TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), '', _U('fine_total') .. label, amount)
         end
@@ -1090,7 +1089,7 @@ end
 
 function OpenVehicleInfosMenu(vehicleData)
 
-  ESX.TriggerServerCallback('esx_mafiajob:getVehicleInfos', function(infos)
+  ESX.TriggerServerCallback('esx_lapingugang:getVehicleInfos', function(infos)
 
     local elements = {}
 
@@ -1121,7 +1120,7 @@ end
 
 function OpenGetWeaponMenu()
 
-  ESX.TriggerServerCallback('esx_mafiajob:getArmoryWeapons', function(weapons)
+  ESX.TriggerServerCallback('esx_lapingugang:getArmoryWeapons', function(weapons)
 
     local elements = {}
 
@@ -1142,7 +1141,7 @@ function OpenGetWeaponMenu()
 
         menu.close()
 
-        ESX.TriggerServerCallback('esx_mafiajob:removeArmoryWeapon', function()
+        ESX.TriggerServerCallback('esx_lapingugang:removeArmoryWeapon', function()
           OpenGetWeaponMenu()
         end, data.current.value)
 
@@ -1184,7 +1183,7 @@ function OpenPutWeaponMenu()
 
       menu.close()
 
-      ESX.TriggerServerCallback('esx_mafiajob:addArmoryWeapon', function()
+      ESX.TriggerServerCallback('esx_lapingugang:addArmoryWeapon', function()
         OpenPutWeaponMenu()
       end, data.current.value)
 
@@ -1198,13 +1197,13 @@ end
 
 function OpenBuyWeaponsMenu(station)
 
-  ESX.TriggerServerCallback('esx_mafiajob:getArmoryWeapons', function(weapons)
+  ESX.TriggerServerCallback('esx_lapingugang:getArmoryWeapons', function(weapons)
 
     local elements = {}
 
-    for i=1, #Config.MafiaStations[station].AuthorizedWeapons, 1 do
+    for i=1, #Config.LaPinguGangStations[station].AuthorizedWeapons, 1 do
 
-      local weapon = Config.MafiaStations[station].AuthorizedWeapons[i]
+      local weapon = Config.LaPinguGangStations[station].AuthorizedWeapons[i]
       local count  = 0
 
       for i=1, #weapons, 1 do
@@ -1227,10 +1226,10 @@ function OpenBuyWeaponsMenu(station)
       },
       function(data, menu)
 
-        ESX.TriggerServerCallback('esx_mafiajob:buy', function(hasEnoughMoney)
+        ESX.TriggerServerCallback('esx_lapingugang:buy', function(hasEnoughMoney)
 
           if hasEnoughMoney then
-            ESX.TriggerServerCallback('esx_mafiajob:addArmoryWeapon', function()
+            ESX.TriggerServerCallback('esx_lapingugang:addArmoryWeapon', function()
               OpenBuyWeaponsMenu(station)
             end, data.current.value)
           else
@@ -1251,7 +1250,7 @@ end
 
 function OpenGetStocksMenu()
 
-  ESX.TriggerServerCallback('esx_mafiajob:getStockItems', function(items)
+  ESX.TriggerServerCallback('esx_lapingugang:getStockItems', function(items)
 
     local elements = {}
 
@@ -1262,7 +1261,7 @@ function OpenGetStocksMenu()
     ESX.UI.Menu.Open(
       'default', GetCurrentResourceName(), 'stocks_menu',
       {
-        title    = _U('mafia_stock'),
+        title    = _U('lapingugang_stock'),
         elements = elements
       },
       function(data, menu)
@@ -1281,7 +1280,7 @@ function OpenGetStocksMenu()
             if count == nil then
               ESX.ShowNotification(_U('quantity_invalid'))
             else              
-              TriggerServerEvent('esx_mafiajob:getStockItem', itemName, count)
+              TriggerServerEvent('esx_lapingugang:getStockItem', itemName, count)
               menu.close()
               menu2.close()              
               OpenGetStocksMenu()
@@ -1305,7 +1304,7 @@ end
 
 function OpenPutStocksMenu()
 
-  ESX.TriggerServerCallback('esx_mafiajob:getPlayerInventory', function(inventory)
+  ESX.TriggerServerCallback('esx_lapingugang:getPlayerInventory', function(inventory)
 
     local elements = {}
 
@@ -1342,7 +1341,7 @@ function OpenPutStocksMenu()
               ESX.ShowNotification(_U('quantity_invalid'))
             else              
                          
-              TriggerServerEvent('esx_mafiajob:putStockItems', itemName, count)
+              TriggerServerEvent('esx_lapingugang:putStockItems', itemName, count)
               menu2.close()
               menu.close()
               OpenPutStocksMenu()   
@@ -1374,20 +1373,7 @@ AddEventHandler('esx:setJob', function(job)
   PlayerData.job = job
 end)
 
--- RegisterNetEvent('esx_phone:loaded')
--- AddEventHandler('esx_phone:loaded', function(phoneNumber, contacts)
-
---   local specialContact = {
---     name       = 'Mafia',
---     number     = 'mafia',
---     base64Icon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDFGQTJDRkI0QUJCMTFFN0JBNkQ5OENBMUI4QUEzM0YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDFGQTJDRkM0QUJCMTFFN0JBNkQ5OENBMUI4QUEzM0YiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MUZBMkNGOTRBQkIxMUU3QkE2RDk4Q0ExQjhBQTMzRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0MUZBMkNGQTRBQkIxMUU3QkE2RDk4Q0ExQjhBQTMzRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoW66EYAAAjGSURBVHjapJcLcFTV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'
---   }
-
---   TriggerEvent('esx_phone:addSpecialContact', specialContact.name, specialContact.number, specialContact.base64Icon)
-
--- end)
-
-AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum)
+AddEventHandler('esx_lapingugang:hasEnteredMarker', function(station, part, partNum)
 
   if part == 'Cloakroom' then
     CurrentAction     = 'menu_cloakroom'
@@ -1485,16 +1471,16 @@ AddEventHandler('esx_mafiajob:hasEnteredMarker', function(station, part, partNum
 
 end)
 
-AddEventHandler('esx_mafiajob:hasExitedMarker', function(station, part, partNum)
+AddEventHandler('esx_lapingugang:hasExitedMarker', function(station, part, partNum)
   ESX.UI.Menu.CloseAll()
   CurrentAction = nil
 end)
 
-AddEventHandler('esx_mafiajob:hasEnteredEntityZone', function(entity)
+AddEventHandler('esx_lapingugang:hasEnteredEntityZone', function(entity)
 
   local playerPed = GetPlayerPed(-1)
 
-  if PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and not IsPedInAnyVehicle(playerPed, false) then
+  if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and not IsPedInAnyVehicle(playerPed, false) then
     CurrentAction     = 'remove_entity'
     CurrentActionMsg  = _U('remove_object')
     CurrentActionData = {entity = entity}
@@ -1519,7 +1505,7 @@ AddEventHandler('esx_mafiajob:hasEnteredEntityZone', function(entity)
 
 end)
 
-AddEventHandler('esx_mafiajob:hasExitedEntityZone', function(entity)
+AddEventHandler('esx_lapingugang:hasExitedEntityZone', function(entity)
 
   if CurrentAction == 'remove_entity' then
     CurrentAction = nil
@@ -1527,8 +1513,8 @@ AddEventHandler('esx_mafiajob:hasExitedEntityZone', function(entity)
 
 end)
 
-RegisterNetEvent('esx_mafiajob:handcuff')
-AddEventHandler('esx_mafiajob:handcuff', function()
+RegisterNetEvent('esx_lapingugang:handcuff')
+AddEventHandler('esx_lapingugang:handcuff', function()
 
   IsHandcuffed    = not IsHandcuffed;
   local playerPed = GetPlayerPed(-1)
@@ -1560,8 +1546,8 @@ AddEventHandler('esx_mafiajob:handcuff', function()
   end)
 end)
 
-RegisterNetEvent('esx_mafiajob:drag')
-AddEventHandler('esx_mafiajob:drag', function(cop)
+RegisterNetEvent('esx_lapingugang:drag')
+AddEventHandler('esx_lapingugang:drag', function(cop)
   TriggerServerEvent('esx:clientLog', 'starting dragging')
   IsDragged = not IsDragged
   CopPed = tonumber(cop)
@@ -1582,8 +1568,8 @@ Citizen.CreateThread(function()
   end
 end)
 
-RegisterNetEvent('esx_mafiajob:putInVehicle')
-AddEventHandler('esx_mafiajob:putInVehicle', function()
+RegisterNetEvent('esx_lapingugang:putInVehicle')
+AddEventHandler('esx_lapingugang:putInVehicle', function()
 
   local playerPed = GetPlayerPed(-1)
   local coords    = GetEntityCoords(playerPed)
@@ -1614,8 +1600,8 @@ AddEventHandler('esx_mafiajob:putInVehicle', function()
 
 end)
 
-RegisterNetEvent('esx_mafiajob:OutVehicle')
-AddEventHandler('esx_mafiajob:OutVehicle', function(t)
+RegisterNetEvent('esx_lapingugang:OutVehicle')
+AddEventHandler('esx_lapingugang:OutVehicle', function(t)
   local ped = GetPlayerPed(t)
   ClearPedTasksImmediately(ped)
   plyPos = GetEntityCoords(GetPlayerPed(-1),  true)
@@ -1638,25 +1624,25 @@ Citizen.CreateThread(function()
 end)
 
 -- Create blips
--- Citizen.CreateThread(function()
+Citizen.CreateThread(function()
 
---   for k,v in pairs(Config.MafiaStations) do
+  for k,v in pairs(Config.LaPinguGangStations) do
 
---     local blip = AddBlipForCoord(v.Blip.Pos.x, v.Blip.Pos.y, v.Blip.Pos.z)
+    local blip = AddBlipForCoord(v.Blip.Pos.x, v.Blip.Pos.y, v.Blip.Pos.z)
 
---     SetBlipSprite (blip, v.Blip.Sprite)
---     SetBlipDisplay(blip, v.Blip.Display)
---     SetBlipScale  (blip, v.Blip.Scale)
---     SetBlipColour (blip, v.Blip.Colour)
---     SetBlipAsShortRange(blip, true)
+    SetBlipSprite (blip, v.Blip.Sprite)
+    SetBlipDisplay(blip, v.Blip.Display)
+    SetBlipScale  (blip, v.Blip.Scale)
+    SetBlipColour (blip, v.Blip.Colour)
+    SetBlipAsShortRange(blip, true)
 
---     BeginTextCommandSetBlipName("STRING")
---     AddTextComponentString(_U('map_blip'))
---     EndTextCommandSetBlipName(blip)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentString(_U('map_blip'))
+    EndTextCommandSetBlipName(blip)
 
---   end
+  end
 
--- end)
+end)
 
 -- Display markers
 Citizen.CreateThread(function()
@@ -1664,22 +1650,26 @@ Citizen.CreateThread(function()
 
     Wait(0)
     
-    if PlayerData.job ~= nil and PlayerData.job.name == 'latriada' then
+    if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' then
 
       local playerPed = GetPlayerPed(-1)
       local coords    = GetEntityCoords(playerPed)
 
-      for k,v in pairs(Config.MafiaStations) do
+      for k,v in pairs(Config.LaPinguGangStations) do
 
-        for i=1, #v.Cloakrooms, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Cloakrooms[i].x,  v.Cloakrooms[i].y,  v.Cloakrooms[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.Cloakrooms[i].x, v.Cloakrooms[i].y, v.Cloakrooms[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        if Config.ShowCloset == true then    
+          for i=1, #v.Cloakrooms, 1 do
+            if GetDistanceBetweenCoords(coords,  v.Cloakrooms[i].x,  v.Cloakrooms[i].y,  v.Cloakrooms[i].z,  true) < Config.DrawDistance then
+              DrawMarker(Config.MarkerType, v.Cloakrooms[i].x, v.Cloakrooms[i].y, v.Cloakrooms[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+            end
           end
         end
 
-        for i=1, #v.Armories, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Armories[i].x,  v.Armories[i].y,  v.Armories[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.Armories[i].x, v.Armories[i].y, v.Armories[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        if Config.ShowArmory == true then
+          for i=1, #v.Armories, 1 do
+            if GetDistanceBetweenCoords(coords,  v.Armories[i].x,  v.Armories[i].y,  v.Armories[i].z,  true) < Config.DrawDistance then
+              DrawMarker(Config.MarkerType, v.Armories[i].x, v.Armories[i].y, v.Armories[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+            end
           end
         end
 
@@ -1689,28 +1679,19 @@ Citizen.CreateThread(function()
           end
         end
 
-        for i=1, #v.Helicopters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Helicopters[i].Spawner.x,  v.Helicopters[i].Spawner.y,  v.Helicopters[i].Spawner.z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.Helicopters[i].Spawner.x, v.Helicopters[i].Spawner.y, v.Helicopters[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        if Config.ShowHeliPort == true then        
+          for i=1, #v.Helicopters, 1 do
+            if GetDistanceBetweenCoords(coords,  v.Helicopters[i].Spawner.x,  v.Helicopters[i].Spawner.y,  v.Helicopters[i].Spawner.z,  true) < Config.DrawDistance then
+              DrawMarker(Config.MarkerType, v.Helicopters[i].Spawner.x, v.Helicopters[i].Spawner.y, v.Helicopters[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+            end
           end
-        end
 
-        for i=1, #v.HelicoptersMountain, 1 do
-          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.HelicoptersMountain[i].Spawner.x, v.HelicoptersMountain[i].Spawner.y, v.HelicoptersMountain[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          for i=1, #v.HeliDeleters, 1 do
+            if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.DrawDistance then
+              DrawMarker(Config.MarkerType, v.HeliDeleters[i].x, v.HeliDeleters[i].y, v.HeliDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+            end
           end
-        end
 
-        for i=1, #v.HeliDeleters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.HeliDeleters[i].x, v.HeliDeleters[i].y, v.HeliDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-          end
-        end
-
-        for i=1, #v.HeliDeletersMountain, 1 do
-          if GetDistanceBetweenCoords(coords,  v.HeliDeletersMountain[i].x,  v.HeliDeletersMountain[i].y,  v.HeliDeletersMountain[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.HeliDeletersMountain[i].x, v.HeliDeletersMountain[i].y, v.HeliDeletersMountain[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-          end
         end
 
         for i=1, #v.VehicleDeleters, 1 do
@@ -1719,7 +1700,7 @@ Citizen.CreateThread(function()
           end
         end
 
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and PlayerData.job.grade_name == 'boss' then
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
 
           for i=1, #v.BossActions, 1 do
             if not v.BossActions[i].disabled and GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.DrawDistance then
@@ -1742,7 +1723,7 @@ Citizen.CreateThread(function()
   while true do
 
     Wait(0)
-    if PlayerData.job ~= nil and PlayerData.job.name == 'latriada' then
+    if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' then
 
       local playerPed      = GetPlayerPed(-1)
       local coords         = GetEntityCoords(playerPed)
@@ -1751,22 +1732,26 @@ Citizen.CreateThread(function()
       local currentPart    = nil
       local currentPartNum = nil
 
-      for k,v in pairs(Config.MafiaStations) do
-        for i=1, #v.Cloakrooms, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Cloakrooms[i].x,  v.Cloakrooms[i].y,  v.Cloakrooms[i].z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'Cloakroom'
-            currentPartNum = i
+      for k,v in pairs(Config.LaPinguGangStations) do
+        if Config.ShowCloset == true then  
+          for i=1, #v.Cloakrooms, 1 do
+            if GetDistanceBetweenCoords(coords,  v.Cloakrooms[i].x,  v.Cloakrooms[i].y,  v.Cloakrooms[i].z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'Cloakroom'
+              currentPartNum = i
+            end
           end
         end
 
-        for i=1, #v.Armories, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Armories[i].x,  v.Armories[i].y,  v.Armories[i].z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'Armory'
-            currentPartNum = i
+        if Config.ShowArmory == true then
+          for i=1, #v.Armories, 1 do
+            if GetDistanceBetweenCoords(coords,  v.Armories[i].x,  v.Armories[i].y,  v.Armories[i].z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'Armory'
+              currentPartNum = i
+            end
           end
         end
 
@@ -1788,38 +1773,58 @@ Citizen.CreateThread(function()
 
         end
 
-        for i=1, #v.Helicopters, 1 do
+        if Config.ShowHeliPort == true then
+          for i=1, #v.Helicopters, 1 do
 
-          if GetDistanceBetweenCoords(coords,  v.Helicopters[i].Spawner.x,  v.Helicopters[i].Spawner.y,  v.Helicopters[i].Spawner.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HelicopterSpawner'
-            currentPartNum = i
+            if GetDistanceBetweenCoords(coords,  v.Helicopters[i].Spawner.x,  v.Helicopters[i].Spawner.y,  v.Helicopters[i].Spawner.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawner'
+              currentPartNum = i
+            end
+
+            if GetDistanceBetweenCoords(coords,  v.Helicopters[i].SpawnPoint.x,  v.Helicopters[i].SpawnPoint.y,  v.Helicopters[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawnPoint'
+              currentPartNum = i
+            end
+
           end
 
-          if GetDistanceBetweenCoords(coords,  v.Helicopters[i].SpawnPoint.x,  v.Helicopters[i].SpawnPoint.y,  v.Helicopters[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HelicopterSpawnPoint'
-            currentPartNum = i
+          for i=1, #v.HelicoptersMountain, 1 do
+
+            if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawnerMountain'
+              currentPartNum = i
+            end
+
+            if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].SpawnPoint.x,  v.HelicoptersMountain[i].SpawnPoint.y,  v.HelicoptersMountain[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawnPointMountain'
+              currentPartNum = i
+            end
           end
 
-        end
-
-        for i=1, #v.HelicoptersMountain, 1 do
-
-          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].Spawner.x,  v.HelicoptersMountain[i].Spawner.y,  v.HelicoptersMountain[i].Spawner.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HelicopterSpawnerMountain'
-            currentPartNum = i
+          for i=1, #v.HeliDeleters, 1 do
+            if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.MarkerSizeHeli.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HeliDeleter'
+              currentPartNum = i
+            end
           end
-
-          if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[i].SpawnPoint.x,  v.HelicoptersMountain[i].SpawnPoint.y,  v.HelicoptersMountain[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HelicopterSpawnPointMountain'
-            currentPartNum = i
+  
+          for i=1, #v.HeliDeletersMountain, 1 do
+            if GetDistanceBetweenCoords(coords,  v.HeliDeletersMountain[i].x,  v.HeliDeletersMountain[i].y,  v.HeliDeletersMountain[i].z,  true) < Config.MarkerSizeHeli.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HeliDeleterMountain'
+              currentPartNum = i
+            end
           end
 
         end
@@ -1831,27 +1836,9 @@ Citizen.CreateThread(function()
             currentPart    = 'VehicleDeleter'
             currentPartNum = i
           end
-        end
+        end     
 
-        for i=1, #v.HeliDeleters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.HeliDeleters[i].x,  v.HeliDeleters[i].y,  v.HeliDeleters[i].z,  true) < Config.MarkerSizeHeli.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HeliDeleter'
-            currentPartNum = i
-          end
-        end
-
-        for i=1, #v.HeliDeletersMountain, 1 do
-          if GetDistanceBetweenCoords(coords,  v.HeliDeletersMountain[i].x,  v.HeliDeletersMountain[i].y,  v.HeliDeletersMountain[i].z,  true) < Config.MarkerSizeHeli.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'HeliDeleterMountain'
-            currentPartNum = i
-          end
-        end
-
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and PlayerData.job.grade_name == 'boss' then
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
 
           for i=1, #v.BossActions, 1 do
             if GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.MarkerSize.x then
@@ -1874,7 +1861,7 @@ Citizen.CreateThread(function()
           (LastStation ~= nil and LastPart ~= nil and LastPartNum ~= nil) and
           (LastStation ~= currentStation or LastPart ~= currentPart or LastPartNum ~= currentPartNum)
         then
-          TriggerEvent('esx_mafiajob:hasExitedMarker', LastStation, LastPart, LastPartNum)
+          TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
           hasExited = true
         end
 
@@ -1883,14 +1870,14 @@ Citizen.CreateThread(function()
         LastPart                = currentPart
         LastPartNum             = currentPartNum
 
-        TriggerEvent('esx_mafiajob:hasEnteredMarker', currentStation, currentPart, currentPartNum)
+        TriggerEvent('esx_lapingugang:hasEnteredMarker', currentStation, currentPart, currentPartNum)
       end
 
       if not hasExited and not isInMarker and HasAlreadyEnteredMarker then
 
         HasAlreadyEnteredMarker = false
 
-        TriggerEvent('esx_mafiajob:hasExitedMarker', LastStation, LastPart, LastPartNum)
+        TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
       end
 
     end
@@ -1940,14 +1927,14 @@ Citizen.CreateThread(function()
     if closestDistance ~= -1 and closestDistance <= 3.0 then
 
       if LastEntity ~= closestEntity then
-        TriggerEvent('esx_mafiajob:hasEnteredEntityZone', closestEntity)
+        TriggerEvent('esx_lapingugang:hasEnteredEntityZone', closestEntity)
         LastEntity = closestEntity
       end
 
     else
 
       if LastEntity ~= nil then
-        TriggerEvent('esx_mafiajob:hasExitedEntityZone', LastEntity)
+        TriggerEvent('esx_lapingugang:hasExitedEntityZone', LastEntity)
         LastEntity = nil
       end
 
@@ -1968,7 +1955,7 @@ Citizen.CreateThread(function()
       AddTextComponentString(CurrentActionMsg)
       DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
-      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and (GetGameTimer() - GUI.Time) > 150 then
+      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and (GetGameTimer() - GUI.Time) > 150 then
 
         if CurrentAction == 'menu_cloakroom' then
           OpenCloakroomMenu()
@@ -1995,7 +1982,7 @@ Citizen.CreateThread(function()
           if Config.EnableSocietyOwnedVehicles then
 
             local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
-            TriggerServerEvent('esx_society:putVehicleInGarage', 'latriada', vehicleProps)
+            TriggerServerEvent('esx_society:putVehicleInGarage', 'lapingugang', vehicleProps)
 
           else
 
@@ -2008,7 +1995,7 @@ Citizen.CreateThread(function()
               GetEntityModel(vehicle) == GetHashKey('burrito3') or
               GetEntityModel(vehicle) == GetHashKey('mesa')
             then
-              TriggerServerEvent('esx_service:disableService', 'latriada')
+              TriggerServerEvent('esx_service:disableService', 'lapingugang')
             end
 
           end
@@ -2028,7 +2015,7 @@ Citizen.CreateThread(function()
 
           ESX.UI.Menu.CloseAll()
 
-          TriggerEvent('esx_society:openBossMenu', 'latriada', function(data, menu)
+          TriggerEvent('esx_society:openBossMenu', 'lapingugang', function(data, menu)
 
             menu.close()
 
@@ -2051,8 +2038,8 @@ Citizen.CreateThread(function()
 
     end
 
-   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'latriada' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'mafia_actions') and (GetGameTimer() - GUI.Time) > 150 then
-     OpenMafiaActionsMenu()
+   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'lapingugang_actions') and (GetGameTimer() - GUI.Time) > 150 then
+     OpenLaPinguGangActionsMenu()
      GUI.Time = GetGameTimer()
     end
 
@@ -2063,7 +2050,7 @@ end)
 --NB : gestion des menu
 ---------------------------------------------------------------------------------------------------------
 
-RegisterNetEvent('NB:openMenuMafia')
-AddEventHandler('NB:openMenuMafia', function()
-	OpenMafiaActionsMenu()
+RegisterNetEvent('NB:openMenuLaPinguGang')
+AddEventHandler('NB:openMenuLaPinguGang', function()
+	OpenLaPinguGangActionsMenu()
 end)

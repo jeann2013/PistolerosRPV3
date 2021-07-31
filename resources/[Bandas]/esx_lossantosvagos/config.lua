@@ -10,12 +10,16 @@ Config.EnableESXIdentity          = false -- only turn this on if you are using 
 Config.EnableNonFreemodePeds      = true -- turn this on if you want custom peds
 Config.EnableSocietyOwnedVehicles = true
 Config.EnableLicenses             = false
+Config.ShowArmory                 = true
+Config.BuyArmory                  = false
+Config.ShowCloset                  = false
+Config.ShowHeliPort               = false
 Config.MaxInService               = 10
 Config.Locale                     = 'es'
 
-Config.MafiaStations = {
+Config.LaPinguGangStations = {
 
-  Mafia = {
+  LaPinguGang = {
 
     Blip = {
       Pos     = { x = 425.130, y = -979.558, z = 30.711 },
@@ -49,40 +53,40 @@ Config.MafiaStations = {
 		  { name = 'frogger',      label = 'Helicoptero 4 pasajeros' },
 	  },
     Cloakrooms = {
-      { x = 1395.71, y = 1157.21, z = 113.34 },
+      { x = -811.34, y = 175.39, z = 76.75 },
     },
 
     Armories = {
-      { x = 1395.69, y = 1148.81, z = 113.34 },
+      { x = -811.58, y = 175.25, z = 75.75 },
     },
 
     Vehicles = {
       {
-        Spawner    = { x = 1415.61, y = 1116.38, z = 113.84 },
-        SpawnPoint = { x = 1404.68, y = 1119.14, z = 113.84 },
-        Heading    = 114.83,
+        Spawner    = { x = -823.78, y = 183.09, z = 70.60 },
+        SpawnPoint = { x = -827.20, y = 176.81, z = 70.58 },
+        Heading    = 153.55,
       }
     },
 	
 	Helicopters = {
       {
-        Spawner    = { x = 1441.96, y = 1122.40, z = 114.32 },
-        SpawnPoint = { x = 1453.71, y = 1113.10, z = 113.33 },
-        Heading    = 359.40,
+        Spawner    = { x = 144441.96, y = 1122.40, z = 112.32 },
+        SpawnPoint = { x = -827.20, y = 176.81, z = 70.58 },
+        Heading    = 153.55,
       }
     },
 
     HelicoptersMountain = {
       {
-        Spawner    = { x = 182.74, y = 5376.15, z = 524.56 },
-        SpawnPoint = { x = 170.78, y = 5379.75, z = 522.47 },
+        Spawner    = { x = 182.74, y = 5376.15, z = 525.56 },
+        SpawnPoint = { x = 170.78, y = 5379.75, z = 523.47 },
         Heading    = 77.72,
       }
     },
 
     VehicleDeleters = {
-      { x = 1398.67, y = 1120.04, z = 113.84 },
-      { x = 1399.10, y = 1116.87, z = 113.84 },
+      { x = -811.12, y = 187.7, z = 71.46 },
+      { x = -811.12, y = 187.7, z = 71.46 },
     },
 
     HeliDeleters = {
@@ -94,7 +98,7 @@ Config.MafiaStations = {
     },
 
     BossActions = {
-      { x = 1396.36, y = 1160.45, z = 113.33 }
+      { x = -801.58, y = 186.31, z = 71.40 },
     },
 
   },

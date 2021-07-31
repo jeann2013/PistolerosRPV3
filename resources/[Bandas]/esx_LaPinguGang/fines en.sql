@@ -1,4 +1,4 @@
-CREATE TABLE `fine_types_latriada` (
+CREATE TABLE `fine_types_mafia` (
   
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `label` varchar(255) DEFAULT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `fine_types_latriada` (
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `fine_types_latriada` (label, amount, category) VALUES 
+INSERT INTO `fine_types_mafia` (label, amount, category) VALUES 
 	('Raket',3000,0),
 	('Raket',5000,0),
 	('Raket',10000,1),

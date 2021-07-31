@@ -3,19 +3,19 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 if Config.MaxInService ~= -1 then
-  TriggerEvent('esx_service:activateService', 'loassantosvagos', Config.MaxInService)
+  TriggerEvent('esx_service:activateService', 'lapingugang', Config.MaxInService)
 end
 
-TriggerEvent('esx_society:registerSociety', 'loassantosvagos', 'Mafia', 'society_loassantosvagos', 'society_loassantosvagos', 'society_loassantosvagos', {type = 'public'})
+TriggerEvent('esx_society:registerSociety', 'lapingugang', 'LaPinguGang', 'society_lapingugang', 'society_lapingugang', 'society_lapingugang', {type = 'public'})
 
-RegisterServerEvent('esx_mafiajob:giveWeapon')
-AddEventHandler('esx_mafiajob:giveWeapon', function(weapon, ammo)
+RegisterServerEvent('esx_lapingugang:giveWeapon')
+AddEventHandler('esx_lapingugang:giveWeapon', function(weapon, ammo)
   local xPlayer = ESX.GetPlayerFromId(source)
   xPlayer.addWeapon(weapon, ammo)
 end)
 
-RegisterServerEvent('esx_mafiajob:confiscatePlayerItem')
-AddEventHandler('esx_mafiajob:confiscatePlayerItem', function(target, itemType, itemName, amount)
+RegisterServerEvent('esx_lapingugang:confiscatePlayerItem')
+AddEventHandler('esx_lapingugang:confiscatePlayerItem', function(target, itemType, itemName, amount)
 
   local sourceXPlayer = ESX.GetPlayerFromId(source)
   local targetXPlayer = ESX.GetPlayerFromId(target)
@@ -54,33 +54,33 @@ AddEventHandler('esx_mafiajob:confiscatePlayerItem', function(target, itemType, 
 
 end)
 
-RegisterServerEvent('esx_mafiajob:handcuff')
-AddEventHandler('esx_mafiajob:handcuff', function(target)
-  TriggerClientEvent('esx_mafiajob:handcuff', target)
+RegisterServerEvent('esx_lapingugang:handcuff')
+AddEventHandler('esx_lapingugang:handcuff', function(target)
+  TriggerClientEvent('esx_lapingugang:handcuff', target)
 end)
 
-RegisterServerEvent('esx_mafiajob:drag')
-AddEventHandler('esx_mafiajob:drag', function(target)
+RegisterServerEvent('esx_lapingugang:drag')
+AddEventHandler('esx_lapingugang:drag', function(target)
   local _source = source
-  TriggerClientEvent('esx_mafiajob:drag', target, _source)
+  TriggerClientEvent('esx_lapingugang:drag', target, _source)
 end)
 
-RegisterServerEvent('esx_mafiajob:putInVehicle')
-AddEventHandler('esx_mafiajob:putInVehicle', function(target)
-  TriggerClientEvent('esx_mafiajob:putInVehicle', target)
+RegisterServerEvent('esx_lapingugang:putInVehicle')
+AddEventHandler('esx_lapingugang:putInVehicle', function(target)
+  TriggerClientEvent('esx_lapingugang:putInVehicle', target)
 end)
 
-RegisterServerEvent('esx_mafiajob:OutVehicle')
-AddEventHandler('esx_mafiajob:OutVehicle', function(target)
-    TriggerClientEvent('esx_mafiajob:OutVehicle', target)
+RegisterServerEvent('esx_lapingugang:OutVehicle')
+AddEventHandler('esx_lapingugang:OutVehicle', function(target)
+    TriggerClientEvent('esx_lapingugang:OutVehicle', target)
 end)
 
-RegisterServerEvent('esx_mafiajob:getStockItem')
-AddEventHandler('esx_mafiajob:getStockItem', function(itemName, count)
+RegisterServerEvent('esx_lapingugang:getStockItem')
+AddEventHandler('esx_lapingugang:getStockItem', function(itemName, count)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
-  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_lossantosvagos', function(inventory)
+  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_lapingugang', function(inventory)
 
     local item = inventory.getItem(itemName)
 
@@ -97,12 +97,12 @@ AddEventHandler('esx_mafiajob:getStockItem', function(itemName, count)
 
 end)
 
-RegisterServerEvent('esx_mafiajob:putStockItems')
-AddEventHandler('esx_mafiajob:putStockItems', function(itemName, count)
+RegisterServerEvent('esx_lapingugang:putStockItems')
+AddEventHandler('esx_lapingugang:putStockItems', function(itemName, count)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
-  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_lossantosvagos', function(inventory)
+  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_lapingugang', function(inventory)
 
     local item = inventory.getItem(itemName)
 
@@ -119,7 +119,7 @@ AddEventHandler('esx_mafiajob:putStockItems', function(itemName, count)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getOtherPlayerData', function(source, cb, target)
+ESX.RegisterServerCallback('esx_lapingugang:getOtherPlayerData', function(source, cb, target)
 
   if Config.EnableESXIdentity then
 
@@ -200,10 +200,10 @@ ESX.RegisterServerCallback('esx_mafiajob:getOtherPlayerData', function(source, c
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getFineList', function(source, cb, category)
+ESX.RegisterServerCallback('esx_lapingugang:getFineList', function(source, cb, category)
 
   MySQL.Async.fetchAll(
-    'SELECT * FROM fine_types_lossantosvagos WHERE category = @category',
+    'SELECT * FROM fine_types_lapingugang WHERE category = @category',
     {
       ['@category'] = category
     },
@@ -214,7 +214,7 @@ ESX.RegisterServerCallback('esx_mafiajob:getFineList', function(source, cb, cate
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getVehicleInfos', function(source, cb, plate)
+ESX.RegisterServerCallback('esx_lapingugang:getVehicleInfos', function(source, cb, plate)
 
   if Config.EnableESXIdentity then
 
@@ -326,9 +326,9 @@ ESX.RegisterServerCallback('esx_mafiajob:getVehicleInfos', function(source, cb, 
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getArmoryWeapons', function(source, cb)
+ESX.RegisterServerCallback('esx_lapingugang:getArmoryWeapons', function(source, cb)
 
-  TriggerEvent('esx_datastore:getSharedDataStore', 'society_lossantosvagos', function(store)
+  TriggerEvent('esx_datastore:getSharedDataStore', 'society_lapingugang', function(store)
 
     local weapons = store.get('weapons')
 
@@ -342,13 +342,13 @@ ESX.RegisterServerCallback('esx_mafiajob:getArmoryWeapons', function(source, cb)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:addArmoryWeapon', function(source, cb, weaponName)
+ESX.RegisterServerCallback('esx_lapingugang:addArmoryWeapon', function(source, cb, weaponName)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
   xPlayer.removeWeapon(weaponName)
 
-  TriggerEvent('esx_datastore:getSharedDataStore', 'society_lossantosvagos', function(store)
+  TriggerEvent('esx_datastore:getSharedDataStore', 'society_lapingugang', function(store)
 
     local weapons = store.get('weapons')
 
@@ -380,13 +380,13 @@ ESX.RegisterServerCallback('esx_mafiajob:addArmoryWeapon', function(source, cb, 
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:removeArmoryWeapon', function(source, cb, weaponName)
+ESX.RegisterServerCallback('esx_lapingugang:removeArmoryWeapon', function(source, cb, weaponName)
 
   local xPlayer = ESX.GetPlayerFromId(source)
 
   xPlayer.addWeapon(weaponName, 1000)
 
-  TriggerEvent('esx_datastore:getSharedDataStore', 'society_lossantosvagos', function(store)
+  TriggerEvent('esx_datastore:getSharedDataStore', 'society_lapingugang', function(store)
 
     local weapons = store.get('weapons')
 
@@ -419,9 +419,9 @@ ESX.RegisterServerCallback('esx_mafiajob:removeArmoryWeapon', function(source, c
 end)
 
 
-ESX.RegisterServerCallback('esx_mafiajob:buy', function(source, cb, amount)
+ESX.RegisterServerCallback('esx_lapingugang:buy', function(source, cb, amount)
 
-  TriggerEvent('esx_addonaccount:getSharedAccount', 'society_lossantosvagos', function(account)
+  TriggerEvent('esx_addonaccount:getSharedAccount', 'society_lapingugang', function(account)
 
     if account.money >= amount then
       account.removeMoney(amount)
@@ -434,15 +434,15 @@ ESX.RegisterServerCallback('esx_mafiajob:buy', function(source, cb, amount)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getStockItems', function(source, cb)
+ESX.RegisterServerCallback('esx_lapingugang:getStockItems', function(source, cb)
 
-  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_lossantosvagos', function(inventory)
+  TriggerEvent('esx_addoninventory:getSharedInventory', 'society_lapingugang', function(inventory)
     cb(inventory.items)
   end)
 
 end)
 
-ESX.RegisterServerCallback('esx_mafiajob:getPlayerInventory', function(source, cb)
+ESX.RegisterServerCallback('esx_lapingugang:getPlayerInventory', function(source, cb)
 
   local xPlayer = ESX.GetPlayerFromId(source)
   local items   = xPlayer.inventory
