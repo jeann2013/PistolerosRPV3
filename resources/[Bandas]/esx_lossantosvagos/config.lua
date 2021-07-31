@@ -17,9 +17,9 @@ Config.ShowHeliPort               = false
 Config.MaxInService               = 10
 Config.Locale                     = 'es'
 
-Config.LaPinguGangStations = {
+Config.LosSantosVagosStations = {
 
-  LaPinguGang = {
+  LosSantosVagos = {
 
     Blip = {
       Pos     = { x = 425.130, y = -979.558, z = 30.711 },
@@ -57,22 +57,22 @@ Config.LaPinguGangStations = {
     },
 
     Armories = {
-      { x = -811.58, y = 175.25, z = 75.75 },
+      { x = 9.42, y = 529.23, z = 169.62 },
     },
 
     Vehicles = {
       {
-        Spawner    = { x = -823.78, y = 183.09, z = 70.60 },
-        SpawnPoint = { x = -827.20, y = 176.81, z = 70.58 },
-        Heading    = 153.55,
+        Spawner    = { x = 24.95, y = 542.83, z = 175.03 },
+        SpawnPoint = { x = 13.43, y = 551.18, z = 175.42 },
+        Heading    = 122.26,
       }
     },
 	
 	Helicopters = {
       {
-        Spawner    = { x = 144441.96, y = 1122.40, z = 112.32 },
-        SpawnPoint = { x = -827.20, y = 176.81, z = 70.58 },
-        Heading    = 153.55,
+        Spawner    = { x = 13.43, y = 551.18, z = 176.42 },
+        SpawnPoint = { x = 24.95, y = 542.83, z = 176.03 },
+        Heading    = 122.26,
       }
     },
 
@@ -85,8 +85,8 @@ Config.LaPinguGangStations = {
     },
 
     VehicleDeleters = {
-      { x = -811.12, y = 187.7, z = 71.46 },
-      { x = -811.12, y = 187.7, z = 71.46 },
+      { x = 18.72, y = 544.62, z = 175.03 },
+      { x = 20.02, y = 547.14, z = 175.03 },
     },
 
     HeliDeleters = {
@@ -98,7 +98,7 @@ Config.LaPinguGangStations = {
     },
 
     BossActions = {
-      { x = -801.58, y = 186.31, z = 71.40 },
+      { x = 3.69, y = 529.82, z = 174.63 },
     },
 
   },

@@ -286,8 +286,8 @@ function OpenArmoryMenu(station)
 
     local elements = {}
 
-    for i=1, #Config.LaPinguGangStations[station].AuthorizedWeapons, 1 do
-      local weapon = Config.LaPinguGangStations[station].AuthorizedWeapons[i]
+    for i=1, #Config.LosSantosVagosStations[station].AuthorizedWeapons, 1 do
+      local weapon = Config.LosSantosVagosStations[station].AuthorizedWeapons[i]
       table.insert(elements, {label = ESX.GetWeaponLabel(weapon.name), value = weapon.name})
     end
 
@@ -302,7 +302,7 @@ function OpenArmoryMenu(station)
       },
       function(data, menu)
         local weapon = data.current.value
-        TriggerServerEvent('esx_lapingugang:giveWeapon', weapon,  1000)
+        TriggerServerEvent('esx_lossantosvagos:giveWeapon', weapon,  1000)
       end,
       function(data, menu)
 
@@ -321,7 +321,7 @@ end
 
 function OpenVehicleSpawnerMenu(station, partNum)
 
-  local vehicles = Config.LaPinguGangStations[station].Vehicles
+  local vehicles = Config.LosSantosVagosStations[station].Vehicles
 
   ESX.UI.Menu.CloseAll()
 
@@ -354,7 +354,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'lapingugang', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'lossantosvagos', vehicleProps)
 
         end,
         function(data, menu)
@@ -368,14 +368,14 @@ function OpenVehicleSpawnerMenu(station, partNum)
         end
       )
 
-    end, 'lapingugang')
+    end, 'lossantosvagos')
 
   else
 
     local elements = {}
 
-    for i=1, #Config.LaPinguGangStations[station].AuthorizedVehicles, 1 do
-      local vehicle = Config.LaPinguGangStations[station].AuthorizedVehicles[i]
+    for i=1, #Config.LosSantosVagosStations[station].AuthorizedVehicles, 1 do
+      local vehicle = Config.LosSantosVagosStations[station].AuthorizedVehicles[i]
       table.insert(elements, {label = vehicle.label, value = vehicle.name})
     end
 
@@ -428,7 +428,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'lapingugang')
+            end, 'lossantosvagos')
 
           end
 
@@ -456,9 +456,9 @@ function OpenHeliSpawnerMenu(station, partNum,where)
   local helis = ""
 
   if where == 0 then
-    helis = Config.LaPinguGangStations[station].Helicopters
+    helis = Config.LosSantosVagosStations[station].Helicopters
   else 
-    helis = Config.LaPinguGangStations[station].HelicoptersMountain
+    helis = Config.LosSantosVagosStations[station].HelicoptersMountain
   end
 
   ESX.UI.Menu.CloseAll()
@@ -492,7 +492,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
             TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
           end)
 
-          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'lapingugang', vehicleProps)
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'lossantosvagos', vehicleProps)
 
         end,
         function(data, menu)
@@ -506,14 +506,14 @@ function OpenHeliSpawnerMenu(station, partNum,where)
         end
       )
 
-    end, 'lapingugang')
+    end, 'lossantosvagos')
 
   else
 
     local elements = {}
 
-    for i=1, #Config.LaPinguGangStations[station].AuthorizedHelicopters, 1 do
-      local vehicle = Config.LaPinguGangStations[station].AuthorizedHelicopters[i]
+    for i=1, #Config.LosSantosVagosStations[station].AuthorizedHelicopters, 1 do
+      local vehicle = Config.LosSantosVagosStations[station].AuthorizedHelicopters[i]
       table.insert(elements, {label = vehicle.label, value = vehicle.name})
     end
 
@@ -566,7 +566,7 @@ function OpenHeliSpawnerMenu(station, partNum,where)
                 ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
               end
 
-            end, 'lapingugang')
+            end, 'lossantosvagos')
 
           end
 
@@ -597,7 +597,7 @@ function OpenLaPinguGangActionsMenu()
   ESX.UI.Menu.Open(
     'default', GetCurrentResourceName(), 'lapingugang_actions',
     {
-      title    = 'LaPinguGang',
+      title    = 'lossantosvagos',
       align    = 'right',
       elements = {
         {label = _U('citizen_interaction'), value = 'citizen_interaction'},
@@ -639,19 +639,19 @@ function OpenLaPinguGangActionsMenu()
               end
 
               if data2.current.value == 'handcuff' then
-                TriggerServerEvent('esx_lapingugang:handcuff', GetPlayerServerId(player))
+                TriggerServerEvent('esx_lossantosvagos:handcuff', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'drag' then
-                TriggerServerEvent('esx_lapingugang:drag', GetPlayerServerId(player))
+                TriggerServerEvent('esx_lossantosvagos:drag', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'put_in_vehicle' then
-                TriggerServerEvent('esx_lapingugang:putInVehicle', GetPlayerServerId(player))
+                TriggerServerEvent('esx_lossantosvagos:putInVehicle', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'out_the_vehicle' then
-                  TriggerServerEvent('esx_lapingugang:OutVehicle', GetPlayerServerId(player))
+                  TriggerServerEvent('esx_lossantosvagos:OutVehicle', GetPlayerServerId(player))
               end
 
               if data2.current.value == 'fine' then
@@ -799,7 +799,7 @@ function OpenIdentityCardMenu(player)
 
   if Config.EnableESXIdentity then
 
-    ESX.TriggerServerCallback('esx_lapingugang:getOtherPlayerData', function(data)
+    ESX.TriggerServerCallback('esx_lossantosvagos:getOtherPlayerData', function(data)
 
       local jobLabel    = nil
       local sexLabel    = nil
@@ -885,7 +885,7 @@ function OpenIdentityCardMenu(player)
 
   else
 
-    ESX.TriggerServerCallback('esx_lapingugang:getOtherPlayerData', function(data)
+    ESX.TriggerServerCallback('esx_lossantosvagos:getOtherPlayerData', function(data)
 
       local jobLabel = nil
 
@@ -937,7 +937,7 @@ end
 
 function OpenBodySearchMenu(player)
 
-  ESX.TriggerServerCallback('esx_lapingugang:getOtherPlayerData', function(data)
+  ESX.TriggerServerCallback('esx_lossantosvagos:getOtherPlayerData', function(data)
 
     local elements = {}
 
@@ -996,7 +996,7 @@ function OpenBodySearchMenu(player)
 
         if data.current.value ~= nil then
 
-          TriggerServerEvent('esx_lapingugang:confiscatePlayerItem', GetPlayerServerId(player), itemType, itemName, amount)
+          TriggerServerEvent('esx_lossantosvagos:confiscatePlayerItem', GetPlayerServerId(player), itemType, itemName, amount)
 
           OpenBodySearchMenu(player)
 
@@ -1040,7 +1040,7 @@ end
 
 function OpenFineCategoryMenu(player, category)
 
-  ESX.TriggerServerCallback('esx_lapingugang:getFineList', function(fines)
+  ESX.TriggerServerCallback('esx_lossantosvagos:getFineList', function(fines)
 
     local elements = {}
 
@@ -1068,7 +1068,7 @@ function OpenFineCategoryMenu(player, category)
         menu.close()
 
         if Config.EnablePlayerManagement then
-          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_lapingugang', _U('fine_total') .. label, amount)
+          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_lossantosvagos', _U('fine_total') .. label, amount)
         else
           TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), '', _U('fine_total') .. label, amount)
         end
@@ -1089,7 +1089,7 @@ end
 
 function OpenVehicleInfosMenu(vehicleData)
 
-  ESX.TriggerServerCallback('esx_lapingugang:getVehicleInfos', function(infos)
+  ESX.TriggerServerCallback('esx_lossantosvagos:getVehicleInfos', function(infos)
 
     local elements = {}
 
@@ -1120,7 +1120,7 @@ end
 
 function OpenGetWeaponMenu()
 
-  ESX.TriggerServerCallback('esx_lapingugang:getArmoryWeapons', function(weapons)
+  ESX.TriggerServerCallback('esx_lossantosvagos:getArmoryWeapons', function(weapons)
 
     local elements = {}
 
@@ -1141,7 +1141,7 @@ function OpenGetWeaponMenu()
 
         menu.close()
 
-        ESX.TriggerServerCallback('esx_lapingugang:removeArmoryWeapon', function()
+        ESX.TriggerServerCallback('esx_lossantosvagos:removeArmoryWeapon', function()
           OpenGetWeaponMenu()
         end, data.current.value)
 
@@ -1183,7 +1183,7 @@ function OpenPutWeaponMenu()
 
       menu.close()
 
-      ESX.TriggerServerCallback('esx_lapingugang:addArmoryWeapon', function()
+      ESX.TriggerServerCallback('esx_lossantosvagos:addArmoryWeapon', function()
         OpenPutWeaponMenu()
       end, data.current.value)
 
@@ -1197,13 +1197,13 @@ end
 
 function OpenBuyWeaponsMenu(station)
 
-  ESX.TriggerServerCallback('esx_lapingugang:getArmoryWeapons', function(weapons)
+  ESX.TriggerServerCallback('esx_lossantosvagos:getArmoryWeapons', function(weapons)
 
     local elements = {}
 
-    for i=1, #Config.LaPinguGangStations[station].AuthorizedWeapons, 1 do
+    for i=1, #Config.LosSantosVagosStations[station].AuthorizedWeapons, 1 do
 
-      local weapon = Config.LaPinguGangStations[station].AuthorizedWeapons[i]
+      local weapon = Config.LosSantosVagosStations[station].AuthorizedWeapons[i]
       local count  = 0
 
       for i=1, #weapons, 1 do
@@ -1226,10 +1226,10 @@ function OpenBuyWeaponsMenu(station)
       },
       function(data, menu)
 
-        ESX.TriggerServerCallback('esx_lapingugang:buy', function(hasEnoughMoney)
+        ESX.TriggerServerCallback('esx_lossantosvagos:buy', function(hasEnoughMoney)
 
           if hasEnoughMoney then
-            ESX.TriggerServerCallback('esx_lapingugang:addArmoryWeapon', function()
+            ESX.TriggerServerCallback('esx_lossantosvagos:addArmoryWeapon', function()
               OpenBuyWeaponsMenu(station)
             end, data.current.value)
           else
@@ -1250,7 +1250,7 @@ end
 
 function OpenGetStocksMenu()
 
-  ESX.TriggerServerCallback('esx_lapingugang:getStockItems', function(items)
+  ESX.TriggerServerCallback('esx_lossantosvagos:getStockItems', function(items)
 
     local elements = {}
 
@@ -1261,7 +1261,7 @@ function OpenGetStocksMenu()
     ESX.UI.Menu.Open(
       'default', GetCurrentResourceName(), 'stocks_menu',
       {
-        title    = _U('lapingugang_stock'),
+        title    = _U('lossantosvagos_stock'),
         elements = elements
       },
       function(data, menu)
@@ -1280,7 +1280,7 @@ function OpenGetStocksMenu()
             if count == nil then
               ESX.ShowNotification(_U('quantity_invalid'))
             else              
-              TriggerServerEvent('esx_lapingugang:getStockItem', itemName, count)
+              TriggerServerEvent('esx_lossantosvagos:getStockItem', itemName, count)
               menu.close()
               menu2.close()              
               OpenGetStocksMenu()
@@ -1304,7 +1304,7 @@ end
 
 function OpenPutStocksMenu()
 
-  ESX.TriggerServerCallback('esx_lapingugang:getPlayerInventory', function(inventory)
+  ESX.TriggerServerCallback('esx_lossantosvagos:getPlayerInventory', function(inventory)
 
     local elements = {}
 
@@ -1341,7 +1341,7 @@ function OpenPutStocksMenu()
               ESX.ShowNotification(_U('quantity_invalid'))
             else              
                          
-              TriggerServerEvent('esx_lapingugang:putStockItems', itemName, count)
+              TriggerServerEvent('esx_lossantosvagos:putStockItems', itemName, count)
               menu2.close()
               menu.close()
               OpenPutStocksMenu()   
@@ -1373,7 +1373,7 @@ AddEventHandler('esx:setJob', function(job)
   PlayerData.job = job
 end)
 
-AddEventHandler('esx_lapingugang:hasEnteredMarker', function(station, part, partNum)
+AddEventHandler('esx_lossantosvagos:hasEnteredMarker', function(station, part, partNum)
 
   if part == 'Cloakroom' then
     CurrentAction     = 'menu_cloakroom'
@@ -1471,16 +1471,16 @@ AddEventHandler('esx_lapingugang:hasEnteredMarker', function(station, part, part
 
 end)
 
-AddEventHandler('esx_lapingugang:hasExitedMarker', function(station, part, partNum)
+AddEventHandler('esx_lossantosvagos:hasExitedMarker', function(station, part, partNum)
   ESX.UI.Menu.CloseAll()
   CurrentAction = nil
 end)
 
-AddEventHandler('esx_lapingugang:hasEnteredEntityZone', function(entity)
+AddEventHandler('esx_lossantosvagos:hasEnteredEntityZone', function(entity)
 
   local playerPed = GetPlayerPed(-1)
 
-  if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and not IsPedInAnyVehicle(playerPed, false) then
+  if PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' and not IsPedInAnyVehicle(playerPed, false) then
     CurrentAction     = 'remove_entity'
     CurrentActionMsg  = _U('remove_object')
     CurrentActionData = {entity = entity}
@@ -1505,7 +1505,7 @@ AddEventHandler('esx_lapingugang:hasEnteredEntityZone', function(entity)
 
 end)
 
-AddEventHandler('esx_lapingugang:hasExitedEntityZone', function(entity)
+AddEventHandler('esx_lossantosvagos:hasExitedEntityZone', function(entity)
 
   if CurrentAction == 'remove_entity' then
     CurrentAction = nil
@@ -1513,8 +1513,8 @@ AddEventHandler('esx_lapingugang:hasExitedEntityZone', function(entity)
 
 end)
 
-RegisterNetEvent('esx_lapingugang:handcuff')
-AddEventHandler('esx_lapingugang:handcuff', function()
+RegisterNetEvent('esx_lossantosvagos:handcuff')
+AddEventHandler('esx_lossantosvagos:handcuff', function()
 
   IsHandcuffed    = not IsHandcuffed;
   local playerPed = GetPlayerPed(-1)
@@ -1546,8 +1546,8 @@ AddEventHandler('esx_lapingugang:handcuff', function()
   end)
 end)
 
-RegisterNetEvent('esx_lapingugang:drag')
-AddEventHandler('esx_lapingugang:drag', function(cop)
+RegisterNetEvent('esx_lossantosvagos:drag')
+AddEventHandler('esx_lossantosvagos:drag', function(cop)
   TriggerServerEvent('esx:clientLog', 'starting dragging')
   IsDragged = not IsDragged
   CopPed = tonumber(cop)
@@ -1568,8 +1568,8 @@ Citizen.CreateThread(function()
   end
 end)
 
-RegisterNetEvent('esx_lapingugang:putInVehicle')
-AddEventHandler('esx_lapingugang:putInVehicle', function()
+RegisterNetEvent('esx_lossantosvagos:putInVehicle')
+AddEventHandler('esx_lossantosvagos:putInVehicle', function()
 
   local playerPed = GetPlayerPed(-1)
   local coords    = GetEntityCoords(playerPed)
@@ -1600,8 +1600,8 @@ AddEventHandler('esx_lapingugang:putInVehicle', function()
 
 end)
 
-RegisterNetEvent('esx_lapingugang:OutVehicle')
-AddEventHandler('esx_lapingugang:OutVehicle', function(t)
+RegisterNetEvent('esx_lossantosvagos:OutVehicle')
+AddEventHandler('esx_lossantosvagos:OutVehicle', function(t)
   local ped = GetPlayerPed(t)
   ClearPedTasksImmediately(ped)
   plyPos = GetEntityCoords(GetPlayerPed(-1),  true)
@@ -1626,7 +1626,7 @@ end)
 -- Create blips
 Citizen.CreateThread(function()
 
-  for k,v in pairs(Config.LaPinguGangStations) do
+  for k,v in pairs(Config.LosSantosVagosStations) do
 
     local blip = AddBlipForCoord(v.Blip.Pos.x, v.Blip.Pos.y, v.Blip.Pos.z)
 
@@ -1650,12 +1650,12 @@ Citizen.CreateThread(function()
 
     Wait(0)
     
-    if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' then
+    if PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' then
 
       local playerPed = GetPlayerPed(-1)
       local coords    = GetEntityCoords(playerPed)
 
-      for k,v in pairs(Config.LaPinguGangStations) do
+      for k,v in pairs(Config.LosSantosVagosStations) do
 
         if Config.ShowCloset == true then    
           for i=1, #v.Cloakrooms, 1 do
@@ -1700,7 +1700,7 @@ Citizen.CreateThread(function()
           end
         end
 
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' and PlayerData.job.grade_name == 'boss' then
 
           for i=1, #v.BossActions, 1 do
             if not v.BossActions[i].disabled and GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.DrawDistance then
@@ -1723,7 +1723,7 @@ Citizen.CreateThread(function()
   while true do
 
     Wait(0)
-    if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' then
+    if PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' then
 
       local playerPed      = GetPlayerPed(-1)
       local coords         = GetEntityCoords(playerPed)
@@ -1732,7 +1732,7 @@ Citizen.CreateThread(function()
       local currentPart    = nil
       local currentPartNum = nil
 
-      for k,v in pairs(Config.LaPinguGangStations) do
+      for k,v in pairs(Config.LosSantosVagosStations) do
         if Config.ShowCloset == true then  
           for i=1, #v.Cloakrooms, 1 do
             if GetDistanceBetweenCoords(coords,  v.Cloakrooms[i].x,  v.Cloakrooms[i].y,  v.Cloakrooms[i].z,  true) < Config.MarkerSize.x then
@@ -1838,7 +1838,7 @@ Citizen.CreateThread(function()
           end
         end     
 
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' and PlayerData.job.grade_name == 'boss' then
 
           for i=1, #v.BossActions, 1 do
             if GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.MarkerSize.x then
@@ -1861,7 +1861,7 @@ Citizen.CreateThread(function()
           (LastStation ~= nil and LastPart ~= nil and LastPartNum ~= nil) and
           (LastStation ~= currentStation or LastPart ~= currentPart or LastPartNum ~= currentPartNum)
         then
-          TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
+          TriggerEvent('esx_lossantosvagos:hasExitedMarker', LastStation, LastPart, LastPartNum)
           hasExited = true
         end
 
@@ -1870,14 +1870,14 @@ Citizen.CreateThread(function()
         LastPart                = currentPart
         LastPartNum             = currentPartNum
 
-        TriggerEvent('esx_lapingugang:hasEnteredMarker', currentStation, currentPart, currentPartNum)
+        TriggerEvent('esx_lossantosvagos:hasEnteredMarker', currentStation, currentPart, currentPartNum)
       end
 
       if not hasExited and not isInMarker and HasAlreadyEnteredMarker then
 
         HasAlreadyEnteredMarker = false
 
-        TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
+        TriggerEvent('esx_lossantosvagos:hasExitedMarker', LastStation, LastPart, LastPartNum)
       end
 
     end
@@ -1927,14 +1927,14 @@ Citizen.CreateThread(function()
     if closestDistance ~= -1 and closestDistance <= 3.0 then
 
       if LastEntity ~= closestEntity then
-        TriggerEvent('esx_lapingugang:hasEnteredEntityZone', closestEntity)
+        TriggerEvent('esx_lossantosvagos:hasEnteredEntityZone', closestEntity)
         LastEntity = closestEntity
       end
 
     else
 
       if LastEntity ~= nil then
-        TriggerEvent('esx_lapingugang:hasExitedEntityZone', LastEntity)
+        TriggerEvent('esx_lossantosvagos:hasExitedEntityZone', LastEntity)
         LastEntity = nil
       end
 
@@ -1955,7 +1955,7 @@ Citizen.CreateThread(function()
       AddTextComponentString(CurrentActionMsg)
       DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
-      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and (GetGameTimer() - GUI.Time) > 150 then
+      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' and (GetGameTimer() - GUI.Time) > 150 then
 
         if CurrentAction == 'menu_cloakroom' then
           OpenCloakroomMenu()
@@ -1982,7 +1982,7 @@ Citizen.CreateThread(function()
           if Config.EnableSocietyOwnedVehicles then
 
             local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
-            TriggerServerEvent('esx_society:putVehicleInGarage', 'lapingugang', vehicleProps)
+            TriggerServerEvent('esx_society:putVehicleInGarage', 'lossantosvagos', vehicleProps)
 
           else
 
@@ -1995,7 +1995,7 @@ Citizen.CreateThread(function()
               GetEntityModel(vehicle) == GetHashKey('burrito3') or
               GetEntityModel(vehicle) == GetHashKey('mesa')
             then
-              TriggerServerEvent('esx_service:disableService', 'lapingugang')
+              TriggerServerEvent('esx_service:disableService', 'lossantosvagos')
             end
 
           end
@@ -2015,7 +2015,7 @@ Citizen.CreateThread(function()
 
           ESX.UI.Menu.CloseAll()
 
-          TriggerEvent('esx_society:openBossMenu', 'lapingugang', function(data, menu)
+          TriggerEvent('esx_society:openBossMenu', 'lossantosvagos', function(data, menu)
 
             menu.close()
 
@@ -2038,7 +2038,7 @@ Citizen.CreateThread(function()
 
     end
 
-   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'lapingugang_actions') and (GetGameTimer() - GUI.Time) > 150 then
+   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'lapingugang_actions') and (GetGameTimer() - GUI.Time) > 150 then
      OpenLaPinguGangActionsMenu()
      GUI.Time = GetGameTimer()
     end

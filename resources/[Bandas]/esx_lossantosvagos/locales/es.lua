@@ -21,7 +21,7 @@ Locales['es'] = {
   ['vehicle_spawner'] = 'Presionar ~INPUT_CONTEXT~ para sacar un vehículo',
   ['store_vehicle'] = 'Presionar ~INPUT_CONTEXT~ para guardar un vehículo',
   ['service_max'] = 'Servicio completado : ',
-  ['lapingugang_stock'] = 'Stock de LaPinguGang',
+  ['lossantosvagos_stock'] = 'Stock de LosSantosVagos',
    -- Helicoptero
    ['heli_menu'] = 'Helicopteros',
    ['heli_out'] = 'Ya tienes un Helicoptero fuera',
