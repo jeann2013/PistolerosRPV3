@@ -2,7 +2,7 @@ radioConfig = {
     Controls = {
         Activator = { -- Open/Close Radio
             Name = "INPUT_REPLAY_START_STOP_RECORDING_SECONDARY", -- Control name
-            Key = 344, -- F11
+            Key = 289, -- F11
         },
         Secondary = {
             Name = "INPUT_SPRINT",
@@ -48,5 +48,5 @@ radioConfig = {
         List = {}, -- Frequency list, Don't touch
         Access = {}, -- List of freqencies a player has access to
     },
-    AllowRadioWhenClosed = false -- Allows the radio to be used when not open (uses police radio animation) 
+    AllowRadioWhenClosed = true -- Allows the radio to be used when not open (uses police radio animation) 
 }
