@@ -1,6 +1,6 @@
 Locales['es'] = {
   -- Inventory
-  ['inventory'] = 'invetario %s / %s',
+  ['inventory'] = 'inventario %s / %s',
   ['use'] = 'usar',
   ['give'] = 'dar',
   ['remove'] = 'tirar',
