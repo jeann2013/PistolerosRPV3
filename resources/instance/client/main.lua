@@ -214,21 +214,28 @@ Citizen.CreateThread(function()
 end)
 
 -- Fix vehicles randomly spawning nearby the player inside an instance
+DensityMultiplier = 0.7
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0) -- must be run every frame
-
 		if insideInstance then
+
 			SetVehicleDensityMultiplierThisFrame(0.0)
-			SetParkedVehicleDensityMultiplierThisFrame(0.0)
+			SetParkedVehicleDensityMultiplierThisFrame(0.0)			
 			SetCreateRandomCops(false)
 			SetCreateRandomCopsNotOnScenarios(false)
 			SetCreateRandomCopsOnScenarios(false)
-
 			local pos = GetEntityCoords(PlayerPedId())
 			RemoveVehiclesFromGeneratorsInArea(pos.x - 900.0, pos.y - 900.0, pos.z - 900.0, pos.x + 900.0, pos.y + 900.0, pos.z + 900.0)
 		else
-			Citizen.Wait(500)
+			SetCreateRandomCops(false)
+			SetCreateRandomCopsNotOnScenarios(false)
+			SetCreateRandomCopsOnScenarios(false)
+			SetVehicleDensityMultiplierThisFrame(DensityMultiplier)
+			SetPedDensityMultiplierThisFrame(DensityMultiplier)
+			SetRandomVehicleDensityMultiplierThisFrame(DensityMultiplier)
+			SetParkedVehicleDensityMultiplierThisFrame(DensityMultiplier)
+			SetScenarioPedDensityMultiplierThisFrame(DensityMultiplier, DensityMultiplier)			
 		end
 	end
 end)
