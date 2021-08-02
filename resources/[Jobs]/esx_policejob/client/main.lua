@@ -36,7 +36,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 	end
 
-	Citizen.Wait(6000)
+	Citizen.Wait(5000)
 	PlayerData = ESX.GetPlayerData()
 end)
 
@@ -1260,7 +1260,7 @@ RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	PlayerData.job = job
 	
-	Citizen.Wait(5000)
+	Citizen.Wait(500)
 	TriggerServerEvent('esx_policejob:forceBlip')
 end)
 
@@ -1574,45 +1574,43 @@ Citizen.CreateThread(function()
   while true do
 
     Wait(0)
-
     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
 
       local playerPed = PlayerPedId()
       local coords    = GetEntityCoords(playerPed)
 
-      for k,v in pairs(Config.PoliceStations) do
-
-        for i=1, #v.Cloakrooms, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Cloakrooms[i].x,  v.Cloakrooms[i].y,  v.Cloakrooms[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.Cloakrooms[i].x, v.Cloakrooms[i].y, v.Cloakrooms[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+      for k,v in pairs(Config.PoliceStations) do        
+        --for i=1, #v.Cloakrooms, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.Cloakrooms[1].x, v.Cloakrooms[1].y, v.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
           end
-        end
+        --end
 
-        for i=1, #v.Armories, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Armories[i].x,  v.Armories[i].y,  v.Armories[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.Armories[i].x, v.Armories[i].y, v.Armories[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        --for i=1, #v.Armories, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType,v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
           end
-        end
+        --end
 
-        for i=1, #v.Vehicles, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Vehicles[i].Spawner.x,  v.Vehicles[i].Spawner.y,  v.Vehicles[i].Spawner.z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.Vehicles[i].Spawner.x, v.Vehicles[i].Spawner.y, v.Vehicles[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        --for i=1, #v.Vehicles, 1 do
+          if GetDistanceBetweenCoords(coords, v.Vehicles[1].Spawner.x, v.Vehicles[1].Spawner.y, v.Vehicles[1].Spawner.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.Vehicles[1].Spawner.x, v.Vehicles[1].Spawner.y, v.Vehicles[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
           end
-        end
+        --end
 
-        for i=1, #v.VehicleDeleters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.VehicleDeleters[i].x, v.VehicleDeleters[i].y, v.VehicleDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        --for i=1, #v.VehicleDeleters, 1 do
+          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[1].x, v.VehicleDeleters[1].y, v.VehicleDeleters[1].z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.VehicleDeleters[1].x, v.VehicleDeleters[1].y, v.VehicleDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
           end
-        end
+        --end
 
         if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
 
-          for i=1, #v.BossActions, 1 do
-            if not v.BossActions[i].disabled and GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.DrawDistance then
-              DrawMarker(Config.MarkerType, v.BossActions[i].x, v.BossActions[i].y, v.BossActions[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          --for i=1, #v.BossActions, 1 do
+            if not v.BossActions[1].disabled and GetDistanceBetweenCoords(coords,  v.BossActions[1].x, v.BossActions[1].y, v.BossActions[1].z,  true) < Config.DrawDistance then
+              DrawMarker(Config.MarkerType, v.BossActions[1].x, v.BossActions[1].y, v.BossActions[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
             end
-          end
+          --end
 
         end
 
@@ -1630,7 +1628,6 @@ Citizen.CreateThread(function()
 
     Wait(0)    
     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
-
       local playerPed      = PlayerPedId()
       local coords         = GetEntityCoords(playerPed)
       local isInMarker     = false
@@ -1640,79 +1637,79 @@ Citizen.CreateThread(function()
 
       for k,v in pairs(Config.PoliceStations) do
 
-        for i=1, #v.Cloakrooms, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Cloakrooms[i].x,  v.Cloakrooms[i].y,  v.Cloakrooms[i].z,  true) < Config.MarkerSize.x then
+        --for i=1, #v.Cloakrooms, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
             isInMarker     = true
             currentStation = k
             currentPart    = 'Cloakroom'
             currentPartNum = i
           end
-        end
+        --end
 
-        for i=1, #v.Armories, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Armories[i].x,  v.Armories[i].y,  v.Armories[i].z,  true) < Config.MarkerSize.x then
+        --for i=1, #v.Armories, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.MarkerSize.x then
             isInMarker     = true
             currentStation = k
             currentPart    = 'Armory'
             currentPartNum = i
           end
-        end
+        --end
 
-        for i=1, #v.Vehicles, 1 do
+        --for i=1, #v.Vehicles, 1 do
 
-          if GetDistanceBetweenCoords(coords,  v.Vehicles[i].Spawner.x,  v.Vehicles[i].Spawner.y,  v.Vehicles[i].Spawner.z,  true) < Config.MarkerSize.x then
+          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].Spawner.x,  v.Vehicles[1].Spawner.y,  v.Vehicles[1].Spawner.z,  true) < Config.MarkerSize.x then
             isInMarker     = true
             currentStation = k
             currentPart    = 'VehicleSpawner'
             currentPartNum = i
           end
 
-          if GetDistanceBetweenCoords(coords,  v.Vehicles[i].SpawnPoint.x,  v.Vehicles[i].SpawnPoint.y,  v.Vehicles[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].SpawnPoint.x,  v.Vehicles[1].SpawnPoint.y,  v.Vehicles[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
             isInMarker     = true
             currentStation = k
             currentPart    = 'VehicleSpawnPoint'
             currentPartNum = i
           end
 
-        end
+        --end
 
-        for i=1, #v.Helicopters, 1 do
+        --for i=1, #v.Helicopters, 1 do
 
-          if GetDistanceBetweenCoords(coords,  v.Helicopters[i].Spawner.x,  v.Helicopters[i].Spawner.y,  v.Helicopters[i].Spawner.z,  true) < Config.MarkerSize.x then
+          if GetDistanceBetweenCoords(coords,  v.Helicopters[1].Spawner.x,  v.Helicopters[1].Spawner.y,  v.Helicopters[1].Spawner.z,  true) < Config.MarkerSize.x then
             isInMarker     = true
             currentStation = k
             currentPart    = 'HelicopterSpawner'
             currentPartNum = i
           end
 
-          if GetDistanceBetweenCoords(coords,  v.Helicopters[i].SpawnPoint.x,  v.Helicopters[i].SpawnPoint.y,  v.Helicopters[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+          if GetDistanceBetweenCoords(coords,  v.Helicopters[1].SpawnPoint.x,  v.Helicopters[1].SpawnPoint.y,  v.Helicopters[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
             isInMarker     = true
             currentStation = k
             currentPart    = 'HelicopterSpawnPoint'
             currentPartNum = i
           end
 
-        end
+        --end
 
-        for i=1, #v.VehicleDeleters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.MarkerSize.x then
+        --for i=1, #v.VehicleDeleters, 1 do
+          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[1].x,  v.VehicleDeleters[1].y,  v.VehicleDeleters[1].z,  true) < Config.MarkerSize.x then
             isInMarker     = true
             currentStation = k
             currentPart    = 'VehicleDeleter'
             currentPartNum = i
           end
-        end
+        --end
 
         if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
 
-          for i=1, #v.BossActions, 1 do
-            if GetDistanceBetweenCoords(coords,  v.BossActions[i].x,  v.BossActions[i].y,  v.BossActions[i].z,  true) < Config.MarkerSize.x then
+          --for i=1, #v.BossActions, 1 do
+            if GetDistanceBetweenCoords(coords,  v.BossActions[1].x,  v.BossActions[1].y,  v.BossActions[1].z,  true) < Config.MarkerSize.x then
               isInMarker     = true
               currentStation = k
               currentPart    = 'BossActions'
               currentPartNum = i
             end
-          end
+          --end
 
         end
 
@@ -1810,7 +1807,7 @@ end)
 
 -- Key Controls
 Citizen.CreateThread(function()
-	while true do
+	while true or false do
 
 		Citizen.Wait(0)
 
@@ -1876,8 +1873,7 @@ end)
 -- Create blip for colleagues
 function createBlip(id)
 	ped = GetPlayerPed(id)
-	blip = GetBlipFromEntity(ped)
-	
+	blip = GetBlipFromEntity(ped)	
 	if not DoesBlipExist(blip) then -- Add blip and create head display on player
 		blip = AddBlipForEntity(ped)
 		SetBlipSprite(blip, 1)
