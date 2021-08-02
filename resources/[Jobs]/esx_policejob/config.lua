@@ -1,6 +1,6 @@
 Config                            = {}
 
-Config.DrawDistance               = 100.0
+Config.DrawDistance               = 3.0
 Config.MarkerType                 = 1
 Config.MarkerSize                 = { x = 1.5, y = 1.5, z = 1.0 }
 Config.MarkerColor                = { r = 50, g = 50, b = 204 }
@@ -81,7 +81,6 @@ Config.PoliceStations = {
 
 }
 
--- https://wiki.fivem.net/wiki/Vehicles
 Config.AuthorizedVehicles = {
 	Shared = {
 		{
@@ -91,7 +90,11 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pbus',
 			label = 'Police Prison Bus'
-		}
+		},
+		{
+			model = 'policeb2',
+			label = 'Moto para campo'
+		},
 	},
 
 	recruit = {
@@ -102,19 +105,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'policeb',
 			label = 'Police Bike'
-		},
-		{
-			model = 'pd1',
-			label = 'Policia Motos Ciudad'
-		},
-		{
-			model = 'pd1',
-			label = 'Auto policia sin marcas'
-		},
-		{
-			model = 'lspdmoto',
-			label = 'Moto Fuerte para la ciudad'
-		},
+		},						
 		{
 			model = 'policeb2',
 			label = 'Moto para campo'
@@ -139,15 +130,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = '14charger',
 			label = 'Carro policia Charger'
-		},
-		{
-			model = 'pd1',
-			label = 'Auto policia sin marcas'
-		},
-		{
-			model = 'lspdmoto',
-			label = 'Moto Fuerte para la ciudad'
-		},
+		},				
 		{
 			model = 'policeb2',
 			label = 'Moto para campo'
@@ -155,11 +138,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'polnspeedo',
 			label = 'Bagoneta rapida'
-		},
-		{
-			model = 'gatorlib',
-			label = 'Auto ligero'
-		},
+		},		
 		{
 			model = 'polf430',
 			label = 'Auto policia persecucion (Ferrari)'
@@ -257,11 +236,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'polnspeedo',
 			label = 'Bagoneta rapida'
-		},
-		{
-			model = 'pd1',
-			label = 'Auto policia simple'
-		},
+		},		
 		{
 			model = 'polf430',
 			label = 'Auto policia persecucion (Ferrari)'
