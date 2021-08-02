@@ -2,6 +2,7 @@ ESX                 = nil
 local myJob     = nil
 local selling       = false
 local has       = false
+local hasFood   = false
 local copsc     = false
 
 Citizen.CreateThread(function()
@@ -27,7 +28,7 @@ currentped = nil
 Citizen.CreateThread(function()
 
 while true do
-  Wait(0)
+  Wait(1)
   local player = GetPlayerPed(-1)
   local playerloc = GetEntityCoords(player, 0)
   local handle, ped = FindFirstPed()
@@ -44,11 +45,11 @@ while true do
             if pedType ~= 28 and IsPedAPlayer(ped) == false then
               currentped = pos
 
-              if distance <= 2 and ped  ~= GetPlayerPed(-1) and ped ~= oldped then
+              if distance <= 1 and ped  ~= GetPlayerPed(-1) and ped ~= oldped then
                 TriggerServerEvent('checkD')
                 if has == true then
-                  drawTxt(0.90, 1.40, 1.0,1.0,0.4, "Presione ~g~E ~w~para intentar un negocio de drogas...", 255, 255, 255, 255)
-                  if IsControlJustPressed(1, 86) then
+                    drawTxt(0.90, 1.40, 1.0,1.0,0.4, "Presione ~g~E ~w~para intentar un negocio de drogas...", 255, 255, 255, 255)
+                    if IsControlJustPressed(1, 86) then
                       oldped = ped
                       SetEntityAsMissionEntity(ped)
                       TaskStandStill(ped, 9.0)
@@ -57,6 +58,21 @@ while true do
                       Citizen.Wait(2850)
                       TriggerEvent('sell')
                       SetPedAsNoLongerNeeded(oldped)
+                    end
+                else
+                  TriggerServerEvent('checkFoodDrugs')
+                  if hasFood == true then
+                    drawTxt(0.90, 1.40, 1.0,1.0,0.4, "Presione ~g~E ~w~para intentar una venta de comida...", 255, 255, 255, 255)
+                    if IsControlJustPressed(1, 86) then
+                        oldped = ped
+                        SetEntityAsMissionEntity(ped)
+                        TaskStandStill(ped, 9.0)
+                        pos1 = GetEntityCoords(ped)
+                        TriggerServerEvent('foods:trigger')
+                        Citizen.Wait(2850)
+                        TriggerEvent('sellfood')
+                        SetPedAsNoLongerNeeded(oldped)
+                    end
                   end
                 end
               end
@@ -68,6 +84,19 @@ while true do
   until not success
   EndFindPed(handle)
 end
+end)
+
+RegisterNetEvent('sellfood')
+AddEventHandler('sellfood', function()
+    local player = GetPlayerPed(-1)
+    local playerloc = GetEntityCoords(player, 0)
+    local distance = GetDistanceBetweenCoords(pos1.x, pos1.y, pos1.z, playerloc['x'], playerloc['y'], playerloc['z'], true)
+
+    if distance <= 2 then
+      TriggerServerEvent('foods:sell')
+    elseif distance > 2 then
+      TriggerServerEvent('sell_dis')
+    end
 end)
 
 RegisterNetEvent('sell')
@@ -83,6 +112,11 @@ AddEventHandler('sell', function()
     end
 end)
 
+
+RegisterNetEvent('checkFoodDrugs')
+AddEventHandler('checkFoodDrugs', function(test)
+  hasFood = test
+end)
 
 RegisterNetEvent('checkR')
 AddEventHandler('checkR', function(test)
