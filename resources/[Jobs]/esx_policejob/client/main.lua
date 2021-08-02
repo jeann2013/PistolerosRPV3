@@ -30,13 +30,13 @@ local CurrentTask             = {}
 
 ESX                           = nil
 
-Citizen.CreateThread(function()
+Citizen.CreateThread(function()  
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
 
-	Citizen.Wait(5000)
+	Citizen.Wait(6000)
 	PlayerData = ESX.GetPlayerData()
 end)
 
@@ -1549,7 +1549,7 @@ Citizen.CreateThread(function()
 end)
 
 -- Create blips
-Citizen.CreateThread(function()
+Citizen.CreateThread(function() 
 
   for k,v in pairs(Config.PoliceStations) do
 
@@ -1628,8 +1628,7 @@ Citizen.CreateThread(function()
 
   while true do
 
-    Wait(0)
-
+    Wait(0)    
     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
 
       local playerPed      = PlayerPedId()
