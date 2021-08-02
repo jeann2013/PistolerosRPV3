@@ -69,8 +69,7 @@ Config.PoliceStations = {
 		},
 
 		VehicleDeleters = {
-			{ x = 462.74, y = -1014.4, z = 27.065 },
-			{ x = 462.40, y = -1019.7, z = 27.104 },
+			{ x = 462.74, y = -1014.4, z = 27.065 }			
 		},
 
 		BossActions = {
