@@ -53,12 +53,12 @@ config.loadedasmp = true -- if player model is mp player, pass the loaded event 
 config.enablestatus = false -- enable/disable status v1 ( icons,progress status ) -- this will disable all status functions
 config.enablecompass = true -- enable/disable compass
 config.enable_carui = true -- enable/disable the car UI (THIS WILL DISABLE ALL VEHICLE FUNCTION AS WELL)
-config.carui = 'minimal' -- Choose a Carui Version ( simple, minimal, modern )
+config.carui = 'modern' -- Choose a Carui Version ( simple, minimal, modern )
 config.carui_metric = 'kmh' -- Speed Metrics to Use 'kmh' or 'mph'
 config.available_carui = {
-	['simple'] = false,
+	['simple'] = true,
 	['minimal'] = true,
-	['modern'] = false,
+	['modern'] = true,
 }
 config.enable_carui_perclass = true -- enable/disable the Vehicle Class UI config (if this is enable , the config.carui will be ignored)
 config.carui_perclass = {
