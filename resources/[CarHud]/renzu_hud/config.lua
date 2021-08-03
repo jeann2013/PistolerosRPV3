@@ -15,22 +15,22 @@ config.weight_type = false -- ESX item weight or limit type
 config.vehicle_table = 'owned_vehicles' -- change this if you use different sql table for player vehicles (note identifier steam is always being used here)
 config.Owner_column = 'owner' -- owner column name for identifier eg.steam hex,licensed
 config.ESX_Items = { -- important to change job, weight. (job = false means its available to use for everyone) -- do not change the array name ex. ['nitro'], you can change the name = 'nitro'
-	['nitro'] = {name = 'nitro', event = 'renzu_hud:addnitro', value = false, weight = 1, label = 'Nitro', job = false},
+	--['nitro'] = {name = 'nitro', event = 'renzu_hud:addnitro', value = false, weight = 1, label = 'Nitro', job = false},
 	--['coolant'] = {name = 'coolant', event = 'renzu_hud:coolant', value = false, weight = 1, label = 'Coolant', job = false},
 	--['engineoil'] = {name = 'engineoil', event = 'renzu_hud:oil', value = false, weight = 1, label = 'Engine Oil', job = 'mechanic'},
 	--['turbo_street'] = {name = 'turbo_street', event = 'renzu_hud:install_turbo', value = 'street', weight = 1, label = 'Street Turbine', job = 'mechanic'},
 	--['turbo_sports'] = {name = 'turbo_sports', event = 'renzu_hud:install_turbo', value = 'sports', weight = 1, label = 'Sports Turbine', job = 'mechanic'},
 	--['turbo_racing'] = {name = 'turbo_racing', event = 'renzu_hud:install_turbo', value = 'racing', weight = 1, label = 'Racing Turbine', job = 'mechanic'},
-	['head_brace'] = {name = 'head_brace', event = 'renzu_hud:healbody', value = 'head', weight = 1, label = 'Head Brace', job = false},
-	['leg_bandage'] = {name = 'leg_bandage', event = 'renzu_hud:healbody', value = 'leg', weight = 1, label = 'Leg Bandage', job = false},
+	--['head_brace'] = {name = 'head_brace', event = 'renzu_hud:healbody', value = 'head', weight = 1, label = 'Head Brace', job = false},
+	--['leg_bandage'] = {name = 'leg_bandage', event = 'renzu_hud:healbody', value = 'leg', weight = 1, label = 'Leg Bandage', job = false},
 	--['arm_bandage'] = {name = 'arm_bandage', event = 'renzu_hud:healbody', value = 'arm', weight = 1, label = 'Arm Bandage', job = false},
-	['body_bandage'] = {name = 'body_bandage', event = 'renzu_hud:healbody', value = 'chest', weight = 1, label = 'Body Bandage', job = false},
-	['street_tirekit'] = {name = 'street_tirekit', event = 'renzu_hud:installtire', value = 'default', weight = 1, label = 'Street Tire Kit', job = 'mechanic'},
-	['sports_tirekit'] = {name = 'sports_tirekit', event = 'renzu_hud:installtire', value = 'sports', weight = 1, label = 'Sports Tire Kit', job = 'mechanic'},
-	['racing_tirekit'] = {name = 'racing_tirekit', event = 'renzu_hud:installtire', value = 'racing', weight = 1, label = 'Racing Tires Kit', job = 'mechanic'},
-	['drag_tirekit'] = {name = 'drag_tirekit', event = 'renzu_hud:installtire', value = 'drag', weight = 1, label = 'Drag Tires Kit', job = 'mechanic'},
-	['manual_tranny'] = {name = 'manual_tranny', event = 'renzu_hud:manual', value = true, weight = 1, label = 'Manual Trannsmition', job = 'mechanic'},
-	['automatic_tranny'] = {name = 'automatic_tranny', event = 'renzu_hud:manual', value = false, weight = 1, label = 'Automatic Tranny', job = 'mechanic'},
+	--['body_bandage'] = {name = 'body_bandage', event = 'renzu_hud:healbody', value = 'chest', weight = 1, label = 'Body Bandage', job = false},
+	--['street_tirekit'] = {name = 'street_tirekit', event = 'renzu_hud:installtire', value = 'default', weight = 1, label = 'Street Tire Kit', job = 'mechanic'},
+	--['sports_tirekit'] = {name = 'sports_tirekit', event = 'renzu_hud:installtire', value = 'sports', weight = 1, label = 'Sports Tire Kit', job = 'mechanic'},
+	--['racing_tirekit'] = {name = 'racing_tirekit', event = 'renzu_hud:installtire', value = 'racing', weight = 1, label = 'Racing Tires Kit', job = 'mechanic'},
+	--['drag_tirekit'] = {name = 'drag_tirekit', event = 'renzu_hud:installtire', value = 'drag', weight = 1, label = 'Drag Tires Kit', job = 'mechanic'},
+	--['manual_tranny'] = {name = 'manual_tranny', event = 'renzu_hud:manual', value = true, weight = 1, label = 'Manual Trannsmition', job = 'mechanic'},
+	--['automatic_tranny'] = {name = 'automatic_tranny', event = 'renzu_hud:manual', value = false, weight = 1, label = 'Automatic Tranny', job = 'mechanic'},
 }
 config.enable_commands_as_item = false -- if you are not using ESX, you can enable this, you can type /useitem nitro (for example) -- standalone purpose without ESX
 config.commanditem_permission = { -- item command permission -- standalone purpose!
@@ -56,9 +56,9 @@ config.enable_carui = true -- enable/disable the car UI (THIS WILL DISABLE ALL V
 config.carui = 'minimal' -- Choose a Carui Version ( simple, minimal, modern )
 config.carui_metric = 'kmh' -- Speed Metrics to Use 'kmh' or 'mph'
 config.available_carui = {
-	['simple'] = true,
+	['simple'] = false,
 	['minimal'] = true,
-	['modern'] = true,
+	['modern'] = false,
 }
 config.enable_carui_perclass = true -- enable/disable the Vehicle Class UI config (if this is enable , the config.carui will be ignored)
 config.carui_perclass = {
@@ -380,7 +380,7 @@ config.carjackdistance = 5
 -- you need to install cd_keymaster if you enable carjacking (my version: same func but theme color is similar to this hud https://github.com/renzuzu/cd_keymaster or default original https://github.com/dsheedes/cd_keymaster)
 
 --clothes
-config.use_esx_accesories = true -- use esx accesories for mask,helmet. (ESX FRAMEWORK)
+config.use_esx_accesories = false -- use esx accesories for mask,helmet. (ESX FRAMEWORK)
 -- PERMANENT HELMET AND MASK
 -- this is optional only if you want the mask and helmet to be permanent instead of using your clothes settings, ex. wearing a cap, but you want/need a helmet soon.
 -- using this https://github.com/esx-framework/esx_accessories ( saving to datastore instead from skinchanger table) -- rights belong to esx framework
