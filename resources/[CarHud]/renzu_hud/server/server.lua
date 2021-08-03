@@ -497,8 +497,7 @@ Citizen.CreateThread(function()
 				end)
 			end
 		end
-	end
-	print("commands")
+	end	
 	if config.enable_commands then
 		RenzuCommand('installengine', function(source,args)
 			if args[1] ~= nil and config.engine[args[1]] ~= nil then
