@@ -1132,7 +1132,7 @@ end)
 
 RegisterNetEvent('checkFoodDrugs')
 AddEventHandler('checkFoodDrugs', function()
-	local xPlayer = ESX.GetPlayerFromId(source)
+	local xPlayer = ESX.GetPlayerFromId(source)	
 	local pollofrito = xPlayer.getInventoryItem('pollofrito').count
 	local sprite 	  = xPlayer.getInventoryItem('sprite').count
 	local pepsicola = xPlayer.getInventoryItem('pepsicola').count
