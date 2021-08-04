@@ -6,7 +6,6 @@ if Config.MaxInService ~= -1 then
   TriggerEvent('esx_service:activateService', 'mafia', Config.MaxInService)
 end
 
--- TriggerEvent('esx_phone:registerNumber', 'mafia', _U('alert_mafia'), true, true)
 TriggerEvent('esx_society:registerSociety', 'mafia', 'Mafia', 'society_mafia', 'society_mafia', 'society_mafia', {type = 'public'})
 
 RegisterServerEvent('esx_mafiajob:giveWeapon')
