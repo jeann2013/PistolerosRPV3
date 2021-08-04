@@ -1752,6 +1752,7 @@ Citizen.CreateThread(function()
       local currentPartNum = nil
 
       for k,v in pairs(Config.MafiaStations) do
+        i=1
         --for i=1, #v.Cloakrooms, 1 do
           if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
             isInMarker     = true
