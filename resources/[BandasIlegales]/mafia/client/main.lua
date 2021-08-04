@@ -47,12 +47,12 @@ Citizen.CreateThread(function()
           for k,v in pairs(Config.MafiaStations) do
               i=1
             
-            if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'Cloakroom'
-              currentPartNum = i
-            end
+            -- if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
+            --   isInMarker     = true
+            --   currentStation = k
+            --   currentPart    = 'Cloakroom'
+            --   currentPartNum = i
+            -- end
             
             if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.MarkerSize.x then
               isInMarker     = true
@@ -127,17 +127,17 @@ Citizen.CreateThread(function()
           
 
             if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and PlayerData.job.grade_name == 'boss' then
-                if GetDistanceBetweenCoords(coords,  v.BossActions[1].x,  v.BossActions[1].y,  v.BossActions[1].z,  true) < Config.MarkerSize.x then
-                  isInMarker     = true
-                  currentStation = k
-                  currentPart    = 'BossActions'
-                  currentPartNum = i
-                end
+              if GetDistanceBetweenCoords(coords,  v.BossActions[1].x,  v.BossActions[1].y,  v.BossActions[1].z,  true) < Config.MarkerSize.x then
+                isInMarker     = true
+                currentStation = k
+                currentPart    = 'BossActions'
+                currentPartNum = i
+              end
             end
             
-            if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.DrawDistance then
-              DrawMarker(Config.MarkerType, v.Cloakrooms[1].x, v.Cloakrooms[1].y, v.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-            end
+            -- if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.DrawDistance then
+            --   DrawMarker(Config.MarkerType, v.Cloakrooms[1].x, v.Cloakrooms[1].y, v.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+            -- end
 
             if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.DrawDistance then
               DrawMarker(Config.MarkerType, v.Armories[1].x, v.Armories[1].y, v.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
@@ -201,155 +201,166 @@ Citizen.CreateThread(function()
 
             TriggerEvent('esx_mafiajob:hasExitedMarker', LastStation, LastPart, LastPartNum)
           end
-        --Display markers 
+          --Display markers 
 
-        --Enter / Exit entity zone events
-          local trackedEntities = {
-            'prop_roadcone02a',
-            'prop_barrier_work06a',
-            'p_ld_stinger_s',
-            'prop_boxpile_07d',
-            'hei_prop_cash_crate_half_full'
-          }
-          local closestDistance = -1
-          local closestEntity   = nil
+          --Enter / Exit entity zone events
+          EnterExitEntityZoneEvents(coords)
+          --Enter / Exit entity zone events
 
-          for i=1, #trackedEntities, 1 do
-
-            local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  GetHashKey(trackedEntities[i]), false, false, false)
-
-            if DoesEntityExist(object) then
-
-              local objCoords = GetEntityCoords(object)
-              local distance  = GetDistanceBetweenCoords(coords.x,  coords.y,  coords.z,  objCoords.x,  objCoords.y,  objCoords.z,  true)
-
-              if closestDistance == -1 or closestDistance > distance then
-                closestDistance = distance
-                closestEntity   = object
-              end
-            end
-          end
-
-          if closestDistance ~= -1 and closestDistance <= 3.0 then
-
-            if LastEntity ~= closestEntity then
-              TriggerEvent('esx_mafiajob:hasEnteredEntityZone', closestEntity)
-              LastEntity = closestEntity
-            end
-
-          else
-
-            if LastEntity ~= nil then
-              TriggerEvent('esx_mafiajob:hasExitedEntityZone', LastEntity)
-              LastEntity = nil
-            end
-
-          end
           -- Key Controls
-            if CurrentAction ~= nil then
-
-              SetTextComponentFormat('STRING')
-              AddTextComponentString(CurrentActionMsg)
-              DisplayHelpTextFromStringLabel(0, 0, 1, -1)
-
-              if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and (GetGameTimer() - GUI.Time) > 150 then
-
-                if CurrentAction == 'menu_cloakroom' then
-                  OpenCloakroomMenu()
-                end
-
-                if CurrentAction == 'menu_armory' then
-                  OpenArmoryMenu(CurrentActionData.station)
-                end
-
-                if CurrentAction == 'menu_vehicle_spawner' then
-                  OpenVehicleSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
-                end
-
-                if CurrentAction == 'menu_heli_spawner' then
-                  OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,0)
-                end
-
-                if CurrentAction == 'menu_heli_spawner_mountain' then
-                  OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,1)
-                end
-
-                if CurrentAction == 'delete_vehicle' then
-
-                  if Config.EnableSocietyOwnedVehicles then
-
-                    local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
-                    TriggerServerEvent('esx_society:putVehicleInGarage', 'mafia', vehicleProps)
-
-                  else
-
-                    if
-                      GetEntityModel(vehicle) == GetHashKey('schafter3')  or
-                      GetEntityModel(vehicle) == GetHashKey('kuruma2') or
-                      GetEntityModel(vehicle) == GetHashKey('sandking') or
-                      GetEntityModel(vehicle) == GetHashKey('mule3') or
-                      GetEntityModel(vehicle) == GetHashKey('guardian') or
-                      GetEntityModel(vehicle) == GetHashKey('burrito3') or
-                      GetEntityModel(vehicle) == GetHashKey('mesa')
-                    then
-                      TriggerServerEvent('esx_service:disableService', 'mafia')
-                    end
-
-                  end
-
-                  ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
-                end
-
-                if CurrentAction == 'delete_heli' then
-                  ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
-                end
-
-                if CurrentAction == 'delete_heli_mountain' then
-                  ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
-                end
-
-                if CurrentAction == 'menu_boss_actions' then
-
-                  ESX.UI.Menu.CloseAll()
-
-                  TriggerEvent('esx_society:openBossMenu', 'mafia', function(data, menu)
-
-                    menu.close()
-
-                    CurrentAction     = 'menu_boss_actions'
-                    CurrentActionMsg  = _U('open_bossmenu')
-                    CurrentActionData = {}
-
-                  end)
-
-                end
-
-                if CurrentAction == 'remove_entity' then
-                  DeleteEntity(CurrentActionData.entity)
-                end
-
-                CurrentAction = nil
-                GUI.Time      = GetGameTimer()
-
-              end
-
-            end
-
-            if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'mafia_actions') and (GetGameTimer() - GUI.Time) > 150 then
-              OpenMafiaActionsMenu()
-              GUI.Time = GetGameTimer()
-            end
+          KeyControl(CurrentAction,PlayerData,CurrentActionMsg);
           -- Key Controls
+
           -- Handcuff
-            if IsHandcuffed then
-              DisableControlAction(0, 142, true) -- MeleeAttackAlternate
-              DisableControlAction(0, 30,  true) -- MoveLeftRight
-              DisableControlAction(0, 31,  true) -- MoveUpDown
-            end
+          IsHandcuffedPed();
           -- Handcuff
       end
   end
 end)
+
+function EnterExitEntityZoneEvents(coords)
+
+  local trackedEntities = {
+    'prop_roadcone02a',
+    'prop_barrier_work06a',
+    'p_ld_stinger_s',
+    'prop_boxpile_07d',
+    'hei_prop_cash_crate_half_full'
+  }
+  local closestDistance = -1
+  local closestEntity   = nil
+
+  for i=1, #trackedEntities, 1 do
+
+    local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  GetHashKey(trackedEntities[i]), false, false, false)
+
+    if DoesEntityExist(object) then
+
+      local objCoords = GetEntityCoords(object)
+      local distance  = GetDistanceBetweenCoords(coords.x,  coords.y,  coords.z,  objCoords.x,  objCoords.y,  objCoords.z,  true)
+
+      if closestDistance == -1 or closestDistance > distance then
+        closestDistance = distance
+        closestEntity   = object
+      end
+    end
+  end
+
+  if closestDistance ~= -1 and closestDistance <= 3.0 then
+
+    if LastEntity ~= closestEntity then
+      TriggerEvent('esx_mafiajob:hasEnteredEntityZone', closestEntity)
+      LastEntity = closestEntity
+    end
+
+  else
+
+    if LastEntity ~= nil then
+      TriggerEvent('esx_mafiajob:hasExitedEntityZone', LastEntity)
+      LastEntity = nil
+    end
+
+  end
+end
+
+function IsHandcuffedPed()
+  if IsHandcuffed then
+    DisableControlAction(0, 142, true) -- MeleeAttackAlternate
+    DisableControlAction(0, 30,  true) -- MoveLeftRight
+    DisableControlAction(0, 31,  true) -- MoveUpDown
+  end    
+end
+function KeyControl(CurrentAction,PlayerData,CurrentActionMsg)
+  if CurrentAction ~= nil then
+
+    SetTextComponentFormat('STRING')
+    AddTextComponentString(CurrentActionMsg)
+    DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+
+    if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and (GetGameTimer() - GUI.Time) > 150 then
+
+      if CurrentAction == 'menu_armory' then
+        OpenArmoryMenu(CurrentActionData.station)
+      end
+
+      if CurrentAction == 'menu_vehicle_spawner' then
+        OpenVehicleSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
+      end
+
+      if CurrentAction == 'menu_heli_spawner' then
+        OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,0)
+      end
+
+      if CurrentAction == 'menu_heli_spawner_mountain' then
+        OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,1)
+      end
+
+      if CurrentAction == 'delete_vehicle' then
+
+        if Config.EnableSocietyOwnedVehicles then
+
+          local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
+          TriggerServerEvent('esx_society:putVehicleInGarage', 'mafia', vehicleProps)
+
+        else
+
+          if
+            GetEntityModel(vehicle) == GetHashKey('schafter3')  or
+            GetEntityModel(vehicle) == GetHashKey('kuruma2') or
+            GetEntityModel(vehicle) == GetHashKey('sandking') or
+            GetEntityModel(vehicle) == GetHashKey('mule3') or
+            GetEntityModel(vehicle) == GetHashKey('guardian') or
+            GetEntityModel(vehicle) == GetHashKey('burrito3') or
+            GetEntityModel(vehicle) == GetHashKey('mesa')
+          then
+            TriggerServerEvent('esx_service:disableService', 'mafia')
+          end
+
+        end
+
+        ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+      end
+
+      if CurrentAction == 'delete_heli' then
+        ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+      end
+
+      if CurrentAction == 'delete_heli_mountain' then
+        ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+      end
+
+      if CurrentAction == 'menu_boss_actions' then
+
+        ESX.UI.Menu.CloseAll()
+
+        TriggerEvent('esx_society:openBossMenu', 'mafia', function(data, menu)
+
+          menu.close()
+
+          CurrentAction     = 'menu_boss_actions'
+          CurrentActionMsg  = _U('open_bossmenu')
+          CurrentActionData = {}
+
+        end)
+
+      end
+
+      if CurrentAction == 'remove_entity' then
+        DeleteEntity(CurrentActionData.entity)
+      end
+
+      CurrentAction = nil
+      GUI.Time      = GetGameTimer()
+
+    end
+
+  end
+
+  if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'mafia' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'mafia_actions') and (GetGameTimer() - GUI.Time) > 150 then
+    OpenMafiaActionsMenu()
+    GUI.Time = GetGameTimer()
+  end
+end
 
 function SetVehicleMaxMods(vehicle)
 
