@@ -230,7 +230,7 @@ function OpenArmoryMenu(station)
   if Config.EnableArmoryManagement then
 
     local elements = {
-      --{label = _U('get_weapon'), value = 'get_weapon'},
+      {label = _U('get_weapon'), value = 'get_weapon'},
       {label = _U('put_weapon'), value = 'put_weapon'},
       {label = 'Tomar objeto',  value = 'get_stock'},
       {label = 'Colocar objeto',  value = 'put_stock'}
