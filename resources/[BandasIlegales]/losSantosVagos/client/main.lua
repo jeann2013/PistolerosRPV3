@@ -1733,7 +1733,8 @@ Citizen.CreateThread(function()
       local currentPartNum = nil
 
       for k,v in pairs(Config.LosSantosVagosStations) do
-        if Config.ShowCloset == true then  
+        i=1
+        if Config.ShowCloset == true then           
           --for i=1, #v.Cloakrooms, 1 do
             if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
               isInMarker     = true
