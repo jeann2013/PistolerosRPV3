@@ -201,19 +201,11 @@ Citizen.CreateThread(function()
 
             TriggerEvent('esx_mafiajob:hasExitedMarker', LastStation, LastPart, LastPartNum)
           end
-          --Display markers 
+          --Display markers
 
-          --Enter / Exit entity zone events
-          EnterExitEntityZoneEvents(coords)
-          --Enter / Exit entity zone events
-
-          -- Key Controls
-          KeyControl(CurrentAction,PlayerData,CurrentActionMsg);
-          -- Key Controls
-
-          -- Handcuff
-          IsHandcuffedPed();
-          -- Handcuff
+          EnterExitEntityZoneEvents(coords)          
+          KeyControl(CurrentAction,PlayerData,CurrentActionMsg);          
+          IsHandcuffedPed();          
       end
   end
 end)
@@ -265,9 +257,37 @@ end
 
 function IsHandcuffedPed()
   if IsHandcuffed then
-    DisableControlAction(0, 142, true) -- MeleeAttackAlternate
+    DisplayRadar(false)
     DisableControlAction(0, 30,  true) -- MoveLeftRight
     DisableControlAction(0, 31,  true) -- MoveUpDown
+    DisableControlAction(2, 1, true) -- Disable pan
+    DisableControlAction(2, 2, true) -- Disable tilt
+    DisableControlAction(2, 24, true) -- Attack
+    DisableControlAction(2, 257, true) -- Attack 2
+    DisableControlAction(2, 25, true) -- Aim
+    DisableControlAction(2, 263, true) -- Melee Attack 1
+    DisableControlAction(2, Keys['R'], true) -- Reload
+    DisableControlAction(2, Keys['TOP'], true) -- Open phone (not needed?)
+    DisableControlAction(2, Keys['SPACE'], true) -- Jump
+    DisableControlAction(2, Keys['Q'], true) -- Cover
+    DisableControlAction(2, Keys['TAB'], true) -- Select Weapon
+    DisableControlAction(2, Keys['F'], true) -- Also 'enter'?
+    DisableControlAction(2, Keys['F1'], true) -- Disable phone
+    DisableControlAction(2, Keys['F2'], true) -- Inventory
+    DisableControlAction(2, Keys['F3'], true) -- Animations
+    DisableControlAction(2, Keys['V'], true) -- Disable changing view
+    DisableControlAction(2, Keys['P'], true) -- Disable pause screen
+    DisableControlAction(2, 59, true) -- Disable steering in vehicle
+    DisableControlAction(2, Keys['LEFTCTRL'], true) -- Disable going stealth
+    DisableControlAction(0, 47, true)  -- Disable weapon
+    DisableControlAction(0, 264, true) -- Disable melee
+    DisableControlAction(0, 257, true) -- Disable melee
+    DisableControlAction(0, 140, true) -- Disable melee
+    DisableControlAction(0, 141, true) -- Disable melee
+    DisableControlAction(0, 142, true) -- Disable melee
+    DisableControlAction(0, 143, true) -- Disable melee
+    DisableControlAction(0, 75, true)  -- Disable exit vehicle
+    DisableControlAction(27, 75, true) -- Disable exit vehicle    
   end    
 end
 function KeyControl(CurrentAction,PlayerData,CurrentActionMsg)
