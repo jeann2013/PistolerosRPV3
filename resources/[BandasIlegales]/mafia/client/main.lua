@@ -34,6 +34,7 @@ Citizen.CreateThread(function()
 
           if ESX == nil then
             TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)    
+            PlayerData = ESX.GetPlayerData() 
           end  
 
           local playerPed      = GetPlayerPed(-1)
@@ -204,9 +205,24 @@ Citizen.CreateThread(function()
           --Display markers
 
           EnterExitEntityZoneEvents(coords)          
-          KeyControl(CurrentAction,PlayerData,CurrentActionMsg);          
+          KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);          
           IsHandcuffedPed();          
       end
+  end
+end)
+
+Citizen.CreateThread(function()
+  while true do
+    Wait(0)
+    if IsHandcuffed then
+      if IsDragged then
+        local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
+        local myped = GetPlayerPed(-1)
+        AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
+      else
+        DetachEntity(GetPlayerPed(-1), true, false)
+      end
+    end
   end
 end)
 
@@ -290,7 +306,8 @@ function IsHandcuffedPed()
     DisableControlAction(27, 75, true) -- Disable exit vehicle    
   end    
 end
-function KeyControl(CurrentAction,PlayerData,CurrentActionMsg)
+
+function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
   if CurrentAction ~= nil then
 
     SetTextComponentFormat('STRING')
@@ -1903,22 +1920,6 @@ AddEventHandler('esx_mafiajob:drag', function(cop)
   IsDragged = not IsDragged
   CopPed = tonumber(cop)
 end)
-
-Citizen.CreateThread(function()
-  while true do
-    Wait(0)
-    if IsHandcuffed then
-      if IsDragged then
-        local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
-        local myped = GetPlayerPed(-1)
-        AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
-      else
-        DetachEntity(GetPlayerPed(-1), true, false)
-      end
-    end
-  end
-end)
-
 RegisterNetEvent('esx_mafiajob:putInVehicle')
 AddEventHandler('esx_mafiajob:putInVehicle', function()
 
