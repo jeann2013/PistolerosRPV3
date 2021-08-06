@@ -23,7 +23,7 @@ Config.PoliceStations = {
 	LSPD = {
 
 		Blip = {
-			Pos     = { x = 425.130, y = -979.558, z = 30.711 },
+			Coords  = vector3(425.130,  -979.558, 30.711),
 			Sprite  = 60,
 			Display = 4,
 			Scale   = 1.2,

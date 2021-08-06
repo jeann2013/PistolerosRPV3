@@ -29,24 +29,58 @@ local isDead                  = false
 local CurrentTask             = {}
 ESX                           = nil
 
-if ESX == nil then
-  TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-end
-PlayerData = ESX.GetPlayerData() 
+-- Citizen.CreateThread(function()
+--   -- while true do
+--   --   Wait(0)    
+--   --   local blip = AddBlipForCoord(Config.PoliceStations.LSPD.Blip.Pos.x, Config.PoliceStations.LSPD.Blip.Pos.y, Config.PoliceStations.LSPD.Blip.Pos.z)  
+--   --   SetBlipSprite (blip, Config.PoliceStations.LSPD.Blip.Sprite)
+--   --   SetBlipDisplay(blip, Config.PoliceStations.LSPD.Blip.Display)
+--   --   SetBlipScale  (blip, Config.PoliceStations.LSPD.Blip.Scale)
+--   --   SetBlipColour (blip, Config.PoliceStations.LSPD.Blip.Colour)
+--   --   SetBlipAsShortRange(blip, true)  
+--   --   BeginTextCommandSetBlipName("STRING")
+--   --   AddTextComponentString(_U('map_blip'))
+--   --   EndTextCommandSetBlipName(blip)   
+--   -- end
+
+--   for k,v in pairs(Config.PoliceStations) do
+-- 		local blip = AddBlipForCoord(v.Blip.Coords)
+
+-- 		SetBlipSprite (blip, v.Blip.Sprite)
+-- 		SetBlipDisplay(blip, v.Blip.Display)
+-- 		SetBlipScale  (blip, v.Blip.Scale)
+-- 		SetBlipColour (blip, v.Blip.Colour)
+-- 		SetBlipAsShortRange(blip, true)
+
+-- 		BeginTextCommandSetBlipName('STRING')
+-- 		AddTextComponentString(_U('map_blip'))
+-- 		EndTextCommandSetBlipName(blip)
+-- 	end
+-- end)
 
 Citizen.CreateThread(function()  
-  while true do
-    Wait(0)
+  for k,v in pairs(Config.PoliceStations) do
+		local blip = AddBlipForCoord(v.Blip.Coords)
 
-      local blip = AddBlipForCoord(Config.PoliceStations.LSPD.Blip.Pos.x, Config.PoliceStations.LSPD.Blip.Pos.y, Config.PoliceStations.LSPD.Blip.Pos.z)  
-      SetBlipSprite (blip, Config.PoliceStations.LSPD.Blip.Sprite)
-      SetBlipDisplay(blip, Config.PoliceStations.LSPD.Blip.Display)
-      SetBlipScale  (blip, Config.PoliceStations.LSPD.Blip.Scale)
-      SetBlipColour (blip, Config.PoliceStations.LSPD.Blip.Colour)
-      SetBlipAsShortRange(blip, true)  
-      BeginTextCommandSetBlipName("STRING")
-      AddTextComponentString(_U('map_blip'))
-      EndTextCommandSetBlipName(blip)     
+		SetBlipSprite (blip, v.Blip.Sprite)
+		SetBlipDisplay(blip, v.Blip.Display)
+		SetBlipScale  (blip, v.Blip.Scale)
+		SetBlipColour (blip, v.Blip.Colour)
+		SetBlipAsShortRange(blip, true)
+
+		BeginTextCommandSetBlipName('STRING')
+		AddTextComponentString(_U('map_blip'))
+		EndTextCommandSetBlipName(blip)
+	end
+
+  while true do
+    Wait(0)      
+      
+      if ESX == nil then        
+        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+        PlayerData = ESX.GetPlayerData() 
+      end
+      
      
     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then   
 
@@ -190,27 +224,27 @@ Citizen.CreateThread(function()
 
       IsHandcuffedPed()      
       EnterExitEntityZoneEvents(coords)
-      KeyControl(CurrentAction,PlayerData,CurrentActionMsg);
+      KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);
 
       if IsHandcuffed then
         if IsDragged then
           local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
-          local myped = PlayerPedId()
+          local myped = GetPlayerPed(-1)
           AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
         else
-          DetachEntity(PlayerPedId(), true, false)
+          DetachEntity(GetPlayerPed(-1), true, false)
         end
       end
-        
-    end
-  
+            
+    end  
   end
 end)
 
 
 function IsHandcuffedPed()  
   if IsHandcuffed then
-    DisplayRadar(false)
+    print('paso',IsHandcuffed);
+    --DisplayRadar(false)
     DisableControlAction(2, 1, true) -- Disable pan
     DisableControlAction(2, 2, true) -- Disable tilt
     DisableControlAction(2, 24, true) -- Attack
@@ -239,6 +273,8 @@ function IsHandcuffedPed()
     DisableControlAction(0, 143, true) -- Disable melee
     DisableControlAction(0, 75, true)  -- Disable exit vehicle
     DisableControlAction(27, 75, true) -- Disable exit vehicle 
+  -- else
+  --   Citizen.Wait(0)
   end
 end
 
@@ -283,7 +319,7 @@ function EnterExitEntityZoneEvents(coords)
   end
 end
 
-function KeyControl(CurrentAction,PlayerData,CurrentActionMsg)
+function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
   if CurrentAction ~= nil then
     SetTextComponentFormat('STRING')
     AddTextComponentString(CurrentActionMsg)
