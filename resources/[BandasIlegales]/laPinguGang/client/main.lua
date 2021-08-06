@@ -28,11 +28,383 @@ ESX                             = nil
 GUI.Time                        = 0
 
 Citizen.CreateThread(function()
-  while ESX == nil do
+  if ESX == nil then        
     TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-    Citizen.Wait(0)
+    PlayerData = ESX.GetPlayerData() 
+  end
+  while true do
+      Wait(0)
+    
+      if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' then
+
+        local playerPed      = GetPlayerPed(-1)
+        local coords         = GetEntityCoords(playerPed)
+        local isInMarker     = false
+        local currentStation = nil
+        local currentPart    = nil
+        local currentPartNum = nil
+
+        for k,v in pairs(Config.LaPinguGangStations) do
+          i=1
+          if Config.ShowCloset == true then              
+              if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.DrawDistance then
+                DrawMarker(Config.MarkerType, v.Cloakrooms[1].x, v.Cloakrooms[1].y, v.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+              end          
+          end
+
+          if Config.ShowArmory == true then          
+              if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.DrawDistance then
+                DrawMarker(Config.MarkerType, v.Armories[1].x, v.Armories[1].y, v.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+              end          
+          end
+
+          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].Spawner.x,  v.Vehicles[1].Spawner.y,  v.Vehicles[1].Spawner.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.Vehicles[1].Spawner.x, v.Vehicles[1].Spawner.y, v.Vehicles[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+          
+
+          if Config.ShowHeliPort == true then                
+              if GetDistanceBetweenCoords(coords,  v.Helicopters[1].Spawner.x,  v.Helicopters[1].Spawner.y,  v.Helicopters[1].Spawner.z,  true) < Config.DrawDistance then
+                DrawMarker(Config.MarkerType, v.Helicopters[1].Spawner.x, v.Helicopters[1].Spawner.y, v.Helicopters[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+              end
+
+              if GetDistanceBetweenCoords(coords,  v.HeliDeleters[1].x,  v.HeliDeleters[1].y,  v.HeliDeleters[1].z,  true) < Config.DrawDistance then
+                DrawMarker(Config.MarkerType, v.HeliDeleters[1].x, v.HeliDeleters[1].y, v.HeliDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+              end          
+          end
+
+          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[1].x,  v.VehicleDeleters[1].y,  v.VehicleDeleters[1].z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.VehicleDeleters[1].x, v.VehicleDeleters[1].y, v.VehicleDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+
+          if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
+              if not v.BossActions[1].disabled and GetDistanceBetweenCoords(coords,  v.BossActions[1].x,  v.BossActions[1].y,  v.BossActions[1].z,  true) < Config.DrawDistance then
+                DrawMarker(Config.MarkerType, v.BossActions[1].x, v.BossActions[1].y, v.BossActions[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+              end          
+          end
+
+          if Config.ShowCloset == true then            
+            if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'Cloakroom'
+              currentPartNum = i
+            end          
+          end
+
+          if Config.ShowArmory == true then          
+            if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'Armory'
+              currentPartNum = i
+            end          
+          end
+          
+
+          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].Spawner.x,  v.Vehicles[1].Spawner.y,  v.Vehicles[1].Spawner.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'VehicleSpawner'
+            currentPartNum = i
+          end
+
+          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].SpawnPoint.x,  v.Vehicles[1].SpawnPoint.y,  v.Vehicles[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'VehicleSpawnPoint'
+            currentPartNum = i
+          end
+
+          
+
+          if Config.ShowHeliPort == true then
+            if GetDistanceBetweenCoords(coords,  v.Helicopters[1].Spawner.x,  v.Helicopters[1].Spawner.y,  v.Helicopters[1].Spawner.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawner'
+              currentPartNum = i
+            end
+
+            if GetDistanceBetweenCoords(coords,  v.Helicopters[1].SpawnPoint.x,  v.Helicopters[1].SpawnPoint.y,  v.Helicopters[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawnPoint'
+              currentPartNum = i
+            end
+          
+            if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[1].Spawner.x,  v.HelicoptersMountain[1].Spawner.y,  v.HelicoptersMountain[1].Spawner.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawnerMountain'
+              currentPartNum = i
+            end
+
+            if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[1].SpawnPoint.x,  v.HelicoptersMountain[1].SpawnPoint.y,  v.HelicoptersMountain[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HelicopterSpawnPointMountain'
+              currentPartNum = i
+            end
+          
+            if GetDistanceBetweenCoords(coords,  v.HeliDeleters[1].x,  v.HeliDeleters[1].y,  v.HeliDeleters[1].z,  true) < Config.MarkerSizeHeli.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HeliDeleter'
+              currentPartNum = i
+            end
+
+            if GetDistanceBetweenCoords(coords,  v.HeliDeletersMountain[1].x,  v.HeliDeletersMountain[1].y,  v.HeliDeletersMountain[1].z,  true) < Config.MarkerSizeHeli.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'HeliDeleterMountain'
+              currentPartNum = i
+            end            
+          end
+
+          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[1].x,  v.VehicleDeleters[1].y,  v.VehicleDeleters[1].z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'VehicleDeleter'
+            currentPartNum = i
+          end       
+
+          if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
+              if GetDistanceBetweenCoords(coords,  v.BossActions[1].x,  v.BossActions[1].y,  v.BossActions[1].z,  true) < Config.MarkerSize.x then
+                isInMarker     = true
+                currentStation = k
+                currentPart    = 'BossActions'
+                currentPartNum = i
+              end
+          end
+
+
+          local hasExited = false
+
+          if isInMarker and not HasAlreadyEnteredMarker or (isInMarker and (LastStation ~= currentStation or LastPart ~= currentPart or LastPartNum ~= currentPartNum) ) then
+    
+            if
+              (LastStation ~= nil and LastPart ~= nil and LastPartNum ~= nil) and
+              (LastStation ~= currentStation or LastPart ~= currentPart or LastPartNum ~= currentPartNum)
+            then
+              TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
+              hasExited = true
+            end
+    
+            HasAlreadyEnteredMarker = true
+            LastStation             = currentStation
+            LastPart                = currentPart
+            LastPartNum             = currentPartNum
+    
+            TriggerEvent('esx_lapingugang:hasEnteredMarker', currentStation, currentPart, currentPartNum)
+          end
+    
+          if not hasExited and not isInMarker and HasAlreadyEnteredMarker then
+    
+            HasAlreadyEnteredMarker = false
+    
+            TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
+          end
+    
+        end
+    
+        IsHandcuffedPed()
+        KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
+        EnterExitEntityZoneEvents(coords)
+
+
+      end
   end
 end)
+
+function IsHandcuffedPed()
+  if IsHandcuffed then
+    DisplayRadar(false)
+    DisableControlAction(0, 30,  true) -- MoveLeftRight
+    DisableControlAction(0, 31,  true) -- MoveUpDown
+    DisableControlAction(2, 1, true) -- Disable pan
+    DisableControlAction(2, 2, true) -- Disable tilt
+    DisableControlAction(2, 24, true) -- Attack
+    DisableControlAction(2, 257, true) -- Attack 2
+    DisableControlAction(2, 25, true) -- Aim
+    DisableControlAction(2, 263, true) -- Melee Attack 1
+    DisableControlAction(2, Keys['R'], true) -- Reload
+    DisableControlAction(2, Keys['TOP'], true) -- Open phone (not needed?)
+    DisableControlAction(2, Keys['SPACE'], true) -- Jump
+    DisableControlAction(2, Keys['Q'], true) -- Cover
+    DisableControlAction(2, Keys['TAB'], true) -- Select Weapon
+    DisableControlAction(2, Keys['F'], true) -- Also 'enter'?
+    DisableControlAction(2, Keys['F1'], true) -- Disable phone
+    DisableControlAction(2, Keys['F2'], true) -- Inventory
+    DisableControlAction(2, Keys['F3'], true) -- Animations
+    DisableControlAction(2, Keys['V'], true) -- Disable changing view
+    DisableControlAction(2, Keys['P'], true) -- Disable pause screen
+    DisableControlAction(2, 59, true) -- Disable steering in vehicle
+    DisableControlAction(2, Keys['LEFTCTRL'], true) -- Disable going stealth
+    DisableControlAction(0, 47, true)  -- Disable weapon
+    DisableControlAction(0, 264, true) -- Disable melee
+    DisableControlAction(0, 257, true) -- Disable melee
+    DisableControlAction(0, 140, true) -- Disable melee
+    DisableControlAction(0, 141, true) -- Disable melee
+    DisableControlAction(0, 142, true) -- Disable melee
+    DisableControlAction(0, 143, true) -- Disable melee
+    DisableControlAction(0, 75, true)  -- Disable exit vehicle
+    DisableControlAction(27, 75, true) -- Disable exit vehicle      
+    if IsDragged then
+      local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
+      local myped = GetPlayerPed(-1)
+      AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
+    else
+      DetachEntity(GetPlayerPed(-1), true, false)
+    end
+  end    
+end
+
+function EnterExitEntityZoneEvents(coords)
+
+  local trackedEntities = {
+    'prop_roadcone02a',
+    'prop_barrier_work06a',
+    'p_ld_stinger_s',
+    'prop_boxpile_07d',
+    'hei_prop_cash_crate_half_full'
+  }  
+   
+  local closestDistance = -1
+  local closestEntity   = nil
+
+  for i=1, #trackedEntities, 1 do
+
+    local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  GetHashKey(trackedEntities[i]), false, false, false)
+
+    if DoesEntityExist(object) then
+
+      local objCoords = GetEntityCoords(object)
+      local distance  = GetDistanceBetweenCoords(coords.x,  coords.y,  coords.z,  objCoords.x,  objCoords.y,  objCoords.z,  true)
+
+      if closestDistance == -1 or closestDistance > distance then
+        closestDistance = distance
+        closestEntity   = object
+      end
+
+    end
+
+  end
+
+  if closestDistance ~= -1 and closestDistance <= 3.0 then
+
+    if LastEntity ~= closestEntity then
+      TriggerEvent('esx_lapingugang:hasEnteredEntityZone', closestEntity)
+      LastEntity = closestEntity
+    end
+
+  else
+
+    if LastEntity ~= nil then
+      TriggerEvent('esx_lapingugang:hasExitedEntityZone', LastEntity)
+      LastEntity = nil
+    end
+
+  end
+
+  
+end
+
+function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
+  if CurrentAction ~= nil then
+
+    SetTextComponentFormat('STRING')
+    AddTextComponentString(CurrentActionMsg)
+    DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+
+    if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and (GetGameTimer() - GUI.Time) > 150 then
+
+      if CurrentAction == 'menu_cloakroom' then
+        OpenCloakroomMenu()
+      end
+
+      if CurrentAction == 'menu_armory' then
+        OpenArmoryMenu(CurrentActionData.station)
+      end
+
+      if CurrentAction == 'menu_vehicle_spawner' then
+        OpenVehicleSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
+      end
+
+      if CurrentAction == 'menu_heli_spawner' then
+        OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,0)
+      end
+
+      if CurrentAction == 'menu_heli_spawner_mountain' then
+        OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,1)
+      end
+
+      if CurrentAction == 'delete_vehicle' then
+
+        if Config.EnableSocietyOwnedVehicles then
+
+          local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
+          TriggerServerEvent('esx_society:putVehicleInGarage', 'lapingugang', vehicleProps)
+
+        else
+
+          if
+            GetEntityModel(vehicle) == GetHashKey('schafter3')  or
+            GetEntityModel(vehicle) == GetHashKey('kuruma2') or
+            GetEntityModel(vehicle) == GetHashKey('sandking') or
+            GetEntityModel(vehicle) == GetHashKey('mule3') or
+            GetEntityModel(vehicle) == GetHashKey('guardian') or
+            GetEntityModel(vehicle) == GetHashKey('burrito3') or
+            GetEntityModel(vehicle) == GetHashKey('mesa')
+          then
+            TriggerServerEvent('esx_service:disableService', 'lapingugang')
+          end
+
+        end
+
+        ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+      end
+
+      if CurrentAction == 'delete_heli' then
+        ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+      end
+
+      if CurrentAction == 'delete_heli_mountain' then
+        ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
+      end
+
+      if CurrentAction == 'menu_boss_actions' then
+
+        ESX.UI.Menu.CloseAll()
+
+        TriggerEvent('esx_society:openBossMenuBanda', 'lapingugang', function(data, menu)
+
+          menu.close()
+
+          CurrentAction     = 'menu_boss_actions'
+          CurrentActionMsg  = _U('open_bossmenu')
+          CurrentActionData = {}
+
+        end)
+
+      end
+
+      if CurrentAction == 'remove_entity' then
+        DeleteEntity(CurrentActionData.entity)
+      end
+
+      CurrentAction = nil
+      GUI.Time      = GetGameTimer()
+
+    end
+
+  end
+
+  if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'lapingugang_actions') and (GetGameTimer() - GUI.Time) > 150 then
+   OpenLaPinguGangActionsMenu()
+   GUI.Time = GetGameTimer()
+  end
+end
 
 function SetVehicleMaxMods(vehicle)
 
@@ -1610,446 +1982,6 @@ AddEventHandler('esx_lapingugang:OutVehicle', function(t)
 
   SetEntityCoords(GetPlayerPed(-1), xnew, ynew, plyPos.z)
 end)
-
--- Handcuff
-Citizen.CreateThread(function()
-  while true do
-    Wait(0)
-    if IsHandcuffed then
-      DisableControlAction(0, 142, true) -- MeleeAttackAlternate
-      DisableControlAction(0, 30,  true) -- MoveLeftRight
-      DisableControlAction(0, 31,  true) -- MoveUpDown
-    end
-  end
-end)
-
--- Create blips
-Citizen.CreateThread(function()
-
-  for k,v in pairs(Config.LaPinguGangStations) do
-
-    local blip = AddBlipForCoord(v.Blip.Pos.x, v.Blip.Pos.y, v.Blip.Pos.z)
-
-    SetBlipSprite (blip, v.Blip.Sprite)
-    SetBlipDisplay(blip, v.Blip.Display)
-    SetBlipScale  (blip, v.Blip.Scale)
-    SetBlipColour (blip, v.Blip.Colour)
-    SetBlipAsShortRange(blip, true)
-
-    BeginTextCommandSetBlipName("STRING")
-    AddTextComponentString(_U('map_blip'))
-    EndTextCommandSetBlipName(blip)
-
-  end
-
-end)
-
--- Display markers
-Citizen.CreateThread(function()
-  while true do
-
-    Wait(0)
-    
-    if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' then
-
-      local playerPed = GetPlayerPed(-1)
-      local coords    = GetEntityCoords(playerPed)
-
-      for k,v in pairs(Config.LaPinguGangStations) do
-
-        if Config.ShowCloset == true then    
-          --for i=1, #v.Cloakrooms, 1 do
-            if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.DrawDistance then
-              DrawMarker(Config.MarkerType, v.Cloakrooms[1].x, v.Cloakrooms[1].y, v.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-            end
-          --end
-        end
-
-        if Config.ShowArmory == true then
-          --for i=1, #v.Armories, 1 do
-            if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.DrawDistance then
-              DrawMarker(Config.MarkerType, v.Armories[1].x, v.Armories[1].y, v.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-            end
-          --end
-        end
-
-        --for i=1, #v.Vehicles, 1 do
-          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].Spawner.x,  v.Vehicles[1].Spawner.y,  v.Vehicles[1].Spawner.z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.Vehicles[1].Spawner.x, v.Vehicles[1].Spawner.y, v.Vehicles[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-          end
-        --end
-
-        if Config.ShowHeliPort == true then        
-          --for i=1, #v.Helicopters, 1 do
-            if GetDistanceBetweenCoords(coords,  v.Helicopters[1].Spawner.x,  v.Helicopters[1].Spawner.y,  v.Helicopters[1].Spawner.z,  true) < Config.DrawDistance then
-              DrawMarker(Config.MarkerType, v.Helicopters[1].Spawner.x, v.Helicopters[1].Spawner.y, v.Helicopters[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-            end
-          --end
-
-          --for i=1, #v.HeliDeleters, 1 do
-            if GetDistanceBetweenCoords(coords,  v.HeliDeleters[1].x,  v.HeliDeleters[1].y,  v.HeliDeleters[1].z,  true) < Config.DrawDistance then
-              DrawMarker(Config.MarkerType, v.HeliDeleters[1].x, v.HeliDeleters[1].y, v.HeliDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSizeHeli.x, Config.MarkerSizeHeli.y, Config.MarkerSizeHeli.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-            end
-          --end
-
-        end
-
-        --for i=1, #v.VehicleDeleters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[1].x,  v.VehicleDeleters[1].y,  v.VehicleDeleters[1].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.VehicleDeleters[1].x, v.VehicleDeleters[1].y, v.VehicleDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-          end
-        --end
-
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
-
-          --for i=1, #v.BossActions, 1 do
-            if not v.BossActions[1].disabled and GetDistanceBetweenCoords(coords,  v.BossActions[1].x,  v.BossActions[1].y,  v.BossActions[1].z,  true) < Config.DrawDistance then
-              DrawMarker(Config.MarkerType, v.BossActions[1].x, v.BossActions[1].y, v.BossActions[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-            end
-          --end
-
-        end
-
-      end
-
-    end
-
-  end
-end)
-
--- Enter / Exit marker events
-Citizen.CreateThread(function()
-
-  while true do
-
-    Wait(0)
-    if PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' then
-
-      local playerPed      = GetPlayerPed(-1)
-      local coords         = GetEntityCoords(playerPed)
-      local isInMarker     = false
-      local currentStation = nil
-      local currentPart    = nil
-      local currentPartNum = nil
-
-      for k,v in pairs(Config.LaPinguGangStations) do
-        i=1
-        if Config.ShowCloset == true then  
-          --for i=1, #v.Cloakrooms, 1 do
-            if GetDistanceBetweenCoords(coords,  v.Cloakrooms[1].x,  v.Cloakrooms[1].y,  v.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'Cloakroom'
-              currentPartNum = i
-            end
-          --end
-        end
-
-        if Config.ShowArmory == true then
-          --for i=1, #v.Armories, 1 do
-            if GetDistanceBetweenCoords(coords,  v.Armories[1].x,  v.Armories[1].y,  v.Armories[1].z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'Armory'
-              currentPartNum = i
-            end
-          --end
-        end
-
-        --for i=1, #v.Vehicles, 1 do
-
-          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].Spawner.x,  v.Vehicles[1].Spawner.y,  v.Vehicles[1].Spawner.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'VehicleSpawner'
-            currentPartNum = i
-          end
-
-          if GetDistanceBetweenCoords(coords,  v.Vehicles[1].SpawnPoint.x,  v.Vehicles[1].SpawnPoint.y,  v.Vehicles[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'VehicleSpawnPoint'
-            currentPartNum = i
-          end
-
-        --end
-
-        if Config.ShowHeliPort == true then
-          --for i=1, #v.Helicopters, 1 do
-
-            if GetDistanceBetweenCoords(coords,  v.Helicopters[1].Spawner.x,  v.Helicopters[1].Spawner.y,  v.Helicopters[1].Spawner.z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'HelicopterSpawner'
-              currentPartNum = i
-            end
-
-            if GetDistanceBetweenCoords(coords,  v.Helicopters[1].SpawnPoint.x,  v.Helicopters[1].SpawnPoint.y,  v.Helicopters[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'HelicopterSpawnPoint'
-              currentPartNum = i
-            end
-
-          --end
-
-          --for i=1, #v.HelicoptersMountain, 1 do
-
-            if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[1].Spawner.x,  v.HelicoptersMountain[1].Spawner.y,  v.HelicoptersMountain[1].Spawner.z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'HelicopterSpawnerMountain'
-              currentPartNum = i
-            end
-
-            if GetDistanceBetweenCoords(coords,  v.HelicoptersMountain[1].SpawnPoint.x,  v.HelicoptersMountain[1].SpawnPoint.y,  v.HelicoptersMountain[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'HelicopterSpawnPointMountain'
-              currentPartNum = i
-            end
-          --end
-
-          --for i=1, #v.HeliDeleters, 1 do
-            if GetDistanceBetweenCoords(coords,  v.HeliDeleters[1].x,  v.HeliDeleters[1].y,  v.HeliDeleters[1].z,  true) < Config.MarkerSizeHeli.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'HeliDeleter'
-              currentPartNum = i
-            end
-          --end
-  
-          for i=1, #v.HeliDeletersMountain, 1 do
-            if GetDistanceBetweenCoords(coords,  v.HeliDeletersMountain[1].x,  v.HeliDeletersMountain[1].y,  v.HeliDeletersMountain[1].z,  true) < Config.MarkerSizeHeli.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'HeliDeleterMountain'
-              currentPartNum = i
-            end
-          end
-
-        end
-
-        --for i=1, #v.VehicleDeleters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[1].x,  v.VehicleDeleters[1].y,  v.VehicleDeleters[1].z,  true) < Config.MarkerSize.x then
-            isInMarker     = true
-            currentStation = k
-            currentPart    = 'VehicleDeleter'
-            currentPartNum = i
-          end
-        --end     
-
-        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and PlayerData.job.grade_name == 'boss' then
-
-          --for i=1, #v.BossActions, 1 do
-            if GetDistanceBetweenCoords(coords,  v.BossActions[1].x,  v.BossActions[1].y,  v.BossActions[1].z,  true) < Config.MarkerSize.x then
-              isInMarker     = true
-              currentStation = k
-              currentPart    = 'BossActions'
-              currentPartNum = i
-            end
-          --end
-
-        end
-
-      end
-
-      local hasExited = false
-
-      if isInMarker and not HasAlreadyEnteredMarker or (isInMarker and (LastStation ~= currentStation or LastPart ~= currentPart or LastPartNum ~= currentPartNum) ) then
-
-        if
-          (LastStation ~= nil and LastPart ~= nil and LastPartNum ~= nil) and
-          (LastStation ~= currentStation or LastPart ~= currentPart or LastPartNum ~= currentPartNum)
-        then
-          TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
-          hasExited = true
-        end
-
-        HasAlreadyEnteredMarker = true
-        LastStation             = currentStation
-        LastPart                = currentPart
-        LastPartNum             = currentPartNum
-
-        TriggerEvent('esx_lapingugang:hasEnteredMarker', currentStation, currentPart, currentPartNum)
-      end
-
-      if not hasExited and not isInMarker and HasAlreadyEnteredMarker then
-
-        HasAlreadyEnteredMarker = false
-
-        TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
-      end
-
-    end
-
-  end
-end)
-
--- Enter / Exit entity zone events
-Citizen.CreateThread(function()
-
-  local trackedEntities = {
-    'prop_roadcone02a',
-    'prop_barrier_work06a',
-    'p_ld_stinger_s',
-    'prop_boxpile_07d',
-    'hei_prop_cash_crate_half_full'
-  }
-
-  while true do
-
-    Citizen.Wait(0)
-
-    local playerPed = GetPlayerPed(-1)
-    local coords    = GetEntityCoords(playerPed)
-
-    local closestDistance = -1
-    local closestEntity   = nil
-
-    for i=1, #trackedEntities, 1 do
-
-      local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  GetHashKey(trackedEntities[i]), false, false, false)
-
-      if DoesEntityExist(object) then
-
-        local objCoords = GetEntityCoords(object)
-        local distance  = GetDistanceBetweenCoords(coords.x,  coords.y,  coords.z,  objCoords.x,  objCoords.y,  objCoords.z,  true)
-
-        if closestDistance == -1 or closestDistance > distance then
-          closestDistance = distance
-          closestEntity   = object
-        end
-
-      end
-
-    end
-
-    if closestDistance ~= -1 and closestDistance <= 3.0 then
-
-      if LastEntity ~= closestEntity then
-        TriggerEvent('esx_lapingugang:hasEnteredEntityZone', closestEntity)
-        LastEntity = closestEntity
-      end
-
-    else
-
-      if LastEntity ~= nil then
-        TriggerEvent('esx_lapingugang:hasExitedEntityZone', LastEntity)
-        LastEntity = nil
-      end
-
-    end
-
-  end
-end)
-
--- Key Controls
-Citizen.CreateThread(function()
-  while true do
-
-    Citizen.Wait(0)
-
-    if CurrentAction ~= nil then
-
-      SetTextComponentFormat('STRING')
-      AddTextComponentString(CurrentActionMsg)
-      DisplayHelpTextFromStringLabel(0, 0, 1, -1)
-
-      if IsControlPressed(0,  Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and (GetGameTimer() - GUI.Time) > 150 then
-
-        if CurrentAction == 'menu_cloakroom' then
-          OpenCloakroomMenu()
-        end
-
-        if CurrentAction == 'menu_armory' then
-          OpenArmoryMenu(CurrentActionData.station)
-        end
-
-        if CurrentAction == 'menu_vehicle_spawner' then
-          OpenVehicleSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
-        end
-
-        if CurrentAction == 'menu_heli_spawner' then
-          OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,0)
-        end
-
-        if CurrentAction == 'menu_heli_spawner_mountain' then
-          OpenHeliSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum,1)
-        end
-
-        if CurrentAction == 'delete_vehicle' then
-
-          if Config.EnableSocietyOwnedVehicles then
-
-            local vehicleProps = ESX.Game.GetVehicleProperties(CurrentActionData.vehicle)
-            TriggerServerEvent('esx_society:putVehicleInGarage', 'lapingugang', vehicleProps)
-
-          else
-
-            if
-              GetEntityModel(vehicle) == GetHashKey('schafter3')  or
-              GetEntityModel(vehicle) == GetHashKey('kuruma2') or
-              GetEntityModel(vehicle) == GetHashKey('sandking') or
-              GetEntityModel(vehicle) == GetHashKey('mule3') or
-              GetEntityModel(vehicle) == GetHashKey('guardian') or
-              GetEntityModel(vehicle) == GetHashKey('burrito3') or
-              GetEntityModel(vehicle) == GetHashKey('mesa')
-            then
-              TriggerServerEvent('esx_service:disableService', 'lapingugang')
-            end
-
-          end
-
-          ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
-        end
-
-        if CurrentAction == 'delete_heli' then
-          ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
-        end
-
-        if CurrentAction == 'delete_heli_mountain' then
-          ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
-        end
-
-        if CurrentAction == 'menu_boss_actions' then
-
-          ESX.UI.Menu.CloseAll()
-
-          TriggerEvent('esx_society:openBossMenuBanda', 'lapingugang', function(data, menu)
-
-            menu.close()
-
-            CurrentAction     = 'menu_boss_actions'
-            CurrentActionMsg  = _U('open_bossmenu')
-            CurrentActionData = {}
-
-          end)
-
-        end
-
-        if CurrentAction == 'remove_entity' then
-          DeleteEntity(CurrentActionData.entity)
-        end
-
-        CurrentAction = nil
-        GUI.Time      = GetGameTimer()
-
-      end
-
-    end
-
-   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'lapingugang' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'lapingugang_actions') and (GetGameTimer() - GUI.Time) > 150 then
-     OpenLaPinguGangActionsMenu()
-     GUI.Time = GetGameTimer()
-    end
-
-  end
-end)
-
----------------------------------------------------------------------------------------------------------
---NB : gestion des menu
----------------------------------------------------------------------------------------------------------
 
 RegisterNetEvent('NB:openMenuLaPinguGang')
 AddEventHandler('NB:openMenuLaPinguGang', function()
