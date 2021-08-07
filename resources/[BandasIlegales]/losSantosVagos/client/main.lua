@@ -220,53 +220,6 @@ Citizen.CreateThread(function()
 
 end)
 
-function IsHandcuffedPed()
-  if IsHandcuffed then
-    DisplayRadar(false)
-    DisableControlAction(0, 30,  true) -- MoveLeftRight
-    DisableControlAction(0, 31,  true) -- MoveUpDown
-    DisableControlAction(2, 1, true) -- Disable pan
-    DisableControlAction(2, 2, true) -- Disable tilt
-    DisableControlAction(2, 24, true) -- Attack
-    DisableControlAction(2, 257, true) -- Attack 2
-    DisableControlAction(2, 25, true) -- Aim
-    DisableControlAction(2, 263, true) -- Melee Attack 1
-    DisableControlAction(2, Keys['R'], true) -- Reload
-    DisableControlAction(2, Keys['TOP'], true) -- Open phone (not needed?)
-    DisableControlAction(2, Keys['SPACE'], true) -- Jump
-    DisableControlAction(2, Keys['Q'], true) -- Cover
-    DisableControlAction(2, Keys['TAB'], true) -- Select Weapon
-    DisableControlAction(2, Keys['F'], true) -- Also 'enter'?
-    DisableControlAction(2, Keys['F1'], true) -- Disable phone
-    DisableControlAction(2, Keys['F2'], true) -- Inventory
-    DisableControlAction(2, Keys['F3'], true) -- Animations
-    DisableControlAction(2, Keys['V'], true) -- Disable changing view
-    DisableControlAction(2, Keys['P'], true) -- Disable pause screen
-    DisableControlAction(2, 59, true) -- Disable steering in vehicle
-    DisableControlAction(2, Keys['LEFTCTRL'], true) -- Disable going stealth
-    DisableControlAction(0, 47, true)  -- Disable weapon
-    DisableControlAction(0, 264, true) -- Disable melee
-    DisableControlAction(0, 257, true) -- Disable melee
-    DisableControlAction(0, 140, true) -- Disable melee
-    DisableControlAction(0, 141, true) -- Disable melee
-    DisableControlAction(0, 142, true) -- Disable melee
-    DisableControlAction(0, 143, true) -- Disable melee
-    DisableControlAction(0, 75, true)  -- Disable exit vehicle
-    DisableControlAction(27, 75, true) -- Disable exit vehicle    
-
-    
-    if IsDragged then
-      local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
-      local myped = GetPlayerPed(-1)
-      AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
-    else
-      DetachEntity(GetPlayerPed(-1), true, false)
-    end
-    
-
-  end    
-end
-
 function EnterExitEntityZoneEvents(coords)
 
   local trackedEntities = {
@@ -298,18 +251,18 @@ function EnterExitEntityZoneEvents(coords)
   if closestDistance ~= -1 and closestDistance <= 3.0 then
 
     if LastEntity ~= closestEntity then
-      TriggerEvent('esx_mafiajob:hasEnteredEntityZone', closestEntity)
+      TriggerEvent('esx_lossantosvagos:hasEnteredEntityZone', closestEntity)
       LastEntity = closestEntity
     end
 
   else
 
     if LastEntity ~= nil then
-      TriggerEvent('esx_mafiajob:hasExitedEntityZone', LastEntity)
+      TriggerEvent('esx_lossantosvagos:hasExitedEntityZone', LastEntity)
       LastEntity = nil
     end
-
   end
+  Wait(10)  
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)

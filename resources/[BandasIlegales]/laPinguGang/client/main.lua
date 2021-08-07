@@ -199,19 +199,16 @@ Citizen.CreateThread(function()
             TriggerEvent('esx_lapingugang:hasEnteredMarker', currentStation, currentPart, currentPartNum)
           end
     
-          if not hasExited and not isInMarker and HasAlreadyEnteredMarker then
-    
-            HasAlreadyEnteredMarker = false
-    
+          if not hasExited and not isInMarker and HasAlreadyEnteredMarker then    
+            HasAlreadyEnteredMarker = false    
             TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
           end
     
         end
     
         IsHandcuffedPed()
-        KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
         EnterExitEntityZoneEvents(coords)
-
+        KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)   
 
       end
   end
@@ -249,18 +246,20 @@ function IsHandcuffedPed()
     DisableControlAction(0, 142, true) -- Disable melee
     DisableControlAction(0, 143, true) -- Disable melee
     DisableControlAction(0, 75, true)  -- Disable exit vehicle
-    DisableControlAction(27, 75, true) -- Disable exit vehicle      
+    DisableControlAction(27, 75, true) -- Disable exit vehicle       
     if IsDragged then
-      local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
-      local myped = GetPlayerPed(-1)
-      AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
-    else
-      DetachEntity(GetPlayerPed(-1), true, false)
-    end
+        local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
+        local myped = GetPlayerPed(-1)
+        AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
+      else
+        DetachEntity(GetPlayerPed(-1), true, false)
+    end    
   end    
 end
 
 function EnterExitEntityZoneEvents(coords)
+  local closestDistance = -1
+  local closestEntity   = nil
 
   local trackedEntities = {
     'prop_roadcone02a',
@@ -269,45 +268,39 @@ function EnterExitEntityZoneEvents(coords)
     'prop_boxpile_07d',
     'hei_prop_cash_crate_half_full'
   }  
-   
-  local closestDistance = -1
-  local closestEntity   = nil
 
-  for i=1, #trackedEntities, 1 do
+  local trackedEntitiesHash = {
+    3258159972,
+    765541575,
+    3420629148,
+    519908417,
+    3546768279
+  }
 
-    local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  GetHashKey(trackedEntities[i]), false, false, false)
-
+  for i=1, #trackedEntitiesHash, 1 do
+    local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  trackedEntitiesHash[i], false, false, false)
     if DoesEntityExist(object) then
-
       local objCoords = GetEntityCoords(object)
       local distance  = GetDistanceBetweenCoords(coords.x,  coords.y,  coords.z,  objCoords.x,  objCoords.y,  objCoords.z,  true)
-
       if closestDistance == -1 or closestDistance > distance then
         closestDistance = distance
         closestEntity   = object
       end
-
     end
-
   end
 
   if closestDistance ~= -1 and closestDistance <= 3.0 then
-
     if LastEntity ~= closestEntity then
       TriggerEvent('esx_lapingugang:hasEnteredEntityZone', closestEntity)
       LastEntity = closestEntity
     end
-
   else
-
     if LastEntity ~= nil then
       TriggerEvent('esx_lapingugang:hasExitedEntityZone', LastEntity)
       LastEntity = nil
     end
-
   end
-
-  
+  Wait(10)  
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
