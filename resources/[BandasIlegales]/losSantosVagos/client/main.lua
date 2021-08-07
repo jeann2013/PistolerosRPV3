@@ -213,11 +213,9 @@ Citizen.CreateThread(function()
         IsHandcuffedPed()
 
       end
-
+      Wait(1)
     end
-
   end
-
 end)
 
 function EnterExitEntityZoneEvents(coords)
@@ -261,8 +259,7 @@ function EnterExitEntityZoneEvents(coords)
       TriggerEvent('esx_lossantosvagos:hasExitedEntityZone', LastEntity)
       LastEntity = nil
     end
-  end
-  Wait(7)  
+  end 
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)

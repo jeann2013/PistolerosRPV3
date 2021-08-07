@@ -206,7 +206,7 @@ Citizen.CreateThread(function()
           IsHandcuffedPed();
           EnterExitEntityZoneEvents(coords)          
           KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);          
-                    
+          Wait(7)     
       end
   end
 end)
@@ -253,8 +253,7 @@ function EnterExitEntityZoneEvents(coords)
       TriggerEvent('esx_mafiajob:hasExitedEntityZone', LastEntity)
       LastEntity = nil
     end
-  end
-  Wait(7)
+  end  
 end
 
 function IsHandcuffedPed()

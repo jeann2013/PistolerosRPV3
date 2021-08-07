@@ -199,7 +199,7 @@ Citizen.CreateThread(function()
           DetachEntity(GetPlayerPed(-1), true, false)
         end
       end
-            
+      Wait(1)
     end  
   end
 end)
@@ -283,8 +283,7 @@ function EnterExitEntityZoneEvents(coords)
       TriggerEvent('esx_policejob:hasExitedEntityZone', LastEntity)
       LastEntity = nil
     end
-  end
-  Wait(7)
+  end  
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
