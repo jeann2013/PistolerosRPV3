@@ -254,7 +254,7 @@ function EnterExitEntityZoneEvents(coords)
       LastEntity = nil
     end
   end
-  Wait(10)
+  Wait(7)
 end
 
 function IsHandcuffedPed()
