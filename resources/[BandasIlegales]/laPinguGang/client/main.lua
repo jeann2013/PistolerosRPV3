@@ -204,10 +204,8 @@ Citizen.CreateThread(function()
             TriggerEvent('esx_lapingugang:hasExitedMarker', LastStation, LastPart, LastPartNum)
           end
     
-        end
-    
-        IsHandcuffedPed()
-        EnterExitEntityZoneEvents(coords)
+        end    
+        IsHandcuffedPed()        
         KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)        
       end
   end
@@ -252,10 +250,18 @@ function IsHandcuffedPed()
         AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
       else
         DetachEntity(GetPlayerPed(-1), true, false)
-    end 
-    Wait(0)   
+    end        
   end    
 end
+
+Citizen.CreateThread(function() 
+  while true do    
+    Wait(500) 
+    local playerPed      = GetPlayerPed(-1)
+    local coords         = GetEntityCoords(playerPed)
+    EnterExitEntityZoneEvents(coords);
+  end
+end)
 
 function EnterExitEntityZoneEvents(coords)
   local closestDistance = -1

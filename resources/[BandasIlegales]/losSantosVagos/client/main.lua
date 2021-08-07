@@ -207,11 +207,20 @@ Citizen.CreateThread(function()
           TriggerEvent('esx_lossantosvagos:hasExitedMarker', LastStation, LastPart, LastPartNum)
         end
 
-        EnterExitEntityZoneEvents(coords);
+        
         KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);
         IsHandcuffedPed()
       end      
     end
+  end
+end)
+
+Citizen.CreateThread(function() 
+  while true do    
+    Wait(500) 
+    local playerPed      = GetPlayerPed(-1)
+    local coords         = GetEntityCoords(playerPed)
+    EnterExitEntityZoneEvents(coords);
   end
 end)
 
@@ -236,35 +245,29 @@ function EnterExitEntityZoneEvents(coords)
   local closestEntity   = nil
 
   for i=1, #trackedEntitiesHash, 1 do
-
     local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  trackedEntitiesHash[i], false, false, false)
-
     if DoesEntityExist(object) then
-
       local objCoords = GetEntityCoords(object)
       local distance  = GetDistanceBetweenCoords(coords.x,  coords.y,  coords.z,  objCoords.x,  objCoords.y,  objCoords.z,  true)
-
       if closestDistance == -1 or closestDistance > distance then
         closestDistance = distance
-        closestEntity   = object
-      end
-    end
+        closestEntity   = object        
+      end      
+      Wait(10)
+    end    
   end
 
   if closestDistance ~= -1 and closestDistance <= 3.0 then
     if LastEntity ~= closestEntity then
       TriggerEvent('esx_lossantosvagos:hasEnteredEntityZone', closestEntity)
-      LastEntity = closestEntity      
-      
-    end    
-    Wait(30)
+      LastEntity = closestEntity          
+    end
   else
     if LastEntity ~= nil then
       TriggerEvent('esx_lossantosvagos:hasExitedEntityZone', LastEntity)
       LastEntity = nil      
     end
-  end 
-  
+  end   
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
