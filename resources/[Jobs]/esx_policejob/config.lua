@@ -28,8 +28,7 @@ Config.PoliceStations = {
 			Display = 4,
 			Scale   = 1.2,
 			Colour  = 29,
-		},
-		-- https://wiki.fivem.net/wiki/Weapons
+		},		
 		AuthorizedWeapons = {
 			{ name = 'WEAPON_NIGHTSTICK',       price = 200 },
 			{ name = 'WEAPON_COMBATPISTOL',     price = 300 },
