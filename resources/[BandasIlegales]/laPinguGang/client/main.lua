@@ -209,7 +209,7 @@ Citizen.CreateThread(function()
         IsHandcuffedPed()
         EnterExitEntityZoneEvents(coords)
         KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)   
-
+        Wait(1)
       end
   end
 end)
@@ -300,7 +300,6 @@ function EnterExitEntityZoneEvents(coords)
       LastEntity = nil
     end
   end
-  Wait(7)  
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
