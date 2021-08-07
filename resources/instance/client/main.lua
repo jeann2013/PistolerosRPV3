@@ -214,7 +214,7 @@ Citizen.CreateThread(function()
 end)
 
 -- Fix vehicles randomly spawning nearby the player inside an instance
-DensityMultiplier = 0.7
+DensityMultiplier = 1.0
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0) -- must be run every frame

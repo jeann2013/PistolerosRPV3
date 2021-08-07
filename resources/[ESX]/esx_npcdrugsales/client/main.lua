@@ -46,8 +46,6 @@ while true do
               local pedType = GetPedType(ped)
               if pedType ~= 28 and IsPedAPlayer(ped) == false then
                 currentped = pos
-
-                
                   if counter == 0 then
                     TriggerServerEvent('checkD')
                   end
@@ -80,10 +78,8 @@ while true do
                           SetPedAsNoLongerNeeded(oldped)
                       end
                     end
-                  end                
-                            
-                counter=counter+1
-              
+                  end       
+                counter=counter+1              
                 if counter >= 12 then
                   counter = 0
                 end
