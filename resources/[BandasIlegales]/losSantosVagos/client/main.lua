@@ -34,11 +34,10 @@ Citizen.CreateThread(function()
   end
 
   while true do
-
-    Wait(0)
     
-    if PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' then
-      
+    Wait(0)    
+
+    if PlayerData.job ~= nil and PlayerData.job.name == 'lossantosvagos' then      
       local playerPed      = GetPlayerPed(-1)
       local coords         = GetEntityCoords(playerPed)
       local isInMarker     = false
@@ -211,14 +210,20 @@ Citizen.CreateThread(function()
         EnterExitEntityZoneEvents(coords);
         KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);
         IsHandcuffedPed()
-
-      end
-      Wait(1)
+      end      
     end
   end
 end)
 
 function EnterExitEntityZoneEvents(coords)
+
+  local trackedEntitiesHash = {
+    3258159972,
+    765541575,
+    3420629148,
+    519908417,
+    3546768279
+  }
 
   local trackedEntities = {
     'prop_roadcone02a',
@@ -230,9 +235,9 @@ function EnterExitEntityZoneEvents(coords)
   local closestDistance = -1
   local closestEntity   = nil
 
-  for i=1, #trackedEntities, 1 do
+  for i=1, #trackedEntitiesHash, 1 do
 
-    local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  GetHashKey(trackedEntities[i]), false, false, false)
+    local object = GetClosestObjectOfType(coords.x,  coords.y,  coords.z,  3.0,  trackedEntitiesHash[i], false, false, false)
 
     if DoesEntityExist(object) then
 
@@ -247,19 +252,19 @@ function EnterExitEntityZoneEvents(coords)
   end
 
   if closestDistance ~= -1 and closestDistance <= 3.0 then
-
     if LastEntity ~= closestEntity then
       TriggerEvent('esx_lossantosvagos:hasEnteredEntityZone', closestEntity)
-      LastEntity = closestEntity
-    end
-
+      LastEntity = closestEntity      
+      
+    end    
+    Wait(30)
   else
-
     if LastEntity ~= nil then
       TriggerEvent('esx_lossantosvagos:hasExitedEntityZone', LastEntity)
-      LastEntity = nil
+      LastEntity = nil      
     end
   end 
+  
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
@@ -357,7 +362,6 @@ function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
   end
 end
 
-
 function IsHandcuffedPed()
   if IsHandcuffed then
     DisplayRadar(false)
@@ -390,7 +394,14 @@ function IsHandcuffedPed()
     DisableControlAction(0, 142, true) -- Disable melee
     DisableControlAction(0, 143, true) -- Disable melee
     DisableControlAction(0, 75, true)  -- Disable exit vehicle
-    DisableControlAction(27, 75, true) -- Disable exit vehicle    
+    DisableControlAction(27, 75, true) -- Disable exit vehicle  
+    if IsDragged then
+      local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
+      local myped = GetPlayerPed(-1)
+      AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
+    else
+      DetachEntity(GetPlayerPed(-1), true, false)
+    end    
   end    
 end
 

@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
   EndTextCommandSetBlipName(blip)
 
   while true do
-    Wait(0)            
+    Wait(0)
     if ESX == nil then        
       TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
       PlayerData = ESX.GetPlayerData() 
@@ -188,18 +188,7 @@ Citizen.CreateThread(function()
 
        IsHandcuffedPed()      
        EnterExitEntityZoneEvents(coords)
-       KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);
-
-      if IsHandcuffed then
-        if IsDragged then
-          local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
-          local myped = GetPlayerPed(-1)
-          AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
-        else
-          DetachEntity(GetPlayerPed(-1), true, false)
-        end
-      end
-      Wait(1)
+       KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);         
     end  
   end
 end)
@@ -236,15 +225,20 @@ function IsHandcuffedPed()
     DisableControlAction(0, 143, true) -- Disable melee
     DisableControlAction(0, 75, true)  -- Disable exit vehicle
     DisableControlAction(27, 75, true) -- Disable exit vehicle 
-  -- else
-  --   Citizen.Wait(0)
+    if IsDragged then
+      local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
+      local myped = GetPlayerPed(-1)
+      AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
+    else
+      DetachEntity(GetPlayerPed(-1), true, false)
+    end  
+    Wait(0)
   end
 end
 
 function EnterExitEntityZoneEvents(coords)
   local closestDistance = -1
-  local closestEntity   = nil  
- 
+  local closestEntity   = nil    
   local trackedEntities = {
     'prop_roadcone02a',
     'prop_barrier_work06a',
@@ -283,7 +277,7 @@ function EnterExitEntityZoneEvents(coords)
       TriggerEvent('esx_policejob:hasExitedEntityZone', LastEntity)
       LastEntity = nil
     end
-  end  
+  end      
 end
 
 function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)

@@ -208,8 +208,7 @@ Citizen.CreateThread(function()
     
         IsHandcuffedPed()
         EnterExitEntityZoneEvents(coords)
-        KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)   
-        Wait(1)
+        KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)        
       end
   end
 end)
@@ -253,7 +252,8 @@ function IsHandcuffedPed()
         AttachEntityToEntity(myped, ped, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
       else
         DetachEntity(GetPlayerPed(-1), true, false)
-    end    
+    end 
+    Wait(0)   
   end    
 end
 
