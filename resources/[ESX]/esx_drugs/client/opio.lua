@@ -131,9 +131,9 @@ end)
 function SpawnAdormideraPlants()
 	while spawnedAdormidera < 70 do
 		Citizen.Wait(0)
-		local cocaCoords = GenerateCocaCoords()
+		local opioCoords = GenerateOpioCoords()
 
-		ESX.Game.SpawnLocalObject('prop_plant_01b', cocaCoords, function(obj)
+		ESX.Game.SpawnLocalObject('prop_plant_01b', opioCoords, function(obj)
 			PlaceObjectOnGroundProperly(obj)
 			FreezeEntityPosition(obj, true)
 
@@ -164,11 +164,11 @@ function ValidateCocaCoord(plantCoord)
 end
 
 
-function GenerateCocaCoords()
+function GenerateOpioCoords()
 	while true do
 		Citizen.Wait(1)
 
-		local cocaCoordX, cocaCoordY
+		local opioCoordX, opioCoordY
 
 		math.randomseed(GetGameTimer())
 		local modX = math.random(-90, 90)
@@ -178,11 +178,11 @@ function GenerateCocaCoords()
 		math.randomseed(GetGameTimer())
 		local modY = math.random(-90, 90)
 
-		cocaCoordX = Config.CircleZones.OpioField.coords.x + modX
-		cocaCoordY = Config.CircleZones.OpioField.coords.y + modY
+		opioCoordX = Config.CircleZones.OpioField.coords.x + modX
+		opioCoordY = Config.CircleZones.OpioField.coords.y + modY
 
-		local coordZ = GetCoordZ(cocaCoordX, cocaCoordY)
-		local coord = vector3(cocaCoordX, cocaCoordY, coordZ)
+		local coordZ = GetCoordZ(opioCoordX, opioCoordY)
+		local coord = vector3(opioCoordX, opioCoordY, coordZ)
 
 		if ValidateCocaCoord(coord) then
 			return coord
