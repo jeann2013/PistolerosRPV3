@@ -104,48 +104,48 @@ Citizen.CreateThread(function()
           DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.BossActions[1].x, Config.PoliceStations.LSPD.BossActions[1].y, Config.PoliceStations.LSPD.BossActions[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
         end
       end      
-                    
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Cloakrooms[1].x,  Config.PoliceStations.LSPD.Cloakrooms[1].y,  Config.PoliceStations.LSPD.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
-        isInMarker     = true
-        currentStation = k
-        currentPart    = 'Cloakroom'
-        currentPartNum = i
-      end
-    
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z,  true) < Config.MarkerSize.x then
-        isInMarker     = true
-        currentStation = k
-        currentPart    = 'Armory'
-        currentPartNum = i
-      end
-    
+      for k,v in pairs(Config.PoliceStations) do        
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Cloakrooms[1].x,  Config.PoliceStations.LSPD.Cloakrooms[1].y,  Config.PoliceStations.LSPD.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
+          isInMarker     = true
+          currentStation = k
+          currentPart    = 'Cloakroom'
+          currentPartNum = i
+        end
+      
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z,  true) < Config.MarkerSize.x then
+          isInMarker     = true
+          currentStation = k
+          currentPart    = 'Armory'
+          currentPartNum = i
+        end    
 
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Vehicles[1].Spawner.x,  Config.PoliceStations.LSPD.Vehicles[1].Spawner.y,  Config.PoliceStations.LSPD.Vehicles[1].Spawner.z,  true) < Config.MarkerSize.x then
-        isInMarker     = true
-        currentStation = k
-        currentPart    = 'VehicleSpawner'
-        currentPartNum = i
-      end
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Vehicles[1].Spawner.x,  Config.PoliceStations.LSPD.Vehicles[1].Spawner.y,  Config.PoliceStations.LSPD.Vehicles[1].Spawner.z,  true) < Config.MarkerSize.x then
+          isInMarker     = true
+          currentStation = k
+          currentPart    = 'VehicleSpawner'
+          currentPartNum = i
+        end
 
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Vehicles[1].SpawnPoint.x,  Config.PoliceStations.LSPD.Vehicles[1].SpawnPoint.y,  Config.PoliceStations.LSPD.Vehicles[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
-        isInMarker     = true
-        currentStation = k
-        currentPart    = 'VehicleSpawnPoint'
-        currentPartNum = i
-      end
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Vehicles[1].SpawnPoint.x,  Config.PoliceStations.LSPD.Vehicles[1].SpawnPoint.y,  Config.PoliceStations.LSPD.Vehicles[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
+          isInMarker     = true
+          currentStation = k
+          currentPart    = 'VehicleSpawnPoint'
+          currentPartNum = i
+        end
 
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Helicopters[1].Spawner.x,  Config.PoliceStations.LSPD.Helicopters[1].Spawner.y,  Config.PoliceStations.LSPD.Helicopters[1].Spawner.z,  true) < Config.MarkerSize.x then
-        isInMarker     = true
-        currentStation = k
-        currentPart    = 'HelicopterSpawner'
-        currentPartNum = i
-      end
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Helicopters[1].Spawner.x,  Config.PoliceStations.LSPD.Helicopters[1].Spawner.y,  Config.PoliceStations.LSPD.Helicopters[1].Spawner.z,  true) < Config.MarkerSize.x then
+          isInMarker     = true
+          currentStation = k
+          currentPart    = 'HelicopterSpawner'
+          currentPartNum = i
+        end
 
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Helicopters[1].SpawnPoint.x,  Config.PoliceStations.LSPD.Helicopters[1].SpawnPoint.y,  Config.PoliceStations.LSPD.Helicopters[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
-        isInMarker     = true
-        currentStation = k
-        currentPart    = 'HelicopterSpawnPoint'
-        currentPartNum = i
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Helicopters[1].SpawnPoint.x,  Config.PoliceStations.LSPD.Helicopters[1].SpawnPoint.y,  Config.PoliceStations.LSPD.Helicopters[1].SpawnPoint.z,  true) < Config.MarkerSize.x then
+          isInMarker     = true
+          currentStation = k
+          currentPart    = 'HelicopterSpawnPoint'
+          currentPartNum = i
+        end
       end
 
       if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.VehicleDeleters[1].x,  Config.PoliceStations.LSPD.VehicleDeleters[1].y,  Config.PoliceStations.LSPD.VehicleDeleters[1].z,  true) < Config.MarkerSize.x then
@@ -186,8 +186,8 @@ Citizen.CreateThread(function()
         TriggerEvent('esx_policejob:hasExitedMarker', LastStation, LastPart, LastPartNum)
       end
 
-       IsHandcuffedPed()             
-       KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg);         
+       IsHandcuffedPed()       
+       KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg,CurrentActionData);
     end  
   end
 end)
@@ -287,7 +287,7 @@ Citizen.CreateThread(function()
   end
 end)
 
-function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
+function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg,CurrentActionData)
   if CurrentAction ~= nil then
     SetTextComponentFormat('STRING')
     AddTextComponentString(CurrentActionMsg)
@@ -297,7 +297,7 @@ function KeyControlPed(CurrentAction,PlayerData,CurrentActionMsg)
 
       if CurrentAction == 'menu_cloakroom' then
         OpenCloakroomMenu()
-      elseif CurrentAction == 'menu_armory' then
+      elseif CurrentAction == 'menu_armory' then        
         OpenArmoryMenu(CurrentActionData.station)
       elseif CurrentAction == 'menu_vehicle_spawner' then
         OpenVehicleSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
@@ -557,7 +557,6 @@ function OpenArmoryMenu(station)
   else
 
     local elements = {}
-
     for i=1, #Config.PoliceStations[station].AuthorizedWeapons, 1 do
       local weapon = Config.PoliceStations[station].AuthorizedWeapons[i]
       table.insert(elements, {label = ESX.GetWeaponLabel(weapon.name), value = weapon.name})

@@ -113,7 +113,6 @@ Config.AuthorizedVehicles = {
 			label = 'Auto ligero'
 		},
 
-
 	},
 
 	officer = {
@@ -148,6 +147,10 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
+		},
+		{
+			model = 'apolicecoq',
+			label = 'Auto policia persecucion (Coquette)'
 		}
 	},
 
@@ -203,6 +206,10 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
+		},
+		{
+			model = 'apolicecoq',
+			label = 'Auto policia persecucion (Coquette)'
 		}
 	},
 
@@ -246,6 +253,10 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
+		},
+		{
+			model = 'apolicecoq',
+			label = 'Auto policia persecucion (Coquette)'
 		}
 	},
 
@@ -285,7 +296,13 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'police5',
 			label = 'Auto policia persecucion (Lambo Aventador)'
+		},
+		{
+			model = 'apolicecoq',
+			label = 'Auto policia persecucion (Coquette)'
 		}
+
+		
 	}
 }
 
