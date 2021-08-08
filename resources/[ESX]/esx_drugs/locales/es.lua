@@ -33,10 +33,10 @@ Locales ['es'] = {
   ['opio_pickupprompt'] = 'pulsa ~INPUT_CONTEXT~ para recolectar ~g~Resina de adormidera~s~.',
   ['opio_inventoryfull'] = 'no puedes llevar más ~g~Resina de adormidera~s~!',
   ['opio_processprompt'] = 'pulsa ~INPUT_CONTEXT~ para ~g~procesar Opio~s~.',
-  ['opio_processingstarted'] = 'preparando la ~g~Opio~s~...',
+  ['opio_processingstarted'] = 'preparando el ~g~Opio~s~...',
   ['opio_processingfull'] = 'no puedes llevar más ~g~Opio~s~!',
   ['opio_processingenough'] = 'necesitas ~b~3x~s~ ~g~Resina de adormidera~s~.',
-  ['opio_processed'] = 'de ~b~3x~s~ ~g~Peyote~s~ has obtenido ~b~1x~s~ ~g~Opio~s~',
+  ['opio_processed'] = 'de ~b~3x~s~ ~g~Adormidera~s~ has obtenido ~b~1x~s~ ~g~Opio~s~',
   ['opio_processingtoofar'] = 'procesamiento de opio ~r~cancelado~s~ por que has abandonado el área.',
 
   -- drug dealer
