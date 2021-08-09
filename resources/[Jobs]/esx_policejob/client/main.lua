@@ -43,13 +43,13 @@ Citizen.CreateThread(function()
   BeginTextCommandSetBlipName('STRING')
   AddTextComponentString(_U('map_blip'))
   EndTextCommandSetBlipName(blip)
+  while ESX == nil do
+    TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+  end  
+  
 
   while true do
-    Wait(0)
-    if ESX == nil then        
-      TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-      PlayerData = ESX.GetPlayerData() 
-    end
+    Wait(0)  
 
     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then   
 
@@ -60,51 +60,51 @@ Citizen.CreateThread(function()
       local currentPart    = nil
       local currentPartNum = nil      
       i=1
-              
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Cloakrooms[1].x,  Config.PoliceStations.LSPD.Cloakrooms[1].y,  Config.PoliceStations.LSPD.Cloakrooms[1].z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Cloakrooms[1].x, Config.PoliceStations.LSPD.Cloakrooms[1].y, Config.PoliceStations.LSPD.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-    
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType,Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-    
-      if GetDistanceBetweenCoords(coords, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-    
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-    
-      if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
+      for k,v in pairs(Config.PoliceStations) do     
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Cloakrooms[1].x,  Config.PoliceStations.LSPD.Cloakrooms[1].y,  Config.PoliceStations.LSPD.Cloakrooms[1].z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Cloakrooms[1].x, Config.PoliceStations.LSPD.Cloakrooms[1].y, Config.PoliceStations.LSPD.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+      
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType,Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+      
+        if GetDistanceBetweenCoords(coords, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+      
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+      
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
+            if not Config.PoliceStations.LSPD.BossActions[1].disabled and GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.BossActions[1].x, Config.PoliceStations.LSPD.BossActions[1].y, Config.PoliceStations.LSPD.BossActions[1].z,  true) < Config.DrawDistance then
+              DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.BossActions[1].x, Config.PoliceStations.LSPD.BossActions[1].y, Config.PoliceStations.LSPD.BossActions[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+            end          
+        end
+            
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Cloakrooms[1].x,  Config.PoliceStations.LSPD.Cloakrooms[1].y,  Config.PoliceStations.LSPD.Cloakrooms[1].z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Cloakrooms[1].x, Config.PoliceStations.LSPD.Cloakrooms[1].y, Config.PoliceStations.LSPD.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+      
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType,Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+
+        if GetDistanceBetweenCoords(coords, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+      
+        if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z,  true) < Config.DrawDistance then
+          DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+        end
+      
+        if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
           if not Config.PoliceStations.LSPD.BossActions[1].disabled and GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.BossActions[1].x, Config.PoliceStations.LSPD.BossActions[1].y, Config.PoliceStations.LSPD.BossActions[1].z,  true) < Config.DrawDistance then
             DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.BossActions[1].x, Config.PoliceStations.LSPD.BossActions[1].y, Config.PoliceStations.LSPD.BossActions[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-          end          
-      end
+          end
+        end      
           
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Cloakrooms[1].x,  Config.PoliceStations.LSPD.Cloakrooms[1].y,  Config.PoliceStations.LSPD.Cloakrooms[1].z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Cloakrooms[1].x, Config.PoliceStations.LSPD.Cloakrooms[1].y, Config.PoliceStations.LSPD.Cloakrooms[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-    
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType,Config.PoliceStations.LSPD.Armories[1].x,  Config.PoliceStations.LSPD.Armories[1].y,  Config.PoliceStations.LSPD.Armories[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-
-      if GetDistanceBetweenCoords(coords, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.Vehicles[1].Spawner.x, Config.PoliceStations.LSPD.Vehicles[1].Spawner.y, Config.PoliceStations.LSPD.Vehicles[1].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-    
-      if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z,  true) < Config.DrawDistance then
-        DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.VehicleDeleters[1].x, Config.PoliceStations.LSPD.VehicleDeleters[1].y, Config.PoliceStations.LSPD.VehicleDeleters[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-      end
-    
-      if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
-        if not Config.PoliceStations.LSPD.BossActions[1].disabled and GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.BossActions[1].x, Config.PoliceStations.LSPD.BossActions[1].y, Config.PoliceStations.LSPD.BossActions[1].z,  true) < Config.DrawDistance then
-          DrawMarker(Config.MarkerType, Config.PoliceStations.LSPD.BossActions[1].x, Config.PoliceStations.LSPD.BossActions[1].y, Config.PoliceStations.LSPD.BossActions[1].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
-        end
-      end      
-      for k,v in pairs(Config.PoliceStations) do        
         if GetDistanceBetweenCoords(coords,  Config.PoliceStations.LSPD.Cloakrooms[1].x,  Config.PoliceStations.LSPD.Cloakrooms[1].y,  Config.PoliceStations.LSPD.Cloakrooms[1].z,  true) < Config.MarkerSize.x then
           isInMarker     = true
           currentStation = k
@@ -280,6 +280,8 @@ end
 
 Citizen.CreateThread(function() 
   while true do    
+    Wait(500) 
+    PlayerData = ESX.GetPlayerData()    
     Wait(500) 
     local playerPed      = GetPlayerPed(-1)
     local coords         = GetEntityCoords(playerPed)
