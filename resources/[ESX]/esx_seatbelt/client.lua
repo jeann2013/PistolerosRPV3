@@ -34,7 +34,7 @@ end
  
 Citizen.CreateThread(function()
 	while true do
-	Citizen.Wait(500)
+	Citizen.Wait(10)
   
     local ped = PlayerPedId()
     local car = GetVehiclePedIsIn(ped)
@@ -116,7 +116,7 @@ end)
 
 Citizen.CreateThread(function()
   while true do
-    Citizen.Wait(500)
+    Citizen.Wait(20)
     local Vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)
     local VehSpeed = GetEntitySpeed(Vehicle) * 3.6
 
