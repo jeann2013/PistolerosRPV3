@@ -34,7 +34,7 @@ end
  
 Citizen.CreateThread(function()
 	while true do
-	Citizen.Wait(0)
+	Citizen.Wait(500)
   
     local ped = PlayerPedId()
     local car = GetVehiclePedIsIn(ped)
@@ -71,7 +71,7 @@ Citizen.CreateThread(function()
       if IsControlJustReleased(0, Config.Control) and GetLastInputMethod(0) then
           SeatbeltON = not SeatbeltON 
           if SeatbeltON then
-          Citizen.Wait(1)
+          Citizen.Wait(10)
 
             if Config.Sounds then  
             TriggerEvent("seatbelt:sounds", "buckle", Config.Volume)
@@ -116,7 +116,7 @@ end)
 
 Citizen.CreateThread(function()
   while true do
-    Citizen.Wait(10)
+    Citizen.Wait(500)
     local Vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)
     local VehSpeed = GetEntitySpeed(Vehicle) * 3.6
 

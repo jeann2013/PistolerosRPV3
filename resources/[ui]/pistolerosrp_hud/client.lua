@@ -7,16 +7,16 @@ Citizen.CreateThread(function()
 
 	end
 end)
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(xPlayer)
-	ESX.PlayerLoaded  = true
-	ESX.PlayerData    = xPlayer
+-- RegisterNetEvent('esx:playerLoaded')
+-- AddEventHandler('esx:playerLoaded', function(xPlayer)
+-- 	ESX.PlayerLoaded  = true
+-- 	ESX.PlayerData    = xPlayer
 
-	cash = ESX.PlayerData.money
+-- 	cash = ESX.PlayerData.money
 
 
 
-end)
+-- end)
 PlayerData = {}
 local boss = false
 RegisterNetEvent('esx:playerLoaded')
@@ -170,21 +170,21 @@ Citizen.CreateThread(function()
 end)
 
 
-local LastPress = 0
-Citizen.CreateThread( function()
-	while true do
-		Wait( 0 )
+-- local LastPress = 0
+-- Citizen.CreateThread( function()
+-- 	while true do
+-- 		Wait( 0 )
 
 
-        if IsControlPressed( 0, 82 ) then
-          if PlayerData.job~= nil then
-					drawTxt3(1.249, 1.453, 1.0,1.0,0.40 , PlayerData.job.label .. " - " ..  PlayerData.job.grade_label ,255, 255, 255, 255) 
-          end
-				end
+--         if IsControlPressed( 0, 82 ) then
+--           if PlayerData.job~= nil then
+-- 					drawTxt3(1.249, 1.453, 1.0,1.0,0.40 , PlayerData.job.label .. " - " ..  PlayerData.job.grade_label ,255, 255, 255, 255) 
+--           end
+-- 				end
 
 
-	end
-end )
+-- 	end
+-- end )
 
 
 function drawTxt(text,font,centre,x,y,scale,r,g,b,a)

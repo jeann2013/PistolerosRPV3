@@ -4,7 +4,7 @@ ESX = nil
 Citizen.CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(100)
+		Citizen.Wait(500)
 	end
 end)
 
@@ -43,7 +43,7 @@ function StopDrawPlayerInfo()
 end
 Citizen.CreateThread( function()
 	while true do
-		Citizen.Wait(0)
+		Citizen.Wait(100)
 		if drawInfo then
 			local text = {}
 			-- cheat checks
@@ -228,7 +228,7 @@ Citizen.CreateThread(function()
     currentSpeed = config.speeds[index].speed
 
     while true do
-        Citizen.Wait(1)
+        Citizen.Wait(100)
 
         if noclipActive then
             DrawScaleformMovieFullscreen(buttons)
@@ -432,13 +432,13 @@ function DrawTxt(text,r,z)
 			end
 		end
 
-		Citizen.Wait(100)
+		Citizen.Wait(500)
 	end
 end)
 
  Citizen.CreateThread(function()
     while ESX == nil do
-        Citizen.Wait(0)
+        Citizen.Wait(100)
         TriggerEvent('esx:getSharedObject', function(obj)
             ESX = obj
         end)
@@ -455,7 +455,7 @@ local ServersIdSession = {}
 
 Citizen.CreateThread(function()
     while true do
-        Wait(500)
+        Wait(1000)
         for k,v in pairs(GetActivePlayers()) do
             local found = false
             for _,j in pairs(ServersIdSession) do
@@ -528,7 +528,7 @@ Citizen.CreateThread(function()
         end)    			
        end, function()
         end)
-            Citizen.Wait(0)
+            Citizen.Wait(100)
         end
     end)
 
@@ -604,7 +604,7 @@ end)
     
     Citizen.CreateThread(function()
         while true do
-            Citizen.Wait(0)
+            Citizen.Wait(500)
                 if group == true then 
                     if IsControlJustPressed(1,56) then
 					 TriggerEvent('sp_admin:menuv')
@@ -615,7 +615,7 @@ end)
 
 Citizen.CreateThread(function()
         while true do
-            Citizen.Wait(0)
+            Citizen.Wait(100)
                 if group == true then 
                     if IsControlPressed(1, 19) and IsControlJustPressed(1, 26) then
                         TeleportToWaypoint() 
