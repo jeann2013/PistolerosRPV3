@@ -93,6 +93,10 @@ Config.AuthorizedVehicles = {
 			model = 'policeb2',
 			label = 'Moto para campo'
 		},
+		{
+			model = 'apolicec6',
+			label = 'Auto policia persecucion Normal'
+		},
 	},
 
 	recruit = {
@@ -111,6 +115,10 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'gatorlib',
 			label = 'Auto ligero'
+		},
+		{
+			model = 'apolicec6',
+			label = 'Auto policia persecucion Normal'
 		},
 
 	},
@@ -151,7 +159,11 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'apolicecoq',
 			label = 'Auto policia persecucion (Coquette)'
-		}
+		},
+		{
+			model = 'apolicec6',
+			label = 'Auto policia persecucion Normal'
+		},
 	},
 
 	sergeant = {
@@ -210,7 +222,11 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'apolicecoq',
 			label = 'Auto policia persecucion (Coquette)'
-		}
+		},
+		{
+			model = 'apolicec6',
+			label = 'Auto policia persecucion Normal'
+		},
 	},
 
 	lieutenant = {
@@ -257,7 +273,11 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'apolicecoq',
 			label = 'Auto policia persecucion (Coquette)'
-		}
+		},
+		{
+			model = 'apolicec6',
+			label = 'Auto policia persecucion Normal'
+		},
 	},
 
 	boss = {
@@ -300,9 +320,11 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'apolicecoq',
 			label = 'Auto policia persecucion (Coquette)'
-		}
-
-		
+		},
+		{
+			model = 'apolicec6',
+			label = 'Auto policia persecucion Normal'
+		}		
 	}
 }
 
