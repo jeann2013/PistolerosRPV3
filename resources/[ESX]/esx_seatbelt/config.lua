@@ -3,7 +3,7 @@ Config = {}
 -- Disable/enable sounds
 Config.Sounds = true
 Config.LoopSound = true
-Config.Volume = 0.8
+Config.Volume = 0.4
 -- Min: 0.0 Max: 1.0
 
 -- Disable/enable Notifications

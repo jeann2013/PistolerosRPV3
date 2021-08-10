@@ -217,7 +217,7 @@ end)
 DensityMultiplier = 1.0
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(0) -- must be run every frame
+		Citizen.Wait(100) -- must be run every frame
 		if insideInstance then
 
 			SetVehicleDensityMultiplierThisFrame(0.0)
