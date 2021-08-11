@@ -524,7 +524,7 @@ AddEventHandler('fishing:startSelling', function(item)
 						xPlayer.addWeapon('WEAPON_HATCHET', 1)	
 					end
 				else
-					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficiente~s~ Chatarras(entre 8 y 20),Oro(aolo 1) y Diamantes(solo 1), para darte armas blancas')	
+					TriggerClientEvent('esx:showNotification', source, '~r~No tienes suficiente~s~ Chatarras(entre 8 y 20),Oro(solo 1) y Diamantes(solo 1), para darte armas blancas')	
 				end					
 
 			end
