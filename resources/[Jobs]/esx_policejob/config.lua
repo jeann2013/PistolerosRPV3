@@ -92,11 +92,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'policeb2',
 			label = 'Moto para campo'
-		},
-		{
-			model = 'apolicec6',
-			label = 'Auto policia persecucion Normal'
-		},
+		}
 	},
 
 	recruit = {
@@ -117,10 +113,9 @@ Config.AuthorizedVehicles = {
 			label = 'Auto ligero'
 		},
 		{
-			model = 'apolicec6',
-			label = 'Auto policia persecucion Normal'
-		},
-
+			model = 'pol718',
+			label = 'Auto policia persecucion (Porsche)'
+		}
 	},
 
 	officer = {
@@ -155,15 +150,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
-		},
-		{
-			model = 'apolicecoq',
-			label = 'Auto policia persecucion (Coquette)'
-		},
-		{
-			model = 'apolicec6',
-			label = 'Auto policia persecucion Normal'
-		},
+		}
 	},
 
 	sergeant = {
@@ -218,15 +205,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
-		},
-		{
-			model = 'apolicecoq',
-			label = 'Auto policia persecucion (Coquette)'
-		},
-		{
-			model = 'apolicec6',
-			label = 'Auto policia persecucion Normal'
-		},
+		}
 	},
 
 	lieutenant = {
@@ -269,15 +248,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
-		},
-		{
-			model = 'apolicecoq',
-			label = 'Auto policia persecucion (Coquette)'
-		},
-		{
-			model = 'apolicec6',
-			label = 'Auto policia persecucion Normal'
-		},
+		}
 	},
 
 	boss = {
@@ -316,15 +287,7 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'police5',
 			label = 'Auto policia persecucion (Lambo Aventador)'
-		},
-		{
-			model = 'apolicecoq',
-			label = 'Auto policia persecucion (Coquette)'
-		},
-		{
-			model = 'apolicec6',
-			label = 'Auto policia persecucion Normal'
-		}		
+		}	
 	}
 }
 
