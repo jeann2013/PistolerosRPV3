@@ -24,5 +24,7 @@ Config.giveableItems = {
       'coke_pooch',
       'opium_pooch',
       'chips',
-      'bandage'
+      'bandage',
+      'vehlockpick',
+      'clip'
   }
