@@ -41,8 +41,7 @@ AddEventHandler('s_lockpick:startlockpicking', function()
     if distance < 3 then
         if lockstatus == 2 then            
             TriggerEvent('s_lockpick:client:openLockpick', lockpick)                      
-            ESX.ShowNotification('Usa [A / D] y [Mouse] para forzar el auto')
-            ExecuteCommand('emote mechanic3')
+            ESX.ShowNotification('Usa [A / D] y [Mouse] para forzar el auto')            
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"),true)
             FreezeEntityPosition(PlayerPedId(), true)
         else
@@ -58,8 +57,7 @@ function lockpick(success)
     pedc = GetEntityCoords(ped)
     local veh = GetClosestVehicle(pedc.x, pedc.y, pedc.z, 3.0, 0, 71)    
     if success then        
-        Citizen.Wait(1000)
-        ExecuteCommand("e uncuff")
+        Citizen.Wait(1000)        
         Citizen.Wait(500)
         ClearPedTasks(PlayerPedId())
         FreezeEntityPosition(PlayerPedId(), false)
