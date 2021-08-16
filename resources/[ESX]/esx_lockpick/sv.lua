@@ -7,5 +7,5 @@ ESX.RegisterUsableItem('vehlockpick', function(source)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(source)
 	xPlayer.removeInventoryItem('vehlockpick', 1)  
-	TriggerClientEvent("notifyc",source)
+	TriggerClientEvent("notifyc",source)	
 end)

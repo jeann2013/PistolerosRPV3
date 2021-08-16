@@ -44,6 +44,7 @@ AddEventHandler('s_lockpick:startlockpicking', function()
             ESX.ShowNotification('Usa [A / D] y [Mouse] para forzar el auto')            
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"),true)
             FreezeEntityPosition(PlayerPedId(), true)
+            TaskStartScenarioInPlace(ped, 'CODE_HUMAN_MEDIC_TEND_TO_DEAD', 0, true)
         else
             ESX.ShowNotification('El vehículo no está cerrado')
         end
