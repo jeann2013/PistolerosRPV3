@@ -75,16 +75,6 @@ function lockpick(success)
     end
 end
 
-RegisterNetEvent('animation')
-AddEventHandler('animation', function()
-  local pid = PlayerPedId()
-  RequestAnimDict("amb@world_human_vehicle_mechanic@male@idle_a")
-  while (not HasAnimDictLoaded("amb@world_human_vehicle_mechanic@male@idle_a")) do Citizen.Wait(0) end
-    TaskPlayAnim(pid,"amb@world_human_vehicle_mechanic@male@idle_a","idle_d",100.0, 200.0, 0.3, 120, 0.2, 0, 0, 0)
-    Wait(10)
-    StopAnimTask(pid, "amb@world_human_vehicle_mechanic@male@idle_a","idle_d", 1.0)
-end)
-
 RegisterNetEvent('notifyc')
 AddEventHandler('notifyc', function()    
     local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1), false))
