@@ -44,6 +44,7 @@ AddEventHandler('s_lockpick:startlockpicking', function()
             ESX.ShowNotification('Usa [A / D] y [Mouse] para forzar el auto')            
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"),true)
             FreezeEntityPosition(PlayerPedId(), true)
+            TaskStartScenarioInPlace(ped, 'CODE_HUMAN_MEDIC_TEND_TO_DEAD', 0, true)
         else
             ESX.ShowNotification('El vehículo no está cerrado')
         end
@@ -73,6 +74,16 @@ function lockpick(success)
         SetVehicleDoorsLocked(veh, 2)        
     end
 end
+
+RegisterNetEvent('animation')
+AddEventHandler('animation', function()
+  local pid = PlayerPedId()
+  RequestAnimDict("amb@world_human_vehicle_mechanic@male@idle_a")
+  while (not HasAnimDictLoaded("amb@world_human_vehicle_mechanic@male@idle_a")) do Citizen.Wait(0) end
+    TaskPlayAnim(pid,"amb@world_human_vehicle_mechanic@male@idle_a","idle_d",100.0, 200.0, 0.3, 120, 0.2, 0, 0, 0)
+    Wait(10)
+    StopAnimTask(pid, "amb@world_human_vehicle_mechanic@male@idle_a","idle_d", 1.0)
+end)
 
 RegisterNetEvent('notifyc')
 AddEventHandler('notifyc', function()    
