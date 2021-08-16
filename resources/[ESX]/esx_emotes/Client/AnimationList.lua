@@ -1643,6 +1643,88 @@ DP.Emotes = {
    }},
 }
 
+DP.Emotes = {
+
+    ["sex"] = {"oddjobs@towing", "m_blow_job_loop", "sex", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = true,
+       }},
+       ["sex1"] = {"oddjobs@towing", "f_blow_job_loop", "sex2", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = true,
+       }},
+       ["sex2"] = {"mini@prostitutes@sexlow_veh", "low_car_sex_loop_player", "sex2", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = true,
+       }},
+       ["sex3"] = {"mini@prostitutes@sexlow_veh", "low_car_sex_loop_female", "sex3", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+    
+       ["sex4"] = {"anim@amb@nightclub@lazlow@hi_chair@", "seatedidle_hi_13_sexualadvance_laz", "sex4", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+    
+       ["sex5"] = {"anim@amb@nightclub@lazlow@hi_chair@", "seatedidle_hi_13_sexualadvance_laz_face", "sex5", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["sex6"] = {"anim@amb@nightclub@lazlow@hi_chair@", "seatedidle_mi_17_sexualadvance_laz", "sex6", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["sex7"] = {"anim@amb@nightclub@lazlow@hi_chair@", "seatedidle_mi_17_sexualadvance_laz_face", "sex7", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["sex8"] = {"anim@amb@nightclub@lazlow@hi_podium@", "danceidle_li_15_sexygrind_laz", "sex8", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["sex9"] = {"anim@amb@nightclub@lazlow@hi_podium@", "danceidle_li_15_sexygrind_laz_face", "sex9", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["seex1"] = {"director@character_select_intro@female", "ambclub_13_mi_hi_sexualgriding_glowstick_l", "seex1", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["seex2"] = {"misscarsteal2pimpsex", "pimpsex_pimp", "seex2", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["seex3"] = {"misscarsteal2pimpsex", "pimpsex_hooker", "seex3", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+       ["seex4"] = {"misscarsteal2pimpsex", "pimpsex_punter", "seex4", AnimationOptions =
+       {
+           EmoteLoop = true,
+           EmoteMoving = false,
+       }},
+    
+    
+    -----------------------------------------------------------------------------------------------------------
+    ------ These are Scenarios, some of these dont work on women and some other issues, but still good to have.
+    -----------------------------------------------------------------------------------------------------------
+    
+    }
+
 DP.PropEmotes = {
    ["umbrella"] = {"amb@world_human_drinking@coffee@male@base", "base", "Umbrella", AnimationOptions =
    {
