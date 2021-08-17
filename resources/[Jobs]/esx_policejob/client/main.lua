@@ -195,7 +195,7 @@ end)
 
 function IsHandcuffedPed()  
   if IsHandcuffed then    
-    DisplayRadar(false)
+    --DisplayRadar(false)
     DisableControlAction(2, 1, true) -- Disable pan
     DisableControlAction(2, 2, true) -- Disable tilt
     DisableControlAction(2, 24, true) -- Attack
@@ -222,8 +222,8 @@ function IsHandcuffedPed()
     DisableControlAction(0, 141, true) -- Disable melee
     DisableControlAction(0, 142, true) -- Disable melee
     DisableControlAction(0, 143, true) -- Disable melee
-    DisableControlAction(0, 75, true)  -- Disable exit vehicle
-    DisableControlAction(27, 75, true) -- Disable exit vehicle 
+    --DisableControlAction(0, 75, true)  -- Disable exit vehicle
+    --DisableControlAction(27, 75, true) -- Disable exit vehicle 
     if IsDragged then
       local ped = GetPlayerPed(GetPlayerFromServerId(CopPed))
       local myped = GetPlayerPed(-1)
