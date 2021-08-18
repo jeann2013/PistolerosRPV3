@@ -34,7 +34,7 @@ Config.PoliceStations = {
 			{ name = 'WEAPON_COMBATPISTOL',     price = 300 },
 			{ name = 'WEAPON_ASSAULTSMG',       price = 1250 },
 			{ name = 'WEAPON_ASSAULTRIFLE',     price = 1500 },
-			{ name = 'WEAPON_SPECIALCARBINE_MK2',      price = 600 },
+			{ name = 'WEAPON_SPECIALCARBINE',      price = 600 },
 			{ name = 'WEAPON_STUNGUN',          price = 500 },
 			{ name = 'WEAPON_FLASHLIGHT',       price = 80 },
 			{ name = 'WEAPON_FIREEXTINGUISHER', price = 120 },
