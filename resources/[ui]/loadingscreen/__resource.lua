@@ -1,6 +1,7 @@
 files {
     'index.html',    
     'mrkitty.mp3',
+    'sierra.mp3',
     'css/bootstrap.min.css',
     'css/css.css',
     'css/fontawesome-all.min.css',
