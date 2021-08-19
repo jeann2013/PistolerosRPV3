@@ -16,7 +16,7 @@ Config.DrugDealerItems = {
 Config.LicenseEnable = true -- enable processing licenses? The player will be required to buy a license in order to process drugs. Requires esx_license
 
 Config.LicensePrices = {
-	weed_processing = {label = _U('license_weed'), price = 15000},
+	weed_processing = {label = _U('license_weed'), price = 5000},
 	coca_processing = {label = _U('license_coca'), price = 25000},
 	opio_processing = {label = _U('license_opio'), price = 25000},
 	metha_processing = {label = _U('license_metha'), price = 25000}
