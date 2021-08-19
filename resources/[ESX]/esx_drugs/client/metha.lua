@@ -7,7 +7,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(500)
 		local coords = GetEntityCoords(PlayerPedId())
 		if GetDistanceBetweenCoords(coords, Config.CircleZones.MethaField.coords, true) < 50 then
-			SpawnAdormideraPlants()
+			SpawnPeyotePlants()
 		end
 	end
 end)
@@ -33,8 +33,8 @@ Citizen.CreateThread(function()
 						end
 					end, GetPlayerServerId(PlayerId()), 'metha_processing')
 				else
-					ESX.TriggerServerCallback('esx_drugs:peyote_count', function(xResina)
-						ProcessMetha(xResina)
+					ESX.TriggerServerCallback('esx_drugs:peyote_count', function(xResinaPeyote)
+						ProcessMetha(xResinaPeyote)
 					end)
 
 				end
@@ -45,14 +45,14 @@ Citizen.CreateThread(function()
 	end
 end)
 
-function ProcessMetha(xResina)
+function ProcessMetha(xResinaPeyote)
 	isProcessing = true
 	ESX.ShowNotification(_U('metha_processingstarted'))
 	TriggerServerEvent('esx_drugs:processPeyote')
-	if(xResina<3) then
-		xResina=0
+	if(xResinaPeyote<3) then
+		xResinaPeyote=0
 	end
-	local timeLeft = (Config.Delays.MethaProcessing * xResina) / 1000
+	local timeLeft = (Config.Delays.MethaProcessing * xResinaPeyote) / 1000
 	local playerPed = PlayerPedId()
 
 	while timeLeft > 0 do
@@ -128,7 +128,7 @@ AddEventHandler('onResourceStop', function(resource)
 	end
 end)
 
-function SpawnAdormideraPlants()
+function SpawnPeyotePlants()
 	while spawnedPeyota < 70 do
 		Citizen.Wait(0)
 		local methaCoords = GenerateMethaCoords()
@@ -168,7 +168,7 @@ function GenerateMethaCoords()
 	while true do
 		Citizen.Wait(1)
 
-		local cocaCoordX, cocaCoordY
+		local metaCoordX, metaCoordY
 
 		math.randomseed(GetGameTimer())
 		local modX = math.random(-90, 90)
@@ -178,11 +178,11 @@ function GenerateMethaCoords()
 		math.randomseed(GetGameTimer())
 		local modY = math.random(-90, 90)
 
-		cocaCoordX = Config.CircleZones.MethaField.coords.x + modX
-		cocaCoordY = Config.CircleZones.MethaField.coords.y + modY
+		metaCoordX = Config.CircleZones.MethaField.coords.x + modX
+		metaCoordY = Config.CircleZones.MethaField.coords.y + modY
 
-		local coordZ = GetCoordZ(cocaCoordX, cocaCoordY)
-		local coord = vector3(cocaCoordX, cocaCoordY, coordZ)
+		local coordZ = GetCoordZ(metaCoordX, metaCoordY)
+		local coord = vector3(metaCoordX, metaCoordY, coordZ)
 
 		if ValidateMethaCoord(coord) then
 			return coord

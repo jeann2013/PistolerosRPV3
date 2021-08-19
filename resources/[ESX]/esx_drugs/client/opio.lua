@@ -143,7 +143,7 @@ function SpawnAdormideraPlants()
 	end
 end
 
-function ValidateCocaCoord(plantCoord)
+function ValidateOpioCoord(plantCoord)
 	if spawnedAdormidera > 0 then
 		local validate = true
 
@@ -184,7 +184,7 @@ function GenerateOpioCoords()
 		local coordZ = GetCoordZ(opioCoordX, opioCoordY)
 		local coord = vector3(opioCoordX, opioCoordY, coordZ)
 
-		if ValidateCocaCoord(coord) then
+		if ValidateOpioCoord(coord) then
 			return coord
 		end
 	end

@@ -184,15 +184,15 @@ AddEventHandler('esx_drugs:processResina', function()
 
 		playersProcessingResina[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
-			local xCannabis = xPlayer.getInventoryItem('resina')
+			local xResina = xPlayer.getInventoryItem('resina')
 			local maria = 0
 			local canna = 0
-			if xCannabis.count >= 3 then
-				while xCannabis.count >=3 and xPlayer.canSwapItem('resina', 3, 'coke_pooch', 1) do
+			if xResina.count >= 3 then
+				while xResina.count >=3 and xPlayer.canSwapItem('resina', 3, 'coke_pooch', 1) do
 					canna = canna+3
-					xCannabis.count= xCannabis.count - 3
+					xResina.count= xResina.count - 3
 					maria = maria+1
-					if(xCannabis.count<3) then
+					if(xResina.count<3) then
 						xPlayer.showNotification(_U('coca_processed'))
 					elseif not xPlayer.canSwapItem('resina', 3, 'coke_pooch', 1) then
 						xPlayer.showNotification(_U('weed_processingfull'))
@@ -218,15 +218,15 @@ AddEventHandler('esx_drugs:processPeyote', function()
 
 		playersProcessingPeyote[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
-			local xCannabis = xPlayer.getInventoryItem('peyote')
+			local xPeyote = xPlayer.getInventoryItem('peyote')
 			local maria = 0
 			local canna = 0
-			if xCannabis.count >= 3 then
-				while xCannabis.count >=3 and xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1) do
+			if xPeyote.count >= 3 then
+				while xPeyote.count >=3 and xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1) do
 					canna = canna+3
-					xCannabis.count= xCannabis.count - 3
+					xPeyote.count= xPeyote.count - 3
 					maria = maria+1
-					if(xCannabis.count<3) then
+					if(xPeyote.count<3) then
 						xPlayer.showNotification(_U('metha_processed'))
 					elseif not xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1) then
 						xPlayer.showNotification(_U('metha_processingfull'))
@@ -252,15 +252,15 @@ AddEventHandler('esx_drugs:processAdormidera', function()
 
 		playersProcessingAdormidera[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
-			local xCannabis = xPlayer.getInventoryItem('adormidera')
+			local xAdormidera = xPlayer.getInventoryItem('adormidera')
 			local maria = 0
 			local canna = 0
-			if xCannabis.count >= 3 then
-				while xCannabis.count >=3 and xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) do
+			if xAdormidera.count >= 3 then
+				while xAdormidera.count >=3 and xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) do
 					canna = canna+3
-					xCannabis.count= xCannabis.count - 3
+					xAdormidera.count= xAdormidera.count - 3
 					maria = maria+1
-					if(xCannabis.count<3) then
+					if(xAdormidera.count<3) then
 						xPlayer.showNotification(_U('opio_processed'))
 					elseif not xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) then
 						xPlayer.showNotification(_U('opio_processingfull'))
