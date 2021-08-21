@@ -134,7 +134,7 @@ end)
 if bankMenu then
 	Citizen.CreateThread(function()
 	while true do
-		Wait(68)
+		Wait(25)
 	if nearBank() or nearATM() then
 			DisplayHelpText("Presione ~INPUT_PICKUP~ para acceder a su cuenta ~b~")
 	
