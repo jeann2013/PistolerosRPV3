@@ -132,7 +132,7 @@ end)
 Citizen.CreateThread(function()
 	hea = 200
 	while true do
-		Citizen.Wait(0)
+		Citizen.Wait(5)
 		if rdy then
 			if ShowHUD then
 				local myPed = GetPlayerPed(-1)
