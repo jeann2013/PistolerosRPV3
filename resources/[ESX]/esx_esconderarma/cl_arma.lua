@@ -160,6 +160,7 @@ end)
 Citizen.CreateThread(function()
   while true do
       local me = GetPlayerPed(-1)
+      Wait(300)
       ----------------------------------------
       -- SI EL JUGADOR TIENE ALGUNA PISTOLA --
       ----------------------------------------
@@ -187,6 +188,7 @@ end)
 
 Citizen.CreateThread(function()
   while true do
+      
       local me = GetPlayerPed(-1)
       ------------------------------------------------
       -- SI EL JUGADOR TIENE UN ARMA A LA IZQUIERDA --
@@ -268,7 +270,7 @@ end
 Citizen.CreateThread(function()
   while ESX == nil do
     TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-    Citizen.Wait(0)
+    Citizen.Wait(100)
   end
 
 
@@ -277,7 +279,7 @@ end)
 
  Citizen.CreateThread(function()
   while true do
-    Citizen.Wait(0)
+    Citizen.Wait(500)
     loadAnimDict("rcmjosh4")
     loadAnimDict("reaction@intimidation@cop@unarmed")
     loadAnimDict("reaction@intimidation@1h")

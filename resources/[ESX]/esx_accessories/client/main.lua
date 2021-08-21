@@ -6,7 +6,7 @@ local CurrentActionData	= {}
 Citizen.CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Citizen.Wait(500)
 	end
 end)
 
@@ -204,7 +204,7 @@ end)
 -- Key controls
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(0)
+		Citizen.Wait(100)
 		
 		if CurrentAction then
 			ESX.ShowHelpNotification(CurrentActionMsg)

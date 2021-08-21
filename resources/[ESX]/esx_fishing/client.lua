@@ -189,7 +189,7 @@ end
 end)
 Citizen.CreateThread(function()
 	while true do
-		Wait(5)
+		Wait(50)
 		if fishing then
 			if IsControlJustReleased(0, Keys['1']) then
 				 input = 1
@@ -308,8 +308,8 @@ end)
 
 				
 Citizen.CreateThread(function()
-	while true do
-		Wait(1)
+	-- while true do
+	-- 	Wait(100)
 		
 		DrawMarker(1, Config.SellFish.x, Config.SellFish.y, Config.SellFish.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 		DrawMarker(1, Config.SellTurtle.x, Config.SellTurtle.y, Config.SellTurtle.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
@@ -322,7 +322,7 @@ Citizen.CreateThread(function()
 		DrawMarker(1, Config.CreateWeaponllegal.x, Config.CreateWeaponllegal.y, Config.CreateWeaponllegal.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 		DrawMarker(1, Config.CreateChatarra.x, Config.CreateChatarra.y, Config.CreateChatarra.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 		DrawMarker(1, Config.CreateWeaponWhite.x, Config.CreateWeaponWhite.y, Config.CreateWeaponWhite.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
-	end
+	--end
 end)
 
 Citizen.CreateThread(function()
@@ -391,7 +391,7 @@ end, false)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Citizen.Wait(500)
 	
         for k in pairs(Config.MarkerZones) do
         	local ped = PlayerPedId()
