@@ -10,23 +10,23 @@ end)
 --This makes players incapable of carjacking vehicles w/ npc's inside.
 --just comment out this if you don't need / want this feature
 ---------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-    while true do
-        Wait(0)
-        local ped = PlayerPedId()
-        if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then
-            local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))
-            local lock = GetVehicleDoorLockStatus(veh)
-            if lock == 7 then
-                SetVehicleDoorsLocked(veh, 2)
-            end
-            local pedd = GetPedInVehicleSeat(veh, -1)
-            if pedd then
-                SetPedCanBeDraggedOut(pedd, false)
-            end
-        end
-    end
- end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Wait(0)
+--         local ped = PlayerPedId()
+--         if DoesEntityExist(GetVehiclePedIsTryingToEnter(PlayerPedId(ped))) then
+--             local veh = GetVehiclePedIsTryingToEnter(PlayerPedId(ped))
+--             local lock = GetVehicleDoorLockStatus(veh)
+--             if lock == 7 then
+--                 SetVehicleDoorsLocked(veh, 2)
+--             end
+--             local pedd = GetPedInVehicleSeat(veh, -1)
+--             if pedd then
+--                 SetPedCanBeDraggedOut(pedd, false)
+--             end
+--         end
+--     end
+--  end)
 -----------------------------------------------------------------------------------
 
 local locked = false
