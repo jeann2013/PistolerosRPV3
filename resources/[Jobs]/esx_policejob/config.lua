@@ -44,7 +44,7 @@ Config.PoliceStations = {
 		},
 
 		Cloakrooms = {
-			{ x = 452.600, y = -993.306, z = 29.750 },
+			{ x = 461.94, y = -999.30, z = 30.69 },
 		},
 
 		Armories = {
@@ -72,7 +72,7 @@ Config.PoliceStations = {
 		},
 
 		BossActions = {
-			{ x = 448.417, y = -973.208, z = 29.689 }
+			{ x = 463.26, y = -985.71, z = 30.73 }
 		},
 
 	},
