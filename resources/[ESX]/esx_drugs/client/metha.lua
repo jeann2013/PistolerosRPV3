@@ -52,8 +52,7 @@ Citizen.CreateThread(function()
 end)
 
 function ProcessMetha(xResinaPeyote)
-	isProcessing = true
-	ESX.ShowNotification(_U('metha_processingstarted'))
+	isProcessing = true	
 	TriggerServerEvent('esx_drugs:processPeyote')
 	if(xResinaPeyote<3) then
 		xResinaPeyote=0

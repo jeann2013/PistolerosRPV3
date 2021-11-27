@@ -155,6 +155,7 @@ AddEventHandler('esx_drugs:processCannabis', function()
 			local canna = 0
 			if xCannabis.count >= 3 then
 				while xCannabis.count >=3 and xPlayer.canSwapItem('cannabis', 3, 'weed_pooch', 1) do
+					xPlayer.showNotification(_U('weed_processingstarted'))
 					canna = canna+3
 					xCannabis.count= xCannabis.count - 3
 					maria = maria+1
@@ -164,8 +165,12 @@ AddEventHandler('esx_drugs:processCannabis', function()
 						xPlayer.showNotification(_U('weed_processingfull'))
 					end
 				end
-				xPlayer.removeInventoryItem('cannabis', canna)
-				xPlayer.addInventoryItem('weed_pooch', maria)
+				if ( not xPlayer.canSwapItem('cannabis', 3, 'weed_pooch', 1)) then
+					xPlayer.showNotification(_U('weed_processingcarry'))
+				else				
+					xPlayer.removeInventoryItem('cannabis', canna)
+					xPlayer.addInventoryItem('weed_pooch', maria)
+				end					
 			else
 				xPlayer.showNotification(_U('weed_processingenough'))
 			end
@@ -189,17 +194,23 @@ AddEventHandler('esx_drugs:processResina', function()
 			local canna = 0
 			if xResina.count >= 3 then
 				while xResina.count >=3 and xPlayer.canSwapItem('resina', 3, 'coke_pooch', 1) do
+					xPlayer.showNotification(_U('coca_processingstarted'))
 					canna = canna+3
 					xResina.count= xResina.count - 3
 					maria = maria+1
 					if(xResina.count<3) then
 						xPlayer.showNotification(_U('coca_processed'))
 					elseif not xPlayer.canSwapItem('resina', 3, 'coke_pooch', 1) then
-						xPlayer.showNotification(_U('weed_processingfull'))
+						xPlayer.showNotification(_U('coca_processingfull'))
 					end
 				end
-				xPlayer.removeInventoryItem('resina', canna)
-				xPlayer.addInventoryItem('coke_pooch', maria)
+				if ( not xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1)) then
+					xPlayer.showNotification(_U('coca_processingcarry'))
+				else				
+					xPlayer.removeInventoryItem('resina', canna)
+					xPlayer.addInventoryItem('coke_pooch', maria)
+				end	
+				
 			else
 				xPlayer.showNotification(_U('coca_processingenough'))
 			end
@@ -223,6 +234,7 @@ AddEventHandler('esx_drugs:processPeyote', function()
 			local canna = 0
 			if xPeyote.count >= 3 then
 				while xPeyote.count >=3 and xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1) do
+					xPlayer.showNotification(_U('metha_processingstarted'))
 					canna = canna+3
 					xPeyote.count= xPeyote.count - 3
 					maria = maria+1
@@ -232,8 +244,12 @@ AddEventHandler('esx_drugs:processPeyote', function()
 						xPlayer.showNotification(_U('metha_processingfull'))
 					end
 				end
-				xPlayer.removeInventoryItem('peyote', canna)
-				xPlayer.addInventoryItem('meth_pooch', maria)
+				if ( not xPlayer.canSwapItem('peyote', 3, 'meth_pooch', 1)) then
+					xPlayer.showNotification(_U('metha_processingcarry'))
+				else
+					xPlayer.removeInventoryItem('peyote', canna)
+					xPlayer.addInventoryItem('meth_pooch', maria)
+				end				
 			else
 				xPlayer.showNotification(_U('metha_processingenough'))
 			end
@@ -250,24 +266,31 @@ AddEventHandler('esx_drugs:processAdormidera', function()
 	if not playersProcessingAdormidera[source] then
 		local _source = source
 
-		playersProcessingAdormidera[_source] = ESX.SetTimeout(Config.Delays.WeedProcessing, function()
+		playersProcessingAdormidera[_source] = ESX.SetTimeout(Config.Delays.Processing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
 			local xAdormidera = xPlayer.getInventoryItem('adormidera')
+			
 			local maria = 0
 			local canna = 0
 			if xAdormidera.count >= 3 then
 				while xAdormidera.count >=3 and xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) do
+					xPlayer.showNotification(_U('opio_processingstarted'))
 					canna = canna+3
 					xAdormidera.count= xAdormidera.count - 3
 					maria = maria+1
+					print('opio',maria);
 					if(xAdormidera.count<3) then
 						xPlayer.showNotification(_U('opio_processed'))
 					elseif not xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) then
 						xPlayer.showNotification(_U('opio_processingfull'))
 					end
 				end
-				xPlayer.removeInventoryItem('adormidera', canna)
-				xPlayer.addInventoryItem('opium_pooch', maria)
+				if ( not xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1)) then
+					xPlayer.showNotification(_U('opio_processingcarry'))
+				else
+					xPlayer.removeInventoryItem('adormidera', canna)
+					xPlayer.addInventoryItem('opium_pooch', maria)
+				end
 			else
 				xPlayer.showNotification(_U('opio_processingenough'))
 			end

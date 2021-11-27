@@ -49,8 +49,7 @@ Citizen.CreateThread(function()
 end)
 
 function ProcessCoca(xResina)
-	isProcessing = true
-	ESX.ShowNotification(_U('coca_processingstarted'))
+	isProcessing = true	
 	TriggerServerEvent('esx_drugs:processResina')
 	if(xResina<3) then
 		xResina=0

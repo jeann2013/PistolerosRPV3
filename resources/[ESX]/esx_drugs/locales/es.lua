@@ -8,6 +8,7 @@ Locales ['es'] = {
   ['weed_processingenough'] = 'necesitas ~b~3x~s~ ~g~Cannbis~s~.',
   ['weed_processed'] = 'de ~b~3x~s~ ~g~Marijuana húmeda~s~ has obtenido ~b~1x~s~ ~g~Marijuana~s~',
   ['weed_processingtoofar'] = 'el secado se ha ~r~cancelado~s~ por que has abandonado el área.',
+  ['weed_processingcarry'] = 'no puedes procesar esta resina porque no puedes llevar tanto ~g~Marijuana~s~!',
 
 	-- coca
   ['coca_pickupprompt'] = 'pulsa ~INPUT_CONTEXT~ para recolectar ~g~Resina de amapola~s~.',
@@ -18,6 +19,7 @@ Locales ['es'] = {
   ['coca_processingenough'] = 'necesitas ~b~3x~s~ ~g~Resina de amapola~s~.',
   ['coca_processed'] = 'de ~b~3x~s~ ~g~Flor de amapola~s~ has obtenido ~b~1x~s~ ~g~Cocaina~s~',
   ['coca_processingtoofar'] = 'procesamiento de coca ~r~cancelado~s~ por que has abandonado el área.',
+  ['coca_processingcarry'] = 'no puedes procesar esta resina porque no puedes llevar tanto ~g~Cacaina~s~!',
 
   -- metha
   ['metha_pickupprompt'] = 'pulsa ~INPUT_CONTEXT~ para recolectar ~g~Resina de peyote~s~.',
@@ -28,6 +30,7 @@ Locales ['es'] = {
   ['metha_processingenough'] = 'necesitas ~b~3x~s~ ~g~Resina de peyote~s~.',
   ['metha_processed'] = 'de ~b~3x~s~ ~g~Peyote~s~ has obtenido ~b~1x~s~ ~g~Metha~s~',
   ['metha_processingtoofar'] = 'procesamiento de metha ~r~cancelado~s~ por que has abandonado el área.',
+  ['metha_processingcarry'] = 'no puedes procesar esta resina porque no puedes llevar tanto ~g~Metha~s~!',
 
   -- opio
   ['opio_pickupprompt'] = 'pulsa ~INPUT_CONTEXT~ para recolectar ~g~Resina de adormidera~s~.',
@@ -38,6 +41,7 @@ Locales ['es'] = {
   ['opio_processingenough'] = 'necesitas ~b~3x~s~ ~g~Resina de adormidera~s~.',
   ['opio_processed'] = 'de ~b~3x~s~ ~g~Adormidera~s~ has obtenido ~b~1x~s~ ~g~Opio~s~',
   ['opio_processingtoofar'] = 'procesamiento de opio ~r~cancelado~s~ por que has abandonado el área.',
+  ['opio_processingcarry'] = 'no puedes procesar esta resina porque no puedes llevar tanto ~g~Opio~s~!',
 
   -- drug dealer
   ['dealer_prompt'] = 'pulsa ~INPUT_CONTEXT~ para hablar con el ~r~Camello~s~.',

@@ -27,7 +27,14 @@ Citizen.CreateThread(function()
 				if Config.LicenseEnable then
 					ESX.TriggerServerCallback('esx_license:checkLicense', function(hasProcessingLicense)
 						if hasProcessingLicense then
-							ProcessOpio()
+							ESX.TriggerServerCallback('esx_drugs:adormidera_count', function(xResina)
+						
+								if (xResina == nil or xResina == '') then
+									xResina = 0;
+								end
+		
+								ProcessOpio(xResina)
+							end)
 						else
 							OpenBuyLicenseMenu('opio_processing')
 						end
@@ -35,7 +42,7 @@ Citizen.CreateThread(function()
 				else
 					ESX.TriggerServerCallback('esx_drugs:adormidera_count', function(xResina)
 						
-						if(xResina == nil) then
+						if (xResina == nil or xResina == '') then
 							xResina = 0;
 						end
 
@@ -52,12 +59,13 @@ end)
 
 function ProcessOpio(xResina)
 	isProcessing = true
-	ESX.ShowNotification(_U('opio_processingstarted'))
+	
+	
 	TriggerServerEvent('esx_drugs:processAdormidera')
 	if(xResina<3) then
 		xResina=0
-	end
-	local timeLeft = (Config.Delays.OpioProcessing * xResina) / 1000
+	end	
+	local timeLeft = (Config.Delays.Processing * xResina) / 1000
 	local playerPed = PlayerPedId()
 
 	while timeLeft > 0 do
