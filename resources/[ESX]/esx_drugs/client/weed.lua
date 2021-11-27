@@ -35,6 +35,9 @@ Citizen.CreateThread(function()
 					end, GetPlayerServerId(PlayerId()), 'weed_processing')
 				else
 					ESX.TriggerServerCallback('esx_drugs:cannabis_count', function(xCannabis)
+						if(xCannabis == nil) then
+							xCannabis = 0;
+						end
 						ProcessWeed(xCannabis)
 					end)
 

@@ -34,6 +34,11 @@ Citizen.CreateThread(function()
 					end, GetPlayerServerId(PlayerId()), 'opio_processing')
 				else
 					ESX.TriggerServerCallback('esx_drugs:adormidera_count', function(xResina)
+						
+						if(xResina == nil) then
+							xResina = 0;
+						end
+
 						ProcessOpio(xResina)
 					end)
 

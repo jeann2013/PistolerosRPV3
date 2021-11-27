@@ -34,6 +34,9 @@ Citizen.CreateThread(function()
 					end, GetPlayerServerId(PlayerId()), 'coca_processing')
 				else
 					ESX.TriggerServerCallback('esx_drugs:resina_count', function(xResina)
+						if(xResina == nil) then
+							xResina = 0;
+						end
 						ProcessCoca(xResina)
 					end)
 

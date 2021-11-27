@@ -34,6 +34,12 @@ Citizen.CreateThread(function()
 					end, GetPlayerServerId(PlayerId()), 'metha_processing')
 				else
 					ESX.TriggerServerCallback('esx_drugs:peyote_count', function(xResinaPeyote)
+						if(xResinaPeyote == nil) then
+							xResinaPeyote = 0;
+						end
+						if(xResinaPeyote == nil) then
+							xResinaPeyote = 0;
+						end
 						ProcessMetha(xResinaPeyote)
 					end)
 
