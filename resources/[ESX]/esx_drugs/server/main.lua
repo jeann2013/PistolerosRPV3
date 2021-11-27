@@ -277,8 +277,7 @@ AddEventHandler('esx_drugs:processAdormidera', function()
 					xPlayer.showNotification(_U('opio_processingstarted'))
 					canna = canna+3
 					xAdormidera.count= xAdormidera.count - 3
-					maria = maria+1
-					print('opio',maria);
+					maria = maria+1					
 					if(xAdormidera.count<3) then
 						xPlayer.showNotification(_U('opio_processed'))
 					elseif not xPlayer.canSwapItem('adormidera', 3, 'opium_pooch', 1) then
