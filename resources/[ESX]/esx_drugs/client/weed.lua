@@ -50,8 +50,7 @@ Citizen.CreateThread(function()
 end)
 
 function ProcessWeed(xCannabis)
-	isProcessing = true
-	ESX.ShowNotification(_U('weed_processingstarted'))
+	isProcessing = true	
 	TriggerServerEvent('esx_drugs:processCannabis')
 	if(xCannabis<3) then
 		xCannabis=0
