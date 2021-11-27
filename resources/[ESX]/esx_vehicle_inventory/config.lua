@@ -16,6 +16,9 @@ Config.WeightSqlBased = false
 -- I Prefer to edit weight on the config.lua and I have switched Config.WeightSqlBased to false:
 
 Config.localWeight = {
+    adormidera = 250,
+    peyote  = 250,
+    resina  = 250,
     icecreams = 250,
     icecreamv = 250,
     tacom = 250,
