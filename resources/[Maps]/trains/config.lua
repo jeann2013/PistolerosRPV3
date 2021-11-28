@@ -10,7 +10,7 @@ Language 					= 'es'	-- Language used in the script
 									-- fr (French)
 									-- es (Spanish)
 
-ShowTrainBlips			= true		-- If you want to show Train's Blips on the map
+ShowTrainBlips			= false		-- If you want to show Train's Blips on the map
 FreeWalk				= true		-- If you want people can walk around in the train, set true or false if you prefer they sit in the train (experimental)
 PayWithBank 			= 25		-- Change this to 1 if you want users to pay with bank card (NOTE: Do implement your OWN banking system here please!)
 UserBankIDi 			= 3			-- 1 = Maze, 2 = Bank Of Liberty, 3 = Fleeca  (This will show the corresponding message when the player doesn't have enoug money)
