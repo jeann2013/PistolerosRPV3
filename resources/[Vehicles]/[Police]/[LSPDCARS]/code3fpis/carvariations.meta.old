@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SAPD vehicles pack. Original models by RedSaints, edited & modified by BravoAlphaNatillas -->
 <CVehicleModelInfoVariation>
   <variationData>
     <Item>
-      <modelName>code3bmw</modelName>
+      <modelName>code3fpis</modelName>
       <colors>
         <Item>
           <indices content="char_array">
@@ -271,7 +270,7 @@
         </Probabilities>
       </plateProbabilities>
       <lightSettings value="1"/>
-      <sirenSettings value="6026"/>
+      <sirenSettings value="6001"/>
     </Item>
   </variationData>
 </CVehicleModelInfoVariation>
