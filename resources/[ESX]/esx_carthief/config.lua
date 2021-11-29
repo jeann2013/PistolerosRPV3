@@ -123,7 +123,7 @@ Config.Delivery = {
 		Color = {r = 204, g = 204, b = 0},
 		Type  = 1,
 		Payment  = 18200,
-		Cars = {'jellybigpeen','f40' ,'lp610', 'mvisiongt', 'thrax'},
+		Cars = {'jellybigpeen','f40' ,'lp610', 'mvisiongt', 'mig'},
 	},
 	Delivery9 = {
 		Pos      = {x = -93.78, y = 836.79, z = 235.72},
