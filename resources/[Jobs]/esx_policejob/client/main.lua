@@ -647,10 +647,10 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
 	local elements = {}
 
-	local sharedVehicles = Config.AuthorizedVehicles.Shared
-	for i=1, #sharedVehicles, 1 do
-		table.insert(elements, { label = sharedVehicles[i].label, model = sharedVehicles[i].model})
-	end
+	-- local sharedVehicles = Config.AuthorizedVehicles.Shared
+	-- for i=1, #sharedVehicles, 1 do
+	-- 	table.insert(elements, { label = sharedVehicles[i].label, model = sharedVehicles[i].model})
+	-- end
 
 	local authorizedVehicles = Config.AuthorizedVehicles[PlayerData.job.grade_name]
 	for i=1, #authorizedVehicles, 1 do
