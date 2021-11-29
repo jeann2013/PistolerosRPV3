@@ -82,161 +82,146 @@ Config.PoliceStations = {
 Config.AuthorizedVehicles = {
 	Shared = {
 		{
-			model = 'police',
-			label = 'Police Cruiser'
+			model = 'pbike',
+			label = 'Bicicleta de policia'
 		},
 		{
-			model = 'pbus',
-			label = 'Police Prison Bus'
-		},
+			model = 'pd_dirtbike',
+			label = 'Moto Policia de montaña'
+		},		
 		{
-			model = 'policeb2',
-			label = 'Moto para campo'
-		}
+			model = 'code398cvpi',
+			label = 'Auto patrulla'
+		},
 	},
 
 	recruit = {
 		{
-			model = 'police',
-			label = 'Police Cruiser'
+			model = 'pbike',
+			label = 'Bicicleta de policia'
 		},
 		{
-			model = 'policeb',
-			label = 'Police Bike'
-		},						
-		{
-			model = 'policeb2',
-			label = 'Moto para campo'
+			model = 'code3bmw',
+			label = 'Moto Policia BMW'
 		},
 		{
-			model = 'gatorlib',
-			label = 'Auto ligero'
-		},
+			model = 'pd_dirtbike',
+			label = 'Moto Policia de montaña'
+		},		
 		{
-			model = 'pol718',
-			label = 'Auto policia persecucion (Porsche)'
-		}
+			model = 'code398cvpi',
+			label = 'Auto patrulla'
+		},
 	},
 
 	officer = {
 		{
-			model = 'pbus',
-			label = 'Police Prison Bus'
+			model = 'pbike',
+			label = 'Bicicleta de policia'
 		},
 		{
-			model = 'police3',
-			label = 'Police Interceptor'
+			model = 'code3bmw',
+			label = 'Moto Policia BMW'
 		},
 		{
-			model = '14charger',
-			label = 'Carro policia Charger'
-		},				
-		{
-			model = 'policeb2',
-			label = 'Moto para campo'
-		},
-		{
-			model = 'polnspeedo',
-			label = 'Bagoneta rapida'
+			model = 'pd_dirtbike',
+			label = 'Moto Policia de montaña'
 		},		
 		{
-			model = 'polf430',
-			label = 'Auto policia persecucion (Ferrari)'
+			model = 'code398cvpi',
+			label = 'Auto patrulla'
 		},
 		{
-			model = 'polmp4',
-			label = 'Auto policia persecucion (Mclaren)'
+			model = 'code318tahoe',
+			label = 'Camioneta policia Tahoe'
 		},
 		{
-			model = 'pol718',
-			label = 'Auto policia persecucion (Porsche)'
-		}
+			model = 'code3ram',
+			label = 'Camioneta policia para campo Raptor'
+		},
+		{
+			model = 'code318charg',
+			label = 'Auto policia Charger'
+		},
+		{
+			model = 'apolicecoq',
+			label = 'Auto policia de Persecucion Nativo'
+		},
+		
 	},
 
 	sergeant = {
 		{
-			model = 'so6',
-			label = 'Auto policia sin marcas'
+			model = 'pbike',
+			label = 'Bicicleta de policia'
 		},
 		{
-			model = 'policeb2',
-			label = 'Moto para campo'
+			model = 'pd_dirtbike',
+			label = 'Moto Policia de montaña'
+		},		
+		{
+			model = 'code3bmw',
+			label = 'Moto Policia BMW'
 		},
 		{
-			model = 'policet',
-			label = 'Police Transporter'
+			model = 'code398cvpi',
+			label = 'Auto patrulla'
 		},
 		{
-			model = 'policeb',
-			label = 'Police Bike'
+			model = 'code318tahoe',
+			label = 'Camioneta policia Tahoe'
 		},
 		{
-			model = '14charger',
-			label = 'Carro policia Charger'
-		},
-		{
-			model = 'utitly',
-			label = 'Carro policia Utility'
-		},
-		{
-			model = 'pdraptor18',
+			model = 'code3ram',
 			label = 'Camioneta policia para campo Raptor'
 		},
 		{
-			model = 'polnspeedo',
-			label = 'Bagoneta rapida'
+			model = 'code318charg',
+			label = 'Auto policia Charger'
 		},
 		{
-			model = 'bearcat',
-			label = 'Camion blindado'
+			model = 'code320exp',
+			label = 'Auto policia Exp'
 		},
 		{
-			model = 'sv4',
-			label = 'Auto policia Rapido'
+			model = 'apolicecoq',
+			label = 'Auto policia de Persecucion Nativo'
 		},
-		{
-			model = 'polf430',
-			label = 'Auto policia persecucion (Ferrari)'
-		},
-		{
-			model = 'polmp4',
-			label = 'Auto policia persecucion (Mclaren)'
-		},
-		{
-			model = 'pol718',
-			label = 'Auto policia persecucion (Porsche)'
-		}
 	},
 
 	lieutenant = {
 		{
-			model = 'so6',
-			label = 'Auto policia sin marcas'
+			model = 'pbike',
+			label = 'Bicicleta de policia'
 		},
 		{
-			model = 'policeb2',
-			label = 'Moto para campo'
+			model = 'pd_dirtbike',
+			label = 'Moto Policia de montaña'
+		},		
+		{
+			model = 'code3bmw',
+			label = 'Moto Policia BMW'
 		},
 		{
-			model = 'pbus',
-			label = 'Police Prison Bus'
+			model = 'code398cvpi',
+			label = 'Auto patrulla'
 		},
 		{
-			model = 'riot',
-			label = 'Police Riot'
+			model = 'code318tahoe',
+			label = 'Camioneta policia Tahoe'
 		},
 		{
-			model = 'fbi2',
-			label = 'FIB SUV'
-		},
-		{
-			model = 'pdraptor18',
+			model = 'code3ram',
 			label = 'Camioneta policia para campo Raptor'
 		},
 		{
-			model = 'polnspeedo',
-			label = 'Bagoneta rapida'
-		},		
+			model = 'code318charg',
+			label = 'Auto policia Charger'
+		},
+		{
+			model = 'code320exp',
+			label = 'Auto policia Exp'
+		},
 		{
 			model = 'polf430',
 			label = 'Auto policia persecucion (Ferrari)'
@@ -248,29 +233,46 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
-		}
+		},
 	},
 
-	boss = {
+	boss = {	
+					
 		{
-			model = 'policeb2',
-			label = 'Moto para campo'
+			model = 'pbike',
+			label = 'Bicicleta de policia'
 		},
 		{
-			model = '10tahoe',
-			label = 'Camioneta policia'
+			model = 'pd_dirtbike',
+			label = 'Moto Policia de montaña'
+		},		
+		{
+			model = 'code3bmw',
+			label = 'Moto Policia BMW'
+		},		
+		{
+			model = 'code398cvpi',
+			label = 'Auto patrulla'
 		},
 		{
-			model = 'pdraptor18',
+			model = 'code318tahoe',
+			label = 'Camioneta policia Tahoe'
+		},
+		{
+			model = 'code3ram',
 			label = 'Camioneta policia para campo Raptor'
 		},
 		{
-			model = 'so6',
-			label = 'Auto policia sin marcas'
+			model = 'code318charg',
+			label = 'Auto policia Charger'
 		},
 		{
-			model = 'sv4',
-			label = 'Auto policia Rapido SV4'
+			model = 'code320exp',
+			label = 'Auto policia Exp'
+		},
+		{
+			model = 'apolicecoq',
+			label = 'Auto policia de Persecucion Nativo'
 		},
 		{
 			model = 'polf430',
