@@ -80,20 +80,20 @@ Config.PoliceStations = {
 }
 
 Config.AuthorizedVehicles = {
-	Shared = {
-		{
-			model = 'pbike',
-			label = 'Bicicleta de policia'
-		},
-		{
-			model = 'pd_dirtbike',
-			label = 'Moto Policia de montaña'
-		},		
-		{
-			model = 'code398cvpi',
-			label = 'Auto patrulla'
-		},
-	},
+	-- Shared = {
+	-- 	{
+	-- 		model = 'pbike',
+	-- 		label = 'Bicicleta de policia'
+	-- 	},
+	-- 	{
+	-- 		model = 'pd_dirtbike',
+	-- 		label = 'Moto Policia de montaña'
+	-- 	},		
+	-- 	{
+	-- 		model = 'code398cvpi',
+	-- 		label = 'Auto patrulla'
+	-- 	},
+	-- },
 
 	recruit = {
 		{
@@ -144,7 +144,7 @@ Config.AuthorizedVehicles = {
 			label = 'Auto policia Charger'
 		},
 		{
-			model = 'apolicecoq',
+			model = 'APOLICECOQ',
 			label = 'Auto policia de Persecucion Nativo'
 		},
 		
