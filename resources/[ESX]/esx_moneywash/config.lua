@@ -6,7 +6,7 @@ Config.MarkerColor  = {r = 100, g = 100, b = 204}
 Config.ZDiff        = 2.0
 Config.BlipSprite   = 431
 Config.Locale = 'en'
-Config.Percentage = 0.30 --Porcentaje de Comision 0.02 = 2%
+Config.Percentage = 0.05 --Porcentaje de Comision 0.02 = 2%
 
 Config.WASH = {
     { ['x'] =  1593.98,  ['y'] = 3594.15,  ['z'] = 38.77},
