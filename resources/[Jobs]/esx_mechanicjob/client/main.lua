@@ -129,6 +129,9 @@ function OpenMechanicActionsMenu()
 				if Config.EnablePlayerManagement and ESX.PlayerData.job and (ESX.PlayerData.job.grade_name == 'boss' or ESX.PlayerData.job.grade_name == 'chief' or ESX.PlayerData.job.grade_name == 'experimente') then
 					table.insert(elements, {label = 'SlamVan', value = 'slamvan3'})
 				end
+				if Config.EnablePlayerManagement and ESX.PlayerData.job and (ESX.PlayerData.job.grade_name == 'boss' or ESX.PlayerData.job.grade_name == 'chief' or ESX.PlayerData.job.grade_name == 'experimente') then
+					table.insert(elements, {label = 'CamionetaRemolque', value = 'kingranch17'})
+				end
 
 				ESX.UI.Menu.CloseAll()
 
