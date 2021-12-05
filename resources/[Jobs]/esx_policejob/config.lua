@@ -187,6 +187,15 @@ Config.AuthorizedVehicles = {
 			model = 'apolicecoq',
 			label = 'Auto policia de Persecucion Nativo'
 		},
+		{
+			model = 'pbus',
+			label = 'Bus de policia'
+		},
+		{
+			model = 'riot',
+			label = 'Camion anti-disturbio'
+		},
+		
 	},
 
 	lieutenant = {
@@ -233,6 +242,14 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'pol718',
 			label = 'Auto policia persecucion (Porsche)'
+		},
+		{
+			model = 'pbus',
+			label = 'Bus de policia'
+		},
+		{
+			model = 'riot',
+			label = 'Camion anti-disturbio'
 		},
 	},
 
@@ -289,7 +306,15 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'police5',
 			label = 'Auto policia persecucion (Lambo Aventador)'
-		}	
+		},
+		{
+			model = 'pbus',
+			label = 'Bus de policia'
+		},
+		{
+			model = 'riot',
+			label = 'Camion anti-disturbio'
+		},			
 	}
 }
 
