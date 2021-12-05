@@ -83,11 +83,11 @@ end
 TriggerEvent('es:addGroupCommand', 'screfresh', 'admin', function(source, args, user)
 	AddPlayersToScoreboard()
 end, function(source, args, user)
-	TriggerClientEvent('chat:addMessage', source, { args = { '^1SISTEMA', 'Non hai i permessi per farlo.' } })
+	TriggerClientEvent('chat:addMessage', source, { args = { '^1SISTEMA', 'No tienes permisos para hacerlo' } })
 end, {help = "Ricarica nomi lista giocatori!"})
 
 TriggerEvent('es:addGroupCommand', 'sctoggle', 'admin', function(source, args, user)
 	TriggerClientEvent('esx_scoreboard:toggleID', source)
 end, function(source, args, user)
-	TriggerClientEvent('chat:addMessage', source, { args = { '^1SISTEMA', 'Non hai i permessi per farlo.' } })
+	TriggerClientEvent('chat:addMessage', source, { args = { '^1SISTEMA', 'No tienes permisos para hacerlo' } })
 end, {help = "Togli colonna degli ID!"})
