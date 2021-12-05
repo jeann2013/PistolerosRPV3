@@ -6,7 +6,7 @@ Config.IsMechanicJobOnly = false
 Config.Zones = {
 
 	ls1 = {
-		Pos   = { x =  -337.38, y = -136.92, z = 38.57},
+		Pos   = { x =  -327.92, y = -140.72, z = 39.25},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
@@ -14,14 +14,14 @@ Config.Zones = {
 		Hint  = _U('press_custom')
 	},
 
-	-- ls2 = {
-	-- 	Pos   = { x = -1155.53, y = -2007.18, z = 12.74},
-	-- 	Size  = {x = 3.0, y = 3.0, z = 0.2},
-	-- 	Color = {r = 204, g = 204, b = 0},
-	-- 	Marker= 1,
-	-- 	Name  = _U('blip_name'),
-	-- 	Hint  = _U('press_custom')
-	-- },
+	ls2 = {
+		Pos   = { x = -329.01, y = -144.15, z = 38.83},
+		Size  = {x = 3.0, y = 3.0, z = 0.2},
+		Color = {r = 204, g = 204, b = 0},
+		Marker= 1,
+		Name  = _U('blip_name'),
+		Hint  = _U('press_custom')
+	},
 
 	ls3 = {
 		Pos   = { x = 731.81, y = -1088.82, z = 21.73},
@@ -50,14 +50,14 @@ Config.Zones = {
 		Hint  = _U('press_custom')
 	},
 
-	-- ls6 = {
-	-- 	Pos   = { x = -328.31, y = -139.84, z = 38.83},
-	-- 	Size  = {x = 3.0, y = 3.0, z = 0.2},
-	-- 	Color = {r = 204, g = 204, b = 0},
-	-- 	Marker= 1,
-	-- 	Name  = _U('blip_name'),
-	-- 	Hint  = _U('press_custom')
-	-- }
+	ls6 = {
+		Pos   = { x = -334.71, y = -103.71, z = 38.78},
+		Size  = {x = 3.0, y = 3.0, z = 0.2},
+		Color = {r = 204, g = 204, b = 0},
+		Marker= 1,
+		Name  = _U('blip_name'),
+		Hint  = _U('press_custom')
+	}
 
 }
 
