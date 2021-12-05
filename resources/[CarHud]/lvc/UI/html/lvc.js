@@ -46,7 +46,7 @@ window.addEventListener('message', function(event) {
 		switch ( item ){
 			case "hud":
 				if ( state == true ) {
-					elements.sirenbox.style.display = "inline";
+					elements.sirenbox.style.display = "none";
 				}else{
 					elements.sirenbox.style.display = "none";
 				}
