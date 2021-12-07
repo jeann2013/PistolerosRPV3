@@ -60,8 +60,9 @@ AddEventHandler('sendProximityMessageDo', function(id, message)
 end)
 
 Citizen.CreateThread(function()
+    TriggerEvent('chat:addSuggestion', '/ayuda',  _U('twt_help'),  { { name = _U('generic_argument_name'), help = _U('generic_argument_help') } } )
     TriggerEvent('chat:addSuggestion', '/twt',  _U('twt_help'),  { { name = _U('generic_argument_name'), help = _U('generic_argument_help') } } )
-    --TriggerEvent('chat:addSuggestion', '/atwt',  _U('anon_help'),  { { name = _U('generic_argument_name'), help = _U('generic_argument_help') } } )
+    TriggerEvent('chat:addSuggestion', '/anon',  _U('anon_help'),  { { name = _U('generic_argument_name'), help = _U('generic_argument_help') } } )
     TriggerEvent('chat:addSuggestion', '/me',   _U('me_help'),   { { name = _U('generic_argument_name'), help = _U('generic_argument_help') } } )
     TriggerEvent('chat:addSuggestion', '/911',   _U('entorno_help'),   { { name = _U('generic_argument_name'), help = _U('generic_argument_help') } } )
     TriggerEvent('chat:addSuggestion', '/311',   _U('entorno_help'),   { { name = _U('generic_argument_name'), help = _U('generic_argument_help') } } )
@@ -71,6 +72,7 @@ end)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
+        TriggerEvent('chat:removeSuggestion', '/ayuda')
         TriggerEvent('chat:removeSuggestion', '/twt')
         TriggerEvent('chat:removeSuggestion', '/me')
         TriggerEvent('chat:removeSuggestion', '/911')
