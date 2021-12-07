@@ -31,8 +31,8 @@ Locales['es'] = {
   ['open_pharmacy'] = 'presione ~INPUT_CONTEXT~ para abrir farmacia.',
   ['pharmacy_menu_title'] = 'Farmacia',
   ['pharmacy_take'] = 'take ~y~%s~s~',
-  ['medikit'] = 'medikit',
-  ['bandage'] = 'bandage',
+  ['medikit'] = 'Kit medico',
+  ['bandage'] = 'Bendaje',
   ['max_item'] = 'tienes demasiados.',
   -- F6 Menu
   ['ems_menu'] = 'ayuda ciudadana',
