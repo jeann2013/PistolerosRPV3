@@ -6,6 +6,34 @@ AddEventHandler('es:invalidCommandHandler', function(source, command_args, user)
 	CancelEvent()
 	TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', _U('unknown_command', command_args[1]) } })
 end)
+RegisterCommand('anon', function(source, args, rawCommand)
+	if source == 0 then
+		print('esx_rpchat: you can\'t use this command from rcon!')
+		return
+	end
+
+	args = table.concat(args, ' ')
+	local name = GetPlayerName(source)
+	if Config.EnableESXIdentity then name = GetCharacterName(source) end
+	--DrawOnHead(source, args,{ r = 255, g = 50, b = 0, alpha = 200 })
+
+	TriggerClientEvent('esx_rpchat:sendProximityMessage', -1, source, ('['..source..'] OOC'), args, { 77, 77, 77 })
+	
+end, false)
+
+-- RegisterCommand('ayuda', function(source, args, rawCommand)
+-- 	if source == 0 then
+-- 		print('esx_rpchat: you can\'t use this command from rcon!')
+-- 		return
+-- 	end
+
+-- 	args = table.concat(args, ' ')
+-- 	local name = GetPlayerName(source)
+-- 	if Config.EnableESXIdentity then name = GetCharacterName(source) end
+
+-- 	TriggerClientEvent('chat:addMessage', -1, { args = { _U('ayuda_prefix', '['..source..'] '), args }, color = { 255, 0, 0 } })
+-- 	--print(('%s: %s'):format(name, args))
+-- end, false)
 
 RegisterCommand('ooc', function(source, args, rawCommand)
 	if source == 0 then
@@ -23,22 +51,22 @@ RegisterCommand('ooc', function(source, args, rawCommand)
 end, false)
 
 
-RegisterCommand('tujita', function(source, args, rawCommand)
-	if source == 0 then
-		print('esx_rpchat: you can\'t use this command from rcon!')
-		return
-	end
-	local target = ESX.GetPlayerFromId(source)
+-- RegisterCommand('tujita', function(source, args, rawCommand)
+-- 	if source == 0 then
+-- 		print('esx_rpchat: you can\'t use this command from rcon!')
+-- 		return
+-- 	end
+-- 	local target = ESX.GetPlayerFromId(source)
 
-	if target.job ~= nil and target.job.name == "maria" then
-		args = table.concat(args, ' ')
-		local name = GetPlayerName(source)
-		if Config.EnableESXIdentity then name = GetCharacterName(source) end
+-- 	if target.job ~= nil and target.job.name == "maria" then
+-- 		args = table.concat(args, ' ')
+-- 		local name = GetPlayerName(source)
+-- 		if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-		TriggerClientEvent('chat:addMessage', -1, { args = { _U('tuji_prefix', name), args }, color = { 39, 255, 0 } })
+-- 		TriggerClientEvent('chat:addMessage', -1, { args = { _U('tuji_prefix', name), args }, color = { 39, 255, 0 } })
 
-	end
-end, false)
+-- 	end
+-- end, false)
 
 RegisterCommand('msg', function(source, args, user)
 
@@ -56,86 +84,75 @@ RegisterCommand('msg', function(source, args, user)
 end,false)
 
 
-RegisterCommand('taxi', function(source, args, rawCommand)
-	if source == 0 then
-		print('esx_rpchat: you can\'t use this command from rcon!')
-		return
-	end
-	local target = ESX.GetPlayerFromId(source)
+-- RegisterCommand('taxi', function(source, args, rawCommand)
+-- 	if source == 0 then
+-- 		print('esx_rpchat: you can\'t use this command from rcon!')
+-- 		return
+-- 	end
+-- 	local target = ESX.GetPlayerFromId(source)
 
-	if target.job ~= nil and target.job.name == "taxi" then
-		args = table.concat(args, ' ')
-		local name = GetPlayerName(source)
-		if Config.EnableESXIdentity then name = GetCharacterName(source) end
+-- 	if target.job ~= nil and target.job.name == "taxi" then
+-- 		args = table.concat(args, ' ')
+-- 		local name = GetPlayerName(source)
+-- 		if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-		TriggerClientEvent('chat:addMessage', -1, { args = { _U('taxi_prefix', name), args }, color = { 255, 227, 51 } })
+-- 		TriggerClientEvent('chat:addMessage', -1, { args = { _U('taxi_prefix', name), args }, color = { 255, 227, 51 } })
 
-	end
-end, false)
+-- 	end
+-- end, false)
 
-RegisterCommand('ayuda', function(source, args, rawCommand)
-	if source == 0 then
-		print('esx_rpchat: you can\'t use this command from rcon!')
-		return
-	end
 
-	args = table.concat(args, ' ')
-	local name = GetPlayerName(source)
 
-	TriggerClientEvent('chat:addMessage', -1, { args = { _U('ayuda_prefix', '['..source..'] '), args }, color = { 255, 0, 0 } })
-	--print(('%s: %s'):format(name, args))
-end, false)
+-- RegisterCommand('bennys', function(source, args, rawCommand)
+-- 	if source == 0 then
+-- 		print('esx_rpchat: you can\'t use this command from rcon!')
+-- 		return
+-- 	end
+-- 	local target = ESX.GetPlayerFromId(source)
 
-RegisterCommand('bennys', function(source, args, rawCommand)
-	if source == 0 then
-		print('esx_rpchat: you can\'t use this command from rcon!')
-		return
-	end
-	local target = ESX.GetPlayerFromId(source)
+-- 	if target.job ~= nil and target.job.name == "groove" then
+-- 		args = table.concat(args, ' ')
+-- 		local name = GetPlayerName(source)
+-- 		if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	if target.job ~= nil and target.job.name == "groove" then
-		args = table.concat(args, ' ')
-		local name = GetPlayerName(source)
-		if Config.EnableESXIdentity then name = GetCharacterName(source) end
+-- 		TriggerClientEvent('chat:addMessage', -1, { args = { _U('bennys_prefix', name), args }, color = { 255, 0, 0 } })
 
-		TriggerClientEvent('chat:addMessage', -1, { args = { _U('bennys_prefix', name), args }, color = { 255, 0, 0 } })
+-- 	end
+-- end, false)
 
-	end
-end, false)
+-- RegisterCommand('samir', function(source, args, rawCommand)
+-- 	if source == 0 then
+-- 		print('esx_rpchat: you can\'t use this command from rcon!')
+-- 		return
+-- 	end
+-- 	local target = ESX.GetPlayerFromId(source)
 
-RegisterCommand('samir', function(source, args, rawCommand)
-	if source == 0 then
-		print('esx_rpchat: you can\'t use this command from rcon!')
-		return
-	end
-	local target = ESX.GetPlayerFromId(source)
+-- 	if target.job ~= nil and target.job.name == "mechanic" then
+-- 		args = table.concat(args, ' ')
+-- 		local name = GetPlayerName(source)
+-- 		if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	if target.job ~= nil and target.job.name == "mechanic" then
-		args = table.concat(args, ' ')
-		local name = GetPlayerName(source)
-		if Config.EnableESXIdentity then name = GetCharacterName(source) end
+-- 		TriggerClientEvent('chat:addMessage', -1, { args = { _U('samir_prefix', name), args }, color = { 255, 255, 255 } })
 
-		TriggerClientEvent('chat:addMessage', -1, { args = { _U('samir_prefix', name), args }, color = { 255, 255, 255 } })
+-- 	end
+-- end, false)
 
-	end
-end, false)
+-- RegisterCommand('anon', function(source, args, rawCommand)
+-- 	if source == 0 then
+-- 		print('esx_rpchat: you can\'t use this command from rcon!')
+-- 		return
+-- 	end
+-- 	local target = ESX.GetPlayerFromId(source)
 
-RegisterCommand('shisha', function(source, args, rawCommand)
-	if source == 0 then
-		print('esx_rpchat: you can\'t use this command from rcon!')
-		return
-	end
-	local target = ESX.GetPlayerFromId(source)
+-- 	if target.job ~= nil and target.job.name == "mechanic2" then
+-- 		args = table.concat(args, ' ')
+-- 		local name = GetPlayerName(source)
+-- 		if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-	if target.job ~= nil and target.job.name == "mechanic2" then
-		args = table.concat(args, ' ')
-		local name = GetPlayerName(source)
-		if Config.EnableESXIdentity then name = GetCharacterName(source) end
+-- 		TriggerClientEvent('chat:addMessage', -1, { args = { _U('shisha_prefix', name), args }, color = { 255, 100, 0 } })
 
-		TriggerClientEvent('chat:addMessage', -1, { args = { _U('shisha_prefix', name), args }, color = { 255, 100, 0 } })
-
-	end
-end, false)
+-- 	end
+-- end, false)
 
 
 RegisterCommand('lspd', function(source, args, rawCommand)
@@ -155,22 +172,22 @@ RegisterCommand('lspd', function(source, args, rawCommand)
 	end
 end, false)
 
-RegisterCommand('cas', function(source, args, rawCommand)
-	if source == 0 then
-		print('esx_rpchat: you can\'t use this command from rcon!')
-		return
-	end
-	local target = ESX.GetPlayerFromId(source)
+-- RegisterCommand('cas', function(source, args, rawCommand)
+-- 	if source == 0 then
+-- 		print('esx_rpchat: you can\'t use this command from rcon!')
+-- 		return
+-- 	end
+-- 	local target = ESX.GetPlayerFromId(source)
 
-	if target.job ~= nil and target.job.name == "casino" then
-		args = table.concat(args, ' ')
-		local name = GetPlayerName(source)
-		if Config.EnableESXIdentity then name = GetCharacterName(source) end
+-- 	if target.job ~= nil and target.job.name == "casino" then
+-- 		args = table.concat(args, ' ')
+-- 		local name = GetPlayerName(source)
+-- 		if Config.EnableESXIdentity then name = GetCharacterName(source) end
 
-		TriggerClientEvent('chat:addMessage', -1, { args = { _U('cas_prefix', name), args }, color = { 102, 0, 102 } })
+-- 		TriggerClientEvent('chat:addMessage', -1, { args = { _U('cas_prefix', name), args }, color = { 102, 0, 102 } })
 
-	end
-end, false)
+-- 	end
+-- end, false)
 
 RegisterCommand('adems2', function(source, args, rawCommand)
 	if source == 0 then
