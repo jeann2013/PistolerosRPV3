@@ -304,6 +304,20 @@ ConfigCliente['ModelosEnBlacklist'] = {
 }
 
 ConfigCliente['Vehiculos'] = {
+	"code3bmw",
+	"pd_dirtbike",
+	"code398cvpi",
+	"code318tahoe",
+	"code3ram",
+	"code318charg",
+	"APOLICECOQ",
+	"police5",
+	"pol718",
+	"polmp4",
+	"polf430",
+	"apolicecoq",
+	"pbus",
+	"riot",
 	"ben17",
 	"polibf400",
 	"futo",
