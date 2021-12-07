@@ -1,0 +1,7 @@
+{
+  "discordWebhookUrl": "DISCORD WEEBHOOK",
+  "screenshotOptions": {
+    "encoding": "jpg",
+    "quality": 0.3
+  }
+}
