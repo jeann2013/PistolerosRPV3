@@ -85,13 +85,13 @@ RegisterCommand('lspd', function(source, args, rawCommand)
             local xPlayers	= ESX.GetPlayers()
         for i=1, #xPlayers, 1 do
             local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
-            TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'LSPD', '~b~Annonce LSPD', ''..msg..'', 'CHAR_ABIGAIL', 0)
+            TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'LSPD', '~b~Anuncio LSPD', ''..msg..'', 'CHAR_ABIGAIL', 0)
         end
     else
-        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~Teneis' , '~b~ser policia', 'CHAR_ABIGAIL', 0)
+        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~No lo hagas' , '~b~No eres policia', 'CHAR_ABIGAIL', 0)
     end
     else
-    TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~Teneis' , '~b~ser policia', 'CHAR_ABIGAIL', 0)
+    TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~No lo hagas' , '~b~No eres policia', 'CHAR_ABIGAIL', 0)
     end
  end, false)
  
@@ -107,17 +107,17 @@ RegisterCommand('lspd', function(source, args, rawCommand)
             local xPlayers	= ESX.GetPlayers()
         for i=1, #xPlayers, 1 do
             local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
-            TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'EMS', '~b~Annonce EMS', ''..msg..'', 'CHAR_MICHAEL', 0)
+            TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'EMS', '~b~Anuncio EMS', ''..msg..'', 'CHAR_MICHAEL', 0)
         end
     else
-        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~Teneis' , '~b~que ser EMS', 'CHAR_MICHAEL', 0)
+        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~No lo hagas' , '~b~No eres EMS', 'CHAR_MICHAEL', 0)
     end
     else
-    TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~Teneis' , '~b~que ser EMS', 'CHAR_MICHAEL', 0)
+    TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~No lo hagas' , '~b~No eres EMS', 'CHAR_MICHAEL', 0)
     end
  end, false)
 
- RegisterCommand('meca', function(source, args, rawCommand)
+ RegisterCommand('mec', function(source, args, rawCommand)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     if xPlayer.job.name == "mechanic" then
@@ -132,10 +132,10 @@ RegisterCommand('lspd', function(source, args, rawCommand)
             TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], 'Mecanico', '~b~Anuncio Mecanico', ''..msg..'', 'CHAR_MICHAEL', 0)
         end
     else
-        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~Teneis' , '~b~que ser Mecanico', 'CHAR_MICHAEL', 0)
+        TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~No lo hagas' , '~b~No eres Mecanico', 'CHAR_MICHAEL', 0)
     end
     else
-    TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~Teneis' , '~b~que ser Mecanico', 'CHAR_MICHAEL', 0)
+    TriggerClientEvent('esx:showAdvancedNotification', _source, 'Advertencia', '~b~No lo hagas' , '~b~No eres Mecanico', 'CHAR_MICHAEL', 0)
     end
  end, false)
  
