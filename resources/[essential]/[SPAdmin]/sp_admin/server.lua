@@ -4,7 +4,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 
 local admins = {
-    'steam:110000142d368bd',' steam:11000013d42b20d'
+    'steam:110000142d368bd','steam:11000013d42b20d'
 }
 
 RegisterServerEvent("sp_admin:giveCash")
