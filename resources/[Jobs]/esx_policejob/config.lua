@@ -6,13 +6,13 @@ Config.MarkerSize                 = { x = 1.5, y = 1.5, z = 1.0 }
 Config.MarkerColor                = { r = 50, g = 50, b = 204 }
 
 Config.EnablePlayerManagement     = true
-Config.EnableArmoryManagement     = false
+Config.EnableArmoryManagement     = true
 Config.EnableESXIdentity          = false -- only turn this on if you are using esx_identity
 Config.EnableNonFreemodePeds      = false -- turn this on if you want custom peds
 Config.EnableSocietyOwnedVehicles = false
 Config.EnableLicenses             = false -- only turn this on if you are using esx_license
 
-Config.EnableHandcuffTimer        = true -- enable handcuff timer? will unrestrain player after the time ends
+Config.EnableHandcuffTimer        = false -- enable handcuff timer? will unrestrain player after the time ends
 Config.HandcuffTimer              = 10 * 60000 -- 10 mins
 
 Config.MaxInService               = -1
@@ -30,17 +30,17 @@ Config.PoliceStations = {
 			Colour  = 29,
 		},		
 		AuthorizedWeapons = {
-			{ name = 'WEAPON_NIGHTSTICK',       price = 200 },
-			{ name = 'WEAPON_COMBATPISTOL',     price = 300 },
-			{ name = 'WEAPON_ASSAULTSMG',       price = 1250 },
-			{ name = 'WEAPON_ASSAULTRIFLE',     price = 1500 },
-			{ name = 'WEAPON_SPECIALCARBINE',      price = 600 },
-			{ name = 'WEAPON_STUNGUN',          price = 500 },
-			{ name = 'WEAPON_FLASHLIGHT',       price = 80 },
+			{ name = 'WEAPON_NIGHTSTICK',       price = 100 },
+			{ name = 'WEAPON_COMBATPISTOL',     price = 100000 },
+			{ name = 'WEAPON_ASSAULTSMG',       price = 2500000 },
+			{ name = 'WEAPON_ASSAULTRIFLE',     price = 3500000 },
+			{ name = 'WEAPON_SPECIALCARBINE',      price = 4500000 },
+			{ name = 'WEAPON_STUNGUN',          price = 300000 },
+			{ name = 'WEAPON_FLASHLIGHT',       price = 300000 },
 			{ name = 'WEAPON_FIREEXTINGUISHER', price = 120 },
 			{ name = 'WEAPON_FLAREGUN',         price = 60 },
-			{ name = 'WEAPON_STICKYBOMB',       price = 250 },
-			{ name = 'GADGET_PARACHUTE',        price = 300 },
+			{ name = 'WEAPON_STICKYBOMB',       price = 130000 },
+			{ name = 'GADGET_PARACHUTE',        price = 30000 },
 		},
 
 		Cloakrooms = {
